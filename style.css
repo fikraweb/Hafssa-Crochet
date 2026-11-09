@@ -4602,3 +4602,11 @@ footer:before {
 .footer-bottom { flex-wrap: wrap; gap: 15px; }
 .footer-bottom .dashboard-link { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 40px; padding: 9px 16px; border: 1px solid #d7adc5; border-radius: 999px; color: #fff7fc; background: linear-gradient(120deg,#7b4069,#ad6592); font-size: 12px; font-weight: 700; letter-spacing: 0; }
 .footer-bottom .dashboard-link:hover { background: #854d73; }
+
+.footer-top > .footer-socials { display: flex; flex-direction: column; gap: 13px; }
+.socials-label { color: #92617e; font-size: 10px; letter-spacing: 1.2px; }
+.social-icons { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.social-icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 1px solid #d9adc7; border-radius: 50%; color: #98517b; background: #fff7fc; box-shadow: 0 3px 10px #9957820d; transition: background .2s, color .2s, transform .2s; }
+.social-icon:hover:not(:disabled), .social-icon:focus-visible { color: #fff7fc; background: #a55f8b; transform: translateY(-3px); }
+.social-icon:disabled { cursor: default; opacity: .65; }
+@media (prefers-reduced-motion: reduce) { .social-icon { transition: none; } }

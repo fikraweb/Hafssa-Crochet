@@ -257,6 +257,14 @@ function renderCart() {
   for (const p of products.filter((p) => cart[p.id])) {
     count += cart[p.id];
     const row = el("div", "", "cart-row");
+    const photo = el("img", "", "cart-product-image");
+    photo.src = p.image;
+    photo.alt = p.name;
+    photo.width = 80;
+    photo.height = 100;
+    photo.loading = "lazy";
+    photo.decoding = "async";
+    const details = el("div", "", "cart-product-details");
     const top = el("div", "", "cart-row-top");
     top.append(el("strong", p.name), el("span", money(p.price * cart[p.id])));
     const quantity = el("div", "", "quantity");
@@ -277,7 +285,8 @@ function renderCart() {
       quantity.append(button);
       if (delta === -1) quantity.append(el("span", String(cart[p.id])));
     }
-    row.append(top, quantity);
+    details.append(top, quantity);
+    row.append(photo, details);
     $("cart-items").append(row);
   }
   if (!count)

@@ -2181,7 +2181,7 @@ html {
   scroll-padding-top: 102px;
 }
 .header {
-  position: fixed;
+  position: relative;
   top: 0;
   height: 78px;
   padding-inline: 4%;
@@ -3875,7 +3875,7 @@ html {
   }
 }
 
-/* Fixed top navigation, scrolling catalogue filters, and a consistent rose palette. */
+/* Navigation scrolls with the page; catalogue filters stay near the viewport top. */
 :root {
   --header-height: 78px;
   --ink: #593d56;
@@ -3886,13 +3886,13 @@ html {
   --line: #e6d3df;
 }
 body {
-  padding-top: var(--header-height);
+  padding-top: 0;
 }
 html {
-  scroll-padding-top: calc(var(--header-height) + 18px);
+  scroll-padding-top: 18px;
 }
 .header {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -3908,7 +3908,7 @@ html {
 }
 .catalogue-tools {
   position: sticky;
-  top: calc(var(--header-height) + 8px);
+  top: 8px;
   z-index: 45;
   padding: 13px 15px;
   border: 1px solid #e2b7cd;
@@ -3957,7 +3957,7 @@ html {
 }
 .product {
   scroll-margin-top: calc(
-    var(--header-height) + var(--filters-height, 120px) + 24px
+    var(--filters-height, 120px) + 24px
   );
 }
 .contact {
@@ -4054,7 +4054,7 @@ footer:before {
     --header-height: 112px;
   }
   .catalogue-tools {
-    top: calc(var(--header-height) + 5px);
+    top: 5px;
     padding: 11px 10px;
     border-radius: 16px;
     gap: 10px;

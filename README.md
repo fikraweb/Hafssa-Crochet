@@ -50,7 +50,7 @@ Pour un déploiement manuel depuis une machine autorisée : `npm ci`, `npm run b
 
 Le logo original vient de l'image publique du profil Instagram `@hafssacrochet` (150 × 150 px, provenance dans `assets/brand-source.json`). Les photos restent les huit images originales du catalogue : l'accès public Instagram n'a pas fourni les photos des publications, et aucun nouveau produit ou prix n'a été inventé.
 
-Le hero utilise les photos réelles, une composition à plusieurs plans avec perspective CSS, des sphères de fil construites en anneaux 3D et une inclinaison au pointeur. `experience.js` gère aussi les apparitions au défilement, le menu mobile et le bouton de pause persistant. Le réglage système `prefers-reduced-motion` supprime les mouvements ; aucune bibliothèque 3D externe ni vidéo n'est téléchargée. Les fiches rapides et le tri par prix complètent le catalogue.
+Le hero présente une mise en scène photoréaliste générée à partir de quatre photos de produits et du logo : créations alignées sur un bureau, avec le logo dans un cadre mural, dans une ambiance mauve et rose. Ce décor est une création visuelle, pas une photographie documentaire de l’atelier. Une légère inclinaison au pointeur et un zoom lent animent le décor. `experience.js` gère aussi les apparitions au défilement, le menu mobile et le bouton de pause persistant. Le réglage système `prefers-reduced-motion` supprime les mouvements ; aucune bibliothèque 3D externe ni vidéo n'est téléchargée. Les fiches rapides et le tri par prix complètent le catalogue.
 
 ## Navigation et logo
 

@@ -37,17 +37,6 @@ motionButton.addEventListener("click", () => {
   updateMotion();
 });
 reducedMotion.addEventListener("change", updateMotion);
-// Actual CSS 3D geometry: intersecting rings form the two floating yarn spheres.
-for (const ball of document.querySelectorAll("[data-yarn]")) {
-  const fragment = document.createDocumentFragment();
-  for (let angle = 0; angle < 180; angle += 10) {
-    const ring = document.createElement("span");
-    ring.className = "yarn-ring";
-    ring.style.setProperty("--ring-angle", `${angle}deg`);
-    fragment.append(ring);
-  }
-  ball.append(fragment);
-}
 let frame = 0;
 function resetTilt() {
   cancelAnimationFrame(frame);
@@ -67,8 +56,8 @@ stage.addEventListener("pointermove", (event) => {
   );
   cancelAnimationFrame(frame);
   frame = requestAnimationFrame(() => {
-    scene.style.setProperty("--tilt-x", `${-y * 5}deg`);
-    scene.style.setProperty("--tilt-y", `${x * 7}deg`);
+    scene.style.setProperty("--tilt-x", `${-y * 1.8}deg`);
+    scene.style.setProperty("--tilt-y", `${x * 2.4}deg`);
   });
 });
 stage.addEventListener("pointerleave", resetTilt);

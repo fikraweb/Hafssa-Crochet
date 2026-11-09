@@ -14,11 +14,13 @@ npm run build
 
 Le serveur de développement utilise le port 4173. Le build produit `dist/`, sans installation npm nécessaire.
 
-## Catalogue original à importer
+## Catalogue
 
-Le site de référence est https://hafssacrochet.netlify.app/. Son accès est actuellement bloqué depuis l'environnement cloud (proxy HTTP 403). Aucun produit, prix ou photo n'a été inventé : `catalogue.js` attend les données originales. Les visuels SVG actuels sont des illustrations de présentation, pas des photos de produits.
+Les 8 produits actifs ont été importés du catalogue public de https://hafssacrochet.netlify.app/ le 9 novembre 2026, avec leurs noms, descriptions, catégories, prix et images originales. Les images sont hébergées localement dans `assets/products/`. Leur provenance et empreinte SHA-256 figurent dans `assets/products/source.json`.
 
-Ajouter les photos dans `assets/` puis les produits dans `catalogue.js`, selon le format commenté. Les prix sont en dirhams. Le numéro WhatsApp est déjà configuré au format international marocain. Exécuter les tests et le build après modification.
+Le catalogue est une copie locale dans `catalogue.js` : les changements ultérieurs sur le site original ne sont pas synchronisés automatiquement. Les prix sont en dirhams. Aucun accès Supabase ni secret n'est nécessaire pour servir cette copie. La disponibilité et les frais de livraison restent à confirmer sur WhatsApp.
+
+Pour modifier la collection, mettre les photos dans `assets/products/`, puis ajuster `catalogue.js` et relancer les tests et le build. Le visuel SVG d'accueil est une illustration de présentation.
 
 ## Cloudflare Pages via GitHub
 

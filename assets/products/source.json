@@ -1,0 +1,47 @@
+{
+  "source": "https://hafssacrochet.netlify.app/",
+  "importedAt": "2026-11-09",
+  "count": 8,
+  "images": [
+    {
+      "id": "duo-poupees",
+      "sourceImage": "images/Duo-de-Poupées.jpeg",
+      "sha256": "ded96daf3ca8fd4c01dc03e55752fa6ab87d7535c98e2b07c8820909315149dc"
+    },
+    {
+      "id": "doudou-jaune",
+      "sourceImage": "images/Doudou-Jaune.jpeg",
+      "sha256": "a8ba6bff9527859baa55c6712df9443306bc094fba6ef31c1d6eb6b8f017f14f"
+    },
+    {
+      "id": "lapin-fushia",
+      "sourceImage": "images/Lapin-Fushia.jpeg",
+      "sha256": "d312a16e8baff9c845d8aca0c8446e3a3e9357a3d370965ca0f609c126a6b318"
+    },
+    {
+      "id": "petit-ours",
+      "sourceImage": "images/Petit-Ours.jpeg",
+      "sha256": "db09d7803b284927f6af059134faaabcbc4b87f4fabba4b420d8be33c8dc6d6c"
+    },
+    {
+      "id": "poupee-beret",
+      "sourceImage": "images/Poupée-Beret.jpeg",
+      "sha256": "f925b06f5e26c9847792db33b47ed91b4655ef029c1e43e1c4cda8d499bbc026"
+    },
+    {
+      "id": "poupee-rousse",
+      "sourceImage": "images/Poupée-Rousse.jpeg",
+      "sha256": "6a4395a7beb3234be69023a4883773466c46ec0bb8817f40ba20fc7ef0efde5f"
+    },
+    {
+      "id": "poupee-chapeau",
+      "sourceImage": "images/Poupée-Chapeau.jpeg",
+      "sha256": "63331ba1a5920971316beae2a0b18dcea6b82b5fdf137e0123747f5fe028551e"
+    },
+    {
+      "id": "lulu-bunny",
+      "sourceImage": "images/Lulu-Bunny.jpeg",
+      "sha256": "f8edac903eb648b51eb9f4ce725a8e0c144c0ed2f44869eab12525be31b7ec95"
+    }
+  ]
+}

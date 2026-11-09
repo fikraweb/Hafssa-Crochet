@@ -45,3 +45,9 @@ Dans Cloudflare → Settings → Build, sélectionner le dépôt et la branche `
 Activer les déploiements automatiques pour `main`. Ne pas utiliser `npm run build` comme commande de déploiement : cette commande seule ne publie aucun fichier.
 
 Pour un déploiement manuel depuis une machine autorisée : `npm ci`, `npm run build`, puis `npm run deploy`. L'authentification Cloudflare est requise uniquement pour le déploiement et reste gérée par Cloudflare Builds ou par la session Wrangler locale ; ne jamais enregistrer de jeton dans le dépôt.
+
+## Identité et expérience visuelle
+
+Le logo original vient de l'image publique du profil Instagram `@hafssacrochet` (150 × 150 px, provenance dans `assets/brand-source.json`). Les photos restent les huit images originales du catalogue : l'accès public Instagram n'a pas fourni les photos des publications, et aucun nouveau produit ou prix n'a été inventé.
+
+Le hero utilise les photos réelles, une composition à plusieurs plans avec perspective CSS, des sphères de fil construites en anneaux 3D et une inclinaison au pointeur. `experience.js` gère aussi les apparitions au défilement, le menu mobile et le bouton de pause persistant. Le réglage système `prefers-reduced-motion` supprime les mouvements ; aucune bibliothèque 3D externe ni vidéo n'est téléchargée. Les fiches rapides et le tri par prix complètent le catalogue.

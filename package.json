@@ -1,0 +1,1 @@
+{"name":"hafssa-crochet","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"python3 -m http.server 4173 --bind 0.0.0.0 --directory .","build":"node scripts/build.mjs","test":"node --test"},"engines":{"node":">=22"}}

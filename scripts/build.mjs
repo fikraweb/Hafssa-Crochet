@@ -26,6 +26,7 @@ for (const file of [
   "store-client.js",
   "experience.js",
   "catalogue.js",
+  "cutouts.js",
   "cart.js",
   "_headers",
 ])

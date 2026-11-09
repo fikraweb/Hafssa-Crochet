@@ -1,3 +1,4 @@
+import { cutouts } from "./cutouts.js";
 import {
   products as seedProducts,
   shop as seedShop,
@@ -74,7 +75,9 @@ function renderProducts() {
     const card = el("article", "", "product");
     const media = el("div", "", "product-media");
     const img = el("img");
-    img.src = p.image;
+    const cutout = cutouts[p.image];
+    img.src = cutout?.image || p.image;
+    img.classList.toggle("is-cutout", !!cutout);
     img.alt = p.name;
     img.loading = "lazy";
     img.width = 500;
@@ -87,11 +90,12 @@ function renderProducts() {
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>';
     quick.onclick = () => showProduct(p);
     media.append(img, el("span", "FAIT MAIN", "product-badge"), quick);
-    if (p.images?.length > 1) {
-      const count = el("button", `${p.images.length} photos`, "photo-count");
+    const viewCount = (p.images?.length || 1) + (cutout ? 1 : 0);
+    if (viewCount > 1) {
+      const count = el("button", `${viewCount} vues`, "photo-count");
       count.setAttribute(
         "aria-label",
-        `Voir les ${p.images.length} photos de ${p.name}`,
+        `Voir les ${viewCount} vues de ${p.name}`,
       );
       count.onclick = () => showProduct(p);
       media.append(count);
@@ -113,21 +117,52 @@ function renderProducts() {
     $("products").append(card);
   }
 }
-function addProduct(product) {
+function addProduct(product, quantity = 1) {
+  const before = cart[product.id] || 0;
+  const added = Math.min(quantity, 99 - before);
+  if (added < 1) {
+    toast("Quantité maximale : 99 pièces par création.");
+    return;
+  }
   track("addtocart", product.id);
-  cart[product.id] = Math.min((cart[product.id] || 0) + 1, 99);
+  cart[product.id] = before + added;
   saveCart();
-  toast("Création ajoutée au panier");
+  toast(
+    added < quantity
+      ? `${added} pièce(s) ajoutée(s), maximum de 99 atteint.`
+      : added > 1
+        ? `${added} pièces ajoutées au panier`
+        : "Création ajoutée au panier",
+  );
 }
+
 function showProduct(product) {
   track("productview", product.id);
-  const images = product.images?.length ? product.images : [product.image];
+  const originalImages = product.images?.length
+    ? product.images
+    : [product.image];
+  const cutout = cutouts[product.image];
+  const images = [
+    ...(cutout
+      ? [{ src: cutout.image, cutout: true, label: "Vue sans fond" }]
+      : []),
+    ...originalImages.map((src, index) => ({
+      src,
+      cutout: false,
+      label: `Photo originale ${index + 1}`,
+    })),
+  ];
   let activeImage = 0;
   const thumbs = $("product-thumbnails");
   thumbs.replaceChildren();
   function showImage(index) {
     activeImage = (index + images.length) % images.length;
-    $("product-detail-image").src = images[activeImage];
+    $("product-detail-image").src = images[activeImage].src;
+    $("product-detail-image").classList.toggle(
+      "is-cutout",
+      images[activeImage].cutout,
+    );
+    $("product-image-caption").textContent = images[activeImage].label;
     $("product-detail-image").alt =
       `${product.name} — photo ${activeImage + 1} sur ${images.length}`;
     $("gallery-position").textContent = `${activeImage + 1} / ${images.length}`;
@@ -137,9 +172,9 @@ function showProduct(product) {
   for (const [index, image] of images.entries()) {
     const button = el("button");
     button.type = "button";
-    button.setAttribute("aria-label", `Photo ${index + 1} de ${product.name}`);
+    button.setAttribute("aria-label", `${image.label} de ${product.name}`);
     const thumbnail = el("img");
-    thumbnail.src = image;
+    thumbnail.src = image.src;
     thumbnail.alt = "";
     thumbnail.loading = "lazy";
     thumbnail.width = 52;
@@ -156,9 +191,36 @@ function showProduct(product) {
   $("product-title").textContent = product.name;
   $("product-detail-category").textContent = `${product.category} · FAIT MAIN`;
   $("product-detail-description").textContent = product.description;
-  $("product-detail-price").textContent = money(product.price);
+  const quantity = $("product-quantity");
+  quantity.value = "1";
+  $("product-unit-price").textContent =
+    `${money(product.price)} / pièce · création faite main`;
+  const updateQuantity = () => {
+    const valid =
+      quantity.validity.valid &&
+      Number.isInteger(Number(quantity.value)) &&
+      Number(quantity.value) >= 1 &&
+      Number(quantity.value) <= 99;
+    $("product-detail-add").disabled = !valid;
+    $("product-detail-price").textContent = valid
+      ? money(product.price * Number(quantity.value))
+      : money(product.price);
+    $("detail-quantity-minus").disabled = !valid || Number(quantity.value) <= 1;
+    $("detail-quantity-plus").disabled = !valid || Number(quantity.value) >= 99;
+  };
+  quantity.oninput = updateQuantity;
+  $("detail-quantity-minus").onclick = () => {
+    quantity.stepDown();
+    updateQuantity();
+  };
+  $("detail-quantity-plus").onclick = () => {
+    quantity.stepUp();
+    updateQuantity();
+  };
+  updateQuantity();
   $("product-detail-add").onclick = () => {
-    addProduct(product);
+    if (!quantity.reportValidity()) return;
+    addProduct(product, Number(quantity.value));
     $("product-dialog").close();
   };
   $("product-dialog").showModal();

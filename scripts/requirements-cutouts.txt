@@ -1,0 +1,2 @@
+# Offline photo processing only; not used by the website or Cloudflare build.
+rembg[cpu]==2.0.87

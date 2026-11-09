@@ -72,3 +72,19 @@ Le logo Instagram d’origine (150 × 150 px) est conservé. `assets/logo-transp
 Les décors photoréalistes du hero, du contact et du pied de page sont des mises en scène générées à partir des photos du catalogue, pas des photographies documentaires de l’atelier. Leur provenance est décrite dans les fichiers source JSON correspondants.
 
 Les animations, reflets et déplacements magnétiques respectent le bouton de pause persistant et le réglage système de réduction des mouvements. La barre principale est fixe, et les filtres de catégorie suivent la collection sous cette barre, dans une palette rose et mauve.
+
+### Photographies détourées
+
+Les 83 couvertures disposent d'une version WebP transparente dans `assets/cutouts/`.
+Le sélecteur de galerie conserve toutes les photos originales. Les couleurs et
+pixels RGB proviennent exclusivement des originaux : seul le canal alpha est
+calculé, puis l'image est recadrée et exportée sans perte. Les petites captures
+conservent leur résolution réelle ; aucun agrandissement artificiel n'est utilisé.
+
+Pour régénérer les détourages hors ligne, installer `scripts/requirements-cutouts.txt`
+dans un environnement Python, puis lancer `python scripts/prepare-cutouts.py`.
+BiRefNet télécharge ses modèles officiels avec vérification d'intégrité ; compter
+jusqu'à 32 Go de RAM pour les deux processus. Définir `U2NET_HOME` pour changer
+le dossier de modèles. Les masques relus dans `scripts/cutout-masks/` sont liés
+au SHA-256 de leur photographie source. Le manifeste et `cutouts.js` enregistrent
+les dimensions, recadrages et sommes de contrôle. Les modèles ne sont pas déployés.

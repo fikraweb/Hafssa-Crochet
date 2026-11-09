@@ -36,6 +36,8 @@ Activer les déploiements automatiques. Le déploiement nécessite que le jeton 
 
 **Configuration indispensable pour se connecter :** Cloudflare → Worker → Settings → Variables and Secrets → Add → **Secret** nommé `ADMIN_PASSWORD`, avec une valeur privée de 14 caractères minimum, puis déployer le changement. Ne jamais inscrire ce mot de passe dans le dépôt, dans un script ou dans le chat. La boutique et les mesures peuvent fonctionner sans ce secret, mais l’administration refuse alors toute connexion.
 
+`wrangler.jsonc` active `keep_vars: true` pour préserver les variables définies dans le tableau de bord Cloudflare lors des déploiements. Enregistrer `ADMIN_PASSWORD` comme **Secret du Worker de production**, pas comme variable du processus de build. Les secrets restent gérés par Cloudflare ; ne pas déclarer leur valeur dans `vars` ni dans Git. Si une ancienne variable a déjà été supprimée, la recréer une fois comme Secret puis enregistrer/déployer le changement.
+
 Le déploiement doit utiliser Workers ; un hébergement Pages purement statique ne fournit pas les fonctions d’administration.
 
 ## Dashboard

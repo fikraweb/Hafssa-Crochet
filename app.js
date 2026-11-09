@@ -10,6 +10,8 @@ try {
       cart[p.id] = Math.min(saved[p.id], 99);
 } catch {}
 let category = "Tout";
+const pageSize = 12;
+let visibleLimit = pageSize;
 const toast = (message) => {
   $("toast").textContent = message;
   $("toast").classList.add("visible");
@@ -42,16 +44,17 @@ function renderProducts() {
   if (sort === "price-desc") filtered.sort((a, b) => b.price - a.price);
   $("products").replaceChildren();
   $("empty").hidden = filtered.length > 0;
-  $("catalogue-status").textContent = products.length
-    ? `${filtered.length} création${filtered.length === 1 ? "" : "s"}`
-    : "";
+  const visible = filtered.slice(0, visibleLimit);
+  $("catalogue-status").textContent =
+    `${visible.length} sur ${filtered.length} création${filtered.length === 1 ? "" : "s"}`;
+  $("load-more").hidden = visible.length >= filtered.length;
   if (products.length && !filtered.length) {
     $("empty").replaceChildren(
       el("h3", "Aucune création trouvée"),
       el("p", "Essayez un autre mot ou une autre catégorie."),
     );
   }
-  for (const p of filtered) {
+  for (const p of visible) {
     const card = el("article", "", "product");
     const media = el("div", "", "product-media");
     const img = el("img");
@@ -68,6 +71,15 @@ function renderProducts() {
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>';
     quick.onclick = () => showProduct(p);
     media.append(img, el("span", "FAIT MAIN", "product-badge"), quick);
+    if (p.images?.length > 1) {
+      const count = el("button", `${p.images.length} photos`, "photo-count");
+      count.setAttribute(
+        "aria-label",
+        `Voir les ${p.images.length} photos de ${p.name}`,
+      );
+      count.onclick = () => showProduct(p);
+      media.append(count);
+    }
     const info = el("div", "", "product-info");
     const bottom = el("div", "", "product-bottom");
     const button = el("button", "Ajouter");
@@ -91,8 +103,38 @@ function addProduct(product) {
   toast("Création ajoutée au panier");
 }
 function showProduct(product) {
-  $("product-detail-image").src = product.image;
-  $("product-detail-image").alt = product.name;
+  const images = product.images?.length ? product.images : [product.image];
+  let activeImage = 0;
+  const thumbs = $("product-thumbnails");
+  thumbs.replaceChildren();
+  function showImage(index) {
+    activeImage = (index + images.length) % images.length;
+    $("product-detail-image").src = images[activeImage];
+    $("product-detail-image").alt =
+      `${product.name} — photo ${activeImage + 1} sur ${images.length}`;
+    $("gallery-position").textContent = `${activeImage + 1} / ${images.length}`;
+    for (const [i, button] of [...thumbs.children].entries())
+      button.setAttribute("aria-pressed", String(i === activeImage));
+  }
+  for (const [index, image] of images.entries()) {
+    const button = el("button");
+    button.type = "button";
+    button.setAttribute("aria-label", `Photo ${index + 1} de ${product.name}`);
+    const thumbnail = el("img");
+    thumbnail.src = image;
+    thumbnail.alt = "";
+    thumbnail.loading = "lazy";
+    thumbnail.width = 52;
+    thumbnail.height = 64;
+    button.append(thumbnail);
+    button.onclick = () => showImage(index);
+    thumbs.append(button);
+  }
+  $("gallery-controls").hidden = images.length <= 1;
+  thumbs.hidden = images.length <= 1;
+  $("gallery-prev").onclick = () => showImage(activeImage - 1);
+  $("gallery-next").onclick = () => showImage(activeImage + 1);
+  showImage(0);
   $("product-title").textContent = product.name;
   $("product-detail-category").textContent = `${product.category} · FAIT MAIN`;
   $("product-detail-description").textContent = product.description;
@@ -143,6 +185,7 @@ for (const name of ["Tout", ...new Set(products.map((p) => p.category))]) {
   button.setAttribute("aria-pressed", String(name === "Tout"));
   button.onclick = () => {
     category = name;
+    visibleLimit = pageSize;
     for (const b of $("filters").children) {
       b.classList.toggle("active", b === button);
       b.setAttribute("aria-pressed", String(b === button));
@@ -151,8 +194,16 @@ for (const name of ["Tout", ...new Set(products.map((p) => p.category))]) {
   };
   $("filters").append(button);
 }
-$("search").addEventListener("input", renderProducts);
-$("sort").addEventListener("change", renderProducts);
+function resetProducts() {
+  visibleLimit = pageSize;
+  renderProducts();
+}
+$("search").addEventListener("input", resetProducts);
+$("sort").addEventListener("change", resetProducts);
+$("load-more").onclick = () => {
+  visibleLimit += pageSize;
+  renderProducts();
+};
 $("product-close").onclick = () => $("product-dialog").close();
 $("cart-open").onclick = () => $("cart-dialog").showModal();
 $("cart-close").onclick = () => $("cart-dialog").close();

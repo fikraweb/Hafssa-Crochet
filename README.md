@@ -18,6 +18,8 @@ Le serveur de développement utilise le port 4173. Le build produit `dist/`, san
 
 Les 8 produits actifs ont été importés du catalogue public de https://hafssacrochet.netlify.app/ le 9 novembre 2026, avec leurs noms, descriptions, catégories, prix et images originales. Les images sont hébergées localement dans `assets/products/`. Leur provenance et empreinte SHA-256 figurent dans `assets/products/source.json`.
 
+Les 80 nouvelles fiches issues de `crochet.zip` complètent désormais les 8 produits initiaux : 88 produits au total. Les 88 captures envoyées sont conservées telles quelles, avec regroupement des angles similaires en galeries. Leurs dimensions, empreintes SHA-256 et rattachements aux fiches figurent dans `assets/products/upload-source.json`. Les noms et prix des nouvelles fiches sont proposés à la demande du propriétaire ; les prix existants sont conservés. Les coloris de la collection Pétales photographiés ensemble partagent leur photo de présentation.
+
 Le catalogue est une copie locale dans `catalogue.js` : les changements ultérieurs sur le site original ne sont pas synchronisés automatiquement. Les prix sont en dirhams. Aucun accès Supabase ni secret n'est nécessaire pour servir cette copie. La disponibilité et les frais de livraison restent à confirmer sur WhatsApp.
 
 Pour modifier la collection, mettre les photos dans `assets/products/`, puis ajuster `catalogue.js` et relancer les tests et le build. Le visuel SVG d'accueil est une illustration de présentation.
@@ -48,7 +50,7 @@ Pour un déploiement manuel depuis une machine autorisée : `npm ci`, `npm run b
 
 ## Identité et expérience visuelle
 
-Le logo original vient de l'image publique du profil Instagram `@hafssacrochet` (150 × 150 px, provenance dans `assets/brand-source.json`). Les photos restent les huit images originales du catalogue : l'accès public Instagram n'a pas fourni les photos des publications, et aucun nouveau produit ou prix n'a été inventé.
+Le logo original vient de l'image publique du profil Instagram `@hafssacrochet` (150 × 150 px, provenance dans `assets/brand-source.json`). Les photos du catalogue initial ont été complétées par les captures fournies ensuite dans `crochet.zip`. Les nouvelles fiches utilisent ces images, avec les noms et prix proposés à la demande du propriétaire.
 
 Le hero présente une mise en scène photoréaliste générée à partir de quatre photos de produits et du logo : créations alignées sur un bureau, avec le logo dans un cadre mural, dans une ambiance mauve et rose. Ce décor est une création visuelle, pas une photographie documentaire de l’atelier. Une légère inclinaison au pointeur et un zoom lent animent le décor. `experience.js` gère aussi les apparitions au défilement, le menu mobile et le bouton de pause persistant. Le réglage système `prefers-reduced-motion` supprime les mouvements ; aucune bibliothèque 3D externe ni vidéo n'est téléchargée. Les fiches rapides et le tri par prix complètent le catalogue.
 
@@ -61,3 +63,11 @@ Le bandeau principal reste visible pendant le défilement. Sur mobile, les trois
 Le titre du hero utilise une composition manuscrite en Dancing Script, avec une apparition progressive et un cœur discret. Les deux boutons du hero ont des formes arrondies, un reflet satiné, des étoiles animées et un déplacement magnétique limité au pointeur fin. Les liens restent utilisables au clavier et au toucher. La pause persistante et le réglage système de réduction des mouvements désactivent ces effets.
 
 Les liens de navigation et le panier reprennent le même traitement que les boutons du hero : formes arrondies, satin mauve-rose, reflets, étoiles discrètes et mouvement magnétique. La navigation reste fixe et visible sur mobile ; les mêmes contrôles de pause et d'accessibilité s'appliquent.
+
+## Images et navigation dans la collection
+
+Les fichiers PNG de l'archive ne sont ni rééchantillonnés ni recompressés : leur résolution d'origine est conservée (environ 330 × 440 pixels pour la plupart). Les cadres utilisent `object-fit: contain`, et la galerie présente les originaux sans coupe ni agrandissement forcé. Pour obtenir davantage de détails réels sur des écrans haute définition, remplacer les captures par les photos originales de plus grande résolution, sans modifier les produits.
+
+Le catalogue affiche 12 produits à la fois, avec « Voir plus de créations », recherche, tri et catégories. Chaque fiche réunit ses différentes vues, avec vignettes et commandes précédent/suivant. Un contrôle d'intégrité vérifie que les 88 fichiers envoyés sont tous associés à un produit et n'ont pas été altérés.
+
+La liste complète des noms, catégories, prix et nombres de photos est disponible dans `catalogue-prix.csv` (séparateur point-virgule, compatible Excel).

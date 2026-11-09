@@ -1,4 +1,4 @@
-import { mkdir, copyFile, cp, rm } from "node:fs/promises";
+import { mkdir, copyFile, cp, rm, access } from "node:fs/promises";
 import { products, shop } from "../catalogue.js";
 const ids = new Set();
 for (const p of products) {
@@ -13,6 +13,7 @@ for (const p of products) {
   )
     throw new Error("Produit invalide ou identifiant dupliqué");
   ids.add(p.id);
+  for (const image of p.images || [p.image]) await access(image);
 }
 if (!/^\d{8,15}$/.test(shop.whatsapp))
   throw new Error("Numéro WhatsApp invalide");

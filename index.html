@@ -364,6 +364,11 @@
         </div>
         <p id="catalogue-status" class="catalogue-status" role="status"></p>
         <div id="products" class="products"></div>
+        <div class="load-more-wrap">
+          <button id="load-more" class="button" type="button">
+            Voir plus de créations <span>+</span>
+          </button>
+        </div>
         <div id="empty" class="empty">
           <span class="empty-flower">✿</span>
           <h3>Votre prochaine petite histoire…</h3>
@@ -680,7 +685,34 @@
         ×
       </button>
       <div class="product-dialog-grid">
-        <img id="product-detail-image" alt="" width="500" height="625" />
+        <div class="product-gallery">
+          <div class="gallery-main">
+            <img id="product-detail-image" alt="" width="500" height="625" />
+          </div>
+          <div id="gallery-controls" class="gallery-controls" hidden>
+            <button
+              id="gallery-prev"
+              type="button"
+              aria-label="Photo précédente"
+            >
+              ←</button
+            ><span id="gallery-position" role="status"></span
+            ><button
+              id="gallery-next"
+              type="button"
+              aria-label="Photo suivante"
+            >
+              →
+            </button>
+          </div>
+          <div
+            id="product-thumbnails"
+            class="product-thumbnails"
+            role="group"
+            aria-label="Photos du produit"
+            hidden
+          ></div>
+        </div>
         <div class="product-detail-copy">
           <span id="product-detail-category" class="eyebrow"></span>
           <h2 id="product-title"></h2>

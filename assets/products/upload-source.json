@@ -1,0 +1,894 @@
+{
+  "archive": "crochet.zip",
+  "importedAt": "2026-11-09",
+  "originalPhotoCount": 88,
+  "newProducts": 80,
+  "totalProducts": 88,
+  "notes": "Original PNG bytes retained without resampling or recompression. Duplicate views are grouped in galleries. Proposed new product names/prices authorized by the owner. Colour variants shown together share photo 30.",
+  "photos": [
+    {
+      "source": "Capture d'écran 2026-11-09 163806.png",
+      "path": "./assets/products/collection/photo-001.png",
+      "width": 291,
+      "height": 390,
+      "sha256": "42228f27bdedf3e5a1b7058a9193dbc22ed9f540f318200aebc5b61505464f56",
+      "productIds": [
+        "duo-amour-royal"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 163921.png",
+      "path": "./assets/products/collection/photo-002.png",
+      "width": 323,
+      "height": 444,
+      "sha256": "21c10bb6a45e2851549a0d5e5fd0d9ae3136c437c61bb3ea79861eba4904af7e",
+      "productIds": [
+        "coffret-lapine-bonbon"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 163932.png",
+      "path": "./assets/products/collection/photo-003.png",
+      "width": 336,
+      "height": 444,
+      "sha256": "54e21b726f2fe15db5eb222476233735a027f7804d8a3d9583938f7182783a4c",
+      "productIds": [
+        "coffret-lapin-azur"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 163938.png",
+      "path": "./assets/products/collection/photo-004.png",
+      "width": 333,
+      "height": 438,
+      "sha256": "7ee4bf535ccc1e0d44321c65e36e143ef94e81156ab247d6fdcff81fe0673118",
+      "productIds": [
+        "coffret-leo-le-lion"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 163954.png",
+      "path": "./assets/products/collection/photo-005.png",
+      "width": 321,
+      "height": 433,
+      "sha256": "80d10ca41230f09e958c17e407b6a3d7897a4218f7a93fd8b347e7695505867d",
+      "productIds": [
+        "coffret-lapine-petale"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164011.png",
+      "path": "./assets/products/collection/photo-006.png",
+      "width": 324,
+      "height": 447,
+      "sha256": "8bbf8d7790c4492c33cbca681dab2980d3d43753f6ef12cd427c772a25a16f7c",
+      "productIds": [
+        "doudou-jaune"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164019.png",
+      "path": "./assets/products/collection/photo-007.png",
+      "width": 330,
+      "height": 438,
+      "sha256": "3eb1375c45911b6bd8cbe2237887b8d2b82ff41ef702e255a44e053d11522497",
+      "productIds": [
+        "abeille-miel"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164126.png",
+      "path": "./assets/products/collection/photo-008.png",
+      "width": 332,
+      "height": 439,
+      "sha256": "62811479d76681b796d37786e512c8d1e51c160184005f5e0e3787b9bc3ec234",
+      "productIds": [
+        "plaid-vagues-ocean"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164131.png",
+      "path": "./assets/products/collection/photo-009.png",
+      "width": 330,
+      "height": 445,
+      "sha256": "282c14811573d3417e3aebc375d034ef860ee1f0a4d783e920891353e8037515",
+      "productIds": [
+        "plaid-arc-en-ciel"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164139.png",
+      "path": "./assets/products/collection/photo-010.png",
+      "width": 333,
+      "height": 444,
+      "sha256": "3551909f51f67543873a3de1459a2700a41096428e4467a7be41273ea79e1db6",
+      "productIds": [
+        "plaid-nuage-ivoire"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164146.png",
+      "path": "./assets/products/collection/photo-011.png",
+      "width": 328,
+      "height": 441,
+      "sha256": "6c241a4972e2ccc1509209f33ffb80b0de6c87a838cec802e6041edda594aa1e",
+      "productIds": [
+        "chemin-de-table-boheme"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164155.png",
+      "path": "./assets/products/collection/photo-012.png",
+      "width": 329,
+      "height": 442,
+      "sha256": "c2052781adcc3a5c2013d794c2279541d59571ed2efd6599d2eb1f6daa0af210",
+      "productIds": [
+        "ensemble-eveil-corail"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164202.png",
+      "path": "./assets/products/collection/photo-013.png",
+      "width": 331,
+      "height": 441,
+      "sha256": "7a82984769c7711d2210b1393a872c033d6407bbd44da02433dbf5cb29998734",
+      "productIds": [
+        "coffret-lapin-terracotta"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164209.png",
+      "path": "./assets/products/collection/photo-014.png",
+      "width": 331,
+      "height": 440,
+      "sha256": "aae6d8de09e369370ea9f91c84810a990fb3f0d74d3414b65767f9b2ef578b04",
+      "productIds": [
+        "poupee-soline"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164218.png",
+      "path": "./assets/products/collection/photo-015.png",
+      "width": 331,
+      "height": 440,
+      "sha256": "2ecd5bf9ec9f1eb7c92f9dfafeca3823055875ffb2edcfed66a7d77c81cf8c5d",
+      "productIds": [
+        "poupee-rose-tendresse"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164541.png",
+      "path": "./assets/products/collection/photo-016.png",
+      "width": 336,
+      "height": 438,
+      "sha256": "d1580779a288ab8c8348f89c382b6b624bbc5c0bef79c42004771aadbb8617a7",
+      "productIds": [
+        "ensemble-bebe-fleur-de-coton"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164547.png",
+      "path": "./assets/products/collection/photo-017.png",
+      "width": 330,
+      "height": 436,
+      "sha256": "51e6021da0b723611c094a975a339611ba8bb5e834a3bccd5775526b304cbd73",
+      "productIds": [
+        "poupee-perle-de-rosee"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164559.png",
+      "path": "./assets/products/collection/photo-018.png",
+      "width": 335,
+      "height": 434,
+      "sha256": "69923744e67c1f00e08e2d8661d1d6a2225ec7d8a3bff0c2c5183fdaef04bd0a",
+      "productIds": [
+        "poupee-zoe-aventuriere"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164621.png",
+      "path": "./assets/products/collection/photo-019.png",
+      "width": 331,
+      "height": 446,
+      "sha256": "b9db6dae9ffcb4f0d5ccd510cf1892e60137eda448e0d5b997e12a948a322153",
+      "productIds": [
+        "coffret-lapin-myrtille"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164628.png",
+      "path": "./assets/products/collection/photo-020.png",
+      "width": 337,
+      "height": 443,
+      "sha256": "109795a1d1e375b4bcbc536268d867e374725523208a228614e825a6538762ad",
+      "productIds": [
+        "poupee-rubis"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164638.png",
+      "path": "./assets/products/collection/photo-021.png",
+      "width": 329,
+      "height": 443,
+      "sha256": "8a951865a109ba06dd3887174d170838f4d3b6a1a5b563ed88837d490dec5fbf",
+      "productIds": [
+        "poupee-ambre-voyageuse"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164645.png",
+      "path": "./assets/products/collection/photo-022.png",
+      "width": 328,
+      "height": 444,
+      "sha256": "7889280d5ca59a59f785ca5b47b72dd4a864ed7bac0ed2701fe529d1ee9f4f00",
+      "productIds": [
+        "abeille-miel"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164655.png",
+      "path": "./assets/products/collection/photo-023.png",
+      "width": 329,
+      "height": 440,
+      "sha256": "3f5e44838c8f1bd0160af332a458364399f70e1b58d317800a44c5e7b8dec667",
+      "productIds": [
+        "poupee-marin-sacha"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164700.png",
+      "path": "./assets/products/collection/photo-024.png",
+      "width": 332,
+      "height": 430,
+      "sha256": "b14b74c2caab1387025dd54e1b37a6813885b67a604a71400bb78a443350a2ca",
+      "productIds": [
+        "poupee-nino-boucles"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164708.png",
+      "path": "./assets/products/collection/photo-025.png",
+      "width": 327,
+      "height": 426,
+      "sha256": "99e88f6a319ddc77098155a882454511a7dc8ef9311e3dd14ff990f5c743a01a",
+      "productIds": [
+        "sac-petales-azur"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164714.png",
+      "path": "./assets/products/collection/photo-026.png",
+      "width": 327,
+      "height": 447,
+      "sha256": "85f2d057a1c3115286dcfb7ef49ec9ced0f3bf0729012dd1d4b1f08950a33810",
+      "productIds": [
+        "duo-surs-cerise"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164720.png",
+      "path": "./assets/products/collection/photo-027.png",
+      "width": 333,
+      "height": 446,
+      "sha256": "2839a7cfffdc0cf264640096903041d9c36aa0783063bcf8730e8681aedb0a8d",
+      "productIds": [
+        "cabas-jardin-fleuri"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164745.png",
+      "path": "./assets/products/collection/photo-028.png",
+      "width": 331,
+      "height": 434,
+      "sha256": "fae5cc849494375e6655df8f71a3be64bc2a5d4f4cecdcab0dda247d78761509",
+      "productIds": [
+        "sac-marguerite-lilas"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164752.png",
+      "path": "./assets/products/collection/photo-029.png",
+      "width": 335,
+      "height": 442,
+      "sha256": "2ddefd92796e0eed2e4b0248d31d64509cdaae98cb5e1924cec5472a98dd6c0c",
+      "productIds": [
+        "coffret-elephant-celestin"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164801.png",
+      "path": "./assets/products/collection/photo-030.png",
+      "width": 329,
+      "height": 433,
+      "sha256": "84fc66bfa36eccb673c43a599e17034bb4f2649fbf05a6945fcf0ff0b55fd3ca",
+      "productIds": [
+        "sac-petales-azur",
+        "sac-petales-fuchsia",
+        "sac-petales-mandarine",
+        "sac-petales-prairie",
+        "sac-petales-rosee"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164833.png",
+      "path": "./assets/products/collection/photo-031.png",
+      "width": 333,
+      "height": 437,
+      "sha256": "dd513b2e3c65beb384438ca6d21326ee562c5c4587764144d9facf4b9467a522",
+      "productIds": [
+        "duo-amour-royal"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164839.png",
+      "path": "./assets/products/collection/photo-032.png",
+      "width": 327,
+      "height": 425,
+      "sha256": "1666e2a456da0ad359cae6fd6e04f65f5f7bc64f31ed8054496adb1c65c82222",
+      "productIds": [
+        "lulu-bunny"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164906.png",
+      "path": "./assets/products/collection/photo-033.png",
+      "width": 323,
+      "height": 435,
+      "sha256": "e6d56e844dee9ad7400c21b52b6e4c97a35a9320a07937dae835372c63f8c7d7",
+      "productIds": [
+        "poupee-sieste-menthe"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164921.png",
+      "path": "./assets/products/collection/photo-034.png",
+      "width": 332,
+      "height": 429,
+      "sha256": "1608a3b6aa7d5661821e33bacd5af219a742b4e0c07f3ba1ac5afff0c999d77a",
+      "productIds": [
+        "poupee-sieste-framboise"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164932.png",
+      "path": "./assets/products/collection/photo-035.png",
+      "width": 330,
+      "height": 436,
+      "sha256": "c7decd61ac17e1b07ca910071ee725b54b7ba91d5f912d4d0acd3f5eb27b9a01",
+      "productIds": [
+        "coffret-ourson-sauge"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164941.png",
+      "path": "./assets/products/collection/photo-036.png",
+      "width": 331,
+      "height": 440,
+      "sha256": "f90a1e2a32a414526b79b6f2b8cecf6f19b6b195b2053e7486bcbc9a463929e4",
+      "productIds": [
+        "lapin-petit-noel"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 164956.png",
+      "path": "./assets/products/collection/photo-037.png",
+      "width": 334,
+      "height": 439,
+      "sha256": "795113a58bb9c75a22008d6ada42208b64ed555a1b72b5138a657b1fa3ff0e9b",
+      "productIds": [
+        "lapine-eglantine"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165011.png",
+      "path": "./assets/products/collection/photo-038.png",
+      "width": 331,
+      "height": 436,
+      "sha256": "43cf02e3bff1518d5fff609dee34ab16b906482d84b31191784821cbba41e919",
+      "productIds": [
+        "coffret-poupee-ciel"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165034.png",
+      "path": "./assets/products/collection/photo-039.png",
+      "width": 314,
+      "height": 419,
+      "sha256": "94bdc56e204eb89e4da490ac26be0c9e319282e6e9a8fcf65b1b1852e0db43e0",
+      "productIds": [
+        "coffret-singe-noisette"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165045.png",
+      "path": "./assets/products/collection/photo-040.png",
+      "width": 320,
+      "height": 417,
+      "sha256": "b0181f9eb29cca68e368229990f414fa7bf74bc324a85fd230718f093de5ff15",
+      "productIds": [
+        "poupee-lutin-rosalie"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165051.png",
+      "path": "./assets/products/collection/photo-041.png",
+      "width": 328,
+      "height": 439,
+      "sha256": "786531b47062fb8932d578157c0fadd060c6ae0041341526b378e07e9950306c",
+      "productIds": [
+        "poupee-lila-romance"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165058.png",
+      "path": "./assets/products/collection/photo-042.png",
+      "width": 329,
+      "height": 438,
+      "sha256": "268cbcd377bf4f866bfdcafb46d75f4df364778d45f83e1a7e586ea1cbc634c1",
+      "productIds": [
+        "coffret-ourson-bleuets"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165108.png",
+      "path": "./assets/products/collection/photo-043.png",
+      "width": 327,
+      "height": 360,
+      "sha256": "d76a5e4cc943bc25eaeac08aa04dc409b24f5dfd73b3c2e7c4d2d65ad159706c",
+      "productIds": [
+        "ourson-oscar-azur"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165116.png",
+      "path": "./assets/products/collection/photo-044.png",
+      "width": 324,
+      "height": 424,
+      "sha256": "0b57fe655b7005272e813311d0e8c8f3aec1d95739361f46e1538c96237a1b6b",
+      "productIds": [
+        "coffret-poupee-douce-nuit"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165124.png",
+      "path": "./assets/products/collection/photo-045.png",
+      "width": 333,
+      "height": 438,
+      "sha256": "ea2bf3845f09bf3f61d542c4c31cd340415f7dfaae7ff8a31e8daaa95ef87e7f",
+      "productIds": [
+        "chiot-biscuit"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165135.png",
+      "path": "./assets/products/collection/photo-046.png",
+      "width": 337,
+      "height": 428,
+      "sha256": "8780eb804f9dc152bccadf737653f6f2ec3dd4d30793db8843a182af8cd74b2d",
+      "productIds": [
+        "coffret-ourson-bleuets"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165142.png",
+      "path": "./assets/products/collection/photo-047.png",
+      "width": 332,
+      "height": 431,
+      "sha256": "dab7cbfd06dabd0744aec8a0afa4cfd9933cf20e69809ce354b702144a337ba8",
+      "productIds": [
+        "ourson-ebene"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165150.png",
+      "path": "./assets/products/collection/photo-048.png",
+      "width": 331,
+      "height": 443,
+      "sha256": "50c2c0e99586d2d14329ac7fef9416f130b0f9d75db439607c787ff9b547c5e7",
+      "productIds": [
+        "panda-bambou"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165429.png",
+      "path": "./assets/products/collection/photo-049.png",
+      "width": 332,
+      "height": 438,
+      "sha256": "1206d5ba961e895959b76f939ad625b7d3cd5e8936f33f8a2355260d0150b3ff",
+      "productIds": [
+        "coffret-ourson-framboise"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165446.png",
+      "path": "./assets/products/collection/photo-050.png",
+      "width": 335,
+      "height": 440,
+      "sha256": "8b4757b6c8e33078687c2dafefcf63634850a38863c4f9e381c31ed2d61484e7",
+      "productIds": [
+        "poupee-lutin-rosalie"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165451.png",
+      "path": "./assets/products/collection/photo-051.png",
+      "width": 327,
+      "height": 438,
+      "sha256": "92bb451ed5de90b5d5bac4977d198d1128bb78aa8db67f2832162d697371013a",
+      "productIds": [
+        "ourson-milo-olive"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165459.png",
+      "path": "./assets/products/collection/photo-052.png",
+      "width": 331,
+      "height": 432,
+      "sha256": "c2458fad729222f2a0f987ede500e4ef3f677cbb0e9922d50815b100f619da97",
+      "productIds": [
+        "coffret-ourson-framboise"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165510.png",
+      "path": "./assets/products/collection/photo-053.png",
+      "width": 329,
+      "height": 443,
+      "sha256": "abea3989b3b2f0e1e8367a9bd022e527b99722bfeb3e815f74e5a68f944c18f2",
+      "productIds": [
+        "suspensions-noel-enchante"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165518.png",
+      "path": "./assets/products/collection/photo-054.png",
+      "width": 327,
+      "height": 442,
+      "sha256": "d21390c11d78e9bb615aa6a12d9c7f17d01dea0306f3da246924da82f1151739",
+      "productIds": [
+        "petite-souris-violette"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165526.png",
+      "path": "./assets/products/collection/photo-055.png",
+      "width": 329,
+      "height": 437,
+      "sha256": "1b6f5977583b2efcfe4c329d7943f465394006d54903b8a7b4235f820d948da9",
+      "productIds": [
+        "suspensions-noel-enchante"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165535.png",
+      "path": "./assets/products/collection/photo-056.png",
+      "width": 320,
+      "height": 420,
+      "sha256": "4e613c34f3b160da5f7737fd3f5808a063c8a0334c0c02b56b447742d9ef4f2f",
+      "productIds": [
+        "ourson-denim"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165544.png",
+      "path": "./assets/products/collection/photo-057.png",
+      "width": 331,
+      "height": 438,
+      "sha256": "48028b50c5a4e75c7c8fe8e72b0bf9fcd2fba45375bc04fdb1829bc74314be03",
+      "productIds": [
+        "poupee-sami-printemps"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165551.png",
+      "path": "./assets/products/collection/photo-058.png",
+      "width": 326,
+      "height": 443,
+      "sha256": "ea35a1497392fa1e3d6b3959b81d50dd79057887a121af60cc1f6afee2bb7a8b",
+      "productIds": [
+        "poupee-capucine"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165559.png",
+      "path": "./assets/products/collection/photo-059.png",
+      "width": 330,
+      "height": 435,
+      "sha256": "ce520f96d4999d9a24128e7e8129f66d83fc125caa529ae12459cdaad3b577f7",
+      "productIds": [
+        "cochon-arc-en-ciel"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165606.png",
+      "path": "./assets/products/collection/photo-060.png",
+      "width": 332,
+      "height": 438,
+      "sha256": "a74a830395cbf055f1f1ab222d1f08df7591702756caa4097bf01b0478b8af4c",
+      "productIds": [
+        "poupee-cerise-a-pois"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165617.png",
+      "path": "./assets/products/collection/photo-061.png",
+      "width": 337,
+      "height": 442,
+      "sha256": "e7d90314d94be399fa328cc5b7a551f1cb2a37e424c1659154e1be68c6b1b0f4",
+      "productIds": [
+        "poupee-corail-des-contes"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165626.png",
+      "path": "./assets/products/collection/photo-062.png",
+      "width": 332,
+      "height": 443,
+      "sha256": "c2a988b79db1372609fc251385e7cf227b5ed7b5634918a8fa3376f402d07bf6",
+      "productIds": [
+        "coffret-lapine-petale"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165634.png",
+      "path": "./assets/products/collection/photo-063.png",
+      "width": 327,
+      "height": 437,
+      "sha256": "0314b10373fcf9faa1bac84be420606a824f9f8ef5d27814e3c12a89b4c2f018",
+      "productIds": [
+        "coffret-ourson-galet"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165703.png",
+      "path": "./assets/products/collection/photo-064.png",
+      "width": 332,
+      "height": 434,
+      "sha256": "5c4d667606865122e0258c8cd260a67d7a37d07388e05a90cf071f4e7714ca21",
+      "productIds": [
+        "coffret-papillon-rose"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165710.png",
+      "path": "./assets/products/collection/photo-065.png",
+      "width": 327,
+      "height": 436,
+      "sha256": "05de1529eb608ef90b84fd074af5e2da801d721c61ff869edb75914a068a2495",
+      "productIds": [
+        "coffret-renne-vanille"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165718.png",
+      "path": "./assets/products/collection/photo-066.png",
+      "width": 329,
+      "height": 441,
+      "sha256": "03c9ad517e4d78524400c52de779e0cc5439f61324f0118175d8ba170a65d11b",
+      "productIds": [
+        "coffret-biche-rosalie"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165727.png",
+      "path": "./assets/products/collection/photo-067.png",
+      "width": 334,
+      "height": 434,
+      "sha256": "71318ff1e80819ee4f81451cd0bc5403d9f242b2890ac7157ec50ed859c45b5c",
+      "productIds": [
+        "coffret-nuage-aqua"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165735.png",
+      "path": "./assets/products/collection/photo-068.png",
+      "width": 319,
+      "height": 430,
+      "sha256": "c37836b64b21af03b8178600d612d091614fa9ea80a445637a1e5aa1e537e5f4",
+      "productIds": [
+        "duo-renne-chataigne"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165742.png",
+      "path": "./assets/products/collection/photo-069.png",
+      "width": 334,
+      "height": 430,
+      "sha256": "27183a6e717e8ed28f55aa4fa3cac889f7cf2993897f47259f5c0b7d30aed6ef",
+      "productIds": [
+        "coffret-ourson-pistache"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165810.png",
+      "path": "./assets/products/collection/photo-070.png",
+      "width": 331,
+      "height": 436,
+      "sha256": "db16a791fcd1866eaa0de6d392fe48a843c9b90e38824d096a6c9dd7d833b837",
+      "productIds": [
+        "poupee-prune-pistache"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165817.png",
+      "path": "./assets/products/collection/photo-071.png",
+      "width": 329,
+      "height": 439,
+      "sha256": "8433a79fa03b0b503be543c8454ab135a98055eebc251067245068c98fbf8e32",
+      "productIds": [
+        "poupee-ruban-soleil"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165823.png",
+      "path": "./assets/products/collection/photo-072.png",
+      "width": 332,
+      "height": 449,
+      "sha256": "a15bda854f5b027f8a411730f2edfe6f1ce0e051f0624687d5e43fe5cc7b2ee5",
+      "productIds": [
+        "poupee-elio-lunettes"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165831.png",
+      "path": "./assets/products/collection/photo-073.png",
+      "width": 331,
+      "height": 441,
+      "sha256": "4ea928c59bcb18972a3c37107f5f643c1032e8d737971798594594fb4df63890",
+      "productIds": [
+        "duo-calins-poudres"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165838.png",
+      "path": "./assets/products/collection/photo-074.png",
+      "width": 326,
+      "height": 432,
+      "sha256": "361f431a9c3cf96f0ff6f46a276922df63790093323cb18d584d115a51f52373",
+      "productIds": [
+        "coffret-ourson-reglisse"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165845.png",
+      "path": "./assets/products/collection/photo-075.png",
+      "width": 326,
+      "height": 443,
+      "sha256": "fc58812c50e6d09fd37c027126241c0b907ac2d439436a80a86dc653a087f7f1",
+      "productIds": [
+        "poule-coquette"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165851.png",
+      "path": "./assets/products/collection/photo-076.png",
+      "width": 328,
+      "height": 439,
+      "sha256": "77ec7025c5d112e6d7a104570e668edc58a478ecfa0e4b519e188dd85a49d932",
+      "productIds": [
+        "poupee-etoile-de-lait"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165859.png",
+      "path": "./assets/products/collection/photo-077.png",
+      "width": 320,
+      "height": 436,
+      "sha256": "974110e3571e8f40a88c0a33103053b87d405d3a05728354e789834b94d71d5a",
+      "productIds": [
+        "poupee-alba-cerise"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165906.png",
+      "path": "./assets/products/collection/photo-078.png",
+      "width": 327,
+      "height": 444,
+      "sha256": "8852c37c12ec7cfda38ac1fdcef2614a4bd67934bb1ecb968ea19a01fc3c540a",
+      "productIds": [
+        "poupee-coquelicot"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165916.png",
+      "path": "./assets/products/collection/photo-079.png",
+      "width": 333,
+      "height": 441,
+      "sha256": "b678adda0d3604359ea25224757786714cd647d2a255e7fb9064d0bacf606848",
+      "productIds": [
+        "coffret-lapin-azur"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165931.png",
+      "path": "./assets/products/collection/photo-080.png",
+      "width": 334,
+      "height": 447,
+      "sha256": "ae9d3ac7fe74405ab8413006ab69035e027afe12a8181da4de6e9ad9b6ea7fda",
+      "productIds": [
+        "poupee-flora-fuchsia"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165938.png",
+      "path": "./assets/products/collection/photo-081.png",
+      "width": 328,
+      "height": 434,
+      "sha256": "d548f80805252e171ca588d31ff7e40ca8006598d22133b91215ba0c64e7f275",
+      "productIds": [
+        "poupee-flora-fuchsia"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 165945.png",
+      "path": "./assets/products/collection/photo-082.png",
+      "width": 329,
+      "height": 447,
+      "sha256": "67b6a8d0a4d33d9d76552009e05f9d35176c68f2d7ecf2b08168469353ad4756",
+      "productIds": [
+        "poupee-pivoine"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 170052.png",
+      "path": "./assets/products/collection/photo-083.png",
+      "width": 333,
+      "height": 441,
+      "sha256": "971cabaa47350b0fe967fc318a9d89576ec05925b899361369ace4079f6bc626",
+      "productIds": [
+        "ensemble-bebe-ruban-rose"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 170117.png",
+      "path": "./assets/products/collection/photo-084.png",
+      "width": 328,
+      "height": 442,
+      "sha256": "e0aeccd49994f47c3f6a0f928db453560f62aafa93f05803c22ad8ea4a0521eb",
+      "productIds": [
+        "poupee-ondine"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 170133.png",
+      "path": "./assets/products/collection/photo-085.png",
+      "width": 329,
+      "height": 440,
+      "sha256": "05a665a1791d302b17b910cbe1b2a957c44f62e5eabc0ae50f603d4c1fe0bf8b",
+      "productIds": [
+        "poupee-gabin-ciel"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 170649.png",
+      "path": "./assets/products/collection/photo-086.png",
+      "width": 338,
+      "height": 434,
+      "sha256": "84a2e133de4aa0e5135fb2eb1322faf7fd5569383b7533f25b55e2ea7fc5d802",
+      "productIds": [
+        "poupee-lavande"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 170657.png",
+      "path": "./assets/products/collection/photo-087.png",
+      "width": 326,
+      "height": 434,
+      "sha256": "caec7f9b93aff22c72a4d3654f8f5986bde33184712de92a2b96197fcc2196b3",
+      "productIds": [
+        "duo-freres-marins"
+      ]
+    },
+    {
+      "source": "Capture d'écran 2026-11-09 170720.png",
+      "path": "./assets/products/collection/photo-088.png",
+      "width": 327,
+      "height": 436,
+      "sha256": "6788711e235da51b7efb7c004102f4be1cf200dfe80d021c36d20f1fca62eee5",
+      "productIds": [
+        "poupee-soleil-pompons"
+      ]
+    }
+  ]
+}

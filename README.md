@@ -31,3 +31,17 @@ Pour modifier la collection, mettre les photos dans `assets/products/`, puis aju
 5. Déployer puis ajouter le domaine personnalisé dans les paramètres du projet Pages.
 
 Les en-têtes de sécurité sont dans `_headers`. Aucun déploiement Cloudflare n'est effectué par ces commandes.
+
+## Cloudflare Workers (projet actuel)
+
+Le Worker existant `hafssaacrochet` peut aussi servir cette boutique statique. `wrangler.jsonc` définit le dossier `dist/` et le nom du Worker.
+
+Dans Cloudflare → Settings → Build, sélectionner le dépôt et la branche `main`, puis définir :
+
+- Build command : `npm run build`
+- Deploy command : `npm run deploy`
+- Root directory : `/`
+
+Activer les déploiements automatiques pour `main`. Ne pas utiliser `npm run build` comme commande de déploiement : cette commande seule ne publie aucun fichier.
+
+Pour un déploiement manuel depuis une machine autorisée : `npm ci`, `npm run build`, puis `npm run deploy`. L'authentification Cloudflare est requise uniquement pour le déploiement et reste gérée par Cloudflare Builds ou par la session Wrangler locale ; ne jamais enregistrer de jeton dans le dépôt.

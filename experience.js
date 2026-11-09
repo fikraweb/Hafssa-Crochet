@@ -121,3 +121,31 @@ if ("IntersectionObserver" in window) {
   for (const id of ["collection", "histoire", "contact"])
     sectionObserver.observe(document.getElementById(id));
 }
+
+// A small magnetic movement and a pointer-following satin glow on the hero CTAs.
+for (const button of document.querySelectorAll("[data-magnetic]")) {
+  let buttonFrame = 0;
+  const reset = () => {
+    cancelAnimationFrame(buttonFrame);
+    button.style.setProperty("--mag-x", "0px");
+    button.style.setProperty("--mag-y", "0px");
+  };
+  button.addEventListener("pointermove", (event) => {
+    if (!finePointer.matches || root.classList.contains("motion-paused"))
+      return;
+    const rect = button.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+    cancelAnimationFrame(buttonFrame);
+    buttonFrame = requestAnimationFrame(() => {
+      button.style.setProperty("--mag-x", `${(x - 0.5) * 7}px`);
+      button.style.setProperty("--mag-y", `${(y - 0.5) * 5}px`);
+      button.style.setProperty("--glow-x", `${x * 100}%`);
+      button.style.setProperty("--glow-y", `${y * 100}%`);
+    });
+  });
+  button.addEventListener("pointerleave", reset);
+  button.addEventListener("blur", reset);
+  reducedMotion.addEventListener("change", reset);
+  motionButton.addEventListener("click", reset);
+}

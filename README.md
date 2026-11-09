@@ -57,3 +57,5 @@ Le hero présente une mise en scène photoréaliste générée à partir de quat
 Le bandeau principal reste visible pendant le défilement. Sur mobile, les trois liens restent affichés dans une deuxième rangée compacte. Les titres de navigation sont agrandis et encadrés en rose ; le nom complet « Hafssa Crochet » utilise la police locale Dancing Script (licence OFL dans `assets/fonts/`).
 
 `assets/logo-transparent.png` est une reconstruction améliorée à fond transparent du logo original, produite à partir de la petite image Instagram. Dimensions réelles : 1536 × 1024 pixels. Ce n'est pas un original 4K ; le fichier source Instagram est conservé. Le hero a été réduit en hauteur sur ordinateur et mobile.
+
+Le titre du hero utilise une composition manuscrite en Dancing Script, avec une apparition progressive et un cœur discret. Les deux boutons du hero ont des formes arrondies, un reflet satiné, des étoiles animées et un déplacement magnétique limité au pointeur fin. Les liens restent utilisables au clavier et au toucher. La pause persistante et le réglage système de réduction des mouvements désactivent ces effets.

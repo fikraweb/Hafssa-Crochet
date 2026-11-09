@@ -992,3 +992,42 @@ body:has(dialog[open]) {
 #orders-table td {
   white-space: nowrap;
 }
+
+.visit-table {
+  overflow-x: auto;
+}
+.visit-funnel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 0;
+  border-bottom: 1px solid #edd9e5;
+}
+#visit-breakdown h3 {
+  margin-top: 18px;
+  color: #875274;
+  font-size: 14px;
+}
+.visit-event {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 6px 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid #edd9e5;
+}
+.visit-event small {
+  color: #987b8e;
+}
+.visit-event > span {
+  grid-column: 2;
+  color: #987b8e;
+}
+@media (max-width: 600px) {
+  .visit-event {
+    grid-template-columns: 1fr;
+  }
+  .visit-event > span {
+    grid-column: 1;
+  }
+}

@@ -48,11 +48,18 @@ function el(tag, text, className) {
 }
 function scrollToProducts() {
   const grid = $("products");
-  const toolsHeight = document.querySelector(".catalogue-tools").getBoundingClientRect().height;
-  window.scrollTo({ top: grid.getBoundingClientRect().top + window.scrollY - toolsHeight - 24, behavior: "instant" });
+  const toolsHeight = document
+    .querySelector(".catalogue-tools")
+    .getBoundingClientRect().height;
+  window.scrollTo({
+    top: grid.getBoundingClientRect().top + window.scrollY - toolsHeight - 24,
+    behavior: "instant",
+  });
 }
 function renderProducts() {
-  const filtered = products.filter(p => category === "Tout" || p.category === category);
+  const filtered = products.filter(
+    (p) => category === "Tout" || p.category === category,
+  );
   $("products").replaceChildren();
   $("empty").hidden = filtered.length > 0;
   const pageCount = Math.ceil(filtered.length / pageSize);
@@ -72,19 +79,26 @@ function renderProducts() {
     if (page === currentPage && /^\d+$/.test(label))
       button.setAttribute("aria-current", "page");
     button.onclick = () => {
+      track("cataloguepage", undefined, page);
       currentPage = page;
       renderProducts();
-      pagination.querySelector('[aria-current="page"]')?.focus({ preventScroll: true });
+      pagination
+        .querySelector('[aria-current="page"]')
+        ?.focus({ preventScroll: true });
       scrollToProducts();
     };
     pagination.append(button);
     return button;
   }
-  pageButton("‹", currentPage - 1, currentPage === 1)
-    .setAttribute("aria-label", "Page précédente");
+  pageButton("‹", currentPage - 1, currentPage === 1).setAttribute(
+    "aria-label",
+    "Page précédente",
+  );
   for (let page = 1; page <= pageCount; page++) pageButton(String(page), page);
-  pageButton("›", currentPage + 1, currentPage === pageCount)
-    .setAttribute("aria-label", "Page suivante");
+  pageButton("›", currentPage + 1, currentPage === pageCount).setAttribute(
+    "aria-label",
+    "Page suivante",
+  );
   if (products.length && !filtered.length) {
     $("empty").replaceChildren(
       el("h3", "Aucune création trouvée"),
@@ -277,6 +291,7 @@ for (const name of ["Tout", ...new Set(products.map((p) => p.category))]) {
   const button = el("button", name, name === "Tout" ? "active" : "");
   button.setAttribute("aria-pressed", String(name === "Tout"));
   button.onclick = () => {
+    track("category", undefined, name);
     category = name;
     currentPage = 1;
     for (const b of $("filters").children) {
@@ -289,7 +304,16 @@ for (const name of ["Tout", ...new Set(products.map((p) => p.category))]) {
   $("filters").append(button);
 }
 $("product-close").onclick = () => $("product-dialog").close();
-$("cart-open").onclick = $("floating-cart").onclick = () => $("cart-dialog").showModal();
+$("cart-open").onclick = $("floating-cart").onclick = () => {
+  track("cartopen");
+  $("cart-dialog").showModal();
+};
+$("checkout-form").addEventListener("focusin", () => {
+  if (!$("checkout-form").dataset.started) {
+    $("checkout-form").dataset.started = "true";
+    track("checkoutstart");
+  }
+});
 $("cart-close").onclick = () => $("cart-dialog").close();
 $("cart-dialog").addEventListener("click", (e) => {
   if (e.target === $("cart-dialog")) {
@@ -311,7 +335,12 @@ $("checkout-form").onsubmit = (event) => {
     city: $("customer-city").value.trim(),
     phone: $("customer-phone").value.trim(),
   };
-  if (customer.name.length < 2 || customer.city.length < 2 || !/^[+0-9 ()-]{8,24}$/.test(customer.phone) || customer.phone.replace(/\D/g, "").length < 8) {
+  if (
+    customer.name.length < 2 ||
+    customer.city.length < 2 ||
+    !/^[+0-9 ()-]{8,24}$/.test(customer.phone) ||
+    customer.phone.replace(/\D/g, "").length < 8
+  ) {
     toast("Merci de renseigner votre nom, votre ville et un téléphone valide.");
     return;
   }
@@ -323,7 +352,10 @@ $("checkout-form").onsubmit = (event) => {
   recordOrder(checkoutId, cart, customer);
   const reference = "HC-" + checkoutId.slice(0, 8).toUpperCase();
   window.open(
-    whatsappUrl(shop.whatsapp, `${reference}\n${orderMessage(cart, products)}\n\nNom : ${customer.name}\nVille : ${customer.city}\nTéléphone : ${customer.phone}`),
+    whatsappUrl(
+      shop.whatsapp,
+      `${reference}\n${orderMessage(cart, products)}\n\nNom : ${customer.name}\nVille : ${customer.city}\nTéléphone : ${customer.phone}`,
+    ),
     "_blank",
     "noopener,noreferrer",
   );
@@ -374,3 +406,26 @@ track("pageview");
 $("year").textContent = new Date().getFullYear();
 renderProducts();
 renderCart();
+
+// Only fixed section and platform labels enter analytics; never full URLs.
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a");
+  if (!link) return;
+  if (["#collection", "#histoire", "#contact"].includes(link.hash))
+    track("section", undefined, link.hash.slice(1));
+  if (link.matches(".social-icon, .academy-link")) {
+    const url = new URL(link.href);
+    const platform = url.hostname.includes("instagram.com")
+      ? "instagram"
+      : url.hostname.includes("facebook.com")
+        ? "facebook"
+        : url.hostname.includes("tiktok.com")
+          ? "tiktok"
+          : url.hostname.includes("youtube.com")
+            ? "youtube"
+            : link.matches(".academy-link")
+              ? "academy"
+              : "whatsapp";
+    track("social", undefined, platform);
+  }
+});

@@ -98,9 +98,19 @@ export class ShopStore {
    CREATE TABLE IF NOT EXISTS visitors (day TEXT NOT NULL,session TEXT NOT NULL,PRIMARY KEY(day,session));
    CREATE TABLE IF NOT EXISTS product_metrics (day TEXT NOT NULL,id TEXT NOT NULL,views INTEGER NOT NULL DEFAULT 0,adds INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(day,id));
    CREATE TABLE IF NOT EXISTS orders (id TEXT PRIMARY KEY,reference TEXT NOT NULL,created TEXT NOT NULL,day TEXT NOT NULL,items TEXT NOT NULL,total INTEGER NOT NULL,status TEXT NOT NULL DEFAULT 'requested',note TEXT NOT NULL DEFAULT '');
+   CREATE TABLE IF NOT EXISTS visit_events (id INTEGER PRIMARY KEY AUTOINCREMENT,session TEXT NOT NULL,created INTEGER NOT NULL,day TEXT NOT NULL,type TEXT NOT NULL,product_id TEXT NOT NULL DEFAULT '',detail TEXT NOT NULL DEFAULT '',device TEXT NOT NULL DEFAULT '',source TEXT NOT NULL DEFAULT '');
+   CREATE INDEX IF NOT EXISTS visit_events_day ON visit_events(day);
+   CREATE INDEX IF NOT EXISTS visit_events_session ON visit_events(session,created);
    CREATE TABLE IF NOT EXISTS media (id TEXT PRIMARY KEY,type TEXT NOT NULL,data BLOB NOT NULL);`);
-    if (!this.sql.exec("PRAGMA table_info(orders)").toArray().some(column => column.name === "customer"))
-      this.sql.exec("ALTER TABLE orders ADD COLUMN customer TEXT NOT NULL DEFAULT '{}'");
+    if (
+      !this.sql
+        .exec("PRAGMA table_info(orders)")
+        .toArray()
+        .some((column) => column.name === "customer")
+    )
+      this.sql.exec(
+        "ALTER TABLE orders ADD COLUMN customer TEXT NOT NULL DEFAULT '{}'",
+      );
   }
   one(query, ...args) {
     return this.sql.exec(query, ...args).toArray()[0];
@@ -284,9 +294,18 @@ export class ShopStore {
         const data = await this.body(request),
           day = dayKey();
         if (
-          !["pageview", "productview", "addtocart", "contact"].includes(
-            data.type,
-          )
+          ![
+            "pageview",
+            "productview",
+            "addtocart",
+            "contact",
+            "cartopen",
+            "category",
+            "cataloguepage",
+            "checkoutstart",
+            "section",
+            "social",
+          ].includes(data.type)
         )
           return json({ error: "Événement invalide." }, 400);
         if (
@@ -294,6 +313,69 @@ export class ShopStore {
           !this.products().some((p) => p.id === data.productId && p.active)
         )
           return json({ error: "Produit introuvable." }, 404);
+        if (
+          typeof data.session !== "string" ||
+          !/^[a-f0-9-]{36}$/.test(data.session)
+        )
+          return json({ error: "Session invalide." }, 400);
+        const detail =
+          data.type === "category" &&
+          typeof data.detail === "string" &&
+          ["Tout", ...this.products().map((p) => p.category)].includes(
+            data.detail,
+          )
+            ? data.detail
+            : data.type === "cataloguepage" &&
+                Number.isInteger(data.detail) &&
+                data.detail > 0 &&
+                data.detail <= 10000
+              ? String(data.detail)
+              : data.type === "section" &&
+                  ["collection", "histoire", "contact"].includes(data.detail)
+                ? data.detail
+                : data.type === "social" &&
+                    [
+                      "instagram",
+                      "facebook",
+                      "tiktok",
+                      "youtube",
+                      "academy",
+                      "whatsapp",
+                    ].includes(data.detail)
+                  ? data.detail
+                  : "";
+        this.sql.exec(
+          "INSERT INTO visit_events(session,created,day,type,product_id,detail,device,source) VALUES (?,?,?,?,?,?,?,?)",
+          data.session,
+          Date.now(),
+          day,
+          data.type,
+          ["productview", "addtocart"].includes(data.type)
+            ? data.productId
+            : "",
+          detail,
+          ["mobile", "tablette", "ordinateur"].includes(data.device)
+            ? data.device
+            : "inconnu",
+          [
+            "direct",
+            "instagram",
+            "facebook",
+            "tiktok",
+            "youtube",
+            "recherche",
+            "autre",
+          ].includes(data.source)
+            ? data.source
+            : "inconnu",
+        );
+        this.sql.exec(
+          "DELETE FROM visit_events WHERE day<?",
+          dayKey(new Date(Date.now() - 90 * 86400000)),
+        );
+        this.sql.exec(
+          "DELETE FROM visit_events WHERE id < COALESCE((SELECT id FROM visit_events ORDER BY id DESC LIMIT 1 OFFSET 49999),0)",
+        );
         this.sql.exec("INSERT OR IGNORE INTO metrics(day) VALUES (?)", day);
         if (data.type === "pageview") {
           let first = 0;
@@ -368,9 +450,27 @@ export class ShopStore {
         )
           return json({ error: "Demande invalide." }, 400);
         const customer = data.customer;
-        if (!customer || typeof customer.name !== "string" || typeof customer.city !== "string" || typeof customer.phone !== "string" || customer.name.trim().length < 2 || customer.name.length > 100 || customer.city.trim().length < 2 || customer.city.length > 100 || !/^[+0-9 ()-]{8,24}$/.test(customer.phone) || customer.phone.replace(/\D/g, "").length < 8)
-          return json({ error: "Nom, ville et téléphone valides obligatoires." }, 400);
-        const contact = { name: customer.name.trim(), city: customer.city.trim(), phone: customer.phone.trim() };
+        if (
+          !customer ||
+          typeof customer.name !== "string" ||
+          typeof customer.city !== "string" ||
+          typeof customer.phone !== "string" ||
+          customer.name.trim().length < 2 ||
+          customer.name.length > 100 ||
+          customer.city.trim().length < 2 ||
+          customer.city.length > 100 ||
+          !/^[+0-9 ()-]{8,24}$/.test(customer.phone) ||
+          customer.phone.replace(/\D/g, "").length < 8
+        )
+          return json(
+            { error: "Nom, ville et téléphone valides obligatoires." },
+            400,
+          );
+        const contact = {
+          name: customer.name.trim(),
+          city: customer.city.trim(),
+          phone: customer.phone.trim(),
+        };
         const previous = this.one(
           "SELECT reference FROM orders WHERE id=?",
           data.requestId,
@@ -405,12 +505,35 @@ export class ShopStore {
           total,
           JSON.stringify(contact),
         );
+        if (
+          typeof data.session === "string" &&
+          /^[a-f0-9-]{36}$/.test(data.session)
+        )
+          this.sql.exec(
+            "INSERT INTO visit_events(session,created,day,type) VALUES (?,?,?,?)",
+            data.session,
+            Date.now(),
+            dayKey(),
+            "orderrequest",
+          );
         return json({ reference }, 201);
       }
       if (!path.startsWith("/api/admin/"))
         return json({ error: "Introuvable." }, 404);
       if (!(await this.authenticated(request)))
         return json({ error: "Connexion requise." }, 401);
+      if (path.startsWith("/api/admin/visits/") && method === "GET") {
+        const session = path.slice("/api/admin/visits/".length);
+        if (!/^[a-f0-9-]{36}$/.test(session))
+          return json({ error: "Session invalide." }, 400);
+        const events = this.sql
+          .exec(
+            "SELECT * FROM (SELECT created,type,product_id,detail FROM visit_events WHERE session=? ORDER BY id DESC LIMIT 200) ORDER BY created",
+            session,
+          )
+          .toArray();
+        return json({ events });
+      }
       if (path === "/api/admin/state" && method === "GET") {
         const days = [7, 30, 90].includes(Number(url.searchParams.get("days")))
           ? Number(url.searchParams.get("days"))
@@ -438,7 +561,42 @@ export class ShopStore {
             since,
           )
           .toArray();
+        const engagement = this.one(
+          `SELECT COUNT(DISTINCT session) as visits,
+          COUNT(DISTINCT CASE WHEN type='productview' THEN session END) as viewers,
+          COUNT(DISTINCT CASE WHEN type='addtocart' THEN session END) as shoppers,
+          COUNT(DISTINCT CASE WHEN type='orderrequest' THEN session END) as requests,
+          COUNT(DISTINCT CASE WHEN created>=? THEN session END) as active
+          FROM visit_events WHERE day>=?`,
+          Date.now() - 5 * 60000,
+          since,
+        );
+        const visitSessions = this.sql
+          .exec(
+            "SELECT session,MIN(created) as first,MAX(created) as last,COUNT(*) as actions,SUM(type='pageview') as pages,MAX(device) as device,MAX(source) as source FROM visit_events WHERE day>=? GROUP BY session ORDER BY last DESC LIMIT 100",
+            since,
+          )
+          .toArray();
+        const devices = this.sql
+          .exec(
+            "SELECT device as label,COUNT(DISTINCT session) as count FROM visit_events WHERE day>=? AND device!='' GROUP BY device ORDER BY count DESC",
+            since,
+          )
+          .toArray();
+        const sources = this.sql
+          .exec(
+            "SELECT source as label,COUNT(DISTINCT session) as count FROM visit_events WHERE day>=? AND source!='' GROUP BY source ORDER BY count DESC",
+            since,
+          )
+          .toArray();
         return json({
+          engagement,
+          visitSessions,
+          devices,
+          sources,
+          detailedTrackingSince:
+            this.one("SELECT MIN(created) as time FROM visit_events")?.time ||
+            null,
           settings: this.settings(),
           products: this.products(),
           daily,

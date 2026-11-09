@@ -55,6 +55,8 @@
         <nav aria-label="Administration">
           <button data-panel="overview" class="selected">
             ◇ <span>Vue d’ensemble</span></button
+          ><button data-panel="visitors">
+            ◉ <span>Visiteurs et activité</span></button
           ><button data-panel="orders">▤ <span>Demandes WhatsApp</span></button
           ><button data-panel="products">✿ <span>Les créations</span></button
           ><button data-panel="settings">
@@ -151,6 +153,50 @@
             de WhatsApp est une demande, pas une vente confirmée. Marquez une
             demande « Terminée » uniquement après validation pour la compter
             dans le chiffre d’affaires.
+          </p>
+        </section>
+        <section id="panel-visitors" class="panel" hidden>
+          <div class="welcome">
+            <div>
+              <span class="eyebrow">VISITES ET COMPORTEMENT</span>
+              <h2>Ce qui se passe dans votre boutique.</h2>
+              <p>Sessions anonymes et actions réellement mesurées.</p>
+            </div>
+          </div>
+          <div id="visitor-metrics" class="metrics"></div>
+          <div class="overview-grid">
+            <article class="card">
+              <h2>Du premier regard à la demande</h2>
+              <p class="muted">
+                Nombre de sessions pour chaque action, sur la période choisie.
+              </p>
+              <div id="visit-funnel"></div>
+            </article>
+            <article class="card">
+              <h2>Appareils et provenance</h2>
+              <div id="visit-breakdown"></div>
+            </article>
+          </div>
+          <article class="card">
+            <h2>Dernières sessions</h2>
+            <p class="muted">
+              100 sessions les plus récentes. Ouvrez une session pour voir son
+              parcours.
+            </p>
+            <div id="visit-sessions" class="visit-table"></div>
+          </article>
+          <article class="card" id="visit-journey-card" hidden>
+            <h2 id="visit-journey-title">Parcours de la session</h2>
+            <div id="visit-journey"></div>
+          </article>
+          <p id="visit-tracking-note" class="data-note"></p>
+          <p class="data-note">
+            Une session n’identifie pas une personne. Elle expire après 30
+            minutes sans action et peut différer entre onglets ou appareils. Les
+            visites non mesurées ne sont pas reconstituées. Provenance
+            indicative, selon le lien d’origine disponible. Aucun nom, téléphone
+            ou adresse IP dans ce suivi. Historique limité à 90 jours et aux 50
+            000 dernières actions ; un parcours affiche jusqu’à 200 actions.
           </p>
         </section>
         <section id="panel-orders" class="panel" hidden>

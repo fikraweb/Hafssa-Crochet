@@ -64,6 +64,7 @@ function panel(name) {
   $("panel-title").textContent = {
     overview: "Vue d’ensemble",
     orders: "Demandes WhatsApp",
+    visitors: "Visiteurs et activité",
     products: "Les créations",
     settings: "Paramètres",
   }[name];
@@ -76,6 +77,7 @@ async function loadState() {
   try {
     state = await api("/api/admin/state?days=" + $("period").value);
     renderOverview();
+    renderVisitors();
     renderProducts();
     renderOrders();
     for (const [name, value] of Object.entries(state.settings)) {
@@ -204,6 +206,135 @@ function renderOverview() {
     );
   $("recent-orders").replaceChildren(orderTable(state.orders.slice(0, 5)));
 }
+const actionLabels = {
+  pageview: "Ouverture de la boutique",
+  productview: "Produit consulté",
+  addtocart: "Ajout au panier",
+  contact: "Contact WhatsApp",
+  cartopen: "Ouverture du panier",
+  category: "Catégorie choisie",
+  cataloguepage: "Page du catalogue",
+  checkoutstart: "Début du formulaire",
+  orderrequest: "Demande WhatsApp enregistrée",
+  section: "Rubrique ouverte",
+  social: "Réseau social / Academy",
+};
+function renderVisitors() {
+  const e = state.engagement || {};
+  const metrics = [
+    ["Sessions suivies", e.visits || 0, "Sur la période sélectionnée"],
+    [
+      "Actives récemment",
+      e.active || 0,
+      "Une action dans les 5 dernières minutes",
+    ],
+    ["Sessions avec ajout", e.shoppers || 0, "Au moins un ajout au panier"],
+    [
+      "Taux de demande",
+      e.visits ? ((100 * e.requests) / e.visits).toFixed(1) + " %" : "0 %",
+      "Sessions avec demande / sessions suivies",
+    ],
+  ];
+  $("visitor-metrics").replaceChildren(
+    ...metrics.map(([label, value, note]) => {
+      const card = el("article", null, "metric");
+      card.append(
+        el("div", label, "metric-label"),
+        el("div", value, "metric-value"),
+        el("div", note, "metric-note"),
+      );
+      return card;
+    }),
+  );
+  $("visit-funnel").replaceChildren();
+  for (const [label, count] of [
+    ["Visite de la boutique", e.visits],
+    ["Consultation d’un produit", e.viewers],
+    ["Ajout au panier", e.shoppers],
+    ["Demande enregistrée", e.requests],
+  ]) {
+    const row = el("div", null, "visit-funnel-row");
+    row.append(el("span", label), el("strong", count || 0));
+    $("visit-funnel").append(row);
+  }
+  $("visit-breakdown").replaceChildren();
+  for (const [title, rows] of [
+    ["Appareils", state.devices || []],
+    ["Provenance", state.sources || []],
+  ]) {
+    $("visit-breakdown").append(el("h3", title));
+    for (const row of rows) {
+      const line = el("div", null, "visit-funnel-row");
+      line.append(el("span", row.label), el("strong", row.count));
+      $("visit-breakdown").append(line);
+    }
+    if (!rows.length)
+      $("visit-breakdown").append(
+        el("p", "En attente des premières visites.", "muted"),
+      );
+  }
+  const visits = state.visitSessions || [];
+  $("visit-sessions").replaceChildren(
+    visits.length
+      ? table(
+          [
+            "Session",
+            "Dernière activité",
+            "Appareil",
+            "Provenance",
+            "Actions",
+            "Parcours",
+          ],
+          visits.map((v) => {
+            const button = el("button", "Voir le parcours", "secondary");
+            button.onclick = () => showVisit(v);
+            return [
+              "Visite " + v.session.slice(0, 8),
+              date(v.last),
+              v.device || "inconnu",
+              v.source || "inconnu",
+              v.actions,
+              button,
+            ];
+          }),
+        )
+      : el("p", "Les premières sessions apparaîtront ici.", "empty"),
+  );
+  $("visit-tracking-note").textContent = state.detailedTrackingSince
+    ? "Suivi détaillé disponible depuis le " +
+      date(state.detailedTrackingSince) +
+      ". Actualisez pour charger les dernières actions."
+    : "Le suivi détaillé commence avec les prochaines visites.";
+}
+async function showVisit(visit) {
+  try {
+    const { events } = await api(
+      "/api/admin/visits/" + encodeURIComponent(visit.session),
+    );
+    $("visit-journey-title").textContent =
+      "Parcours · visite " + visit.session.slice(0, 8);
+    $("visit-journey").replaceChildren(
+      ...events.map((event) => {
+        const row = el("div", null, "visit-event");
+        const product = state.products.find((p) => p.id === event.product_id);
+        row.append(
+          el("small", date(event.created)),
+          el("strong", actionLabels[event.type] || event.type),
+        );
+        if (product || event.detail)
+          row.append(el("span", product?.name || event.detail));
+        return row;
+      }),
+    );
+    $("visit-journey-card").hidden = false;
+    $("visit-journey-card").scrollIntoView({
+      block: "start",
+      behavior: "instant",
+    });
+  } catch (error) {
+    toast(error.message);
+  }
+}
 function table(headers, rows) {
   const t = el("table"),
     head = el("thead"),
@@ -264,7 +395,11 @@ function openOrder(order) {
   $("order-title").textContent = order.reference;
   $("order-details").replaceChildren(el("p", date(order.created), "muted"));
   if (order.customer?.name) {
-    $("order-details").append(el("p", `Client : ${order.customer.name}`), el("p", `Ville : ${order.customer.city}`), el("p", `Téléphone : ${order.customer.phone}`));
+    $("order-details").append(
+      el("p", `Client : ${order.customer.name}`),
+      el("p", `Ville : ${order.customer.city}`),
+      el("p", `Téléphone : ${order.customer.phone}`),
+    );
   }
   for (const item of order.items) {
     const row = el("div", null, "order-line");
@@ -306,7 +441,17 @@ $("order-form").onsubmit = async (event) => {
 };
 $("export-orders").onclick = () => {
   const rows = [
-    ["Référence", "Date", "Client", "Ville", "Téléphone", "Statut", "Créations", "Montant DH", "Note privée"],
+    [
+      "Référence",
+      "Date",
+      "Client",
+      "Ville",
+      "Téléphone",
+      "Statut",
+      "Créations",
+      "Montant DH",
+      "Note privée",
+    ],
     ...filteredOrders().map((o) => [
       o.reference,
       date(o.created),

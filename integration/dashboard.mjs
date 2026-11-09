@@ -99,9 +99,29 @@ test("statistiques réelles, commandes idempotentes, prix calculé côté serveu
     );
   const id = randomUUID();
   const customer = { name: "Client test", city: "Rabat", phone: "0612345678" };
-  const payload = { requestId: id, items: { [product.id]: 2 }, total: 1, customer };
-  for (const invalid of [undefined, {}, {...customer, name: " "}, {...customer, phone: "invalid"}]) {
-    assert.equal((await request("/api/orders", {method: "POST", body: {...payload, requestId: randomUUID(), customer: invalid}, auth: false})).status, 400);
+  const payload = {
+    requestId: id,
+    items: { [product.id]: 2 },
+    total: 1,
+    customer,
+    session,
+  };
+  for (const invalid of [
+    undefined,
+    {},
+    { ...customer, name: " " },
+    { ...customer, phone: "invalid" },
+  ]) {
+    assert.equal(
+      (
+        await request("/api/orders", {
+          method: "POST",
+          body: { ...payload, requestId: randomUUID(), customer: invalid },
+          auth: false,
+        })
+      ).status,
+      400,
+    );
   }
   const order = await data("/api/orders", {
     method: "POST",
@@ -115,11 +135,20 @@ test("statistiques réelles, commandes idempotentes, prix calculé côté serveu
     auth: false,
   });
   assert.equal(repeated.reference, order.reference);
+  const journey = await data("/api/admin/visits/" + session);
+  assert.equal(
+    journey.events.filter((e) => e.type === "orderrequest").length,
+    1,
+  );
   assert.equal(
     (
       await request("/api/orders", {
         method: "POST",
-        body: { requestId: randomUUID(), items: { [product.id]: -1 }, customer },
+        body: {
+          requestId: randomUUID(),
+          items: { [product.id]: -1 },
+          customer,
+        },
         auth: false,
       })
     ).status,
@@ -147,6 +176,63 @@ test("statistiques réelles, commandes idempotentes, prix calculé côté serveu
     method: "PUT",
     body: { status: "cancelled", note: "Test local terminé" },
   });
+});
+test("parcours visiteurs : sessions, détails contrôlés et accès privé", async () => {
+  const session = randomUUID();
+  const product = (await data("/api/store", { auth: false })).products[0];
+  for (const event of [
+    { type: "pageview" },
+    { type: "category", detail: product.category },
+    { type: "cataloguepage", detail: 2 },
+    { type: "productview", productId: product.id },
+    { type: "addtocart", productId: product.id },
+    { type: "cartopen" },
+    { type: "checkoutstart" },
+  ]) {
+    await data("/api/events", {
+      method: "POST",
+      body: { ...event, session, device: "mobile", source: "instagram" },
+      auth: false,
+    });
+  }
+  const state = await data("/api/admin/state");
+  assert.ok(
+    state.engagement.visits > 0 &&
+      state.engagement.shoppers > 0 &&
+      state.engagement.active > 0,
+  );
+  const visit = state.visitSessions.find((v) => v.session === session);
+  assert.equal(visit.actions, 7);
+  assert.equal(visit.device, "mobile");
+  assert.ok(state.sources.some((s) => s.label === "instagram"));
+  const path = "/api/admin/visits/" + session;
+  assert.equal((await request(path, { auth: false })).status, 401);
+  const { events } = await data(path);
+  assert.deepEqual(
+    events.map((e) => e.type),
+    [
+      "pageview",
+      "category",
+      "cataloguepage",
+      "productview",
+      "addtocart",
+      "cartopen",
+      "checkoutstart",
+    ],
+  );
+  assert.equal(events[1].detail, product.category);
+  assert.equal(events[2].detail, "2");
+  assert.ok(events.every((e) => !("customer" in e) && !("ip" in e)));
+  assert.equal(
+    (
+      await request("/api/events", {
+        method: "POST",
+        body: { type: "pageview", session: "bad" },
+        auth: false,
+      })
+    ).status,
+    400,
+  );
 });
 test("paramètres persistants et validation des liens/numéros", async () => {
   const initial = (await data("/api/admin/state")).settings;

@@ -92,3 +92,21 @@ au SHA-256 de leur photographie source. Le manifeste et `cutouts.js` enregistren
 les dimensions, recadrages et sommes de contrôle. Les modèles ne sont pas déployés.
 
 Le formulaire du panier exige le nom, la ville et le téléphone avant l’ouverture de WhatsApp. Le serveur valide et conserve ces coordonnées dans la demande privée ; les commandes antérieures restent accessibles sans coordonnées.
+
+### Visiteurs et parcours
+
+La rubrique **Visiteurs et activité** affiche les sessions anonymes de la période,
+les sessions actives dans les cinq dernières minutes, les appareils, la provenance
+indicative et les sessions ayant consulté un produit, ajouté au panier ou envoyé
+une demande. Les 100 sessions récentes permettent de consulter jusqu'à 200 actions
+par parcours : ouverture de la boutique, catégorie, page du catalogue, fiche produit,
+ajout, ouverture du panier, début du formulaire, demande enregistrée, rubrique et clic sur un réseau social ou Academy.
+
+Le navigateur renouvelle l'identifiant après 30 minutes sans action. Il s'agit de
+sessions, pas d'une identification des personnes. Aucun nom, téléphone, IP brute,
+URL de provenance complète ou contenu saisi n'est ajouté au journal d'activité.
+Les coordonnées de commande restent dans les demandes privées. Les événements
+sont conservés au maximum 90 jours et limités aux 50 000 dernières actions ; les
+comptes détaillés peuvent donc différer des anciens totaux agrégés. Le suivi ne
+reconstitue pas l'historique antérieur. Les données détaillées exigent une session
+administrateur et ne sont jamais retournées par `/api/store`.

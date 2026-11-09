@@ -1,11 +1,10 @@
-// Catalogue original et collection envoyée dans crochet.zip.
-// Les nouveaux noms et prix sont proposés à la demande du propriétaire.
+// Catalogue dédoublonné : une fiche par produit, plusieurs angles en galerie.
 export const products = [
   {
     id: "duo-poupees",
     name: "Duo de Poupées",
     category: "Poupées",
-    price: 350.0,
+    price: 350,
     image: "./assets/products/duo-poupees.jpeg",
     description:
       "Un adorable duo de poupées crochetées entièrement à la main. Une création délicate, douce et parfaite pour offrir.",
@@ -14,7 +13,7 @@ export const products = [
     id: "doudou-jaune",
     name: "Doudou Jaune",
     category: "Doudous",
-    price: 180.0,
+    price: 180,
     image: "./assets/products/doudou-jaune.jpeg",
     description:
       "Un petit doudou jaune doux et chaleureux, crocheté avec soin.",
@@ -27,7 +26,7 @@ export const products = [
     id: "lapin-fushia",
     name: "Lapin Fushia",
     category: "Lapins",
-    price: 240.0,
+    price: 240,
     image: "./assets/products/lapin-fushia.jpeg",
     description:
       "Un adorable lapin fushia crocheté à la main avec des finitions soignées.",
@@ -36,7 +35,7 @@ export const products = [
     id: "petit-ours",
     name: "Petit Ours",
     category: "Doudous",
-    price: 220.0,
+    price: 220,
     image: "./assets/products/petit-ours.jpeg",
     description: "Un petit ours crocheté à la main, doux et attachant.",
   },
@@ -44,7 +43,7 @@ export const products = [
     id: "poupee-beret",
     name: "Poupée Béret",
     category: "Poupées",
-    price: 290.0,
+    price: 290,
     image: "./assets/products/poupee-beret.jpeg",
     description: "Une élégante poupée crochetée à la main avec son joli béret.",
   },
@@ -52,7 +51,7 @@ export const products = [
     id: "poupee-rousse",
     name: "Poupée Rousse",
     category: "Poupées",
-    price: 240.0,
+    price: 240,
     image: "./assets/products/poupee-rousse.jpeg",
     description: "Une jolie poupée rousse réalisée entièrement à la main.",
   },
@@ -60,7 +59,7 @@ export const products = [
     id: "poupee-chapeau",
     name: "Poupée Chapeau",
     category: "Poupées",
-    price: 260.0,
+    price: 260,
     image: "./assets/products/poupee-chapeau.jpeg",
     description:
       "Une charmante poupée crochetée à la main avec un joli chapeau.",
@@ -69,7 +68,7 @@ export const products = [
     id: "lulu-bunny",
     name: "Lulu Bunny",
     category: "Lapins",
-    price: 250.0,
+    price: 250,
     image: "./assets/products/lulu-bunny.jpeg",
     description:
       "Lulu Bunny est un adorable petit lapin crocheté entièrement à la main.",
@@ -417,10 +416,13 @@ export const products = [
     name: "Coffret Ourson Sauge",
     category: "Coffrets",
     price: 470,
-    image: "./assets/products/collection/photo-035.png",
-    images: ["./assets/products/collection/photo-035.png"],
+    image: "./assets/products/collection/photo-069.png",
+    images: [
+      "./assets/products/collection/photo-069.png",
+      "./assets/products/collection/photo-035.png",
+    ],
     description:
-      "Un ourson gris en salopette verte, avec un anneau et une petite attache assortis.",
+      "Un ourson en salopette verte, accompagné de ses accessoires assortis. Les différentes vues du même coffret sont réunies ici.",
     priceSource: "suggested",
   },
   {
@@ -743,17 +745,6 @@ export const products = [
     priceSource: "suggested",
   },
   {
-    id: "coffret-ourson-pistache",
-    name: "Coffret Ourson Pistache",
-    category: "Coffrets",
-    price: 470,
-    image: "./assets/products/collection/photo-069.png",
-    images: ["./assets/products/collection/photo-069.png"],
-    description:
-      "Un ourson crème en salopette verte, accompagné de ses petits accessoires coordonnés.",
-    priceSource: "suggested",
-  },
-  {
     id: "poupee-prune-pistache",
     name: "Poupée Prune Pistache",
     category: "Poupées",
@@ -943,51 +934,14 @@ export const products = [
       "Une poupée aux longs cheveux noirs et à la robe jaune, décorée de petits pompons colorés.",
     priceSource: "suggested",
   },
-  {
-    id: "sac-petales-fuchsia",
-    name: "Sac Pétales Fuchsia",
-    category: "Sacs",
-    price: 255,
-    image: "./assets/products/collection/photo-030.png",
-    images: ["./assets/products/collection/photo-030.png"],
-    description:
-      "Le petit sac fleuri en version fuchsia, parmi les variantes de la collection présentées sur la photo.",
-    priceSource: "suggested",
-  },
-  {
-    id: "sac-petales-mandarine",
-    name: "Sac Pétales Mandarine",
-    category: "Sacs",
-    price: 260,
-    image: "./assets/products/collection/photo-030.png",
-    images: ["./assets/products/collection/photo-030.png"],
-    description:
-      "Le petit sac fleuri en version orange, parmi les variantes de la collection présentées sur la photo.",
-    priceSource: "suggested",
-  },
-  {
-    id: "sac-petales-prairie",
-    name: "Sac Pétales Prairie",
-    category: "Sacs",
-    price: 255,
-    image: "./assets/products/collection/photo-030.png",
-    images: ["./assets/products/collection/photo-030.png"],
-    description:
-      "Le petit sac fleuri en version vert, parmi les variantes de la collection présentées sur la photo.",
-    priceSource: "suggested",
-  },
-  {
-    id: "sac-petales-rosee",
-    name: "Sac Pétales Rosée",
-    category: "Sacs",
-    price: 250,
-    image: "./assets/products/collection/photo-030.png",
-    images: ["./assets/products/collection/photo-030.png"],
-    description:
-      "Le petit sac fleuri en version lilas, parmi les variantes de la collection présentées sur la photo.",
-    priceSource: "suggested",
-  },
 ];
+export const productAliases = {
+  "sac-petales-fuchsia": "sac-petales-azur",
+  "sac-petales-mandarine": "sac-petales-azur",
+  "sac-petales-prairie": "sac-petales-azur",
+  "sac-petales-rosee": "sac-petales-azur",
+  "coffret-ourson-pistache": "coffret-ourson-sauge",
+};
 export const shop = {
   name: "Hafssa Crochet",
   whatsapp: "212684207643",

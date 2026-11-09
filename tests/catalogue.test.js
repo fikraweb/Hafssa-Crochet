@@ -8,9 +8,18 @@ const root = new URL("../", import.meta.url);
 test("catalogue : produits distincts et chaque image de galerie disponible", async () => {
   const ids = new Set();
   const names = new Set();
+  const coverHashes = new Set();
   for (const product of products) {
     assert.ok(!ids.has(product.id), `Identifiant dupliqué : ${product.id}`);
     assert.ok(!names.has(product.name), `Nom dupliqué : ${product.name}`);
+    const coverHash = createHash("sha256")
+      .update(await readFile(new URL(product.image, root)))
+      .digest("hex");
+    assert.ok(
+      !coverHashes.has(coverHash),
+      `Photo de couverture répétée : ${product.name}`,
+    );
+    coverHashes.add(coverHash);
     ids.add(product.id);
     names.add(product.name);
     assert.ok(Number.isFinite(product.price) && product.price > 0);

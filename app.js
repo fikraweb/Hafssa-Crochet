@@ -1,13 +1,19 @@
-import { products, shop } from "./catalogue.js";
+import { products, shop, productAliases } from "./catalogue.js";
 import { total, orderMessage, whatsappUrl } from "./cart.js";
 const $ = (id) => document.getElementById(id);
 const money = (value) => `${new Intl.NumberFormat("fr-MA").format(value)} DH`;
 let cart = {};
 try {
   const saved = JSON.parse(localStorage.getItem("hafssa-cart") || "{}");
-  for (const p of products)
-    if (Number.isInteger(saved[p.id]) && saved[p.id] > 0)
-      cart[p.id] = Math.min(saved[p.id], 99);
+  for (const [id, quantity] of Object.entries(saved || {})) {
+    const target = productAliases[id] || id;
+    if (
+      products.some((p) => p.id === target) &&
+      Number.isInteger(quantity) &&
+      quantity > 0
+    )
+      cart[target] = Math.min((cart[target] || 0) + quantity, 99);
+  }
 } catch {}
 let category = "Tout";
 const pageSize = 12;

@@ -149,3 +149,15 @@ for (const button of document.querySelectorAll("[data-magnetic]")) {
   reducedMotion.addEventListener("change", reset);
   motionButton.addEventListener("click", reset);
 }
+
+// Measured sticky offsets also follow wrapped category rows on small screens.
+if ("ResizeObserver" in window) {
+  const filtersBar = document.querySelector(".catalogue-tools");
+  const offsets = new ResizeObserver(() =>
+    root.style.setProperty(
+      "--filters-height",
+      `${filtersBar.getBoundingClientRect().height}px`,
+    ),
+  );
+  offsets.observe(filtersBar);
+}

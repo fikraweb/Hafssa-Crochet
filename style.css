@@ -1,14 +1,14 @@
 :root {
   --cream: #f8f5ee;
   --paper: #eee9df;
-  --ink: #263f35;
-  --forest: #183c34;
-  --deep: #102b25;
+  --ink: #593d56;
+  --forest: #3c1f35;
+  --deep: #2b1626;
   --rose: #b46e7d;
   --pink: #edd8d5;
   --gold: #d8c49b;
   --line: #dcdcd1;
-  --muted: #75796e;
+  --muted: #796e76;
   --serif: Georgia, "Times New Roman", serif;
   --sans: Arial, Helvetica, sans-serif;
 }
@@ -223,8 +223,8 @@ svg {
   inset: 0;
   z-index: -2;
   background:
-    radial-gradient(ellipse at 72% 38%, #4a675343 0, transparent 55%),
-    linear-gradient(110deg, #102e28 0%, #1e4336 60%, #294a3c 100%);
+    radial-gradient(ellipse at 72% 38%, #674a6043 0, transparent 55%),
+    linear-gradient(110deg, #2e1828 0%, #43233b 60%, #4a2942 100%);
 }
 .hero-grain {
   position: absolute;
@@ -316,9 +316,9 @@ svg {
   line-height: 1;
 }
 .button:hover {
-  background: #315348;
+  background: #53314a;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px #0b251315;
+  box-shadow: 0 8px 24px #25132115;
 }
 .button-light {
   background: #eee7d8;
@@ -337,7 +337,7 @@ svg {
 }
 .hero-secondary {
   font-size: 10px;
-  border-bottom: 1px solid #a1b2a35c;
+  border-bottom: 1px solid #b2a1ae5c;
   padding-bottom: 4px;
 }
 .hero-note {
@@ -345,13 +345,13 @@ svg {
   align-items: center;
   gap: 12px;
   font-size: 9px;
-  color: #a8b8a5;
+  color: #b8a5b3;
   margin-top: 39px;
 }
 .note-line {
   width: 27px;
   height: 1px;
-  background: #809581;
+  background: #958090;
 }
 .hero-stage {
   position: relative;
@@ -371,7 +371,7 @@ svg {
   position: absolute;
   background: #eee8db;
   padding: 10px;
-  box-shadow: 10px 40px 65px #041e2360;
+  box-shadow: 10px 40px 65px #23121f60;
   transform-style: flat;
 }
 .card-main {
@@ -392,8 +392,8 @@ svg {
   content: "";
   position: absolute;
   inset: 0;
-  box-shadow: inset 0 0 40px #2d3b1915;
-  background: linear-gradient(160deg, #ffeac70d, transparent 45%, #2b302523);
+  box-shadow: inset 0 0 40px #3b1f3415;
+  background: linear-gradient(160deg, #ffeac70d, transparent 45%, #30252d23);
 }
 .photo-window img {
   width: 100%;
@@ -468,7 +468,7 @@ svg {
   z-index: 3;
 }
 .scene-tag em {
-  color: #c3cdb5;
+  color: #cdb5c7;
   font-size: 13px;
 }
 .tag-dot {
@@ -495,7 +495,7 @@ svg {
   justify-content: center;
   gap: 7px;
   transform: translateZ(100px) rotate(12deg);
-  box-shadow: 0 8px 30px #082c1d22;
+  box-shadow: 0 8px 30px #2c172722;
   z-index: 3;
 }
 .handmade-seal > span:not(.seal-flower) {
@@ -531,7 +531,7 @@ svg {
   );
   box-shadow:
     inset -9px -8px 18px #3e252744,
-    10px 25px 40px #061e1d4a;
+    10px 25px 40px #1e101a4a;
 }
 .yarn-ring {
   position: absolute;
@@ -573,7 +573,7 @@ svg {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  color: #aebba7;
+  color: #bba7b6;
   font-size: 8px;
   letter-spacing: 1.5px;
 }
@@ -587,7 +587,7 @@ svg {
   place-items: center;
   width: 28px;
   height: 28px;
-  border: 1px solid #9aad9450;
+  border: 1px solid #ad94a750;
   border-radius: 50%;
   font-size: 13px;
 }
@@ -745,7 +745,7 @@ h2 {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #7e8275;
+  color: #82757f;
 }
 .search input {
   width: 150px;
@@ -910,7 +910,7 @@ h2 {
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  border-bottom: 1px solid #9aab935c;
+  border-bottom: 1px solid #ab93a55c;
   padding-bottom: 8px;
   transition: color 0.2s;
 }
@@ -966,7 +966,7 @@ h2 {
   width: 40%;
   border: 7px solid #e9e7dc;
   transform: rotate(7deg);
-  box-shadow: 0 12px 28px #273d2b1a;
+  box-shadow: 0 12px 28px #3d27381a;
 }
 .story-inset img {
   aspect-ratio: 4/5;
@@ -990,7 +990,7 @@ h2 {
 .story-copy > p {
   font-size: 12px;
   line-height: 1.9;
-  color: #6c7466;
+  color: #746670;
   margin-bottom: 17px;
   max-width: 390px;
 }
@@ -1117,7 +1117,7 @@ h2 {
   color: #dfb0b5;
 }
 .contact p {
-  color: #bbc8b7;
+  color: #c8b7c4;
   font-size: 12px;
   margin-bottom: 27px;
   line-height: 1.9;
@@ -1126,7 +1126,7 @@ h2 {
   display: block;
   font-size: 10px;
   letter-spacing: 2px;
-  color: #b9c8b4;
+  color: #c8b4c3;
   margin-top: 18px;
 }
 .contact-orbit {
@@ -1142,7 +1142,7 @@ h2 {
   left: 8%;
   bottom: 40px;
   font-size: 160px;
-  color: #7d90703b;
+  color: #9070883b;
   line-height: 1;
   transform: rotate(-15deg);
 }
@@ -1164,7 +1164,7 @@ footer {
 }
 .footer-top > span {
   font: italic 20px/1.5 var(--serif);
-  color: #737d69;
+  color: #7d6978;
 }
 .footer-top > div {
   display: flex;
@@ -1188,10 +1188,10 @@ dialog {
   max-width: 94vw;
   max-height: 90dvh;
   overscroll-behavior: contain;
-  box-shadow: 0 20px 90px #0e25194d;
+  box-shadow: 0 20px 90px #2513214d;
 }
 dialog::backdrop {
-  background: #102b2599;
+  background: #2b162699;
   backdrop-filter: blur(6px);
 }
 #cart-dialog {
@@ -1321,7 +1321,7 @@ dialog::backdrop {
   color: var(--forest);
   padding: 14px 25px;
   border: 1px solid var(--line);
-  box-shadow: 0 4px 22px #213c2d20;
+  box-shadow: 0 4px 22px #3c213520;
   font-size: 11px;
   opacity: 0;
   pointer-events: none;
@@ -1557,7 +1557,7 @@ dialog::backdrop {
     flex-direction: column;
     gap: 22px;
     border-bottom: 1px solid var(--line);
-    box-shadow: 0 15px 25px #132c2510;
+    box-shadow: 0 15px 25px #2c172710;
   }
   .header nav.is-open {
     display: flex;
@@ -3872,5 +3872,249 @@ html {
   .product h3 {
     font-size: 22px;
     min-height: 103px;
+  }
+}
+
+/* Fixed top navigation, scrolling catalogue filters, and a consistent rose palette. */
+:root {
+  --header-height: 78px;
+  --ink: #593d56;
+  --forest: #875274;
+  --deep: #56354c;
+  --muted: #897384;
+  --paper: #f4e7ef;
+  --line: #e6d3df;
+}
+body {
+  padding-top: var(--header-height);
+}
+html {
+  scroll-padding-top: calc(var(--header-height) + 18px);
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 70;
+}
+.announcement {
+  background: #9a6288;
+  color: #fff5fb;
+}
+.catalogue-tools {
+  position: sticky;
+  top: calc(var(--header-height) + 8px);
+  z-index: 45;
+  padding: 13px 15px;
+  border: 1px solid #e2b7cd;
+  border-radius: 20px;
+  background: #fff7fcf5;
+  box-shadow: 0 5px 22px #9c598718;
+  backdrop-filter: blur(16px);
+  gap: 13px;
+}
+.filters {
+  gap: 7px;
+}
+.filters button {
+  padding: 8px 13px;
+  border: 1px solid #d9afc6;
+  border-radius: 999px;
+  color: #8b5275;
+  background: #fffafd;
+  font-size: 11px;
+}
+.filters button:hover {
+  color: #754260;
+  background: #f5dfec;
+}
+.filters button.active {
+  border-color: #a35b86;
+  color: #fff9fd;
+  background: linear-gradient(125deg, #71385f, #aa5b8b);
+  box-shadow:
+    0 3px 0 #673451,
+    0 5px 12px #a85e8b22;
+}
+.search {
+  color: #986a86;
+}
+.search input {
+  font-size: 11px;
+  color: #714c68;
+}
+.sort-label {
+  border-color: #dfc0d1;
+}
+.sort-label select {
+  color: #855873;
+  font-size: 11px;
+}
+.product {
+  scroll-margin-top: calc(
+    var(--header-height) + var(--filters-height, 120px) + 24px
+  );
+}
+.contact {
+  background: #eee0eb;
+  color: #593d56;
+  padding: 85px 6%;
+  text-align: left;
+  min-height: 500px;
+}
+.contact:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    #f3e6f0f7 0%,
+    #f3e6f0d9 35%,
+    #f3e6f02b 65%,
+    transparent
+  );
+  pointer-events: none;
+}
+.contact-backdrop {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(78%, 900px);
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  object-position: right bottom;
+  mask-image: linear-gradient(90deg, transparent, #000 20%);
+  z-index: -2;
+}
+.contact-content {
+  max-width: 600px;
+}
+.contact .eyebrow {
+  color: #93667f;
+}
+.contact h2 {
+  color: #633e5e;
+  font-size: clamp(43px, 4.7vw, 65px);
+}
+.contact h2 em {
+  color: #a4517f;
+  font-family: "Dancing Script", Georgia, cursive;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.15em;
+}
+.contact p {
+  color: #775b70;
+}
+.contact .button-light {
+  background: linear-gradient(125deg, #71385f, #aa5b8b);
+  border-color: #9c5987;
+  color: #fff7fc;
+  box-shadow:
+    0 4px 0 #673451,
+    0 8px 22px #9c59872b;
+}
+.contact .button-light:hover {
+  background: #a35481;
+}
+.contact-number {
+  color: #875f7b;
+}
+.contact-orbit,
+.contact-flower {
+  display: none;
+}
+footer {
+  position: relative;
+  isolation: isolate;
+  background: #fbf0f7;
+}
+footer:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, #fff5fbf5, #fff5fbd9),
+    url("assets/contact-atelier-rose.png") center 65% / cover;
+}
+.footer-top > span,
+.footer-bottom {
+  color: #8a687f;
+}
+@media (max-width: 760px) {
+  :root {
+    --header-height: 112px;
+  }
+  .catalogue-tools {
+    top: calc(var(--header-height) + 5px);
+    padding: 11px 10px;
+    border-radius: 16px;
+    gap: 10px;
+  }
+  .filters {
+    gap: 5px;
+  }
+  .filters button {
+    font-size: 10px;
+    padding: 7px 11px;
+  }
+  .search input,
+  .sort-label select {
+    font-size: 10px;
+  }
+  .contact {
+    min-height: 650px;
+    padding: 45px 6% 340px;
+    text-align: center;
+  }
+  .contact h2 {
+    font-size: 40px;
+  }
+  .contact p {
+    font-size: 11px;
+  }
+  .contact:after {
+    background: linear-gradient(
+      180deg,
+      #f3e6f0 0%,
+      #f3e6f0f0 40%,
+      #f3e6f02b 65%,
+      transparent 80%
+    );
+  }
+  .contact-backdrop {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: 72% bottom;
+    mask-image: linear-gradient(180deg, transparent, #000 6%);
+  }
+}
+@media (max-width: 760px) {
+  .filters {
+    flex: 0 1 auto;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    padding: 3px 1px 7px;
+    scrollbar-width: thin;
+    scrollbar-color: #d4a2bd #fff6fb;
+  }
+  .filters button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 11px;
+    padding: 8px 13px;
+  }
+  .catalogue-tools {
+    gap: 7px;
   }
 }

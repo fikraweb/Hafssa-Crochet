@@ -4610,3 +4610,6 @@ footer:before {
 .social-icon:hover:not(:disabled), .social-icon:focus-visible { color: #fff7fc; background: #a55f8b; transform: translateY(-3px); }
 .social-icon:disabled { cursor: default; opacity: .65; }
 @media (prefers-reduced-motion: reduce) { .social-icon { transition: none; } }
+
+.academy-link { display: inline-flex; align-items: center; gap: 9px; color: #95527a; font-size: 12px; font-weight: 700; }
+.academy-link:hover { color: #683752; text-decoration: underline; text-underline-offset: 4px; }

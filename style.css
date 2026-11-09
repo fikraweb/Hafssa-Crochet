@@ -4598,3 +4598,7 @@ footer:before {
   .header .menu-toggle span:first-child:after { content: ""; position: absolute; inset: 7px 0 auto; height: 2px; background: currentColor; }
   .header .menu-toggle { gap: 12px; }
 }
+
+.footer-bottom { flex-wrap: wrap; gap: 15px; }
+.footer-bottom .dashboard-link { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 40px; padding: 9px 16px; border: 1px solid #d7adc5; border-radius: 999px; color: #fff7fc; background: linear-gradient(120deg,#7b4069,#ad6592); font-size: 12px; font-weight: 700; letter-spacing: 0; }
+.footer-bottom .dashboard-link:hover { background: #854d73; }

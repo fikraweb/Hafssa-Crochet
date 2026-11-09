@@ -4613,3 +4613,38 @@ footer:before {
 
 .academy-link { display: inline-flex; align-items: center; gap: 9px; color: #95527a; font-size: 12px; font-weight: 700; }
 .academy-link:hover { color: #683752; text-decoration: underline; text-underline-offset: 4px; }
+
+/* Fill the product detail's picture frame instead of floating a small photo inside it. */
+.product-gallery { padding: 0; justify-content: flex-start; }
+.product-gallery .gallery-main {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: auto;
+  min-height: 420px;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+}
+.product-gallery .gallery-main > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+}
+.product-gallery .product-image-caption { margin: 9px 12px; }
+.product-gallery .gallery-controls { margin: 4px 12px 0; }
+.product-gallery .product-thumbnails { padding: 10px 12px 13px; margin: 0; }
+@media (max-width: 760px) {
+  .product-gallery .gallery-main {
+    flex: none;
+    aspect-ratio: 4 / 5;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+}

@@ -4548,3 +4548,53 @@ footer:before {
 @media (prefers-reduced-motion: reduce) {
   .collection-stars > span { animation: none; opacity: .4; }
 }
+
+/* Portrait mobile hero inspired by the supplied pink boutique composition. */
+.atelier-photo-layer > picture { display: block; width: 100%; height: 100%; }
+.atelier-photo-layer > picture > img {
+  width: 100%; height: 100%; max-width: none;
+  object-fit: contain; object-position: right bottom;
+  transform-origin: 75% 65%;
+  animation: atelier-breathe 24s ease-in-out infinite;
+}
+@media (max-width: 760px) {
+  .hero {
+    min-height: calc(155vw + 80px);
+    padding: 24px 5.3% 0;
+    background: #f6dee8;
+  }
+  .hero-copy { width: 100%; max-width: none; padding: 0; margin: 0; }
+  .hero-stage { inset: 0; width: 100%; height: 100%; min-height: 0; mask-image: none; }
+  .hero-stage .atelier-photo-layer { transform: none; }
+  .atelier-photo-layer > picture > img {
+    position: absolute;
+    inset: auto 0 0;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center bottom;
+    mask-image: linear-gradient(180deg, transparent 0%, #000 22%);
+    animation: none;
+  }
+  .hero-halo { background: linear-gradient(180deg, #f8e5eddb 0%, #f8e5edbb 30%, #f8e5ed55 43%, transparent 57%); }
+  .hero-edition { padding: 7px 11px; font-size: clamp(6px, 1.65vw, 10px); letter-spacing: .8px; background: #fff4fa66; border-color: #ce9fba; }
+  .hero-edition .little-star { display: inline-flex; }
+  .hero h1 { margin: 19px 0 17px; }
+  .hero-title-lead { font-size: clamp(41px, 11.8vw, 80px); line-height: 1.08; letter-spacing: -.5px; }
+  .hero-title-tail { font-size: clamp(27px, 7vw, 47px); gap: 7px; }
+  .hero h1 .hero-title-tail em { font-size: clamp(48px, 13.5vw, 88px); margin-left: 0; }
+  .title-heart { display: block; width: 30px; height: 30px; right: -40px; top: -1px; }
+  .hero-copy > p, .hero-copy > p.live-description { max-width: 90%; font: italic clamp(12px, 3.35vw, 21px)/1.55 var(--serif); margin: 18px 0; color: #633d57; }
+  .hero-buttons { display: flex; flex-wrap: nowrap; align-items: stretch; gap: 9px; }
+  .hero .magic-button, .hero .magic-secondary { min-height: 43px; padding: 10px 11px; gap: 7px; font-size: clamp(8px, 2.35vw, 14px); justify-content: center; }
+  .hero .magic-primary { flex: 1.15; }
+  .hero .magic-secondary { flex: 1; }
+  .hero .magic-arrow { width: 24px; height: 24px; }
+  .hero .magic-arrow svg { width: 13px; height: 13px; }
+  .hero .button-heart { width: 15px; height: 15px; }
+  .hero-note, .hero-bottom { display: none; }
+  .header .menu-toggle span { position: relative; }
+  .header .menu-toggle span:first-child:after { content: ""; position: absolute; inset: 7px 0 auto; height: 2px; background: currentColor; }
+  .header .menu-toggle { gap: 12px; }
+}

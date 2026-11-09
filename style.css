@@ -4403,3 +4403,54 @@ footer:before {
   height: 100%;
   object-fit: contain;
 }
+
+/* An editorial atelier poster between the welcome scene and the catalogue. */
+.atelier-offer { padding-top: 54px; padding-bottom: 54px; }
+.atelier-poster {
+  display: grid;
+  grid-template-columns: .95fr 1.25fr;
+  overflow: hidden;
+  border: 1px solid #e0bed0;
+  border-radius: 28px;
+  background: #faedf4;
+  box-shadow: 0 15px 45px #80456b12;
+}
+.atelier-poster-copy {
+  padding: clamp(28px, 3.8vw, 58px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: radial-gradient(ellipse at top left, #fffafc, transparent 75%);
+}
+.atelier-poster-label { color: #9a527f; font-size: 9px; letter-spacing: 2.2px; font-weight: 700; }
+.atelier-poster h2 { margin-top: 23px; color: #633c58; font: 400 clamp(35px, 3.4vw, 50px)/1.08 var(--serif); letter-spacing: -1.5px; }
+.atelier-poster h2 em { font-family: "Dancing Script", cursive; font-size: 1.25em; color: #b15a8b; }
+.atelier-poster-promise { margin-top: 24px; color: #764360; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.45; font-weight: 700; }
+.atelier-poster-promise span { color: #af5c88; }
+.atelier-poster-description { margin-top: 14px; max-width: 330px; color: #866b7c; font-size: 12px; line-height: 1.85; }
+.atelier-poster-cta { display: inline-flex; align-items: center; gap: 24px; padding: 13px 20px; margin-top: 24px; border-radius: 999px; background: linear-gradient(115deg,#784067,#a75f8c); color: #fff8fc; font-size: 12px; font-weight: 700; box-shadow: 0 5px 18px #85436c20; transition: transform .2s, box-shadow .2s; }
+.atelier-poster-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 22px #85436c38; }
+.atelier-poster-cta span { font-size: 21px; line-height: 1; }
+.atelier-poster-signature { margin-top: 22px; color: #9c7b8d; font-size: 9px; }
+.atelier-poster-scene { position: relative; min-width: 0; min-height: 540px; }
+.atelier-poster-scene > img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: 68% center; }
+.atelier-poster-seal { position: absolute; top: 24px; right: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 96px; height: 96px; border: 1px solid #f7dce7; outline: 4px solid #fff4fa50; border-radius: 50%; background: #fff6f0eb; color: #8e5175; font: 700 12px/1.5 var(--sans); transform: rotate(10deg); box-shadow: 0 4px 20px #67394c15; }
+.atelier-poster-seal span:first-child { font-family: "Dancing Script", cursive; font-size: 18px; font-weight: 400; }
+.atelier-poster-seal span:last-child { font-size: 21px; color: #bb7c99; }
+.atelier-poster-caption { position: absolute; inset: auto 0 0; padding: 65px 28px 25px; background: linear-gradient(transparent,#43253bd9); color: #fff6ed; }
+.atelier-poster-caption > span { display: block; font-size: 8px; letter-spacing: 2px; }
+.atelier-poster-caption strong { display: block; margin-top: 6px; font: 400 28px/1.2 "Dancing Script", cursive; }
+@media (max-width: 760px) {
+  .atelier-offer { padding-top: 30px; padding-bottom: 30px; }
+  .atelier-poster { grid-template-columns: 1fr; border-radius: 22px; }
+  .atelier-poster-copy { padding: 30px 26px; }
+  .atelier-poster h2 { font-size: 38px; margin-top: 18px; }
+  .atelier-poster-promise { margin-top: 20px; font-size: 20px; }
+  .atelier-poster-scene { min-height: 340px; }
+  .atelier-poster-scene > img { object-position: 66% center; }
+  .atelier-poster-seal { width: 80px; height: 80px; top: 18px; right: 18px; font-size: 10px; }
+  .atelier-poster-seal span:first-child { font-size: 16px; }
+  .atelier-poster-label { font-size: 8px; letter-spacing: 1.5px; }
+}
+@media (prefers-reduced-motion: reduce) { .atelier-poster-cta { transition: none; } }

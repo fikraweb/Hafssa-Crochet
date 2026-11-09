@@ -1,6 +1,6 @@
 # Hafssa Crochet
 
-Boutique de crochet sur Cloudflare Workers, avec catalogue, panier WhatsApp et administration privée sur `/admin/`. La palette rose et mauve, la navigation fixe et les galeries conservent les photos originales des produits.
+Boutique de crochet sur Cloudflare Workers, avec catalogue, panier WhatsApp et administration privée sur `/admin/`. La palette rose et mauve, la navigation mobile en menu latéral et les galeries conservent les photos originales des produits.
 
 ## Développement
 
@@ -43,7 +43,7 @@ Le déploiement doit utiliser Workers ; un hébergement Pages purement statique 
 Ouvrir `/admin/` pour accéder à :
 
 - Vue d’ensemble sur 7, 30 ou 90 jours : pages vues, sessions de navigation mesurées par jour, ouvertures de contact WhatsApp, ajouts au panier, demandes et montant des ventes marquées terminées. Les graphiques et les fiches populaires proviennent d’événements réellement enregistrés ; aucun historique antérieur au suivi n’est reconstitué.
-- Demandes WhatsApp : référence, date, articles, quantités, prix au moment de la demande, montant hors livraison, statut et note privée. Les 200 demandes les plus récentes sont affichées ; l’export CSV contient la sélection affichée. Une demande WhatsApp n’est pas une commande payée : la validation et le paiement restent manuels.
+- Demandes WhatsApp : référence, date, nom, ville et téléphone du client, articles, quantités, prix au moment de la demande, montant hors livraison, statut et note privée. Les 200 demandes les plus récentes sont affichées ; l’export CSV contient la sélection affichée. Une demande WhatsApp n’est pas une commande payée : la validation et le paiement restent manuels.
 - Créations : recherche, pagination, modification des noms, descriptions, catégories, prix et visibilité ; ajout de créations et import JPEG/PNG/WebP de 1 Mo maximum. Les images ne sont pas recompressées. La réimportation d’une photo connue réutilise son identité pour éviter les annonces actives en double. Pour retirer une fiche, la masquer permet de conserver l’historique des demandes.
 - Paramètres : nom, numéro WhatsApp, lien Instagram, texte du bandeau, présentation du hero et message de livraison. Les modifications enregistrées sont utilisées à l’ouverture suivante de la boutique, sans nouveau déploiement.
 
@@ -88,3 +88,5 @@ jusqu'à 32 Go de RAM pour les deux processus. Définir `U2NET_HOME` pour change
 le dossier de modèles. Les masques relus dans `scripts/cutout-masks/` sont liés
 au SHA-256 de leur photographie source. Le manifeste et `cutouts.js` enregistrent
 les dimensions, recadrages et sommes de contrôle. Les modèles ne sont pas déployés.
+
+Le formulaire du panier exige le nom, la ville et le téléphone avant l’ouverture de WhatsApp. Le serveur valide et conserve ces coordonnées dans la demande privée ; les commandes antérieures restent accessibles sans coordonnées.

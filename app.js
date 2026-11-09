@@ -46,18 +46,13 @@ function el(tag, text, className) {
   if (className) node.className = className;
   return node;
 }
+function scrollToProducts() {
+  const grid = $("products");
+  const toolsHeight = document.querySelector(".catalogue-tools").getBoundingClientRect().height;
+  window.scrollTo({ top: grid.getBoundingClientRect().top + window.scrollY - toolsHeight - 24, behavior: "instant" });
+}
 function renderProducts() {
-  const query = $("search").value.trim().toLocaleLowerCase("fr");
-  const filtered = products.filter(
-    (p) =>
-      (category === "Tout" || p.category === category) &&
-      `${p.name} ${p.description} ${p.category}`
-        .toLocaleLowerCase("fr")
-        .includes(query),
-  );
-  const sort = $("sort").value;
-  if (sort === "price-asc") filtered.sort((a, b) => a.price - b.price);
-  if (sort === "price-desc") filtered.sort((a, b) => b.price - a.price);
+  const filtered = products.filter(p => category === "Tout" || p.category === category);
   $("products").replaceChildren();
   $("empty").hidden = filtered.length > 0;
   const pageCount = Math.ceil(filtered.length / pageSize);
@@ -80,10 +75,7 @@ function renderProducts() {
       currentPage = page;
       renderProducts();
       pagination.querySelector('[aria-current="page"]')?.focus({ preventScroll: true });
-      document.querySelector(".catalogue-tools").scrollIntoView({
-        block: "start",
-        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
-      });
+      scrollToProducts();
     };
     pagination.append(button);
     return button;
@@ -277,6 +269,7 @@ function renderCart() {
   if (!count)
     $("cart-items").append(el("p", "Votre panier attend vos coups de cœur."));
   $("cart-count").textContent = String(count);
+  $("floating-cart-count").textContent = String(count);
   $("cart-total").textContent = money(total(cart, products));
   $("checkout").disabled = count === 0;
 }
@@ -291,17 +284,12 @@ for (const name of ["Tout", ...new Set(products.map((p) => p.category))]) {
       b.setAttribute("aria-pressed", String(b === button));
     }
     renderProducts();
+    scrollToProducts();
   };
   $("filters").append(button);
 }
-function resetProducts() {
-  currentPage = 1;
-  renderProducts();
-}
-$("search").addEventListener("input", resetProducts);
-$("sort").addEventListener("change", resetProducts);
 $("product-close").onclick = () => $("product-dialog").close();
-$("cart-open").onclick = () => $("cart-dialog").showModal();
+$("cart-open").onclick = $("floating-cart").onclick = () => $("cart-dialog").showModal();
 $("cart-close").onclick = () => $("cart-dialog").close();
 $("cart-dialog").addEventListener("click", (e) => {
   if (e.target === $("cart-dialog")) {
@@ -315,13 +303,27 @@ $("cart-dialog").addEventListener("click", (e) => {
       e.target.close();
   }
 });
-$("checkout").onclick = () => {
+$("checkout-form").onsubmit = (event) => {
+  event.preventDefault();
+  if (!$("checkout-form").reportValidity()) return;
+  const customer = {
+    name: $("customer-name").value.trim(),
+    city: $("customer-city").value.trim(),
+    phone: $("customer-phone").value.trim(),
+  };
+  if (customer.name.length < 2 || customer.city.length < 2 || !/^[+0-9 ()-]{8,24}$/.test(customer.phone) || customer.phone.replace(/\D/g, "").length < 8) {
+    toast("Merci de renseigner votre nom, votre ville et un téléphone valide.");
+    return;
+  }
   if (!Object.keys(cart).length) return;
+  const customerKey = JSON.stringify(customer);
+  if (customerKey !== $("checkout-form").dataset.customer) checkoutId = null;
+  $("checkout-form").dataset.customer = customerKey;
   checkoutId ||= crypto.randomUUID();
-  recordOrder(checkoutId, cart);
+  recordOrder(checkoutId, cart, customer);
   const reference = "HC-" + checkoutId.slice(0, 8).toUpperCase();
   window.open(
-    whatsappUrl(shop.whatsapp, `${reference}\n${orderMessage(cart, products)}`),
+    whatsappUrl(shop.whatsapp, `${reference}\n${orderMessage(cart, products)}\n\nNom : ${customer.name}\nVille : ${customer.city}\nTéléphone : ${customer.phone}`),
     "_blank",
     "noopener,noreferrer",
   );

@@ -249,7 +249,7 @@ function filteredOrders() {
   return state.orders.filter(
     (o) =>
       (filter === "all" || o.status === filter) &&
-      `${o.reference} ${o.items.map((i) => i.name).join(" ")}`
+      `${o.reference} ${o.customer?.name || ""} ${o.customer?.city || ""} ${o.customer?.phone || ""} ${o.items.map((i) => i.name).join(" ")}`
         .toLocaleLowerCase("fr")
         .includes(query),
   );
@@ -263,6 +263,9 @@ function openOrder(order) {
   editingOrder = order;
   $("order-title").textContent = order.reference;
   $("order-details").replaceChildren(el("p", date(order.created), "muted"));
+  if (order.customer?.name) {
+    $("order-details").append(el("p", `Client : ${order.customer.name}`), el("p", `Ville : ${order.customer.city}`), el("p", `Téléphone : ${order.customer.phone}`));
+  }
   for (const item of order.items) {
     const row = el("div", null, "order-line");
     row.append(
@@ -303,10 +306,13 @@ $("order-form").onsubmit = async (event) => {
 };
 $("export-orders").onclick = () => {
   const rows = [
-    ["Référence", "Date", "Statut", "Créations", "Montant DH", "Note privée"],
+    ["Référence", "Date", "Client", "Ville", "Téléphone", "Statut", "Créations", "Montant DH", "Note privée"],
     ...filteredOrders().map((o) => [
       o.reference,
       date(o.created),
+      o.customer?.name || "",
+      o.customer?.city || "",
+      o.customer?.phone || "",
       labels[o.status],
       o.items.map((i) => `${i.name} × ${i.quantity}`).join(" / "),
       o.total,

@@ -33,12 +33,12 @@ export function track(type, productId) {
       keepalive: true,
     }).catch(() => {});
 }
-export function recordOrder(requestId, items) {
+export function recordOrder(requestId, items, customer) {
   if (available)
     fetch("/api/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ requestId, items }),
+      body: JSON.stringify({ requestId, items, customer }),
       keepalive: true,
     }).catch(() => {});
 }

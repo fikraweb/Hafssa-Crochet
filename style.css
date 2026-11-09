@@ -4500,3 +4500,12 @@ footer:before {
   .header .menu-toggle { width: 38px; height: 38px; }
   .header .nav-bag { padding: 6px; gap: 4px; }
 }
+
+.floating-cart { position: fixed; right: 18px; bottom: max(24px, env(safe-area-inset-bottom)); z-index: 90; display: flex; align-items: center; justify-content: center; width: 58px; height: 58px; border: 1px solid #d9acc5; border-radius: 50%; background: linear-gradient(125deg,#784067,#ae6591); color: #fff7fc; box-shadow: 0 5px 24px #65334e40; }
+.floating-cart > span { position: absolute; right: -3px; top: -5px; min-width: 23px; height: 23px; border-radius: 50%; background: #fff2fa; color: #89496f; font-size: 11px; font-weight: 700; border: 1px solid #d5a6c0; }
+.checkout-form { display: grid; gap: 12px; margin-top: 20px; }
+.checkout-form h3 { color: #875274; font-size: 18px; }
+.checkout-form label { display: grid; gap: 5px; color: #875274; font-size: 12px; }
+.checkout-form input { width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid #d9b2c8; border-radius: 10px; background: #fffafd; color: #593d56; }
+.checkout-form .button { width: 100%; }
+.catalogue-tools { justify-content: center; }

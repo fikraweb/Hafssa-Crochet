@@ -32,7 +32,7 @@
         href="https://www.instagram.com/hafssacrochet/"
         target="_blank"
         rel="noopener noreferrer"
-        >Le journal de l’atelier
+        >Instagram
         <svg
           class="arrow"
           viewBox="0 0 24 24"
@@ -348,33 +348,6 @@
             role="group"
             aria-label="Catégories"
           ></div>
-          <div class="catalogue-controls">
-            <label class="search"
-              ><svg
-                width="17"
-                height="17"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.4"
-                aria-hidden="true"
-              >
-                <circle cx="10" cy="10" r="6" />
-                <path d="m15 15 5 5" /></svg
-              ><input
-                id="search"
-                type="search"
-                placeholder="Trouver une création…"
-                aria-label="Rechercher une création" /></label
-            ><label class="sort-label"
-              ><span class="sr-only">Trier les créations</span
-              ><select id="sort" aria-label="Trier les créations">
-                <option value="featured">Notre sélection</option>
-                <option value="price-asc">Prix croissant</option>
-                <option value="price-desc">Prix décroissant</option>
-              </select></label
-            >
-          </div>
         </div>
         <p id="catalogue-status" class="catalogue-status" role="status"></p>
         <div id="products" class="products"></div>
@@ -516,55 +489,6 @@
           </p>
         </div>
       </section>
-      <section class="instagram-section section reveal">
-        <div>
-          <span class="eyebrow">LE JOURNAL DE L’ATELIER</span>
-          <h2>Un peu plus près<br /><em>des petites mailles.</em></h2>
-          <a
-            class="text-link"
-            href="https://www.instagram.com/hafssacrochet/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >@hafssacrochet
-            <span
-              ><svg
-                class="arrow"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.4"
-                aria-hidden="true"
-              >
-                <path d="M5 19 19 5M5 5h14v14" /></svg></span
-          ></a>
-        </div>
-        <div class="instagram-gallery">
-          <img
-            src="assets/products/duo-poupees.jpeg"
-            alt="Duo de Poupées de la collection Hafssa"
-            width="350"
-            height="440"
-            loading="lazy"
-          /><img
-            src="assets/products/doudou-jaune.jpeg"
-            alt="Doudou Jaune de la collection Hafssa"
-            width="350"
-            height="440"
-            loading="lazy"
-          /><span class="gallery-star" aria-hidden="true"
-            ><svg
-              class="asterisk"
-              viewBox="0 0 40 40"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
-              aria-hidden="true"
-            >
-              <path d="M20 3v34M3 20h34M8 8l24 24M8 32 32 8" /></svg
-          ></span>
-        </div>
-      </section>
       <section class="contact" id="contact">
         <img
           class="contact-backdrop"
@@ -656,6 +580,10 @@
         ><a href="#">Retour en haut ↑</a>
       </div>
     </footer>
+    <button id="floating-cart" class="floating-cart" type="button" aria-label="Ouvrir le panier">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+      <span id="floating-cart-count">0</span>
+    </button>
     <dialog id="cart-dialog" aria-labelledby="cart-title">
       <div class="cart-head">
         <div>
@@ -679,7 +607,12 @@
           La disponibilité et les frais de livraison seront confirmés sur
           WhatsApp. Aucun paiement n’est effectué sur ce site.
         </p>
-        <button class="button" id="checkout">
+        <form id="checkout-form" class="checkout-form">
+          <h3>Vos coordonnées</h3>
+          <label>Nom complet<input id="customer-name" name="name" autocomplete="name" required minlength="2" maxlength="100" /></label>
+          <label>Ville<input id="customer-city" name="city" autocomplete="address-level2" required minlength="2" maxlength="100" /></label>
+          <label>Téléphone<input id="customer-phone" name="phone" type="tel" autocomplete="tel" required pattern="[+0-9 \(\)\-]{8,24}" maxlength="24" placeholder="06 12 34 56 78" /></label>
+          <button class="button" id="checkout" type="submit">
           Commander sur WhatsApp
           <span
             ><svg
@@ -693,6 +626,7 @@
               <path d="M5 19 19 5M5 5h14v14" /></svg
           ></span>
         </button>
+        </form>
       </div>
     </dialog>
     <dialog id="product-dialog" aria-labelledby="product-title">

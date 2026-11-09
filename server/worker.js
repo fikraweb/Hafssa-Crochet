@@ -99,6 +99,8 @@ export class ShopStore {
    CREATE TABLE IF NOT EXISTS product_metrics (day TEXT NOT NULL,id TEXT NOT NULL,views INTEGER NOT NULL DEFAULT 0,adds INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(day,id));
    CREATE TABLE IF NOT EXISTS orders (id TEXT PRIMARY KEY,reference TEXT NOT NULL,created TEXT NOT NULL,day TEXT NOT NULL,items TEXT NOT NULL,total INTEGER NOT NULL,status TEXT NOT NULL DEFAULT 'requested',note TEXT NOT NULL DEFAULT '');
    CREATE TABLE IF NOT EXISTS media (id TEXT PRIMARY KEY,type TEXT NOT NULL,data BLOB NOT NULL);`);
+    if (!this.sql.exec("PRAGMA table_info(orders)").toArray().some(column => column.name === "customer"))
+      this.sql.exec("ALTER TABLE orders ADD COLUMN customer TEXT NOT NULL DEFAULT '{}'");
   }
   one(query, ...args) {
     return this.sql.exec(query, ...args).toArray()[0];
@@ -365,6 +367,10 @@ export class ShopStore {
           Array.isArray(data.items)
         )
           return json({ error: "Demande invalide." }, 400);
+        const customer = data.customer;
+        if (!customer || typeof customer.name !== "string" || typeof customer.city !== "string" || typeof customer.phone !== "string" || customer.name.trim().length < 2 || customer.name.length > 100 || customer.city.trim().length < 2 || customer.city.length > 100 || !/^[+0-9 ()-]{8,24}$/.test(customer.phone) || customer.phone.replace(/\D/g, "").length < 8)
+          return json({ error: "Nom, ville et téléphone valides obligatoires." }, 400);
+        const contact = { name: customer.name.trim(), city: customer.city.trim(), phone: customer.phone.trim() };
         const previous = this.one(
           "SELECT reference FROM orders WHERE id=?",
           data.requestId,
@@ -390,13 +396,14 @@ export class ShopStore {
         }
         const reference = "HC-" + data.requestId.slice(0, 8).toUpperCase();
         this.sql.exec(
-          "INSERT INTO orders(id,reference,created,day,items,total) VALUES (?,?,?,?,?,?)",
+          "INSERT INTO orders(id,reference,created,day,items,total,customer) VALUES (?,?,?,?,?,?,?)",
           data.requestId,
           reference,
           new Date().toISOString(),
           dayKey(),
           JSON.stringify(items),
           total,
+          JSON.stringify(contact),
         );
         return json({ reference }, 201);
       }
@@ -419,6 +426,7 @@ export class ShopStore {
             ...o,
             total: o.total / 100,
             items: JSON.parse(o.items),
+            customer: JSON.parse(o.customer),
           }));
         const orderSummary = this.one(
           "SELECT COUNT(*) as requests,COALESCE(SUM(CASE WHEN status='completed' THEN total ELSE 0 END),0) as revenue,SUM(CASE WHEN status='completed' THEN 1 ELSE 0 END) as completed FROM orders WHERE day>=?",

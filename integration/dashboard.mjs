@@ -98,7 +98,11 @@ test("statistiques réelles, commandes idempotentes, prix calculé côté serveu
       200,
     );
   const id = randomUUID();
-  const payload = { requestId: id, items: { [product.id]: 2 }, total: 1 };
+  const customer = { name: "Client test", city: "Rabat", phone: "0612345678" };
+  const payload = { requestId: id, items: { [product.id]: 2 }, total: 1, customer };
+  for (const invalid of [undefined, {}, {...customer, name: " "}, {...customer, phone: "invalid"}]) {
+    assert.equal((await request("/api/orders", {method: "POST", body: {...payload, requestId: randomUUID(), customer: invalid}, auth: false})).status, 400);
+  }
   const order = await data("/api/orders", {
     method: "POST",
     body: payload,
@@ -115,7 +119,7 @@ test("statistiques réelles, commandes idempotentes, prix calculé côté serveu
     (
       await request("/api/orders", {
         method: "POST",
-        body: { requestId: randomUUID(), items: { [product.id]: -1 } },
+        body: { requestId: randomUUID(), items: { [product.id]: -1 }, customer },
         auth: false,
       })
     ).status,
@@ -124,6 +128,7 @@ test("statistiques réelles, commandes idempotentes, prix calculé côté serveu
   const after = await data("/api/admin/state");
   const recorded = after.orders.find((o) => o.id === id);
   assert.equal(recorded.total, product.price * 2);
+  assert.deepEqual(recorded.customer, customer);
   assert.equal(after.orderSummary.requests, before.orderSummary.requests + 1);
   assert.ok(after.daily.reduce((n, d) => n + d.views, 0) >= 2);
   assert.ok(

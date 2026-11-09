@@ -2181,7 +2181,7 @@ html {
   scroll-padding-top: 102px;
 }
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   height: 78px;
   padding-inline: 4%;
@@ -3898,7 +3898,9 @@ html {
   right: 0;
   width: 100%;
   height: var(--header-height);
-  z-index: 70;
+  z-index: 100;
+  isolation: isolate;
+  transform: none;
 }
 .announcement {
   background: #9a6288;

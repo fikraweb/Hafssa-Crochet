@@ -79,28 +79,35 @@ if ("IntersectionObserver" in window) {
 }
 const menu = document.getElementById("main-nav");
 const menuButton = document.getElementById("menu-toggle");
+const menuDialog = document.getElementById("mobile-menu");
+const mobileNavigation = window.matchMedia("(max-width: 760px)");
 function closeMenu() {
-  menu.classList.remove("is-open");
+  if (menuDialog.open) menuDialog.close();
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Ouvrir le menu");
 }
+function placeMenu() {
+  closeMenu();
+  if (mobileNavigation.matches) menuDialog.append(menu);
+  else document.querySelector(".header").insertBefore(menu, document.querySelector(".header-actions"));
+}
+mobileNavigation.addEventListener("change", placeMenu);
+placeMenu();
 menuButton.addEventListener("click", () => {
-  const open = menu.classList.toggle("is-open");
-  menuButton.setAttribute("aria-expanded", String(open));
-  menuButton.setAttribute(
-    "aria-label",
-    open ? "Fermer le menu" : "Ouvrir le menu",
-  );
+  if (menuDialog.open) return closeMenu();
+  menuDialog.showModal();
+  menuButton.setAttribute("aria-expanded", "true");
+  menuButton.setAttribute("aria-label", "Fermer le menu");
 });
-menu
-  .querySelectorAll("a")
-  .forEach((link) => link.addEventListener("click", closeMenu));
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeMenu();
+document.getElementById("mobile-menu-close").addEventListener("click", closeMenu);
+menuDialog.addEventListener("close", closeMenu);
+menuDialog.addEventListener("cancel", closeMenu);
+menuDialog.addEventListener("click", (event) => {
+  if (event.target !== menuDialog) return;
+  const rect = menuDialog.getBoundingClientRect();
+  if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeMenu();
 });
-document.addEventListener("click", (event) => {
-  if (!event.target.closest(".header")) closeMenu();
-});
+menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
 updateMotion();
 
 // Keep the current section visible in the persistent navigation.

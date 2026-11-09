@@ -4455,82 +4455,48 @@ footer:before {
 }
 @media (prefers-reduced-motion: reduce) { .atelier-poster-cta { transition: none; } }
 
-/* On phones, keep the atelier beside the copy: dolls left, wording right. */
+/* Mobile navigation lives in a modal side drawer. Desktop navigation stays inline. */
+.mobile-menu {
+  position: fixed;
+  inset: 0 0 0 auto;
+  margin: 0;
+  width: min(86vw, 350px);
+  max-width: none;
+  height: 100dvh;
+  max-height: 100dvh;
+  padding: 28px 22px;
+  border: 0;
+  border-left: 1px solid #dfb8ce;
+  border-radius: 24px 0 0 24px;
+  color: #714360;
+  background: #fff5fb;
+  box-shadow: -15px 0 55px #59314c30;
+}
+.mobile-menu::backdrop { background: #41253588; backdrop-filter: blur(4px); }
+.mobile-menu-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.mobile-menu h2 { font: 32px/1.2 "Dancing Script", cursive; color: #a04d7c; }
+.mobile-menu-close { width: 42px; height: 42px; border: 1px solid #dbb4cb; border-radius: 50%; color: #95527a; background: #fffafd; font-size: 25px; }
+.mobile-menu > p { color: #94778a; font-size: 11px; margin-bottom: 32px; }
+.mobile-menu nav { display: flex; flex-direction: column; gap: 14px; }
+.mobile-menu nav a { display: flex; align-items: center; justify-content: space-between; padding: 17px 18px; border: 1px solid #c286a7; border-radius: 18px; background: linear-gradient(120deg,#7b4069,#ad6592); color: #fff7fc; font-size: 14px; font-weight: 700; box-shadow: 0 4px 0 #673451; }
+.mobile-menu nav a[aria-current="location"] { outline: 2px solid #cf98b7; outline-offset: 4px; }
+.mobile-menu .button-spark { display: none; }
+.mobile-menu .nav-arrow .arrow { width: 18px; height: 18px; }
 @media (max-width: 760px) {
-  .hero {
-    min-height: 410px;
-    padding: 26px 4% 55px;
-  }
-  .hero-copy {
-    position: relative;
-    width: 49%;
-    max-width: none;
-    margin-left: auto;
-    padding: 0;
-    z-index: 2;
-  }
-  .hero-stage {
-    inset: 26px auto 55px 4%;
-    width: 44%;
-    height: auto;
-    min-height: 0;
-    mask-image: none;
-  }
-  .hero-stage .atelier-photo-layer {
-    display: flex;
-    align-items: center;
-    transform: none;
-  }
-  .hero-stage .atelier-photo-layer > img {
-    width: 100%;
-    height: auto;
-    max-height: none;
-    aspect-ratio: 3 / 2;
-    flex-shrink: 0;
-    object-fit: contain;
-    object-position: center;
-    border-radius: 14px;
-    box-shadow: 0 8px 24px #75456420;
-    animation: none;
-    transform: none;
-  }
-  .hero-halo {
-    background: none;
-  }
-  .hero-edition {
-    width: auto;
-    max-width: 100%;
-    padding: 0;
-    border: 0;
-    background: none;
-    font-size: 6px;
-    letter-spacing: .7px;
-    line-height: 1.7;
-  }
-  .hero-edition .little-star { display: none; }
-  .hero h1 { margin: 14px 0; }
-  .hero-title-lead { font-size: clamp(25px, 6.6vw, 45px); line-height: 1.12; }
-  .hero-title-tail { flex-wrap: wrap; font-size: clamp(20px, 4.5vw, 30px); gap: 2px 6px; letter-spacing: -.5px; }
-  .hero h1 .hero-title-tail em { font-size: clamp(33px, 8vw, 50px); margin-left: 0; }
-  .title-heart { display: none; }
-  .hero-copy > p, .hero-copy > p.live-description {
-    font-size: clamp(10px, 2.6vw, 14px);
-    line-height: 1.6;
-    margin: 15px 0;
-  }
-  .hero-copy > p br { display: none; }
-  .hero-buttons { flex-direction: column; align-items: stretch; gap: 9px; }
-  .hero .magic-button, .hero .magic-secondary {
-    width: 100%;
-    justify-content: center;
-    min-height: 39px;
-    padding: 8px 7px;
-    font-size: clamp(8px, 2.1vw, 11px);
-    gap: 6px;
-  }
-  .hero .magic-arrow { width: 21px; height: 21px; }
-  .hero .magic-arrow .arrow { width: 11px; height: 11px; }
-  .hero .button-heart { width: 12px; height: 12px; }
-  .hero-note { display: none; }
-  .hero-bottom { bottom: 9px; }
+  :root { --header-height: 78px; }
+  .header { display: flex; height: 78px; padding: 0 4%; gap: 8px; }
+  .header .brand img { width: 65px; height: 62px; }
+  .header .brand-name { font-size: clamp(23px, 6.3vw, 31px); }
+  .header .brand-sub { font-size: 5px; letter-spacing: 1px; }
+  .header-actions { gap: 9px; }
+  .header .menu-toggle { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; width: 42px; height: 42px; padding: 9px; border: 1px solid #d8adc5; border-radius: 13px; background: #fff4fa; color: #875274; }
+  .header .menu-toggle span { margin: 0; width: 21px; height: 2px; background: currentColor; }
+  .header nav, .header nav.is-open { display: none; }
+}
+@media (max-width: 360px) {
+  .header .brand img { width: 48px; }
+  .header .brand-name { font-size: 22px; }
+  .header-actions { gap: 6px; }
+  .header .menu-toggle { width: 38px; height: 38px; }
+  .header .nav-bag { padding: 6px; gap: 4px; }
 }

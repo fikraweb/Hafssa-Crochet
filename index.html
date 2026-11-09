@@ -104,13 +104,21 @@
           id="menu-toggle"
           class="menu-toggle"
           aria-expanded="false"
-          aria-controls="main-nav"
+          aria-controls="mobile-menu"
+          aria-haspopup="dialog"
           aria-label="Ouvrir le menu"
         >
           <span></span><span></span>
         </button>
       </div>
     </header>
+    <dialog id="mobile-menu" class="mobile-menu" aria-labelledby="mobile-menu-title">
+      <div class="mobile-menu-top">
+        <h2 id="mobile-menu-title">Hafssa Crochet</h2>
+        <button id="mobile-menu-close" class="mobile-menu-close" type="button" aria-label="Fermer le menu" autofocus>×</button>
+      </div>
+      <p>Un petit univers, beaucoup de douceur.</p>
+    </dialog>
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-halo" aria-hidden="true"></div>

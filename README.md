@@ -29,7 +29,7 @@ Dans Cloudflare → Worker → Settings → Build :
 
 - Dépôt : `fikraweb/Hafssa-Crochet`, branche `main`.
 - Build command : `npm run build`.
-- Deploy command : `npm run deploy`.
+- Deploy command : `npm run deploy` (reconstruit systématiquement `dist/` avant de publier, même si un cache de build existe).
 - Root directory : `/`.
 
 Activer les déploiements automatiques. Le déploiement nécessite que le jeton de build permette la mise à jour du Worker et sa migration Durable Object. Si Cloudflare refuse la migration, consulter le journal du build avant de modifier les permissions.

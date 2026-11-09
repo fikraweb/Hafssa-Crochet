@@ -1,7 +1,6 @@
 const root = document.documentElement;
 const stage = document.getElementById("hero-stage");
 const scene = document.getElementById("hero-scene");
-const motionButton = document.getElementById("motion-toggle");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
 let userPaused = false;
@@ -11,31 +10,8 @@ try {
 function updateMotion() {
   const paused = userPaused || reducedMotion.matches;
   root.classList.toggle("motion-paused", paused);
-  motionButton.setAttribute("aria-pressed", String(paused));
-  motionButton.disabled = reducedMotion.matches;
-  document.getElementById("motion-label").textContent = reducedMotion.matches
-    ? "Mouvements réduits"
-    : paused
-      ? "Activer les animations"
-      : "Mettre en pause";
-  motionButton.setAttribute(
-    "aria-label",
-    reducedMotion.matches
-      ? "Mouvements réduits selon vos préférences"
-      : paused
-        ? "Activer les animations"
-        : "Mettre les animations en pause",
-  );
-  motionButton.querySelector(".motion-icon").textContent = "";
   if (paused) resetTilt();
 }
-motionButton.addEventListener("click", () => {
-  userPaused = !userPaused;
-  try {
-    localStorage.setItem("hafssa-motion-paused", String(userPaused));
-  } catch {}
-  updateMotion();
-});
 reducedMotion.addEventListener("change", updateMotion);
 let frame = 0;
 function resetTilt() {
@@ -154,7 +130,6 @@ for (const button of document.querySelectorAll("[data-magnetic]")) {
   button.addEventListener("pointerleave", reset);
   button.addEventListener("blur", reset);
   reducedMotion.addEventListener("change", reset);
-  motionButton.addEventListener("click", reset);
 }
 
 // Measured sticky offsets also follow wrapped category rows on small screens.

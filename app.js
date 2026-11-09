@@ -26,7 +26,7 @@ try {
 } catch {}
 let category = "Tout";
 const pageSize = 12;
-let visibleLimit = pageSize;
+let currentPage = 1;
 const toast = (message) => {
   $("toast").textContent = message;
   $("toast").classList.add("visible");
@@ -60,10 +60,39 @@ function renderProducts() {
   if (sort === "price-desc") filtered.sort((a, b) => b.price - a.price);
   $("products").replaceChildren();
   $("empty").hidden = filtered.length > 0;
-  const visible = filtered.slice(0, visibleLimit);
+  const pageCount = Math.ceil(filtered.length / pageSize);
+  currentPage = Math.min(currentPage, Math.max(1, pageCount));
+  const offset = (currentPage - 1) * pageSize;
+  const visible = filtered.slice(offset, offset + pageSize);
   $("catalogue-status").textContent =
-    `${visible.length} sur ${filtered.length} création${filtered.length === 1 ? "" : "s"}`;
-  $("load-more").hidden = visible.length >= filtered.length;
+    `${filtered.length ? offset + 1 : 0}–${offset + visible.length} sur ${filtered.length} création${filtered.length === 1 ? "" : "s"}`;
+  const pagination = $("pagination");
+  pagination.replaceChildren();
+  pagination.hidden = pageCount <= 1;
+  function pageButton(label, page, disabled = false) {
+    const button = el("button", label);
+    button.type = "button";
+    button.disabled = disabled;
+    button.setAttribute("aria-label", `Page ${page}`);
+    if (page === currentPage && /^\d+$/.test(label))
+      button.setAttribute("aria-current", "page");
+    button.onclick = () => {
+      currentPage = page;
+      renderProducts();
+      pagination.querySelector('[aria-current="page"]')?.focus({ preventScroll: true });
+      document.querySelector(".catalogue-tools").scrollIntoView({
+        block: "start",
+        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+      });
+    };
+    pagination.append(button);
+    return button;
+  }
+  pageButton("‹", currentPage - 1, currentPage === 1)
+    .setAttribute("aria-label", "Page précédente");
+  for (let page = 1; page <= pageCount; page++) pageButton(String(page), page);
+  pageButton("›", currentPage + 1, currentPage === pageCount)
+    .setAttribute("aria-label", "Page suivante");
   if (products.length && !filtered.length) {
     $("empty").replaceChildren(
       el("h3", "Aucune création trouvée"),
@@ -256,7 +285,7 @@ for (const name of ["Tout", ...new Set(products.map((p) => p.category))]) {
   button.setAttribute("aria-pressed", String(name === "Tout"));
   button.onclick = () => {
     category = name;
-    visibleLimit = pageSize;
+    currentPage = 1;
     for (const b of $("filters").children) {
       b.classList.toggle("active", b === button);
       b.setAttribute("aria-pressed", String(b === button));
@@ -266,15 +295,11 @@ for (const name of ["Tout", ...new Set(products.map((p) => p.category))]) {
   $("filters").append(button);
 }
 function resetProducts() {
-  visibleLimit = pageSize;
+  currentPage = 1;
   renderProducts();
 }
 $("search").addEventListener("input", resetProducts);
 $("sort").addEventListener("change", resetProducts);
-$("load-more").onclick = () => {
-  visibleLimit += pageSize;
-  renderProducts();
-};
 $("product-close").onclick = () => $("product-dialog").close();
 $("cart-open").onclick = () => $("cart-dialog").showModal();
 $("cart-close").onclick = () => $("cart-dialog").close();

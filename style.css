@@ -3734,22 +3734,32 @@ html {
 .photo-count:hover {
   background: #f4d9e8;
 }
-.load-more-wrap {
+.pagination {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 8px;
   margin-top: 34px;
 }
-.load-more-wrap .button {
-  min-width: 220px;
-  border-color: #b36b94;
+.pagination[hidden] { display: none; }
+.pagination button {
+  min-width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid #d9afc6;
+  border-radius: 14px;
+  background: #fff7fc;
+  color: #875274;
+  font-weight: 700;
+  transition: background .2s, box-shadow .2s;
+}
+.pagination button:hover:not(:disabled),
+.pagination button[aria-current="page"] {
+  color: #fff7fc;
   background: linear-gradient(125deg, #71385f, #aa5b8b);
-  box-shadow:
-    0 4px 0 #673451,
-    0 7px 20px #a85e8b20;
+  box-shadow: 0 3px 0 #673451, 0 6px 16px #a85e8b20;
 }
-.load-more-wrap:has([hidden]) {
-  display: none;
-}
+.pagination button:disabled { opacity: .4; cursor: default; }
 .product-gallery {
   align-self: stretch;
   min-width: 0;

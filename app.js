@@ -1,4 +1,3 @@
-import { cutouts } from "./cutouts.js";
 import {
   products as seedProducts,
   shop as seedShop,
@@ -75,9 +74,7 @@ function renderProducts() {
     const card = el("article", "", "product");
     const media = el("div", "", "product-media");
     const img = el("img");
-    const cutout = cutouts[p.image];
-    img.src = cutout?.image || p.image;
-    img.classList.toggle("is-cutout", !!cutout);
+    img.src = p.image;
     img.alt = p.name;
     img.loading = "lazy";
     img.width = 500;
@@ -90,7 +87,7 @@ function renderProducts() {
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>';
     quick.onclick = () => showProduct(p);
     media.append(img, el("span", "FAIT MAIN", "product-badge"), quick);
-    const viewCount = (p.images?.length || 1) + (cutout ? 1 : 0);
+    const viewCount = p.images?.length || 1;
     if (viewCount > 1) {
       const count = el("button", `${viewCount} vues`, "photo-count");
       count.setAttribute(
@@ -141,17 +138,11 @@ function showProduct(product) {
   const originalImages = product.images?.length
     ? product.images
     : [product.image];
-  const cutout = cutouts[product.image];
-  const images = [
-    ...(cutout
-      ? [{ src: cutout.image, cutout: true, label: "Vue sans fond" }]
-      : []),
-    ...originalImages.map((src, index) => ({
-      src,
-      cutout: false,
-      label: `Photo originale ${index + 1}`,
-    })),
-  ];
+  const images = originalImages.map((src, index) => ({
+    src,
+    cutout: false,
+    label: `Photo originale ${index + 1}`,
+  }));
   let activeImage = 0;
   const thumbs = $("product-thumbnails");
   thumbs.replaceChildren();

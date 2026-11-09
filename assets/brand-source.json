@@ -3,5 +3,13 @@
   "retrievedAt": "2026-11-09",
   "logo": "logo-instagram.jpg",
   "source": "Public profile og:image",
-  "note": "The public profile supplied a 150x150 image. Instagram post photos were not accessible; catalogue photos remain the original eight photos imported from hafssacrochet.netlify.app."
+  "note": "The public profile supplied a 150x150 image. Instagram post photos were not accessible; catalogue photos remain the original eight photos imported from hafssacrochet.netlify.app.",
+  "enhancedLogo": {
+    "file": "logo-transparent.png",
+    "width": 1536,
+    "height": 1024,
+    "background": "transparent alpha",
+    "method": "AI-assisted cleanup and reconstruction of the original profile logo",
+    "note": "Enhanced from a 150px source, not a native 4K original."
+  }
 }

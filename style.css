@@ -2168,3 +2168,425 @@ dialog::backdrop {
   background: currentColor;
   clip-path: polygon(10% 0, 100% 50%, 10% 100%);
 }
+
+/* Compact sticky navigation and a more generous, feminine brand identity. */
+@font-face {
+  font-family: "Dancing Script";
+  src: url("assets/fonts/dancing-script.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+html {
+  scroll-padding-top: 102px;
+}
+.header {
+  position: sticky;
+  top: 0;
+  height: 78px;
+  padding-inline: 4%;
+  gap: 18px;
+  z-index: 40;
+  background: #fffaf6f5;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid #dbb7c4;
+  box-shadow: 0 3px 18px #5d34420b;
+}
+.brand {
+  gap: 8px;
+  color: #a23f68;
+  white-space: nowrap;
+}
+.brand img {
+  width: 100px;
+  height: 76px;
+  object-fit: contain;
+  border-radius: 0;
+  background: transparent;
+}
+.brand-name {
+  font-family: "Dancing Script", Georgia, cursive;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #ad406c;
+}
+.brand-sub {
+  color: #945a70;
+  font-size: 7px;
+  letter-spacing: 2px;
+  margin-top: 8px;
+}
+.header nav {
+  gap: 9px;
+  font-size: 15px;
+  font-weight: 600;
+  align-items: center;
+}
+.header nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 8px 15px;
+  border: 1px solid #c98ca3;
+  border-radius: 8px;
+  background: #fff7fa;
+  color: #75354e;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.header nav a:last-child {
+  margin-left: 0;
+}
+.header nav a span {
+  margin-left: 0;
+}
+.header nav a:after {
+  display: none;
+}
+.header nav a:hover,
+.header nav a[aria-current="location"] {
+  background: #f4dce6;
+  border-color: #aa4d72;
+  box-shadow: 0 2px 8px #a84d7212;
+}
+.bag {
+  font-size: 13px;
+}
+.hero {
+  min-height: 560px;
+  padding: 35px 6% 68px;
+}
+.hero-copy {
+  padding-block: 6px;
+}
+.hero h1 {
+  font-size: clamp(58px, 5.5vw, 78px);
+  letter-spacing: -3px;
+  margin: 19px 0;
+}
+.hero h1 br:nth-of-type(2) {
+  display: none;
+}
+.hero h1 em {
+  margin-left: 8px;
+}
+.hero-copy > p {
+  margin: 23px 0;
+}
+.hero-note {
+  margin-top: 24px;
+}
+.heading-star {
+  font-size: 42px;
+  left: auto;
+  right: 16%;
+  bottom: 8px;
+}
+.hero-stage {
+  min-height: 440px;
+  max-width: 530px;
+  width: 100%;
+  justify-self: center;
+}
+.photo-window img {
+  height: 330px;
+}
+.card-main {
+  width: 64%;
+  left: 18%;
+}
+.card-back {
+  width: 35%;
+  right: 2%;
+}
+.card-back img {
+  height: 220px;
+}
+.scene-tag {
+  top: 0;
+  left: 2%;
+}
+.scene-orbit {
+  width: 440px;
+  height: 440px;
+}
+.orbit-two {
+  width: 490px;
+  height: 490px;
+}
+.handmade-seal {
+  width: 88px;
+  height: 88px;
+  bottom: 4%;
+  right: 7%;
+}
+.yarn-rose {
+  width: 72px;
+  height: 72px;
+}
+.footer-top > .brand {
+  gap: 8px;
+}
+.footer-top > .brand img {
+  width: 100px;
+  height: 76px;
+}
+.footer-top > .brand .brand-sub {
+  font-size: 7px;
+}
+.signature img {
+  border-radius: 0;
+  width: 75px;
+  height: 60px;
+  object-fit: contain;
+}
+@media (min-width: 1600px) {
+  .hero {
+    min-height: 570px;
+  }
+  .hero-stage {
+    min-height: 445px;
+  }
+  .photo-window img {
+    height: 335px;
+  }
+}
+@media (min-width: 761px) and (max-width: 1160px) {
+  .header {
+    padding-inline: 3%;
+    gap: 12px;
+  }
+  .brand img {
+    width: 85px;
+    height: 70px;
+  }
+  .brand-name {
+    font-size: 28px;
+  }
+  .header nav {
+    font-size: 13px;
+    gap: 7px;
+  }
+  .header nav a {
+    padding-inline: 10px;
+  }
+  .header-actions {
+    gap: 10px;
+  }
+  .bag-label {
+    display: none;
+  }
+  .hero h1 {
+    font-size: clamp(54px, 5.5vw, 64px);
+  }
+  .hero-stage {
+    min-height: 405px;
+  }
+  .photo-window img {
+    height: 295px;
+  }
+  .hero {
+    min-height: 515px;
+  }
+}
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 128px;
+  }
+  .header {
+    height: 112px;
+    padding: 0 4% 9px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 65px 38px;
+    gap: 0 10px;
+    align-items: center;
+  }
+  .header > .brand {
+    grid-column: 1;
+    grid-row: 1;
+    gap: 2px;
+  }
+  .brand img {
+    width: 82px;
+    height: 64px;
+  }
+  .brand-name {
+    font-size: 29px;
+  }
+  .brand-sub {
+    font-size: 6px;
+    letter-spacing: 1.1px;
+    margin-top: 6px;
+  }
+  .header-actions {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .header nav,
+  .header nav.is-open {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 0.85fr 1.6fr;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    gap: 6px;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+    font-size: 12px;
+  }
+  .header nav a {
+    min-height: 36px;
+    padding: 6px 5px;
+    gap: 3px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .header nav a:last-child {
+    font-size: 11px;
+  }
+  .header nav a .arrow {
+    width: 11px;
+    height: 11px;
+  }
+  .hero {
+    padding: 25px 6% 60px;
+    gap: 10px;
+    min-height: 0;
+  }
+  .hero-copy {
+    padding: 0;
+  }
+  .hero h1 {
+    font-size: clamp(43px, 12vw, 56px);
+    letter-spacing: -1.9px;
+    margin: 18px 0 15px;
+  }
+  .hero h1 em {
+    margin-left: 5px;
+  }
+  .hero-copy > p {
+    font-size: 11px;
+    margin: 18px 0;
+  }
+  .hero-note {
+    display: none;
+  }
+  .hero-stage {
+    min-height: 300px;
+    max-width: 350px;
+    margin-top: 12px;
+  }
+  .card-main {
+    width: 59%;
+    left: 20%;
+  }
+  .photo-window img {
+    height: 232px;
+  }
+  .card-main figcaption {
+    height: 29px;
+  }
+  .card-main figcaption > span:last-child {
+    font-size: 8px;
+  }
+  .card-back {
+    width: 32%;
+    top: 18%;
+    right: 2%;
+  }
+  .card-back img {
+    height: 170px;
+  }
+  .card-back figcaption {
+    font-size: 6px;
+  }
+  .scene-tag {
+    top: 0;
+    left: 1%;
+    font-size: 10px;
+  }
+  .scene-tag em {
+    font-size: 9px;
+  }
+  .scene-orbit {
+    width: 300px;
+    height: 300px;
+  }
+  .orbit-two {
+    width: 330px;
+    height: 330px;
+    left: -5px;
+  }
+  .handmade-seal {
+    width: 65px;
+    height: 65px;
+    bottom: 0;
+    right: 5%;
+    gap: 3px;
+  }
+  .handmade-seal > span:not(.seal-flower) {
+    font-size: 4px;
+  }
+  .seal-flower {
+    font-size: 22px;
+  }
+  .yarn-rose {
+    width: 46px;
+    height: 46px;
+    left: 4%;
+    bottom: 0;
+  }
+  .yarn-gold {
+    width: 29px;
+    height: 29px;
+  }
+  .heading-star {
+    font-size: 27px;
+    right: 0;
+    bottom: 15px;
+  }
+  .hero-bottom {
+    bottom: 15px;
+  }
+  .footer-top > .brand .brand-name {
+    font-size: 30px;
+  }
+}
+@media (max-width: 360px) {
+  .brand img {
+    width: 68px;
+    height: 60px;
+  }
+  .brand-name {
+    font-size: 26px;
+  }
+  .header nav {
+    gap: 4px;
+    font-size: 11px;
+  }
+  .header nav a:last-child {
+    font-size: 10px;
+  }
+  .header nav a:last-child .arrow {
+    display: none;
+  }
+  .hero-stage {
+    min-height: 280px;
+  }
+  .photo-window img {
+    height: 210px;
+  }
+}

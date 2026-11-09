@@ -51,3 +51,9 @@ Pour un déploiement manuel depuis une machine autorisée : `npm ci`, `npm run b
 Le logo original vient de l'image publique du profil Instagram `@hafssacrochet` (150 × 150 px, provenance dans `assets/brand-source.json`). Les photos restent les huit images originales du catalogue : l'accès public Instagram n'a pas fourni les photos des publications, et aucun nouveau produit ou prix n'a été inventé.
 
 Le hero utilise les photos réelles, une composition à plusieurs plans avec perspective CSS, des sphères de fil construites en anneaux 3D et une inclinaison au pointeur. `experience.js` gère aussi les apparitions au défilement, le menu mobile et le bouton de pause persistant. Le réglage système `prefers-reduced-motion` supprime les mouvements ; aucune bibliothèque 3D externe ni vidéo n'est téléchargée. Les fiches rapides et le tri par prix complètent le catalogue.
+
+## Navigation et logo
+
+Le bandeau principal reste visible pendant le défilement. Sur mobile, les trois liens restent affichés dans une deuxième rangée compacte. Les titres de navigation sont agrandis et encadrés en rose ; le nom complet « Hafssa Crochet » utilise la police locale Dancing Script (licence OFL dans `assets/fonts/`).
+
+`assets/logo-transparent.png` est une reconstruction améliorée à fond transparent du logo original, produite à partir de la petite image Instagram. Dimensions réelles : 1536 × 1024 pixels. Ce n'est pas un original 4K ; le fichier source Instagram est conservé. Le hero a été réduit en hauteur sur ordinateur et mobile.

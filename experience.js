@@ -113,3 +113,22 @@ document.addEventListener("click", (event) => {
   if (!event.target.closest(".header")) closeMenu();
 });
 updateMotion();
+
+// Keep the current section visible in the persistent navigation.
+if ("IntersectionObserver" in window) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        for (const link of menu.querySelectorAll("a")) {
+          if (link.hash === `#${entry.target.id}`)
+            link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        }
+      }
+    },
+    { rootMargin: "-25% 0px -60% 0px", threshold: 0 },
+  );
+  for (const id of ["collection", "histoire", "contact"])
+    sectionObserver.observe(document.getElementById(id));
+}

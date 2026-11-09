@@ -4648,3 +4648,5 @@ footer:before {
     max-height: none;
   }
 }
+
+.hero-buttons > .magic-primary:only-child { flex: 0 1 auto; width: max-content; max-width: 100%; }

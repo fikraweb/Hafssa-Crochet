@@ -59,3 +59,5 @@ Le bandeau principal reste visible pendant le défilement. Sur mobile, les trois
 `assets/logo-transparent.png` est une reconstruction améliorée à fond transparent du logo original, produite à partir de la petite image Instagram. Dimensions réelles : 1536 × 1024 pixels. Ce n'est pas un original 4K ; le fichier source Instagram est conservé. Le hero a été réduit en hauteur sur ordinateur et mobile.
 
 Le titre du hero utilise une composition manuscrite en Dancing Script, avec une apparition progressive et un cœur discret. Les deux boutons du hero ont des formes arrondies, un reflet satiné, des étoiles animées et un déplacement magnétique limité au pointeur fin. Les liens restent utilisables au clavier et au toucher. La pause persistante et le réglage système de réduction des mouvements désactivent ces effets.
+
+Les liens de navigation et le panier reprennent le même traitement que les boutons du hero : formes arrondies, satin mauve-rose, reflets, étoiles discrètes et mouvement magnétique. La navigation reste fixe et visible sur mobile ; les mêmes contrôles de pause et d'accessibilité s'appliquent.

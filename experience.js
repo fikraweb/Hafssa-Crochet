@@ -122,7 +122,7 @@ if ("IntersectionObserver" in window) {
     sectionObserver.observe(document.getElementById(id));
 }
 
-// A small magnetic movement and a pointer-following satin glow on the hero CTAs.
+// Shared magnetic movement and pointer-following glow for hero and header buttons.
 for (const button of document.querySelectorAll("[data-magnetic]")) {
   let buttonFrame = 0;
   const reset = () => {

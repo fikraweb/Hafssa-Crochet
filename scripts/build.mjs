@@ -23,6 +23,7 @@ for (const file of [
   "index.html",
   "style.css",
   "app.js",
+  "store-client.js",
   "experience.js",
   "catalogue.js",
   "cart.js",
@@ -30,6 +31,7 @@ for (const file of [
 ])
   await copyFile(file, `dist/${file}`);
 await cp("assets", "dist/assets", { recursive: true });
+await cp("admin", "dist/admin", { recursive: true });
 console.log(`Build terminé : dist/ (${products.length} produits).`);
 if (!products.length)
   console.warn("Catalogue original en attente : aucun produit publié.");

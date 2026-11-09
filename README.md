@@ -1,75 +1,74 @@
 # Hafssa Crochet
 
-Boutique statique responsive, sans dépendances, prévue pour Cloudflare Pages. Catalogue, recherche, filtres, panier local et préparation de commande sur WhatsApp (06 84 20 76 43). Les commandes sont confirmées manuellement, sans paiement en ligne.
+Boutique de crochet sur Cloudflare Workers, avec catalogue, panier WhatsApp et administration privée sur `/admin/`. La palette rose et mauve, la navigation fixe et les galeries conservent les photos originales des produits.
 
 ## Développement
 
-Prérequis : Node.js 22+ et Python 3.
+Prérequis : Node.js 22+.
 
 ```sh
+npm ci
 npm run dev
+```
+
+La boutique et l’API sont servies sur le port 8787. Pour tester l’administration, créer un fichier local `.dev.vars` contenant `ADMIN_PASSWORD` avec une valeur longue d’au moins 14 caractères. Ce fichier est ignoré par Git. Aucun mot de passe par défaut n’est fourni. Le secret utilisé en production doit être créé séparément dans Cloudflare.
+
+```sh
 npm test
+npm run test:dashboard
 npm run build
 ```
 
-Le serveur de développement utilise le port 4173. Le build produit `dist/`, sans installation npm nécessaire.
+`test:dashboard` nécessite le Worker local en cours d’exécution et le secret local dans `.dev.vars`. Ces tests créent des données de test exclusivement sur `localhost` ou `127.0.0.1` ; ils refusent une URL de production. Les données locales persistent dans `.wrangler/` par défaut. `npm run dev:static` lance uniquement les fichiers statiques via Python, sur le port 4173 ; l’administration et les statistiques nécessitent le Worker.
 
-## Catalogue
+## Déploiement Cloudflare via GitHub
 
-Les 8 produits actifs ont été importés du catalogue public de https://hafssacrochet.netlify.app/ le 9 novembre 2026, avec leurs noms, descriptions, catégories, prix et images originales. Les images sont hébergées localement dans `assets/products/`. Leur provenance et empreinte SHA-256 figurent dans `assets/products/source.json`.
+Le Worker `hafssaacrochet` utilise la configuration complète `wrangler.jsonc` : code serveur `server/worker.js`, fichiers statiques dans `dist/` et Durable Object SQLite `STORE` / `ShopStore`. La migration initiale est déclarée dans le dépôt et exécutée par Wrangler lors du déploiement. Aucune base D1 ou clé Supabase n’est nécessaire.
 
-Les 75 nouvelles fiches issues de `crochet.zip` complètent désormais les 8 produits initiaux : 83 produits au total. Les 88 captures envoyées sont conservées telles quelles, avec regroupement des angles similaires en galeries. Leurs dimensions, empreintes SHA-256 et rattachements aux fiches figurent dans `assets/products/upload-source.json`. Les noms et prix des nouvelles fiches sont proposés à la demande du propriétaire ; les prix existants sont conservés. Les annonces de sacs utilisant la même photo ont été regroupées dans une seule fiche. Les coffrets ourson verts similaires ont aussi été réunis.
+Dans Cloudflare → Worker → Settings → Build :
 
-Le catalogue est une copie locale dans `catalogue.js` : les changements ultérieurs sur le site original ne sont pas synchronisés automatiquement. Les prix sont en dirhams. Aucun accès Supabase ni secret n'est nécessaire pour servir cette copie. La disponibilité et les frais de livraison restent à confirmer sur WhatsApp.
+- Dépôt : `fikraweb/Hafssa-Crochet`, branche `main`.
+- Build command : `npm run build`.
+- Deploy command : `npm run deploy`.
+- Root directory : `/`.
 
-Pour modifier la collection, mettre les photos dans `assets/products/`, puis ajuster `catalogue.js` et relancer les tests et le build. Le visuel SVG d'accueil est une illustration de présentation.
+Activer les déploiements automatiques. Le déploiement nécessite que le jeton de build permette la mise à jour du Worker et sa migration Durable Object. Si Cloudflare refuse la migration, consulter le journal du build avant de modifier les permissions.
 
-## Cloudflare Pages via GitHub
+**Configuration indispensable pour se connecter :** Cloudflare → Worker → Settings → Variables and Secrets → Add → **Secret** nommé `ADMIN_PASSWORD`, avec une valeur privée de 14 caractères minimum, puis déployer le changement. Ne jamais inscrire ce mot de passe dans le dépôt, dans un script ou dans le chat. La boutique et les mesures peuvent fonctionner sans ce secret, mais l’administration refuse alors toute connexion.
 
-1. Enregistrer le code dans `fikraweb/Hafssa-Crochet`.
-2. Dans Cloudflare, créer un projet Pages et connecter ce dépôt GitHub.
-3. Choisir la branche `main`, le préréglage « None », la commande `npm run build`, et le dossier de sortie `dist`.
-4. Définir `NODE_VERSION=22` si nécessaire. Aucun secret n'est requis pour ce site statique.
-5. Déployer puis ajouter le domaine personnalisé dans les paramètres du projet Pages.
+Le déploiement doit utiliser Workers ; un hébergement Pages purement statique ne fournit pas les fonctions d’administration.
 
-Les en-têtes de sécurité sont dans `_headers`. Aucun déploiement Cloudflare n'est effectué par ces commandes.
+## Dashboard
 
-## Cloudflare Workers (projet actuel)
+Ouvrir `/admin/` pour accéder à :
 
-Le Worker existant `hafssaacrochet` peut aussi servir cette boutique statique. `wrangler.jsonc` définit le dossier `dist/` et le nom du Worker.
+- Vue d’ensemble sur 7, 30 ou 90 jours : pages vues, sessions de navigation mesurées par jour, ouvertures de contact WhatsApp, ajouts au panier, demandes et montant des ventes marquées terminées. Les graphiques et les fiches populaires proviennent d’événements réellement enregistrés ; aucun historique antérieur au suivi n’est reconstitué.
+- Demandes WhatsApp : référence, date, articles, quantités, prix au moment de la demande, montant hors livraison, statut et note privée. Les 200 demandes les plus récentes sont affichées ; l’export CSV contient la sélection affichée. Une demande WhatsApp n’est pas une commande payée : la validation et le paiement restent manuels.
+- Créations : recherche, pagination, modification des noms, descriptions, catégories, prix et visibilité ; ajout de créations et import JPEG/PNG/WebP de 1 Mo maximum. Les images ne sont pas recompressées. La réimportation d’une photo connue réutilise son identité pour éviter les annonces actives en double. Pour retirer une fiche, la masquer permet de conserver l’historique des demandes.
+- Paramètres : nom, numéro WhatsApp, lien Instagram, texte du bandeau, présentation du hero et message de livraison. Les modifications enregistrées sont utilisées à l’ouverture suivante de la boutique, sans nouveau déploiement.
 
-Dans Cloudflare → Settings → Build, sélectionner le dépôt et la branche `main`, puis définir :
+Les paramètres, ajouts de produits, images importées et demandes restent dans le stockage durable Cloudflare. Les données de test locales sont distinctes de la production. Les modifications de l’administration ont priorité sur les champs correspondants du catalogue initial. Les statistiques sont limitées aux 90 derniers jours ; les demandes restent conservées. Aucune donnée de compte WhatsApp, confirmation de paiement ou mesure interne Cloudflare (facturation, CPU, erreurs globales) n’est importée automatiquement.
 
-- Build command : `npm run build`
-- Deploy command : `npm run deploy`
-- Root directory : `/`
+### Protection
 
-Activer les déploiements automatiques pour `main`. Ne pas utiliser `npm run build` comme commande de déploiement : cette commande seule ne publie aucun fichier.
+Le serveur contrôle le mot de passe, les accès administratifs, les origines des requêtes, les prix et les quantités. La session utilise un cookie `HttpOnly`, `Secure`, `SameSite=Strict` valable 8 heures, dont seul le condensat est conservé. La déconnexion révoque le jeton ; changer le secret invalide les sessions existantes. Les tentatives de connexion et les écritures publiques sont limitées. Le secret n’est jamais retourné à l’interface. Les mesures ne conservent pas d’adresse IP brute ; les identifiants de session publique sont anonymes et éphémères.
 
-Pour un déploiement manuel depuis une machine autorisée : `npm ci`, `npm run build`, puis `npm run deploy`. L'authentification Cloudflare est requise uniquement pour le déploiement et reste gérée par Cloudflare Builds ou par la session Wrangler locale ; ne jamais enregistrer de jeton dans le dépôt.
+Le suivi des statistiques est une mesure JavaScript de première partie : bloqueurs, interruptions de réseau et robots peuvent affecter les nombres. Le magasin conserve un repli vers le catalogue statique si l’API ne répond pas. Ce repli n’autorise aucune opération d’administration.
 
-## Identité et expérience visuelle
+## Catalogue et photos
 
-Le logo original vient de l'image publique du profil Instagram `@hafssacrochet` (150 × 150 px, provenance dans `assets/brand-source.json`). Les photos du catalogue initial ont été complétées par les captures fournies ensuite dans `crochet.zip`. Les nouvelles fiches utilisent ces images, avec les noms et prix proposés à la demande du propriétaire.
+Le catalogue initial comprend 83 produits distincts, après suppression des annonces répétées, avec 8 produits d’origine et 75 ajouts issus de `crochet.zip`. Les 88 captures envoyées sont toutes conservées, avec regroupement des angles similaires en galeries. Les empreintes SHA-256 et rattachements figurent dans `assets/products/upload-source.json` ; ceux des huit photos originales sont dans `assets/products/source.json`.
 
-Le hero présente une mise en scène photoréaliste générée à partir de quatre photos de produits et du logo : créations alignées sur un bureau, avec le logo dans un cadre mural, dans une ambiance mauve et rose. Ce décor est une création visuelle, pas une photographie documentaire de l’atelier. Une légère inclinaison au pointeur et un zoom lent animent le décor. `experience.js` gère aussi les apparitions au défilement, le menu mobile et le bouton de pause persistant. Le réglage système `prefers-reduced-motion` supprime les mouvements ; aucune bibliothèque 3D externe ni vidéo n'est téléchargée. Les fiches rapides et le tri par prix complètent le catalogue.
+Les noms et prix des nouvelles fiches ont été proposés à la demande du propriétaire. `catalogue-prix.csv` est la liste initiale de référence ; les modifications faites ensuite dans l’administration se trouvent dans le stockage durable et ne réécrivent pas ce fichier Git.
 
-## Navigation et logo
+Les cadres présentent les images sans coupe (`object-fit: contain`). Les captures fournies sont souvent d’environ 330 × 440 pixels : la résolution d’origine est conservée, sans prétendre recréer des détails absents. Les images importées dans l’administration conservent également leurs octets d’origine.
 
-Le bandeau principal reste visible pendant le défilement. Sur mobile, les trois liens restent affichés dans une deuxième rangée compacte. Les titres de navigation sont agrandis et encadrés en rose ; le nom complet « Hafssa Crochet » utilise la police locale Dancing Script (licence OFL dans `assets/fonts/`).
+Les données de `catalogue.js` constituent le socle versionné. Le site Netlify d’origine n’est pas synchronisé automatiquement. Les anciens identifiants de produits regroupés sont migrés vers le produit conservé dans les paniers locaux.
 
-`assets/logo-transparent.png` est une reconstruction améliorée à fond transparent du logo original, produite à partir de la petite image Instagram. Dimensions réelles : 1536 × 1024 pixels. Ce n'est pas un original 4K ; le fichier source Instagram est conservé. Le hero a été réduit en hauteur sur ordinateur et mobile.
+## Identité et animations
 
-Le titre du hero utilise une composition manuscrite en Dancing Script, avec une apparition progressive et un cœur discret. Les deux boutons du hero ont des formes arrondies, un reflet satiné, des étoiles animées et un déplacement magnétique limité au pointeur fin. Les liens restent utilisables au clavier et au toucher. La pause persistante et le réglage système de réduction des mouvements désactivent ces effets.
+Le logo Instagram d’origine (150 × 150 px) est conservé. `assets/logo-transparent.png` est une reconstruction améliorée à fond transparent, de 1536 × 1024 pixels, et non un original 4K. La police locale Dancing Script est fournie avec sa licence OFL.
 
-Les liens de navigation et le panier reprennent le même traitement que les boutons du hero : formes arrondies, satin mauve-rose, reflets, étoiles discrètes et mouvement magnétique. La navigation reste fixe et visible sur mobile ; les mêmes contrôles de pause et d'accessibilité s'appliquent.
+Les décors photoréalistes du hero, du contact et du pied de page sont des mises en scène générées à partir des photos du catalogue, pas des photographies documentaires de l’atelier. Leur provenance est décrite dans les fichiers source JSON correspondants.
 
-## Images et navigation dans la collection
-
-Les fichiers PNG de l'archive ne sont ni rééchantillonnés ni recompressés : leur résolution d'origine est conservée (environ 330 × 440 pixels pour la plupart). Les cadres utilisent `object-fit: contain`, et la galerie présente les originaux sans coupe ni agrandissement forcé. Pour obtenir davantage de détails réels sur des écrans haute définition, remplacer les captures par les photos originales de plus grande résolution, sans modifier les produits.
-
-Le catalogue affiche 12 produits à la fois, avec « Voir plus de créations », recherche, tri et catégories. Chaque fiche réunit ses différentes vues, avec vignettes et commandes précédent/suivant. Un contrôle d'intégrité vérifie que les 88 fichiers envoyés sont tous associés à un produit et n'ont pas été altérés.
-
-La liste complète des noms, catégories, prix et nombres de photos est disponible dans `catalogue-prix.csv` (séparateur point-virgule, compatible Excel).
-
-La barre principale est fixée en haut de la fenêtre. Les filtres de catégorie restent visibles sous cette barre pendant le parcours du catalogue, avec un habillage rose et mauve. La palette de l'interface ne contient plus de vert ; les couleurs naturelles des produits sont conservées. La section contact et le pied de page utilisent des mises en scène d'atelier générées à partir des photos du catalogue, et non des photographies documentaires de l'atelier réel. Les identifiants des annonces regroupées redirigent les quantités d'un ancien panier vers le produit conservé.
+Les animations, reflets et déplacements magnétiques respectent le bouton de pause persistant et le réglage système de réduction des mouvements. La barre principale est fixe, et les filtres de catégorie suivent la collection sous cette barre, dans une palette rose et mauve.

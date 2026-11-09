@@ -4118,3 +4118,7 @@ footer:before {
     gap: 7px;
   }
 }
+
+.hero-copy > p.live-description {
+  white-space: pre-line;
+}

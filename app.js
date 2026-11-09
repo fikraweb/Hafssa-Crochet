@@ -1,4 +1,13 @@
-import { products, shop, productAliases } from "./catalogue.js";
+import {
+  products as seedProducts,
+  shop as seedShop,
+  productAliases,
+} from "./catalogue.js";
+import { loadStore, track, recordOrder } from "./store-client.js";
+const live = await loadStore();
+const products = live?.products || seedProducts;
+const shop = { ...seedShop, ...live?.settings };
+let checkoutId = null;
 import { total, orderMessage, whatsappUrl } from "./cart.js";
 const $ = (id) => document.getElementById(id);
 const money = (value) => `${new Intl.NumberFormat("fr-MA").format(value)} DH`;
@@ -25,6 +34,7 @@ const toast = (message) => {
   toast.timer = setTimeout(() => $("toast").classList.remove("visible"), 2600);
 };
 function saveCart() {
+  checkoutId = null;
   try {
     localStorage.setItem("hafssa-cart", JSON.stringify(cart));
   } catch {}
@@ -104,11 +114,13 @@ function renderProducts() {
   }
 }
 function addProduct(product) {
+  track("addtocart", product.id);
   cart[product.id] = Math.min((cart[product.id] || 0) + 1, 99);
   saveCart();
   toast("Création ajoutée au panier");
 }
 function showProduct(product) {
+  track("productview", product.id);
   const images = product.images?.length ? product.images : [product.image];
   let activeImage = 0;
   const thumbs = $("product-thumbnails");
@@ -226,12 +238,15 @@ $("cart-dialog").addEventListener("click", (e) => {
   }
 });
 $("checkout").onclick = () => {
-  if (Object.keys(cart).length)
-    window.open(
-      whatsappUrl(shop.whatsapp, orderMessage(cart, products)),
-      "_blank",
-      "noopener,noreferrer",
-    );
+  if (!Object.keys(cart).length) return;
+  checkoutId ||= crypto.randomUUID();
+  recordOrder(checkoutId, cart);
+  const reference = "HC-" + checkoutId.slice(0, 8).toUpperCase();
+  window.open(
+    whatsappUrl(shop.whatsapp, `${reference}\n${orderMessage(cart, products)}`),
+    "_blank",
+    "noopener,noreferrer",
+  );
 };
 const contactUrl = whatsappUrl(
   shop.whatsapp,
@@ -242,6 +257,40 @@ for (const id of ["contact-whatsapp", "collection-contact"]) {
   $(id).target = "_blank";
   $(id).rel = "noopener noreferrer";
 }
+if (live?.settings) {
+  const settings = live.settings;
+  document.querySelector(".announcement > span").textContent =
+    settings.announcement;
+  document.querySelector(".hero-copy > p").textContent =
+    settings.heroDescription;
+  document.querySelector(".hero-copy > p").classList.add("live-description");
+  for (const brand of document.querySelectorAll(".brand-name")) {
+    const textNode = [...brand.childNodes].find(
+      (n) => n.nodeType === 3 && n.textContent.trim(),
+    );
+    if (textNode) textNode.textContent = settings.name;
+  }
+  document.title = `${settings.name} — Un petit monde fait main`;
+  for (const link of document.querySelectorAll(
+    'a[href*="instagram.com/hafssacrochet"]',
+  ))
+    link.href = settings.instagram;
+  for (const number of document.querySelectorAll(".contact-number")) {
+    const local = settings.whatsapp.startsWith("212")
+      ? "0" + settings.whatsapp.slice(3)
+      : "+" + settings.whatsapp;
+    number.textContent = local.startsWith("0")
+      ? local.match(/.{1,2}/g).join(" ")
+      : local;
+  }
+  document.querySelector(".cart-bottom p").textContent =
+    `${settings.deliveryNote} Aucun paiement n’est effectué sur ce site.`;
+  document.querySelector(".detail-delivery").textContent =
+    settings.deliveryNote;
+}
+for (const id of ["contact-whatsapp", "collection-contact"])
+  $(id).addEventListener("click", () => track("contact"));
+track("pageview");
 $("year").textContent = new Date().getFullYear();
 renderProducts();
 renderCart();

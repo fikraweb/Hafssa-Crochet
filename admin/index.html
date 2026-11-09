@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#875274" />
+    <title>Hafssa Crochet — Administration</title>
+    <link rel="icon" href="/assets/logo-transparent.png" />
+    <link rel="stylesheet" href="/admin/admin.css" />
+    <script type="module" src="/admin/admin.js"></script>
+  </head>
+  <body>
+    <section id="login-view" class="login-view">
+      <div class="login-card">
+        <img
+          src="/assets/logo-transparent.png"
+          alt="Hafssa Crochet"
+          width="170"
+          height="114"
+        /><span class="eyebrow">L’ESPACE DE VOTRE ATELIER</span>
+        <h1>Bienvenue, Hafssa.</h1>
+        <p>
+          Vos créations, vos demandes et les petits détails de votre boutique,
+          réunis au même endroit.
+        </p>
+        <form id="login-form">
+          <label
+            >Mot de passe<input
+              id="password"
+              type="password"
+              autocomplete="current-password"
+              required
+              minlength="14"
+              maxlength="200" /></label
+          ><button class="primary" id="login-submit">
+            Ouvrir mon dashboard
+          </button>
+        </form>
+        <p id="login-message" role="status"></p>
+        <a class="store-link" href="/">← Revenir à la boutique</a>
+      </div>
+    </section>
+    <div id="dashboard" class="dashboard" hidden>
+      <aside class="sidebar">
+        <a href="/" class="brand"
+          ><img
+            src="/assets/logo-transparent.png"
+            width="78"
+            height="58"
+            alt=""
+          /><span>Hafssa Crochet<small>L’ESPACE ATELIER</small></span></a
+        >
+        <p class="nav-caption">VOTRE BOUTIQUE</p>
+        <nav aria-label="Administration">
+          <button data-panel="overview" class="selected">
+            ◇ <span>Vue d’ensemble</span></button
+          ><button data-panel="orders">▤ <span>Demandes WhatsApp</span></button
+          ><button data-panel="products">✿ <span>Les créations</span></button
+          ><button data-panel="settings">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              aria-hidden="true"
+            >
+              <path d="M4 7h16M4 17h16" />
+              <circle cx="9" cy="7" r="3" fill="#fff9fd" />
+              <circle cx="15" cy="17" r="3" fill="#fff9fd" />
+            </svg>
+            <span>Paramètres</span>
+          </button>
+        </nav>
+        <div class="sidebar-bottom">
+          <a href="/" target="_blank" rel="noopener noreferrer"
+            >Voir la boutique</a
+          ><button id="logout">Se déconnecter</button
+          ><small>Un petit monde, bien organisé.</small>
+        </div>
+      </aside>
+      <main>
+        <header class="topbar">
+          <div>
+            <span class="eyebrow">HAFSSA CROCHET / ADMINISTRATION</span>
+            <h1 id="panel-title">Vue d’ensemble</h1>
+          </div>
+          <div class="top-actions">
+            <label class="period-label"
+              >Période<select id="period">
+                <option value="7">7 derniers jours</option>
+                <option value="30" selected>30 derniers jours</option>
+                <option value="90">90 derniers jours</option>
+              </select></label
+            ><button id="refresh" class="secondary">Actualiser ↻</button>
+          </div>
+        </header>
+        <p id="dashboard-status" class="status" role="status"></p>
+        <section id="panel-overview" class="panel">
+          <div class="welcome">
+            <div>
+              <span class="eyebrow">CHAQUE PETITE MAILLE COMPTE</span>
+              <h2>Le pouls de votre atelier.</h2>
+              <p>
+                Des chiffres réels pour suivre votre boutique, à votre rythme.
+              </p>
+            </div>
+            <span class="welcome-flower" aria-hidden="true">✿</span>
+          </div>
+          <div id="metrics" class="metrics"></div>
+          <div class="overview-grid">
+            <article class="card">
+              <div class="card-heading">
+                <div>
+                  <h2>Les visites, au fil des jours</h2>
+                  <p>Pages vues et sessions mesurées</p>
+                </div>
+                <span id="measurement-start" class="muted"></span>
+              </div>
+              <div
+                id="traffic-chart"
+                class="traffic-chart"
+                aria-label="Évolution quotidienne des pages vues"
+              ></div>
+              <div class="chart-legend">
+                <span>● Pages vues</span
+                ><small
+                  >Horaires du Maroc · historique des 90 derniers jours</small
+                >
+              </div>
+            </article>
+            <article class="card">
+              <h2>Vos créations les plus regardées</h2>
+              <p class="muted">Vues des fiches et ajouts au panier</p>
+              <div id="top-products" class="top-products"></div>
+            </article>
+          </div>
+          <article class="card">
+            <div class="card-heading">
+              <h2>Dernières demandes</h2>
+              <button class="text-button" data-panel="orders">
+                Tout consulter
+              </button>
+            </div>
+            <div id="recent-orders"></div>
+          </article>
+          <p class="data-note">
+            Les statistiques commencent à l’activation du suivi. Une ouverture
+            de WhatsApp est une demande, pas une vente confirmée. Marquez une
+            demande « Terminée » uniquement après validation pour la compter
+            dans le chiffre d’affaires.
+          </p>
+        </section>
+        <section id="panel-orders" class="panel" hidden>
+          <div class="section-actions">
+            <div>
+              <h2>Chaque demande, son histoire.</h2>
+              <p class="muted">
+                Les 200 demandes les plus récentes. Les montants n’incluent pas
+                les frais de livraison.
+              </p>
+            </div>
+            <button id="export-orders" class="secondary">
+              Exporter la sélection CSV ↓
+            </button>
+          </div>
+          <div class="toolbar">
+            <input
+              id="order-search"
+              type="search"
+              placeholder="Référence ou création…"
+              aria-label="Rechercher une demande"
+            /><select id="order-filter" aria-label="Filtrer les demandes">
+              <option value="all">Tous les statuts</option>
+              <option value="requested">Nouvelle demande</option>
+              <option value="confirmed">Confirmée</option>
+              <option value="completed">Terminée</option>
+              <option value="cancelled">Annulée</option>
+            </select>
+          </div>
+          <div class="card table-card"><div id="orders-table"></div></div>
+        </section>
+        <section id="panel-products" class="panel" hidden>
+          <div class="section-actions">
+            <div>
+              <h2>Votre collection, à votre image.</h2>
+              <p id="products-summary" class="muted"></p>
+            </div>
+            <button id="add-product" class="primary">
+              Nouvelle création +
+            </button>
+          </div>
+          <div class="toolbar">
+            <input
+              id="product-search"
+              type="search"
+              placeholder="Nom ou catégorie…"
+              aria-label="Rechercher une création"
+            /><select id="product-filter" aria-label="Filtrer les créations">
+              <option value="all">Toutes les créations</option>
+              <option value="active">Visibles en boutique</option>
+              <option value="hidden">Masquées</option>
+            </select>
+          </div>
+          <div class="card table-card"><div id="products-table"></div></div>
+          <div class="pagination">
+            <button id="products-prev" class="secondary">← Précédent</button
+            ><span id="products-page"></span
+            ><button id="products-next" class="secondary">Suivant →</button>
+          </div>
+        </section>
+        <section id="panel-settings" class="panel" hidden>
+          <div class="section-actions">
+            <div>
+              <h2>Les petits détails de la boutique.</h2>
+              <p class="muted">
+                Les modifications enregistrées sont appliquées à la boutique,
+                sans nouveau déploiement.
+              </p>
+            </div>
+          </div>
+          <form id="settings-form" class="card settings-form">
+            <label
+              >Nom de la boutique<input
+                name="name"
+                required
+                maxlength="70" /></label
+            ><label
+              >Numéro WhatsApp<input
+                name="whatsapp"
+                required
+                pattern="[1-9][0-9]{7,14}"
+                maxlength="15"
+              /><small
+                >Format international, sans + ni espaces. Exemple :
+                212684207643.</small
+              ></label
+            ><label
+              >Page Instagram<input
+                name="instagram"
+                type="url"
+                required
+                maxlength="200" /></label
+            ><label
+              >Texte du bandeau supérieur<input
+                name="announcement"
+                required
+                maxlength="150" /></label
+            ><label
+              >Présentation dans le hero<textarea
+                name="heroDescription"
+                required
+                maxlength="400"
+                rows="4"
+              ></textarea></label
+            ><label
+              >Message sur la livraison<textarea
+                name="deliveryNote"
+                required
+                maxlength="300"
+                rows="3"
+              ></textarea>
+            </label>
+            <div class="form-footer">
+              <span id="settings-status" role="status"></span
+              ><button class="primary" type="submit">
+                Enregistrer les paramètres
+              </button>
+            </div>
+          </form>
+          <article class="card security-card">
+            <h2>Accès et sécurité</h2>
+            <p>
+              Session privée de 8 heures. Le mot de passe se gère dans
+              Cloudflare, dans le secret <code>ADMIN_PASSWORD</code> (14
+              caractères minimum). Le modifier ferme les anciennes sessions.
+              Aucun mot de passe n’est enregistré dans le code ou affiché ici.
+            </p>
+          </article>
+        </section>
+      </main>
+    </div>
+    <dialog id="product-editor" aria-labelledby="product-editor-title">
+      <div class="dialog-heading">
+        <h2 id="product-editor-title">Modifier la création</h2>
+        <button
+          type="button"
+          class="close"
+          id="product-editor-close"
+          aria-label="Fermer"
+        >
+          ×
+        </button>
+      </div>
+      <form id="product-form">
+        <label>Nom<input name="name" required maxlength="100" /></label>
+        <div class="form-row">
+          <label
+            >Catégorie<input
+              name="category"
+              list="category-options"
+              required
+              maxlength="40" /><datalist
+              id="category-options"
+            ></datalist></label
+          ><label
+            >Prix en DH<input
+              name="price"
+              type="number"
+              min="0.01"
+              max="100000"
+              step="0.01"
+              required
+          /></label>
+        </div>
+        <label
+          >Description<textarea
+            name="description"
+            rows="3"
+            maxlength="1000"
+          ></textarea></label
+        ><label
+          >Photo de présentation<select name="image" id="product-image"></select
+        ></label>
+        <div class="upload-row">
+          <img
+            id="product-preview"
+            width="105"
+            height="125"
+            alt="Aperçu de la création"
+          /><label class="file-label"
+            >Ou importer une photo<input
+              id="product-upload"
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+            /><small
+              >JPEG, PNG ou WebP · 1 Mo maximum · qualité d’origine
+              conservée.</small
+            ></label
+          >
+        </div>
+        <label class="checkbox"
+          ><input name="active" type="checkbox" />Visible dans la
+          boutique</label
+        >
+        <p class="muted">
+          Les autres photos sont conservées si vous gardez la même photo de
+          présentation.
+        </p>
+        <div class="form-footer">
+          <span id="product-form-status" role="status"></span
+          ><button class="primary" id="product-save">Enregistrer</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="order-editor" aria-labelledby="order-title">
+      <div class="dialog-heading">
+        <h2 id="order-title">Demande</h2>
+        <button id="order-editor-close" class="close" aria-label="Fermer">
+          ×
+        </button>
+      </div>
+      <div id="order-details"></div>
+      <form id="order-form">
+        <label
+          >Statut<select name="status">
+            <option value="requested">Nouvelle demande</option>
+            <option value="confirmed">Confirmée</option>
+            <option value="completed">Terminée</option>
+            <option value="cancelled">Annulée</option>
+          </select></label
+        ><label
+          >Note privée<textarea
+            name="note"
+            maxlength="1000"
+            rows="3"
+            placeholder="Suivi, livraison, paiement…"
+          ></textarea>
+        </label>
+        <div class="form-footer">
+          <span id="order-form-status" role="status"></span
+          ><button class="primary">Enregistrer le suivi</button>
+        </div>
+      </form>
+    </dialog>
+    <div id="toast" role="status" class="toast"></div>
+  </body>
+</html>

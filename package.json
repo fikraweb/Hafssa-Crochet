@@ -4,10 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "python3 -m http.server 4173 --bind 0.0.0.0 --directory .",
+    "dev": "npm run build && wrangler dev --ip 0.0.0.0 --port 8787",
     "build": "node scripts/build.mjs",
     "test": "node --test",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "dev:cloud": "npm run dev",
+    "test:dashboard": "node --test integration/dashboard.mjs",
+    "dev:static": "python3 -m http.server 4173 --bind 0.0.0.0 --directory ."
   },
   "engines": {
     "node": ">=22"

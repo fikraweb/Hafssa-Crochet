@@ -370,3 +370,8 @@ SUMMARY /127.0.0.1:8790/: 0 FAIL, 8 WARN  -> WARN
 The responsive source manifest contains 182 cover derivatives, in addition to the 83 native-dimension web covers; all original and output hashes passed verification. The final corrected reading colours were tested from computed browser styles against their intended solid grounds: hero copy 7.77:1, ordering instructions 8.87:1, story text 7.55:1 and poster caption 10.17:1. This is a targeted colour check, not a blanket WCAG certification. Legacy card/section entrance effects are disabled; the source-identical Taste hero, hover and photograph moment remain.
 
 The real-Worker six-width storefront regression passed after the responsive-image and dialog changes, including the WhatsApp checkout contents and original gallery photos. The active file set is unchanged in the skill directory, server, catalogue, cart math, API client and Cloudflare configuration. No production test data was created.
+
+
+## Production delivery verification
+
+Cloudflare build succeeded for the full redesign. HTML, active styles, scripts, catalogue API (83 products) and unauthenticated admin API protection (401) were checked. A delivery sweep checked all 276 newly added WebP files against local bytes. Some first requests returned transient Cloudflare 500 responses; bounded retries verified the small responsive logos and the affected covers. One full-size web encoding, `poupee-beret.webp`, continued to fail and was refreshed at quality 95 to change its delivery object, retaining the original source photograph and all responsive copies. No business data or skill files changed in that follow-up.

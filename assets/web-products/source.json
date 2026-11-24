@@ -48,11 +48,12 @@
     "file": "assets/web-products/poupee-beret.webp",
     "sourceSha256": "f925b06f5e26c9847792db33b47ed91b4655ef029c1e43e1c4cda8d499bbc026",
     "sourceBytes": 95906,
-    "bytes": 122980,
+    "bytes": 133788,
     "dimensions": [
       1080,
       1348
-    ]
+    ],
+    "encoding": "WebP quality 95; delivery-key refresh after a Cloudflare asset error; original unchanged"
   },
   {
     "source": "assets/products/poupee-rousse.jpeg",

@@ -33,3 +33,9 @@ The upstream dealer returned a product-stage hero, limewash-ochre as its first p
 ## Verification
 
 Verify the upstream installation by per-file SHA-256; compare original HTML visible copy, anchor destinations and images; run existing catalogue/cart tests and local backend integration tests; check the mobile menu, pagination, category scrolling, product gallery, quantities, cart photos and customer-details checkout. Run upstream visual checks and gate, report their real outcomes and any remaining findings honestly. Do not edit vendor scripts or disguise the page to clear checks.
+
+## Boutique composition revision
+
+The client found the first refinement too similar to the previous website. This revision intentionally changes the composition, rather than claiming that typographic adjustments constitute a new design. The existing dealt product/photo hero becomes a two-panel boutique composition: deep berry text panel, cream action, and a separate arched atelier photograph. On phones the copy and complete doll grouping occupy separate, legible areas. The original French copy, approved photographs, real contacts, two-column phone catalogue, drawer, checkout and dashboard remain intact.
+
+The catalogue uses warm-white inset photograph frames, quieter square-soft corners, berry purchase buttons and a clearer separation between category navigation and products. This retains the client's rose/mauve branding while providing a visible structural change. No additional fonts, photographs or dependencies are introduced.

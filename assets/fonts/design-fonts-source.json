@@ -1,0 +1,20 @@
+[
+  {
+    "family": "Figtree",
+    "style": "normal",
+    "file": "figtree-normal.woff2",
+    "source": "https://fonts.gstatic.com/s/figtree/v9/_Xms-HUzqDCFdgfMm4S9DQ.woff2"
+  },
+  {
+    "family": "Fraunces",
+    "style": "italic",
+    "file": "fraunces-italic.woff2",
+    "source": "https://fonts.gstatic.com/s/fraunces/v38/6NUs8FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnbB-gzTK0K1ChJdt9vIVYX9G37lvd9mv0iQg.woff2"
+  },
+  {
+    "family": "Fraunces",
+    "style": "normal",
+    "file": "fraunces-normal.woff2",
+    "source": "https://fonts.gstatic.com/s/fraunces/v38/6NUu8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7hzFUPJH58nib14c7qv8.woff2"
+  }
+]

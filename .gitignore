@@ -7,3 +7,6 @@ dist/
 
 .dev.vars
 .dev.vars.*
+
+# Local Taste Skill plans, browser profiles and generated visual check artifacts.
+.taste-skill/

@@ -1,8 +1,16 @@
 <!doctype html>
-<html lang="fr">
+<html
+  lang="fr"
+  data-type="product"
+  data-radius="soft"
+  data-buttons="pill"
+  data-motion
+>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="page-type" content="product" />
+    <meta name="site-kind" content="other" />
     <meta name="theme-color" content="#875274" />
     <meta
       name="description"
@@ -17,14 +25,39 @@
       content="Des fils, des histoires et beaucoup d’amour. Découvrez les créations de Hafssa."
     />
     <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://hafssaacrochet.fikraweb00.workers.dev/assets/hero-atelier-mauve.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="canonical"
+      href="https://hafssaacrochet.fikraweb00.workers.dev/"
+    />
     <title>Hafssa Crochet — Un petit monde fait main</title>
     <link rel="icon" href="assets/logo-transparent.png" type="image/png" />
-    <link rel="preload" href="assets/hero-atelier-mauve.png" as="image" />
+    <link
+      rel="preload"
+      href="assets/hero-atelier-mauve.png"
+      as="image"
+      media="(min-width: 640px)"
+    />
+    <link
+      rel="preload"
+      href="assets/hero-mobile-rose.png"
+      as="image"
+      media="(max-width: 639px)"
+    />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="landing.css" />
+    <link rel="stylesheet" href="assets/taste/motion/motion.css" />
+    <script src="assets/taste/enter.js"></script>
+    <script type="module" src="assets/taste/motion/motion.js"></script>
+    <script type="module" src="assets/taste/moments/moments.js"></script>
     <script type="module" src="app.js"></script>
     <script type="module" src="experience.js"></script>
   </head>
-  <body>
+  <body id="top">
     <a href="#collection" class="skip-link">Aller à la collection</a>
     <div class="announcement">
       <span>CRÉÉ À LA MAIN. GARDÉ PRÈS DU CŒUR.</span
@@ -45,7 +78,7 @@
       ></a>
     </div>
     <header class="header">
-      <a class="brand" href="#" aria-label="Hafssa Crochet, accueil"
+      <a class="brand" href="#top" aria-label="Hafssa Crochet, accueil"
         ><img
           src="assets/logo-transparent.png"
           alt="Logo original Hafssa Crochet"
@@ -112,15 +145,27 @@
         </button>
       </div>
     </header>
-    <dialog id="mobile-menu" class="mobile-menu" aria-labelledby="mobile-menu-title">
+    <dialog
+      id="mobile-menu"
+      class="mobile-menu"
+      aria-labelledby="mobile-menu-title"
+    >
       <div class="mobile-menu-top">
         <h2 id="mobile-menu-title">Hafssa Crochet</h2>
-        <button id="mobile-menu-close" class="mobile-menu-close" type="button" aria-label="Fermer le menu" autofocus>×</button>
+        <button
+          id="mobile-menu-close"
+          class="mobile-menu-close"
+          type="button"
+          aria-label="Fermer le menu"
+          autofocus
+        >
+          ×
+        </button>
       </div>
       <p>Un petit univers, beaucoup de douceur.</p>
     </dialog>
     <main>
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" data-enter aria-labelledby="hero-title">
         <div class="hero-halo" aria-hidden="true"></div>
         <div class="hero-grain" aria-hidden="true"></div>
         <div class="hero-copy">
@@ -139,7 +184,7 @@
             ></span>
             OBJETS DE TENDRESSE · FAIT MAIN AU MAROC
           </div>
-          <h1 id="hero-title">
+          <h1 id="hero-title" data-enter-whole>
             <span class="hero-title-lead">Un petit monde</span>
             <span class="hero-title-tail"
               >au bout <em>du fil.</em
@@ -163,7 +208,7 @@
           </p>
           <div class="hero-buttons">
             <a
-              class="button magic-button magic-primary"
+              class="button magic-button magic-primary btn btn--primary"
               href="#collection"
               data-magnetic
             >
@@ -189,17 +234,20 @@
           </div>
         </div>
         <div class="hero-stage" id="hero-stage">
-          <div class="atelier-photo-layer" id="hero-scene">
+          <div class="atelier-photo-layer" id="hero-scene" data-enter-media>
             <picture>
-              <source media="(max-width: 760px)" srcset="assets/hero-mobile-rose.png" />
-            <img
-              src="assets/hero-atelier-mauve.png"
-              alt="Mise en scène inspirée des créations Hafssa Crochet : poupées, lapin et ours alignés sur un bureau, sous un cadre portant le logo."
-              width="1536"
-              height="1024"
-              fetchpriority="high"
-              decoding="async"
-            />
+              <source
+                media="(max-width: 639px)"
+                srcset="assets/hero-mobile-rose.png"
+              />
+              <img
+                src="assets/hero-atelier-mauve.png"
+                alt="Mise en scène inspirée des créations Hafssa Crochet : poupées, lapin et ours alignés sur un bureau, sous un cadre portant le logo."
+                width="1536"
+                height="1024"
+                fetchpriority="high"
+                decoding="async"
+              />
             </picture>
           </div>
         </div>
@@ -289,61 +337,387 @@
           ></i>
         </div>
       </div>
-      <section class="atelier-offer section reveal" aria-labelledby="atelier-offer-title">
+      <section
+        class="atelier-offer section reveal"
+        aria-labelledby="atelier-offer-title"
+      >
         <div class="atelier-poster">
           <div class="atelier-poster-copy">
-            <span class="atelier-poster-label">BIENVENUE CHEZ HAFSSA CROCHET</span>
-            <h2 id="atelier-offer-title">Entrez dans<br />notre petit <em>atelier.</em></h2>
-            <p class="atelier-poster-promise">De jolies créations.<br /><span>Des prix tout doux.</span></p>
-            <p class="atelier-poster-description">Poupées, doudous et cadeaux faits main : trouvez votre bonheur dans notre sélection pleine de tendresse.</p>
-            <a class="atelier-poster-cta" href="#collection">Découvrir la collection <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" /></svg></a>
-            <span class="atelier-poster-signature">Imaginé avec douceur, crocheté avec amour.</span>
+            <span class="atelier-poster-label"
+              >BIENVENUE CHEZ HAFSSA CROCHET</span
+            >
+            <h2 id="atelier-offer-title">
+              Entrez dans<br />notre petit <em>atelier.</em>
+            </h2>
+            <p class="atelier-poster-promise">
+              De jolies créations.<br /><span>Des prix tout doux.</span>
+            </p>
+            <p class="atelier-poster-description">
+              Poupées, doudous et cadeaux faits main : trouvez votre bonheur
+              dans notre sélection pleine de tendresse.
+            </p>
+            <a class="atelier-poster-cta btn btn--primary" href="#collection"
+              >Découvrir la collection
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                aria-hidden="true"
+              >
+                <path d="M5 19 19 5M5 5h14v14" /></svg
+            ></a>
+            <span class="atelier-poster-signature"
+              >Imaginé avec douceur, crocheté avec amour.</span
+            >
           </div>
           <div class="atelier-poster-scene">
-            <img src="assets/contact-atelier-rose.png" alt="Mise en scène des créations Hafssa Crochet sur une table d’atelier, avec poupées, lapin et ourson au crochet." width="1536" height="1024" loading="lazy" />
-            <span class="atelier-poster-seal">Fait main<span>avec amour</span><span aria-hidden="true">✿</span></span>
-            <div class="atelier-poster-caption"><span>LA SÉLECTION DE L’ATELIER</span><strong>Un petit bonheur à offrir.</strong></div>
+            <img
+              src="assets/contact-atelier-rose.png"
+              alt="Mise en scène des créations Hafssa Crochet sur une table d’atelier, avec poupées, lapin et ourson au crochet."
+              width="1536"
+              height="1024"
+              loading="lazy"
+            />
+            <span class="atelier-poster-seal"
+              >Fait main<span>avec amour</span
+              ><span aria-hidden="true">✿</span></span
+            >
+            <div class="atelier-poster-caption">
+              <span>LA SÉLECTION DE L’ATELIER</span
+              ><strong>Un petit bonheur à offrir.</strong>
+            </div>
           </div>
         </div>
       </section>
       <section class="collection section" id="collection">
         <div class="collection-stars" aria-hidden="true">
-          <span style="--star-x:2%;--star-y:1%;--star-size:9px;--star-duration:6s;--star-delay:0s"></span>
-          <span style="--star-x:39%;--star-y:30%;--star-size:15px;--star-duration:7s;--star-delay:-1s"></span>
-          <span style="--star-x:76%;--star-y:59%;--star-size:21px;--star-duration:8s;--star-delay:-2s"></span>
-          <span style="--star-x:16%;--star-y:88%;--star-size:12px;--star-duration:9s;--star-delay:-3s"></span>
-          <span style="--star-x:53%;--star-y:20%;--star-size:18px;--star-duration:10s;--star-delay:-4s"></span>
-          <span style="--star-x:90%;--star-y:49%;--star-size:9px;--star-duration:11s;--star-delay:-5s"></span>
-          <span style="--star-x:30%;--star-y:78%;--star-size:15px;--star-duration:12s;--star-delay:-6s"></span>
-          <span style="--star-x:67%;--star-y:10%;--star-size:21px;--star-duration:6s;--star-delay:-7s"></span>
-          <span style="--star-x:7%;--star-y:39%;--star-size:12px;--star-duration:7s;--star-delay:-8s"></span>
-          <span style="--star-x:44%;--star-y:68%;--star-size:18px;--star-duration:8s;--star-delay:-9s"></span>
-          <span style="--star-x:81%;--star-y:97%;--star-size:9px;--star-duration:9s;--star-delay:-10s"></span>
-          <span style="--star-x:21%;--star-y:29%;--star-size:15px;--star-duration:10s;--star-delay:0s"></span>
-          <span style="--star-x:58%;--star-y:58%;--star-size:21px;--star-duration:11s;--star-delay:-1s"></span>
-          <span style="--star-x:95%;--star-y:87%;--star-size:12px;--star-duration:12s;--star-delay:-2s"></span>
-          <span style="--star-x:35%;--star-y:19%;--star-size:18px;--star-duration:6s;--star-delay:-3s"></span>
-          <span style="--star-x:72%;--star-y:48%;--star-size:9px;--star-duration:7s;--star-delay:-4s"></span>
-          <span style="--star-x:12%;--star-y:77%;--star-size:15px;--star-duration:8s;--star-delay:-5s"></span>
-          <span style="--star-x:49%;--star-y:9%;--star-size:21px;--star-duration:9s;--star-delay:-6s"></span>
-          <span style="--star-x:86%;--star-y:38%;--star-size:12px;--star-duration:10s;--star-delay:-7s"></span>
-          <span style="--star-x:26%;--star-y:67%;--star-size:18px;--star-duration:11s;--star-delay:-8s"></span>
-          <span style="--star-x:63%;--star-y:96%;--star-size:9px;--star-duration:12s;--star-delay:-9s"></span>
-          <span style="--star-x:3%;--star-y:28%;--star-size:15px;--star-duration:6s;--star-delay:-10s"></span>
-          <span style="--star-x:40%;--star-y:57%;--star-size:21px;--star-duration:7s;--star-delay:0s"></span>
-          <span style="--star-x:77%;--star-y:86%;--star-size:12px;--star-duration:8s;--star-delay:-1s"></span>
-          <span style="--star-x:17%;--star-y:18%;--star-size:18px;--star-duration:9s;--star-delay:-2s"></span>
-          <span style="--star-x:54%;--star-y:47%;--star-size:9px;--star-duration:10s;--star-delay:-3s"></span>
-          <span style="--star-x:91%;--star-y:76%;--star-size:15px;--star-duration:11s;--star-delay:-4s"></span>
-          <span style="--star-x:31%;--star-y:8%;--star-size:21px;--star-duration:12s;--star-delay:-5s"></span>
-          <span style="--star-x:68%;--star-y:37%;--star-size:12px;--star-duration:6s;--star-delay:-6s"></span>
-          <span style="--star-x:8%;--star-y:66%;--star-size:18px;--star-duration:7s;--star-delay:-7s"></span>
-          <span style="--star-x:45%;--star-y:95%;--star-size:9px;--star-duration:8s;--star-delay:-8s"></span>
-          <span style="--star-x:82%;--star-y:27%;--star-size:15px;--star-duration:9s;--star-delay:-9s"></span>
-          <span style="--star-x:22%;--star-y:56%;--star-size:21px;--star-duration:10s;--star-delay:-10s"></span>
-          <span style="--star-x:59%;--star-y:85%;--star-size:12px;--star-duration:11s;--star-delay:0s"></span>
-          <span style="--star-x:96%;--star-y:17%;--star-size:18px;--star-duration:12s;--star-delay:-1s"></span>
-          <span style="--star-x:36%;--star-y:46%;--star-size:9px;--star-duration:6s;--star-delay:-2s"></span>
+          <span
+            style="
+              --star-x: 2%;
+              --star-y: 1%;
+              --star-size: 9px;
+              --star-duration: 6s;
+              --star-delay: 0s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 39%;
+              --star-y: 30%;
+              --star-size: 15px;
+              --star-duration: 7s;
+              --star-delay: -1s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 76%;
+              --star-y: 59%;
+              --star-size: 21px;
+              --star-duration: 8s;
+              --star-delay: -2s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 16%;
+              --star-y: 88%;
+              --star-size: 12px;
+              --star-duration: 9s;
+              --star-delay: -3s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 53%;
+              --star-y: 20%;
+              --star-size: 18px;
+              --star-duration: 10s;
+              --star-delay: -4s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 90%;
+              --star-y: 49%;
+              --star-size: 9px;
+              --star-duration: 11s;
+              --star-delay: -5s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 30%;
+              --star-y: 78%;
+              --star-size: 15px;
+              --star-duration: 12s;
+              --star-delay: -6s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 67%;
+              --star-y: 10%;
+              --star-size: 21px;
+              --star-duration: 6s;
+              --star-delay: -7s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 7%;
+              --star-y: 39%;
+              --star-size: 12px;
+              --star-duration: 7s;
+              --star-delay: -8s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 44%;
+              --star-y: 68%;
+              --star-size: 18px;
+              --star-duration: 8s;
+              --star-delay: -9s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 81%;
+              --star-y: 97%;
+              --star-size: 9px;
+              --star-duration: 9s;
+              --star-delay: -10s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 21%;
+              --star-y: 29%;
+              --star-size: 15px;
+              --star-duration: 10s;
+              --star-delay: 0s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 58%;
+              --star-y: 58%;
+              --star-size: 21px;
+              --star-duration: 11s;
+              --star-delay: -1s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 95%;
+              --star-y: 87%;
+              --star-size: 12px;
+              --star-duration: 12s;
+              --star-delay: -2s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 35%;
+              --star-y: 19%;
+              --star-size: 18px;
+              --star-duration: 6s;
+              --star-delay: -3s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 72%;
+              --star-y: 48%;
+              --star-size: 9px;
+              --star-duration: 7s;
+              --star-delay: -4s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 12%;
+              --star-y: 77%;
+              --star-size: 15px;
+              --star-duration: 8s;
+              --star-delay: -5s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 49%;
+              --star-y: 9%;
+              --star-size: 21px;
+              --star-duration: 9s;
+              --star-delay: -6s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 86%;
+              --star-y: 38%;
+              --star-size: 12px;
+              --star-duration: 10s;
+              --star-delay: -7s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 26%;
+              --star-y: 67%;
+              --star-size: 18px;
+              --star-duration: 11s;
+              --star-delay: -8s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 63%;
+              --star-y: 96%;
+              --star-size: 9px;
+              --star-duration: 12s;
+              --star-delay: -9s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 3%;
+              --star-y: 28%;
+              --star-size: 15px;
+              --star-duration: 6s;
+              --star-delay: -10s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 40%;
+              --star-y: 57%;
+              --star-size: 21px;
+              --star-duration: 7s;
+              --star-delay: 0s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 77%;
+              --star-y: 86%;
+              --star-size: 12px;
+              --star-duration: 8s;
+              --star-delay: -1s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 17%;
+              --star-y: 18%;
+              --star-size: 18px;
+              --star-duration: 9s;
+              --star-delay: -2s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 54%;
+              --star-y: 47%;
+              --star-size: 9px;
+              --star-duration: 10s;
+              --star-delay: -3s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 91%;
+              --star-y: 76%;
+              --star-size: 15px;
+              --star-duration: 11s;
+              --star-delay: -4s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 31%;
+              --star-y: 8%;
+              --star-size: 21px;
+              --star-duration: 12s;
+              --star-delay: -5s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 68%;
+              --star-y: 37%;
+              --star-size: 12px;
+              --star-duration: 6s;
+              --star-delay: -6s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 8%;
+              --star-y: 66%;
+              --star-size: 18px;
+              --star-duration: 7s;
+              --star-delay: -7s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 45%;
+              --star-y: 95%;
+              --star-size: 9px;
+              --star-duration: 8s;
+              --star-delay: -8s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 82%;
+              --star-y: 27%;
+              --star-size: 15px;
+              --star-duration: 9s;
+              --star-delay: -9s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 22%;
+              --star-y: 56%;
+              --star-size: 21px;
+              --star-duration: 10s;
+              --star-delay: -10s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 59%;
+              --star-y: 85%;
+              --star-size: 12px;
+              --star-duration: 11s;
+              --star-delay: 0s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 96%;
+              --star-y: 17%;
+              --star-size: 18px;
+              --star-duration: 12s;
+              --star-delay: -1s;
+            "
+          ></span>
+          <span
+            style="
+              --star-x: 36%;
+              --star-y: 46%;
+              --star-size: 9px;
+              --star-duration: 6s;
+              --star-delay: -2s;
+            "
+          ></span>
         </div>
         <div class="section-top reveal">
           <div>
@@ -367,7 +741,12 @@
         </div>
         <p id="catalogue-status" class="catalogue-status" role="status"></p>
         <div id="products" class="products"></div>
-        <nav id="pagination" class="pagination" aria-label="Pages du catalogue" hidden></nav>
+        <nav
+          id="pagination"
+          class="pagination"
+          aria-label="Pages du catalogue"
+          hidden
+        ></nav>
         <div id="empty" class="empty">
           <span class="empty-flower">✿</span>
           <h3>Votre prochaine petite histoire…</h3>
@@ -405,7 +784,11 @@
       <section class="atelier" id="histoire">
         <div class="story section">
           <div class="story-visual reveal">
-            <div class="story-photo">
+            <div
+              class="story-photo"
+              data-moment="picture-develops"
+              data-moment-opts='{"look":"film"}'
+            >
               <img
                 src="assets/products/poupee-beret.jpeg"
                 alt="Détails de la Poupée Béret, crochetée à la main"
@@ -526,7 +909,7 @@
             serais ravie d’en parler avec vous.
           </p>
           <a
-            class="button button-light"
+            class="button button-light btn btn--primary"
             id="contact-whatsapp"
             target="_blank"
             rel="noopener noreferrer"
@@ -548,7 +931,7 @@
     </main>
     <footer>
       <div class="footer-top">
-        <a class="brand" href="#" aria-label="Hafssa Crochet, retour en haut"
+        <a class="brand" href="#top" aria-label="Hafssa Crochet, retour en haut"
           ><img
             src="assets/logo-transparent.png"
             alt=""
@@ -563,24 +946,196 @@
         ><span>Des fils, des histoires<br />et beaucoup d’amour.</span>
         <div class="footer-socials">
           <span class="socials-label">Retrouvez notre univers</span>
-          <a class="academy-link" href="https://www.hafssacrochet-academy.com/" target="_blank" rel="noopener noreferrer">Hafssa Crochet Academy <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
-          <div class="social-icons" role="group" aria-label="Réseaux sociaux Hafssa Crochet">
-            <a class="social-icon" href="https://web.facebook.com/Hafssacrochett" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Hafssa Crochet" title="Facebook"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h2V1.4A23 23 0 0 0 15 1c-3 0-5 1.8-5 5v3H7v4h3v8z"/></svg></a>
-            <a class="social-icon" href="https://www.instagram.com/hafssacrochet/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Hafssa Crochet" title="Instagram"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></a>
-            <a class="social-icon" href="https://www.tiktok.com/@hafssacrochet" target="_blank" rel="noopener noreferrer" aria-label="TikTok de Hafssa Crochet" title="TikTok"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v12a4 4 0 1 1-4-4M14 3c.5 3.5 2.8 5 6 5V5c-2.3 0-3-1-3-2h-3Z"/></svg></a>
-            <a class="social-icon" href="https://www.youtube.com/@hafssacrochet" target="_blank" rel="noopener noreferrer" aria-label="YouTube de Hafssa Crochet" title="YouTube"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 7.5a3 3 0 0 0-2.1-2.1C17 5 12 5 12 5s-5 0-6.9.4A3 3 0 0 0 3 7.5 25 25 0 0 0 2.5 12a25 25 0 0 0 .5 4.5 3 3 0 0 0 2.1 2.1C7 19 12 19 12 19s5 0 6.9-.4a3 3 0 0 0 2.1-2.1 25 25 0 0 0 .5-4.5 25 25 0 0 0-.5-4.5Z"/><path d="m10 9 5 3-5 3Z" fill="currentColor" stroke="none"/></svg></a>
-            <a class="social-icon" href="#contact" aria-label="Contacter Hafssa sur WhatsApp" title="WhatsApp"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3 20.5l1.4-4.7a8.5 8.5 0 1 1 16.1-4.1Z"/><path d="M8.3 7.5c-.8 1.5.3 3.6 2.2 5.5s4 2.9 5.5 2.2l.8-1.6-2.6-1.3-1 1c-1.3-.6-2.2-1.5-2.8-2.8l1-1L10 7l-1.7.5Z"/></svg></a>
+          <a
+            class="academy-link"
+            href="https://www.hafssacrochet-academy.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Hafssa Crochet Academy
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              aria-hidden="true"
+            >
+              <path d="M5 19 19 5M5 5h14v14" /></svg
+          ></a>
+          <div
+            class="social-icons"
+            role="group"
+            aria-label="Réseaux sociaux Hafssa Crochet"
+          >
+            <a
+              class="social-icon"
+              href="https://web.facebook.com/Hafssacrochett"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook de Hafssa Crochet"
+              title="Facebook"
+              ><svg
+                width="23"
+                height="23"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  fill="currentColor"
+                  d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h2V1.4A23 23 0 0 0 15 1c-3 0-5 1.8-5 5v3H7v4h3v8z"
+                /></svg
+            ></a>
+            <a
+              class="social-icon"
+              href="https://www.instagram.com/hafssacrochet/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram de Hafssa Crochet"
+              title="Instagram"
+              ><svg
+                width="23"
+                height="23"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle
+                  cx="17.5"
+                  cy="6.5"
+                  r=".8"
+                  fill="currentColor"
+                  stroke="none"
+                /></svg
+            ></a>
+            <a
+              class="social-icon"
+              href="https://www.tiktok.com/@hafssacrochet"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok de Hafssa Crochet"
+              title="TikTok"
+              ><svg
+                width="23"
+                height="23"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14 3v12a4 4 0 1 1-4-4M14 3c.5 3.5 2.8 5 6 5V5c-2.3 0-3-1-3-2h-3Z"
+                /></svg
+            ></a>
+            <a
+              class="social-icon"
+              href="https://www.youtube.com/@hafssacrochet"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube de Hafssa Crochet"
+              title="YouTube"
+              ><svg
+                width="23"
+                height="23"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M21 7.5a3 3 0 0 0-2.1-2.1C17 5 12 5 12 5s-5 0-6.9.4A3 3 0 0 0 3 7.5 25 25 0 0 0 2.5 12a25 25 0 0 0 .5 4.5 3 3 0 0 0 2.1 2.1C7 19 12 19 12 19s5 0 6.9-.4a3 3 0 0 0 2.1-2.1 25 25 0 0 0 .5-4.5 25 25 0 0 0-.5-4.5Z"
+                />
+                <path
+                  d="m10 9 5 3-5 3Z"
+                  fill="currentColor"
+                  stroke="none"
+                /></svg
+            ></a>
+            <a
+              class="social-icon"
+              href="#contact"
+              aria-label="Contacter Hafssa sur WhatsApp"
+              title="WhatsApp"
+              ><svg
+                width="23"
+                height="23"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3 20.5l1.4-4.7a8.5 8.5 0 1 1 16.1-4.1Z"
+                />
+                <path
+                  d="M8.3 7.5c-.8 1.5.3 3.6 2.2 5.5s4 2.9 5.5 2.2l.8-1.6-2.6-1.3-1 1c-1.3-.6-2.2-1.5-2.8-2.8l1-1L10 7l-1.7.5Z"
+                /></svg
+            ></a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© <span id="year"></span> Hafssa Crochet</span
         ><span>Fait main au Maroc, avec le cœur.</span
-        ><a class="dashboard-link" href="/admin/" aria-label="Accéder au dashboard" title="Administration"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></a><a href="#">Retour en haut ↑</a>
+        ><a
+          class="dashboard-link"
+          href="/admin/"
+          aria-label="Accéder au dashboard"
+          title="Administration"
+          ><svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            aria-hidden="true"
+          >
+            <rect x="3" y="3" width="7" height="7" rx="1" />
+            <rect x="14" y="3" width="7" height="7" rx="1" />
+            <rect x="3" y="14" width="7" height="7" rx="1" />
+            <rect x="14" y="14" width="7" height="7" rx="1" /></svg></a
+        ><a href="#top">Retour en haut ↑</a>
       </div>
     </footer>
-    <button id="floating-cart" class="floating-cart" type="button" aria-label="Ouvrir le panier">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+    <button
+      id="floating-cart"
+      class="floating-cart"
+      type="button"
+      aria-label="Ouvrir le panier"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        aria-hidden="true"
+      >
+        <path d="M5 7h14l1 14H4L5 7Z" />
+        <path d="M8 8V6a4 4 0 0 1 8 0v2" />
+      </svg>
       <span id="floating-cart-count">0</span>
     </button>
     <dialog id="cart-dialog" aria-labelledby="cart-title">
@@ -608,23 +1163,49 @@
         </p>
         <form id="checkout-form" class="checkout-form">
           <h3>Vos coordonnées</h3>
-          <label>Nom complet<input id="customer-name" name="name" autocomplete="name" required minlength="2" maxlength="100" /></label>
-          <label>Ville<input id="customer-city" name="city" autocomplete="address-level2" required minlength="2" maxlength="100" /></label>
-          <label>Téléphone<input id="customer-phone" name="phone" type="tel" autocomplete="tel" required pattern="[+0-9 \(\)\-]{8,24}" maxlength="24" placeholder="06 12 34 56 78" /></label>
-          <button class="button" id="checkout" type="submit">
-          Commander sur WhatsApp
-          <span
-            ><svg
-              class="arrow"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.4"
-              aria-hidden="true"
-            >
-              <path d="M5 19 19 5M5 5h14v14" /></svg
-          ></span>
-        </button>
+          <label
+            >Nom complet<input
+              id="customer-name"
+              name="name"
+              autocomplete="name"
+              required
+              minlength="2"
+              maxlength="100"
+          /></label>
+          <label
+            >Ville<input
+              id="customer-city"
+              name="city"
+              autocomplete="address-level2"
+              required
+              minlength="2"
+              maxlength="100"
+          /></label>
+          <label
+            >Téléphone<input
+              id="customer-phone"
+              name="phone"
+              type="tel"
+              autocomplete="tel"
+              required
+              pattern="[+0-9 \(\)\-]{8,24}"
+              maxlength="24"
+              placeholder="06 12 34 56 78"
+          /></label>
+          <button class="button btn btn--primary" id="checkout" type="submit">
+            Commander sur WhatsApp
+            <span
+              ><svg
+                class="arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.4"
+                aria-hidden="true"
+              >
+                <path d="M5 19 19 5M5 5h14v14" /></svg
+            ></span>
+          </button>
         </form>
       </div>
     </dialog>
@@ -707,7 +1288,7 @@
             Une pièce faite main. Disponibilité et livraison à confirmer avec
             Hafssa.
           </p>
-          <button id="product-detail-add" class="button">
+          <button id="product-detail-add" class="button btn btn--primary">
             Ajouter au panier
             <svg
               class="add-bag-icon"

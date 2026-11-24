@@ -106,7 +106,7 @@ function renderProducts() {
     );
   }
   for (const p of visible) {
-    const card = el("article", "", "product");
+    const card = el("article", "", "product card");
     const media = el("div", "", "product-media");
     const img = el("img");
     img.src = p.image;
@@ -134,7 +134,7 @@ function renderProducts() {
     }
     const info = el("div", "", "product-info");
     const bottom = el("div", "", "product-bottom");
-    const button = el("button", "Ajouter");
+    const button = el("button", "Ajouter", "btn btn--secondary");
     button.append(el("span", "+"));
     button.setAttribute("aria-label", `Ajouter ${p.name} au panier`);
     button.onclick = () => addProduct(p);

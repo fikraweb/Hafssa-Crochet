@@ -22,6 +22,7 @@ await mkdir("dist", { recursive: true });
 for (const file of [
   "index.html",
   "style.css",
+  "landing.css",
   "app.js",
   "store-client.js",
   "experience.js",

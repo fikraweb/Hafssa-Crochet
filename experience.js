@@ -56,7 +56,7 @@ if ("IntersectionObserver" in window) {
 const menu = document.getElementById("main-nav");
 const menuButton = document.getElementById("menu-toggle");
 const menuDialog = document.getElementById("mobile-menu");
-const mobileNavigation = window.matchMedia("(max-width: 760px)");
+const mobileNavigation = window.matchMedia("(max-width: 1023px)");
 function closeMenu() {
   if (menuDialog.open) menuDialog.close();
   menuButton.setAttribute("aria-expanded", "false");

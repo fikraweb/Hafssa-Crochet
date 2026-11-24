@@ -1,4 +1,4 @@
-GATE: OPEN 51 (rounds used up)
+GATE: OPEN 52 (rounds used up)
 
 
 # Frontend verification report
@@ -54,7 +54,7 @@ gate: rounds used up; 51 FAIL open
        4 button styles on one screen: pill, fill #90466d, outline #90466d ("Explorer les créations"); pill, fill gradient ("Les créations"); pill, fill #f3e7ed, outline #e1cbd5 ("Une envie sur mesure ?"); pill, fill gradient, o
        fix: one primary and one secondary button: one shape, one height per size, one label size
   FAIL button-styles    (the page)  [1440, 390]
-       6 button styles on the page: pill, fill gradient x2 ("Les créations"); pill, fill #f3e7ed, outline #e1cbd5 x1 ("Une envie sur mesure ?"); pill, fill gradient, outline #d9bdcb x1 ("Panier 0"); pill, fill #90466d, outline 
+       6 button styles on the page: pill, fill gradient x2 ("Les créations"); pill, fill #f3e7ed, outline #e1cbd5 x1 ("Une envie sur mesure ?"); pill, fill gradient, outline #d9bdcb x1 ("Panier 0"); pill, fill #90466d, outline
        fix: one primary and one secondary button: one shape, one height per size, one label size
   FAIL copy-headline    h1#hero-title "Un petit monde au bout du fil."  [1440]
        "Un petit monde au bout du fil." does not name what is sold (creations au crochet faites main, creations, crochet, faites, from flags)
@@ -135,7 +135,7 @@ gate: rounds used up; 51 FAIL open
        the content of section 1 runs 80px from the left and 0px from the right (read from its outermost blocks: no .wrap): 80 and 0px are not one margin (one container, equal margins, 2px either way) (SR-6)
        fix: use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone
   FAIL container-edges  main > div.marquee "FAIT MAIN, AVEC AMOUR PETITES MAILLES, G"  [1440]
-       the content of section 2 runs 0px from the left and 0px from the right (read from its outermost blocks: no .wrap): the page's container starts at 80px; the margin is 64-120px at 1440px (one container, equal margins, 2px 
+       the content of section 2 runs 0px from the left and 0px from the right (read from its outermost blocks: no .wrap): the page's container starts at 80px; the margin is 64-120px at 1440px (one container, equal margins, 2px
        fix: use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone
   FAIL container-edges  a.skip-link "Aller à la collection"  [1440]
        a <a> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)
@@ -147,7 +147,7 @@ gate: rounds used up; 51 FAIL open
        a box runs 0-1440px, outside the container lines of section 1 at 80-1440px: full width is for background layers and grounds only (SR-6)
        fix: keep it inside the container lines (.wrap): full width is for background layers and grounds only
   FAIL container-edges  section#collection > div.collection-stars  [1440]
-       a box runs 0-1440px, outside the container lines of section 4 at 80-1360px: full width is for background layers and grounds only (and 5 more like it: "LE GOÛT DES PETITS DÉTAI", section#collection > div.collection-stars 
+       a box runs 0-1440px, outside the container lines of section 4 at 80-1360px: full width is for background layers and grounds only (and 5 more like it: "LE GOÛT DES PETITS DÉTAI", section#collection > div.collection-stars
        fix: keep it inside the container lines (.wrap): full width is for background layers and grounds only
   FAIL container-edges  section#histoire > div.story.section > div.story-copy.reveal > span.eyebrow "02 — DERRIÈRE  [1440]
        4 text blocks start on a left line at x 760, 680px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also "Du temps.Des gestes.De la tendre", "Bienvenue dans mon peti
@@ -196,7 +196,7 @@ GATE: OPEN 51 (rounds used up)
 ```text
 
 perf index.html @ 1440px
-  PASS  host CPU load (before/after)               0/1 %          
+  PASS  host CPU load (before/after)               0/1 %
   FAIL  total transfer                             11813.3 KiB    html 7.4K  css 33.5K  js 33.4K  font 231.3K  img 9946.7K  other 1560.9K
   PASS  requests                                   38             26 by load
   FAIL  images bytes                               9946.7 KiB     16 files
@@ -205,24 +205,24 @@ perf index.html @ 1440px
   PASS  CSS                                        33.5 KiB       4 files
   WARN  font families                              3              Dancing Script, Figtree, Fraunces
   PASS  font files                                 4              231.3K
-  WARN  font bytes                                 231.3 KiB      
-  PASS  images without width+height                0              
+  WARN  font bytes                                 231.3 KiB
+  PASS  images without width+height                0
   PASS  below-fold images not lazy                 0              1 marked lazy in the page source, set eager by system.js once the page has loaded
   FAIL  oversized images (natural > 2.2x shown)    14             logo-transparent.png 1536px for 86; contact-atelier-rose.png 1536px for 697; duo-poupees.jpeg 1080px for 298
-  PASS  WebGL live at load                         0              
-  PASS  WebGL live at bottom                       0              
+  PASS  WebGL live at load                         0
+  PASS  WebGL live at bottom                       0
   PASS  WebGL peak live                            0              0 contexts made in all
   PASS  long tasks                                 0              runs 3, 0..0, max 0ms
   PASS  blocking time                              0 ms           runs 3, 0..0 ms; at load 0ms
   PASS  FCP (CPU, relative)                        124 ms         runs 3, 120..276
   PASS  LCP (CPU, relative)                        124 ms         runs 3, 120..276, img
   PASS  layout shift                               0.000          runs 3, 0.000..0.001; at load 0.000
-  PASS  modules loaded, never mounted              0              
+  PASS  modules loaded, never mounted              0
   FAIL  broken requests                            1              api/store
   PASS  page height                                7.4 screens    DOM 585 nodes
 
 perf index.html @ 390px
-  PASS  host CPU load (before/after)               0/1 %          
+  PASS  host CPU load (before/after)               0/1 %
   FAIL  total transfer                             8351.5 KiB     html 7.4K  css 33.5K  js 33.4K  font 231.3K  img 8038.2K  other 7.6K
   PASS  requests                                   36             25 by load
   FAIL  images bytes                               8038.2 KiB     15 files
@@ -231,19 +231,19 @@ perf index.html @ 390px
   PASS  CSS                                        33.5 KiB       4 files
   WARN  font families                              3              Dancing Script, Figtree, Fraunces
   PASS  font files                                 4              231.3K
-  WARN  font bytes                                 231.3 KiB      
-  PASS  images without width+height                0              
+  WARN  font bytes                                 231.3 KiB
+  PASS  images without width+height                0
   PASS  below-fold images not lazy                 0              1 marked lazy in the page source, set eager by system.js once the page has loaded
   FAIL  oversized images (natural > 2.2x shown)    16             logo-transparent.png 1536px for 48; hero-mobile-rose.png 1024px for 390; contact-atelier-rose.png 1536px for 348
-  PASS  WebGL live at load                         0              
-  PASS  WebGL live at bottom                       0              
+  PASS  WebGL live at load                         0
+  PASS  WebGL live at bottom                       0
   PASS  WebGL peak live                            0              0 contexts made in all
   PASS  long tasks                                 0              runs 3, 0..0, max 0ms
   PASS  blocking time                              0 ms           runs 3, 0..0 ms; at load 0ms
   PASS  FCP (CPU, relative)                        120 ms         runs 3, 116..124
   PASS  LCP (CPU, relative)                        120 ms         runs 3, 116..124, img
   PASS  layout shift                               0.000          runs 3, 0.000..0.000; at load 0.000
-  PASS  modules loaded, never mounted              0              
+  PASS  modules loaded, never mounted              0
   FAIL  broken requests                            1              api/store
   PASS  page height                                10.6 screens   DOM 585 nodes
 
@@ -328,7 +328,7 @@ gate: rounds used up; 51 FAIL open
        3 button styles on one screen: soft, fill gradient ("Les créations"); pill, fill gradient, outline #d9bdcb ("Panier 0"); soft, fill #fff5e8, outline #fff5e8 ("Explorer les créations"); the odd one out: "Explorer les créa
        fix: one primary and one secondary button: one shape, one height per size, one label size
   FAIL button-styles    (the page)  [1440, 390]
-       6 button styles on the page: soft, fill gradient x3 ("Les créations"); pill, fill gradient, outline #d9bdcb x1 ("Panier 0"); soft, fill #fff5e8, outline #fff5e8 x1 ("Explorer les créations"); pill, fill #90466d, outline 
+       6 button styles on the page: soft, fill gradient x3 ("Les créations"); pill, fill gradient, outline #d9bdcb x1 ("Panier 0"); soft, fill #fff5e8, outline #fff5e8 x1 ("Explorer les créations"); pill, fill #90466d, outline
        fix: one primary and one secondary button: one shape, one height per size, one label size
   FAIL copy-headline    h1#hero-title "Un petit monde au bout du fil."  [1440]
        "Un petit monde au bout du fil." does not name what is sold (creations au crochet, creations, crochet, from flags)
@@ -415,7 +415,7 @@ gate: rounds used up; 51 FAIL open
        the content of section 1 runs 0px from the left and 24px from the right (read from its outermost blocks: no .wrap): the page's container starts at 80px; 0 and 24px are not one margin; the margin is 64-120px at 1440px (on
        fix: use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone
   FAIL container-edges  main > div.marquee "FAIT MAIN, AVEC AMOUR PETITES MAILLES, G"  [1440]
-       the content of section 2 runs 0px from the left and 0px from the right (read from its outermost blocks: no .wrap): the page's container starts at 80px; the margin is 64-120px at 1440px (one container, equal margins, 2px 
+       the content of section 2 runs 0px from the left and 0px from the right (read from its outermost blocks: no .wrap): the page's container starts at 80px; the margin is 64-120px at 1440px (one container, equal margins, 2px
        fix: use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone
   FAIL container-edges  a.skip-link "Aller à la collection"  [1440]
        a <a> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)
@@ -465,5 +465,247 @@ gate: rounds used up; 51 FAIL open
   36 WARN (not blocking), first: assets (the page); flush div#hero-scene > picture > img "img: Mis; flush section#collection > div.collection-star; scroll-reveal section#histoire > div.story.section > d; copy-headings div#products > article.product.card:nth-
 Stop fixing: put these open FAILs and the waivers in your report, then finish.
 GATE: OPEN 51 (rounds used up)
+
+```
+
+## Cinematic hero revision (24 November 2026)
+
+The client requested restoration of the earlier light, photographic atelier hero with separately moving and turning dolls. The pale rose hero is restored while the improved catalogue and other UI stay in place. A 200KB AI-edited empty atelier plate and 604KB transparent sheet of four marketing characters inspired by the existing scene replace the static hero picture. These illustrative hero characters are not documentary catalogue photos. Original catalogue assets and prices remain unchanged. Sources are recorded in `assets/hero-cinematic-source.json`.
+
+The characters turn gently in CSS perspective on four independent timelines; this is a 2.5D composition, not a 360-degree model. There is a slow camera move and restrained pointer response. An icon control pauses/resumes movement and remembers the choice. Movement stops outside the viewport and in a hidden tab; reduced-motion preference disables it. This explicitly requested movement takes precedence over the skill's generic no-continuous-motion rule for shops.
+
+Build and five catalogue/cart/image-integrity tests passed. The complete six-width functional regression passed on the rebuilt local Worker (320, 390, 768, 820, 1024 and 1440). Motion checks passed: four distinct changing transforms, pause/resume, persistence across reload, off-screen suspension and reduced-motion. Zero JavaScript errors. Desktop and mobile hero screenshots inspected; replaced an unsuitable cropped original foreground with complete marketing figures before publication. Local test orders remain local; WhatsApp opening was intercepted. No backend changes or production test orders.
+
+
+### Cinematic hero final Taste result
+
+GATE: OPEN 52 (rounds used up). No waivers or vendor changes. The client explicitly requested layered continuous animation and the original short, pale hero; generic product-stage width and exact viewport-height rules were not substituted for that composition. The sprite is intentionally clipped into four cells: its full underlying image is wider than each cell, while the visible cell stays inside its frame. Other retained findings concern original copy/contacts, captions, repeated approved photographs, ecommerce cards, floating cart, marquee, section rhythm and starter-specific markup. Full output follows.
+
+```text
+gate: checking index.html (product); this takes a few minutes on a CPU Chrome
+gate: rounds used up; 52 FAIL open
+  FAIL hero-fill        main > div.marquee "FAIT MAIN, AVEC AMOUR PETITES MAILLES, G"  [1440]
+       the next section shows on the first screen: it starts at 812px on a 900px screen (the hero ends at 812px)
+       fix: let the hero fill the first screen alone (min-height: 100svh, less above it): nothing of the next section on load
+  FAIL flush            section#contact > img.contact-backdrop "img: Composition inspirée des créations "  [1440]
+       its first line sits 0px under the top edge of section#contact, where the ground changes
+       fix: give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)
+  FAIL nav              header.header > a.brand "Hafssa Crochet FAIT MAIN AVEC AMOUR"  [1440, 390]
+       nav link wraps to a second line
+       fix: make the nav one bar from the content's left edge to its right edge, with every link and action inside it
+  FAIL overlap-text     div#products > article.product.card:nth-of-type(1) > div.product-media > img "img: Duo de   [1440, 390]
+       lies over the text "FAIT MAIN" (div.product-media > span.product-badge) (and 11 more like it: "img: Doudou Jaune", "img: Lapin Fushia", "img: Petit Ours", "img: Poupée Béret", ...)
+       fix: move the box off the text (or the text off the box)
+  FAIL marquee          main > div.marquee > div.marquee-track "FAIT MAIN, AVEC AMOUR PETITES MAILLES, G"  [1440, 390]
+       a running line of text, cut mid-word at both edges of the screen in every still
+       fix: drop the running line, or set it as full words that fit the screen
+  FAIL no-visual        main > section.details.section "Maille après maille."  [1440, 390]
+       no picture, effect or mock in this section; a feature section needs a visual
+       fix: give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits
+  FAIL card-layout      div#products "FAIT MAIN POUPÉES Duo de Poupées Un ador"  [1440, 390]
+       12 of 12 cards drawn one way (one panel, ground, placement and fragment): copies of one card
+       fix: a card layout at most twice on a page: build the other sections another way
+  FAIL button-styles    (one screen)  [1440]
+       3 button styles on one screen: soft, fill gradient ("Les créations"); pill, fill #90466d, outline #90466d ("Explorer les créations"); pill, fill gradient, outline #d9bdcb ("Panier 0"); the odd one out: "Panier 0"
+       fix: one primary and one secondary button: one shape, one height per size, one label size
+  FAIL button-styles    (the page)  [1440, 390]
+       5 button styles on the page: soft, fill gradient x3 ("Les créations"); pill, fill gradient, outline #d9bdcb x1 ("Panier 0"); pill, fill #90466d, outline #90466d x3 ("Explorer les créations"); soft, fill #68374f, outline
+       fix: one primary and one secondary button: one shape, one height per size, one label size
+  FAIL button-styles    section.hero.hero-cinematic > div.hero-copy > div.hero-buttons > a.button.magic-button "Ex  [1440]
+       one button style (pill, fill #90466d, outline #90466d) in 2 heights: 51, 60px ("Explorer les créations" 60px, "Découvrir la collection" 51px)
+       fix: one primary and one secondary button: one shape, one height per size, one label size
+  FAIL copy-headline    h1#hero-title "Un petit monde au bout du fil."  [1440]
+       "Un petit monde au bout du fil." does not name what is sold (creations au crochet, creations, crochet, from flags)
+       fix: put the category noun in the h1 (and who it is for, or where), in 2 to 8 words
+  FAIL copy-fact        h1#hero-title "Un petit monde au bout du fil."  [1440]
+       the first screen holds no number, price, date, place, platform or genre
+       fix: put one hard fact from the brief on the first screen: a number, a price, a date, the place, the platforms it runs on or a game's genre; take it from the brief or remove the claim
+  FAIL copy-headings    h2#atelier-offer-title "Entrez dans notre petit atelier."  [1440]
+       "Entrez dans notre petit atelier." names no product, part, place or section (7 headings like it; at most one brand line per page) (and 6 more like it: "Choisissez votre petit c", "Du temps. Des gestes. De", "Maille après
+       fix: name the thing in every heading: the product, a part, the place or a section noun
+  FAIL heading-scale    section#contact > div.contact-content.reveal > h2 "Et si on créait un peu de douceur ?"  [1440]
+       h2 headings in 3 sizes, 46.1px ("Entrez dans notre petit ") to 67.7px (x1.47)
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL text-contrast    main > section.hero.hero-cinematic > div.hero-copy > p "Des poupées qui ont une âme. Des c  [1440, 390]
+       body text in #654b59 on #f4e9ee reads 6.56:1 (needs 7:1)
+       fix: body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels
+  FAIL section-gaps     main > section.hero.hero-cinematic / main > div.marquee  [1440, 390]
+       20px between these sections, -68% against the median 62px
+       fix: use one gap between sections (all within 25% of each other)
+  FAIL photo-repeat     section#contact > img.contact-backdrop "contact-atelier-rose.png"  [1440, 390]
+       the photograph contact-atelier-rose.png is shown 2 times on the page: a picture the visitor has already seen
+       fix: show each view of the product once: the hero side, the product section three-quarter, the use scene, the parts as close-ups or the exploded view, the order rear-quarter
+  FAIL photo-repeat     div.story.section > div.story-visual.reveal > div.story-inset > img "petit-ours.jpeg"  [1440]
+       the photograph petit-ours.jpeg is shown 2 times on the page: a picture the visitor has already seen
+       fix: show each view of the product once: the hero side, the product section three-quarter, the use scene, the parts as close-ups or the exploded view, the order rear-quarter
+  FAIL photo-repeat     div.story.section > div.story-visual.reveal > div.story-photo.mo-pd > img "poupee-beret.jp  [1440]
+       the photograph poupee-beret.jpeg is shown 2 times on the page: a picture the visitor has already seen
+       fix: show each view of the product once: the hero side, the product section three-quarter, the use scene, the parts as close-ups or the exploded view, the order rear-quarter
+  FAIL visual-caption   section#histoire > div.story.section > div.story-visual.reveal > span.photo-caption "LE GO  [1440, 390]
+       a line marked as a caption sits 16px under the picture poupee-beret.jpeg (its class names it one): "LE GOÛT DES PETITS DÉTAILS."; no caption or description under any image, render or visual (house rule)
+       fix: take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line
+  FAIL phone-number     section#contact > div.contact-content.reveal > span.contact-number "06 84 20 76 43"  [1440]
+       a phone number with its area code: "06 84 20 76 43"; a visitor can dial it and reach a stranger
+       fix: drop the number and its tel: link (a "Request a call" form may stand in), unless the brief gives the number
+  FAIL phone-number     a#contact-whatsapp "https://wa.me/212684207643?text=Bonjour%"  [1440]
+       a WhatsApp link calls a number in a real dialable format: "https://wa.me/212684207643?text=Bonjour%"; a visitor can dial it and reach a stranger (and 1 more like it: a#collection-contact)
+       fix: drop the number and its tel: link (a "Request a call" form may stand in), unless the brief gives the number
+  FAIL focus-visible    section.atelier-offer.section:nth-of-type(2) > div.atelier-poster > div.atelier-poster-cop  [1440]
+       Tab stop 10, a "Découvrir la collection": the focus lands on something you cannot see
+       fix: keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus
+  FAIL hero-screen      main > section.hero.hero-cinematic "OBJETS DE TENDRESSE · FAIT MAIN AU MAROC"  [1440]
+       the hero ends at 812px on a 900px screen, 88px above the fold: it ends at the fold, 1px either way (SR-1)
+       fix: make the hero exactly one screen (height: 100svh, its content fitted inside), never taller or shorter
+  FAIL hero-screen      main > div.marquee "FAIT MAIN, AVEC AMOUR PETITES MAILLES, G"  [1440]
+       88px of the next section shows on the first screen (from 812px on a 900px screen): nothing below the hero shows at load (SR-1)
+       fix: end the hero at the fold so nothing of the next section shows at load (hero height: 100svh)
+  FAIL section-height   section#collection "LA COLLECTION · PIÈCES FAITES MAIN Chois"  [1440]
+       the section is 2813px tall (3.1 screens), 1013px over two screens (1800px): every section after the hero is one screen or two, 2px either way (SR-2)
+       fix: set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit
+  FAIL section-height   main > div.marquee "FAIT MAIN, AVEC AMOUR PETITES MAILLES, G"  [1440]
+       the section is 65px tall (0.1 screens), 835px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)
+       fix: set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit
+  FAIL section-height   footer "Hafssa CrochetFAIT MAIN AVEC AMOURDes fi"  [1440]
+       the section is 343px tall (0.4 screens), 557px short of one screen (900px): every section after the hero is one screen or two, 2px either way (and 4 more like it: "01 / LE FAIT MAIN Maille", "CHAQUE BELLE HISTOIRE CO", "
+       fix: set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit
+  FAIL section-height   section#contact "CHAQUE BELLE HISTOIRE COMMENCE PAR UN BO"  [1440]
+       the section starts at 5602px, 202px below the screen grid (6 x 900px): sections start on whole screens (SR-2)
+       fix: make every section above it exactly one or two screens tall, so this one starts on a whole screen
+  FAIL section-height   main > section.details.section "01 / LE FAIT MAIN Maille après maille. D"  [1440]
+       the section starts at 5250px, 150px above the screen grid (6 x 900px): sections start on whole screens (and 5 more like it: "OBJETS DE TENDRESSE · FA", "FAIT MAIN, AVEC AMOUR PE", "Hafssa CrochetFAIT MAIN ") (SR-2)
+       fix: make every section above it exactly one or two screens tall, so this one starts on a whole screen
+  FAIL section-air      main > div.marquee "FAIT MAIN, AVEC AMOUR PETITES MAILLES, G"  [1440]
+       the content fills 20% of the section's height (13 of 65px): 55% or more (40% WARN) (SR-3)
+       fix: fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block
+  FAIL section-air      section#collection > div.section-top.reveal "LA COLLECTION · PIÈCES FAITES MAIN Chois"  [1440]
+       a bottom border across 100% of the container, between the section's content: sections and their parts are told apart by air and ground, not lines (SR-3)
+       fix: take the rule out: sections and their parts are parted by their ground and the air between them
+  FAIL section-air      section#collection > div.collection-foot "Chaque création est réalisée à la main.B"  [1440]
+       a top border across 100% of the container, between the section's content: sections and their parts are told apart by air and ground, not lines (SR-3)
+       fix: take the rule out: sections and their parts are parted by their ground and the air between them
+  FAIL one-section      footer "Hafssa CrochetFAIT MAIN AVEC AMOURDes fi"  [1440]
+       the screen at scroll 5602px (the top of section 7) shows 280px of section 8 and the content of 2 sections, over 24px each beside section 7: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)
+       fix: make each section exactly one screen or two, so a screen shows one section and no neighbour peeks
+  FAIL one-section      section#collection "LA COLLECTION · PIÈCES FAITES MAIN Chois"  [1440]
+       the screen at scroll 900px (stride 1) shows 163px of section 4 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)
+       fix: make each section exactly one screen or two, so a screen shows one section and no neighbour peeks
+  FAIL one-section      main > section.details.section "01 / LE FAIT MAIN Maille après maille. D"  [1440]
+       the screen at scroll 4500px (stride 5) shows 150px of section 6 and the content of 2 sections, over 24px each beside section 5: a screen shows one section (another may peek 8px, 24px WARN) (and 6 more like it: scroll 122
+       fix: make each section exactly one screen or two, so a screen shows one section and no neighbour peeks
+  FAIL one-section      main > div.marquee "FAIT MAIN, AVEC AMOUR PETITES MAILLES, G"  [1440]
+       a <div> sits directly in <main>: every part of <main> is a <section> (SR-4)
+       fix: put every block of <main> in a <section>, and give a band its own section instead of a ground inside one
+  FAIL one-section      main > section.atelier-offer.section > div.atelier-poster "BIENVENUE CHEZ HAFSSA CROCHET E  [1440]
+       a band: a box 89% of the section wide on a ground of its own that holds the heading or the intro: the section's own ground is the band (SR-4)
+       fix: put every block of <main> in a <section>, and give a band its own section instead of a ground inside one
+  FAIL container-edges  main > section.hero.hero-cinematic "OBJETS DE TENDRESSE · FAIT MAIN AU MAROC"  [1440]
+       the content of section 1 runs 80px from the left and 0px from the right (read from its outermost blocks: no .wrap): 80 and 0px are not one margin (one container, equal margins, 2px either way) (SR-6)
+       fix: use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone
+  FAIL container-edges  main > div.marquee "FAIT MAIN, AVEC AMOUR PETITES MAILLES, G"  [1440]
+       the content of section 2 runs 0px from the left and 0px from the right (read from its outermost blocks: no .wrap): the page's container starts at 80px; the margin is 64-120px at 1440px (one container, equal margins, 2px
+       fix: use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone
+  FAIL container-edges  a.skip-link "Aller à la collection"  [1440]
+       a <a> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)
+       fix: build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing
+  FAIL container-edges  div.announcement "CRÉÉ À LA MAIN. GARDÉ PRÈS DU CŒUR.Insta"  [1440]
+       a <div> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (and 17 more like it: "Hafssa CrochetFAIT MAIN ", "Hafssa CrochetFAIT MAIN ", "0") (SR-6)
+       fix: build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing
+  FAIL container-edges  main > section.hero.hero-cinematic > div.hero-halo  [1440]
+       a box runs 0-1440px, outside the container lines of section 1 at 80-1440px: full width is for background layers and grounds only (SR-6)
+       fix: keep it inside the container lines (.wrap): full width is for background layers and grounds only
+  FAIL container-edges  section#collection > div.collection-stars  [1440]
+       a box runs 0-1440px, outside the container lines of section 4 at 80-1360px: full width is for background layers and grounds only (and 5 more like it: "LE GOÛT DES PETITS DÉTAI", section#collection > div.collection-stars
+       fix: keep it inside the container lines (.wrap): full width is for background layers and grounds only
+  FAIL container-edges  section#histoire > div.story.section > div.story-copy.reveal > span.eyebrow "02 — DERRIÈRE  [1440]
+       4 text blocks start on a left line at x 760, 680px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also "Du temps.Des gestes.De la tendre", "Bienvenue dans mon peti
+       fix: start the text on the container's left, or on the one split line every split shares
+  FAIL container-edges  section#contact > img.contact-backdrop "Composition inspirée des créations Hafss"  [1440]
+       a <img> over half the container wide runs 540-1440px, not on the container's lines at 80-1440px (and 4 more like it: "Décor de l’atelier rose ", main > section.hero.hero-cinematic > div.hero-halo, section#collection > di
+       fix: run the picture or box from the container's left line to its right line, or put it in a row or a split
+  FAIL row-lines        main > div.marquee "FAIT MAIN, AVEC AMOUR PETITES MAILLES, G"  [1440]
+       a clipped carousel: 2 items cut at rest (SR-7)
+       fix: show every item inside the container, or stack them: no sideways scroller, no half-cut carousel
+  FAIL split-pair       section#histoire > div.story.section "LE GOÛT DES PETITS DÉTAILS. 02 — DERRIÈR"  [1440]
+       the split's left column starts with a picture or a box, not text: text left, the visual right, on every split (SR-8)
+       fix: put the text in the left column and the visual in the right, on every split
+  FAIL split-pair       main > section.atelier-offer.section > div.atelier-poster "BIENVENUE CHEZ HAFSSA CROCHET E  [1440]
+       the split's columns are off the page's one pair of lines: its right column starts at x 662, on none of the split lines 623 (k=5), 732 (k=6), 841 (k=7) (SR-8)
+       fix: start every split's right column on one shared line (wrap.left + k x (width + 24) / 12, k 5, 6 or 7; 6 on a place page) and end the left one 24px before it
+  FAIL nav-covers       button#floating-cart "0"  [390]
+       sits on top of the text "avec amour" while the page scrolls: part of the line shows beside it
+       fix: make the fixed nav one opaque band across the whole screen, or let it scroll away with the page
+  FAIL section-gaps     main > section.details.section / section#contact  [390]
+       120px between these sections, +155% against the median 47px
+       fix: use one gap between sections (all within 25% of each other)
+  FAIL container        page  [1440, 390]
+       no .wrap
+       fix: put the content in one .wrap
+  36 WARN (not blocking), first: assets (the page); flush section#collection > div.collection-star; scroll-reveal section#histoire > div.story.section > d; copy-headings div#products > article.product.card:nth-; copy-buttons nav#main-nav > a.magic-button.nav-magic:
+Stop fixing: put these open FAILs and the waivers in your report, then finish.
+GATE: OPEN 52 (rounds used up)
+
+```
+
+The 1024/820/768 screenshots exposed a cropped right-hand bear at intermediate widths after the gate's three rounds. The final fit correction sizes sprite cells from the stage width (19%, 25% on phones) rather than its height, preserving full silhouettes. This task-specific visual correction was made after the OPEN gate result and was checked separately; the logged gate is not represented as a PASS or as a rerun of that final correction.
+
+Final fit regression passed at 320/390/640/768/820/1024/1440: all four sprite cells remain inside the stage, both new image resources decode, and there is no horizontal overflow. Independent movement, pause persistence, off-screen suspension and reduced motion passed again after the fit adjustment. Inspected desktop, phone and 1024/820/768 screenshots, including the corrected 820 view.
+
+Latest performance run: 10 FAIL, 4 WARN. Original marketing PNGs and catalogue image weight remain the main failures; the static harness returns 404 for `/api/store`, while the real local Worker and purchase flows pass. These CPU-local numbers are not mobile-network measurements. Full output:
+
+```text
+
+perf index.html @ 1440px
+  PASS  host CPU load (before/after)               1/1 %
+  FAIL  total transfer                             10115.8 KiB    html 8K  css 36.7K  js 33.8K  font 231.3K  img 8244.6K  other 1561.4K
+  PASS  requests                                   39             30 by load
+  FAIL  images bytes                               8244.6 KiB     17 files
+  FAIL  largest image                              2398.7 KiB     assets/contact-atelier-rose.png
+  PASS  JS parsed                                  104.6 KiB      10 files, 33.8K gz
+  PASS  CSS                                        36.7 KiB       4 files
+  WARN  font families                              3              Dancing Script, Figtree, Fraunces
+  PASS  font files                                 4              231.3K
+  WARN  font bytes                                 231.3 KiB
+  PASS  images without width+height                0
+  PASS  below-fold images not lazy                 0              1 marked lazy in the page source, set eager by system.js once the page has loaded
+  FAIL  oversized images (natural > 2.2x shown)    16             logo-transparent.png 1536px for 86; hero-dolls-sprite.webp 1774px for 783; hero-dolls-sprite.webp 1774px for 778
+  PASS  WebGL live at load                         0
+  PASS  WebGL live at bottom                       0
+  PASS  WebGL peak live                            0              0 contexts made in all
+  PASS  long tasks                                 1              runs 3, 0..1, max 65ms
+  PASS  blocking time                              13 ms          runs 3, 0..15 ms; at load 13ms
+  PASS  FCP (CPU, relative)                        204 ms         runs 3, 188..272
+  PASS  LCP (CPU, relative)                        204 ms         runs 3, 188..272, img.cinema-backdrop
+  PASS  layout shift                               0.000          runs 3, 0.000..0.001; at load 0.000
+  PASS  modules loaded, never mounted              0
+  FAIL  broken requests                            1              api/store
+  PASS  page height                                7.3 screens    DOM 596 nodes
+
+perf index.html @ 390px
+  PASS  host CPU load (before/after)               1/1 %
+  FAIL  total transfer                             7009.3 KiB     html 8K  css 36.7K  js 33.8K  font 231.3K  img 6691.3K  other 8.1K
+  PASS  requests                                   37             26 by load
+  FAIL  images bytes                               6691.3 KiB     16 files
+  FAIL  largest image                              2398.7 KiB     assets/contact-atelier-rose.png
+  PASS  JS parsed                                  104.6 KiB      10 files, 33.8K gz
+  PASS  CSS                                        36.7 KiB       4 files
+  WARN  font families                              3              Dancing Script, Figtree, Fraunces
+  PASS  font files                                 4              231.3K
+  WARN  font bytes                                 231.3 KiB
+  PASS  images without width+height                0
+  PASS  below-fold images not lazy                 0              1 marked lazy in the page source, set eager by system.js once the page has loaded
+  FAIL  oversized images (natural > 2.2x shown)    20             logo-transparent.png 1536px for 48; hero-atelier-empty.webp 1536px for 396; hero-dolls-sprite.webp 1774px for 395
+  PASS  WebGL live at load                         0
+  PASS  WebGL live at bottom                       0
+  PASS  WebGL peak live                            0              0 contexts made in all
+  PASS  long tasks                                 1              runs 3, 0..1, max 85ms
+  PASS  blocking time                              21 ms          runs 3, 0..35 ms; at load 21ms
+  PASS  FCP (CPU, relative)                        204 ms         runs 3, 184..208
+  PASS  LCP (CPU, relative)                        204 ms         runs 3, 184..208, img.cinema-backdrop
+  PASS  layout shift                               0.000          runs 3, 0.000..0.000; at load 0.000
+  PASS  modules loaded, never mounted              0
+  FAIL  broken requests                            1              api/store
+  PASS  page height                                10.2 screens   DOM 596 nodes
+
+SUMMARY index.html: 10 FAIL, 4 WARN  -> FAIL
 
 ```

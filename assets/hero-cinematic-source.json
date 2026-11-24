@@ -1,0 +1,7 @@
+{
+  "background": "hero-atelier-empty.webp",
+  "foreground": "hero-dolls-sprite.webp",
+  "type": "AI-edited illustrative atelier background and transparent marketing character sheet",
+  "references": ["hero-atelier-mauve.png"],
+  "note": "Marketing characters are inspired by the existing illustrative scene, not documentary product photos. Catalogue originals remain unchanged. Each quarter of the transparent sprite sheet is animated independently using CSS perspective; this is 2.5D, not a real 360-degree model."
+}

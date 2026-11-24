@@ -11,6 +11,12 @@ function updateMotion() {
   const paused = userPaused || reducedMotion.matches;
   root.classList.toggle("motion-paused", paused);
   if (paused) resetTilt();
+  const toggle = document.getElementById("hero-motion-toggle");
+  if (toggle) {
+    toggle.disabled = reducedMotion.matches;
+    toggle.setAttribute("aria-pressed", String(paused));
+    toggle.setAttribute("aria-label", reducedMotion.matches ? "Animation désactivée selon vos préférences de mouvement" : paused ? "Activer l’animation" : "Mettre l’animation en pause");
+  }
 }
 reducedMotion.addEventListener("change", updateMotion);
 let frame = 0;
@@ -18,6 +24,8 @@ function resetTilt() {
   cancelAnimationFrame(frame);
   scene.style.setProperty("--tilt-x", "0deg");
   scene.style.setProperty("--tilt-y", "0deg");
+  scene.style.setProperty("--camera-x", "0px");
+  scene.style.setProperty("--camera-y", "0px");
 }
 stage.addEventListener("pointermove", (event) => {
   if (!finePointer.matches || root.classList.contains("motion-paused")) return;
@@ -34,6 +42,8 @@ stage.addEventListener("pointermove", (event) => {
   frame = requestAnimationFrame(() => {
     scene.style.setProperty("--tilt-x", `${-y * 1.8}deg`);
     scene.style.setProperty("--tilt-y", `${x * 2.4}deg`);
+    scene.style.setProperty("--camera-x", `${x * 5}px`);
+    scene.style.setProperty("--camera-y", `${y * 3}px`);
   });
 });
 stage.addEventListener("pointerleave", resetTilt);
@@ -143,3 +153,24 @@ if ("ResizeObserver" in window) {
   );
   offsets.observe(filtersBar);
 }
+
+// Cinematic movement is local, pausable and sleeps when the hero is off-screen.
+const cinemaToggle = document.getElementById("hero-motion-toggle");
+cinemaToggle?.addEventListener("click", () => {
+  userPaused = !root.classList.contains("motion-paused");
+  try { localStorage.setItem("hafssa-motion-paused", String(userPaused)); } catch {}
+  updateMotion();
+});
+const cinemaHero = document.querySelector(".hero-cinematic");
+let heroOnScreen = true;
+function updateCinemaVisibility() {
+  cinemaHero?.classList.toggle("scene-outside", document.hidden || !heroOnScreen);
+}
+if (cinemaHero && "IntersectionObserver" in window) {
+  new IntersectionObserver(([entry]) => {
+    heroOnScreen = entry.isIntersecting;
+    updateCinemaVisibility();
+  }).observe(cinemaHero);
+}
+document.addEventListener("visibilitychange", updateCinemaVisibility);
+updateMotion();

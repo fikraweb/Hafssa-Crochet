@@ -36,18 +36,8 @@
     />
     <title>Hafssa Crochet — Un petit monde fait main</title>
     <link rel="icon" href="assets/logo-transparent.png" type="image/png" />
-    <link
-      rel="preload"
-      href="assets/hero-atelier-mauve.png"
-      as="image"
-      media="(min-width: 640px)"
-    />
-    <link
-      rel="preload"
-      href="assets/hero-mobile-rose.png"
-      as="image"
-      media="(max-width: 639px)"
-    />
+    <link rel="preload" href="assets/hero-atelier-empty.webp" as="image" />
+
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="landing.css" />
     <link rel="stylesheet" href="assets/taste/motion/motion.css" />
@@ -165,7 +155,7 @@
       <p>Un petit univers, beaucoup de douceur.</p>
     </dialog>
     <main>
-      <section class="hero" data-enter aria-labelledby="hero-title">
+      <section class="hero hero-cinematic" data-enter aria-labelledby="hero-title">
         <div class="hero-halo" aria-hidden="true"></div>
         <div class="hero-grain" aria-hidden="true"></div>
         <div class="hero-copy">
@@ -233,24 +223,23 @@
             histoire.
           </div>
         </div>
-        <div class="hero-stage" id="hero-stage">
+        <div class="hero-stage cinematic-stage" id="hero-stage" role="img" aria-label="Deux poupées, un lapin et un ours au crochet animés dans l’atelier Hafssa Crochet">
           <div class="atelier-photo-layer" id="hero-scene" data-enter-media>
-            <picture>
-              <source
-                media="(max-width: 639px)"
-                srcset="assets/hero-mobile-rose.png"
-              />
-              <img
-                src="assets/hero-atelier-mauve.png"
-                alt="Mise en scène inspirée des créations Hafssa Crochet : poupées, lapin et ours alignés sur un bureau, sous un cadre portant le logo."
-                width="1536"
-                height="1024"
-                fetchpriority="high"
-                decoding="async"
-              />
-            </picture>
+            <img class="cinema-backdrop" src="assets/hero-atelier-empty.webp"
+              alt="Décor de l’atelier rose avec le logo Hafssa Crochet encadré au mur."
+              width="1536" height="1024" fetchpriority="high" decoding="async" />
+            <div class="cinema-cast" aria-hidden="true">
+              <div class="cinema-doll doll-beret"><img src="assets/hero-dolls-sprite.webp" alt="" width="1774" height="887" /></div>
+              <div class="cinema-doll doll-rousse"><img src="assets/hero-dolls-sprite.webp" alt="" width="1774" height="887" /></div>
+              <div class="cinema-doll doll-bunny"><img src="assets/hero-dolls-sprite.webp" alt="" width="1774" height="887" /></div>
+              <div class="cinema-doll doll-bear"><img src="assets/hero-dolls-sprite.webp" alt="" width="1774" height="887" /></div>
+            </div>
           </div>
         </div>
+        <button class="cinema-motion" id="hero-motion-toggle" type="button" aria-label="Mettre l’animation en pause" aria-pressed="false">
+          <svg class="cinema-pause" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 5v14M15 5v14" /></svg>
+          <svg class="cinema-play" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m8 5 11 7-11 7Z" /></svg>
+        </button>
         <div class="hero-bottom">
           <a href="#collection" class="scroll-cue"
             ><span>↓</span> UN UNIVERS À DÉCOUVRIR</a

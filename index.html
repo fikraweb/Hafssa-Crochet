@@ -36,10 +36,12 @@
     />
     <title>Hafssa Crochet — Un petit monde fait main</title>
     <link rel="icon" href="assets/logo-transparent.png" type="image/png" />
-    <link rel="preload" href="assets/hero-atelier-empty.webp" as="image" />
+    <link rel="preload" href="assets/hero-atelier-mauve.png" as="image" media="(min-width: 761px)" />
+    <link rel="preload" href="assets/hero-mobile-rose.png" as="image" media="(max-width: 760px)" />
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="landing.css" />
+    <link rel="stylesheet" href="storefront.css" />
     <link rel="stylesheet" href="assets/taste/motion/motion.css" />
     <script src="assets/taste/enter.js"></script>
     <script type="module" src="assets/taste/motion/motion.js"></script>
@@ -155,7 +157,7 @@
       <p>Un petit univers, beaucoup de douceur.</p>
     </dialog>
     <main>
-      <section class="hero hero-cinematic" data-enter aria-labelledby="hero-title">
+      <section class="hero" data-enter aria-labelledby="hero-title">
         <div class="hero-halo" aria-hidden="true"></div>
         <div class="hero-grain" aria-hidden="true"></div>
         <div class="hero-copy">
@@ -223,23 +225,21 @@
             histoire.
           </div>
         </div>
-        <div class="hero-stage cinematic-stage" id="hero-stage" role="img" aria-label="Deux poupées, un lapin et un ours au crochet animés dans l’atelier Hafssa Crochet">
+        <div class="hero-stage" id="hero-stage">
           <div class="atelier-photo-layer" id="hero-scene" data-enter-media>
-            <img class="cinema-backdrop" src="assets/hero-atelier-empty.webp"
-              alt="Décor de l’atelier rose avec le logo Hafssa Crochet encadré au mur."
-              width="1536" height="1024" fetchpriority="high" decoding="async" />
-            <div class="cinema-cast" aria-hidden="true">
-              <div class="cinema-doll doll-beret"><img src="assets/hero-dolls-sprite.webp" alt="" width="1774" height="887" /></div>
-              <div class="cinema-doll doll-rousse"><img src="assets/hero-dolls-sprite.webp" alt="" width="1774" height="887" /></div>
-              <div class="cinema-doll doll-bunny"><img src="assets/hero-dolls-sprite.webp" alt="" width="1774" height="887" /></div>
-              <div class="cinema-doll doll-bear"><img src="assets/hero-dolls-sprite.webp" alt="" width="1774" height="887" /></div>
-            </div>
+            <picture>
+              <source media="(max-width: 760px)" srcset="assets/hero-mobile-rose.png" />
+            <img
+              src="assets/hero-atelier-mauve.png"
+              alt="Mise en scène inspirée des créations Hafssa Crochet : poupées, lapin et ours alignés sur un bureau, sous un cadre portant le logo."
+              width="1536"
+              height="1024"
+              fetchpriority="high"
+              decoding="async"
+            />
+            </picture>
           </div>
         </div>
-        <button class="cinema-motion" id="hero-motion-toggle" type="button" aria-label="Mettre l’animation en pause" aria-pressed="false">
-          <svg class="cinema-pause" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 5v14M15 5v14" /></svg>
-          <svg class="cinema-play" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m8 5 11 7-11 7Z" /></svg>
-        </button>
         <div class="hero-bottom">
           <a href="#collection" class="scroll-cue"
             ><span>↓</span> UN UNIVERS À DÉCOUVRIR</a
@@ -326,61 +326,6 @@
           ></i>
         </div>
       </div>
-      <section
-        class="atelier-offer section reveal"
-        aria-labelledby="atelier-offer-title"
-      >
-        <div class="atelier-poster">
-          <div class="atelier-poster-copy">
-            <span class="atelier-poster-label"
-              >BIENVENUE CHEZ HAFSSA CROCHET</span
-            >
-            <h2 id="atelier-offer-title">
-              Entrez dans<br />notre petit <em>atelier.</em>
-            </h2>
-            <p class="atelier-poster-promise">
-              De jolies créations.<br /><span>Des prix tout doux.</span>
-            </p>
-            <p class="atelier-poster-description">
-              Poupées, doudous et cadeaux faits main : trouvez votre bonheur
-              dans notre sélection pleine de tendresse.
-            </p>
-            <a class="atelier-poster-cta btn btn--primary" href="#collection"
-              >Découvrir la collection
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.7"
-                aria-hidden="true"
-              >
-                <path d="M5 19 19 5M5 5h14v14" /></svg
-            ></a>
-            <span class="atelier-poster-signature"
-              >Imaginé avec douceur, crocheté avec amour.</span
-            >
-          </div>
-          <div class="atelier-poster-scene">
-            <img
-              src="assets/contact-atelier-rose.png"
-              alt="Mise en scène des créations Hafssa Crochet sur une table d’atelier, avec poupées, lapin et ourson au crochet."
-              width="1536"
-              height="1024"
-              loading="lazy"
-            />
-            <span class="atelier-poster-seal"
-              >Fait main<span>avec amour</span
-              ><span aria-hidden="true">✿</span></span
-            >
-            <div class="atelier-poster-caption">
-              <span>LA SÉLECTION DE L’ATELIER</span
-              ><strong>Un petit bonheur à offrir.</strong>
-            </div>
-          </div>
-        </div>
-      </section>
       <section class="collection section" id="collection">
         <div class="collection-stars" aria-hidden="true">
           <span
@@ -768,6 +713,61 @@
               >
                 <path d="M5 19 19 5M5 5h14v14" /></svg></span
           ></a>
+        </div>
+      </section>
+      <section
+        class="atelier-offer section reveal"
+        aria-labelledby="atelier-offer-title"
+      >
+        <div class="atelier-poster">
+          <div class="atelier-poster-copy">
+            <span class="atelier-poster-label"
+              >BIENVENUE CHEZ HAFSSA CROCHET</span
+            >
+            <h2 id="atelier-offer-title">
+              Entrez dans<br />notre petit <em>atelier.</em>
+            </h2>
+            <p class="atelier-poster-promise">
+              De jolies créations.<br /><span>Des prix tout doux.</span>
+            </p>
+            <p class="atelier-poster-description">
+              Poupées, doudous et cadeaux faits main : trouvez votre bonheur
+              dans notre sélection pleine de tendresse.
+            </p>
+            <a class="atelier-poster-cta btn btn--primary" href="#collection"
+              >Découvrir la collection
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                aria-hidden="true"
+              >
+                <path d="M5 19 19 5M5 5h14v14" /></svg
+            ></a>
+            <span class="atelier-poster-signature"
+              >Imaginé avec douceur, crocheté avec amour.</span
+            >
+          </div>
+          <div class="atelier-poster-scene">
+            <img
+              src="assets/contact-atelier-rose.png"
+              alt="Mise en scène des créations Hafssa Crochet sur une table d’atelier, avec poupées, lapin et ourson au crochet."
+              width="1536"
+              height="1024"
+              loading="lazy"
+            />
+            <span class="atelier-poster-seal"
+              >Fait main<span>avec amour</span
+              ><span aria-hidden="true">✿</span></span
+            >
+            <div class="atelier-poster-caption">
+              <span>LA SÉLECTION DE L’ATELIER</span
+              ><strong>Un petit bonheur à offrir.</strong>
+            </div>
+          </div>
         </div>
       </section>
       <section class="atelier" id="histoire">

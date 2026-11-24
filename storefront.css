@@ -1,0 +1,175 @@
+/* Hafssa Crochet: complete boutique landing system. The approved atelier hero remains the visual reference. */
+.announcement { background: #76415d; padding-block: 9px; }
+.header { height: 96px; background: #fffcf8; border-bottom: 1px solid #e5cdd7; }
+.header .brand-name { font-size: 39px; }
+.header #main-nav .nav-magic { background: transparent; border: 0; border-radius: 0; padding-inline: 14px; }
+.header #main-nav .nav-magic:hover, .header #main-nav .nav-magic[aria-current="location"] { color: #94446c; background: #f5e7ed; border-radius: 8px; }
+.header .nav-bag { background: #f6e9ee; border-color: #dfbfce; }
+.hero {
+  display: block; min-height: 690px; padding: 76px var(--edge) 86px;
+  background: #f4e9ee; isolation: isolate;
+}
+.hero-copy { width: 47%; max-width: 590px; padding: 0; position: relative; z-index: 3; }
+.hero-edition { color: #854366; font-size: 10px; letter-spacing: .12em; }
+.hero h1 { margin: 28px 0; }
+.hero-title-lead { color: #53364a; font-size: clamp(48px,5vw,74px); line-height: 1.08; }
+.hero-title-tail { color: #9a5578; font-size: clamp(36px,3.6vw,52px); margin-top: 8px; }
+.hero h1 .hero-title-tail em, .title-heart { color: #9a5578; }
+.hero-copy > p, .hero-copy > p.live-description { color: #654c5c; font: 400 17px/1.8 var(--sans); margin: 28px 0 32px; }
+.hero .magic-primary, .hero .magic-primary:hover, .hero .magic-primary:focus-visible { background: #90466d; color: #fffaf7; border: 1px solid #90466d; border-radius: 999px; padding: 15px 24px; min-height: 54px; }
+.hero .magic-primary .magic-arrow { border-color: #d8aabe; }
+.hero-note { display: flex; color: #80596e; margin-top: 30px; }
+.hero-stage { position: absolute; inset: 0 0 0 auto; width: 74%; height: 100%; min-height: 0; margin: 0; border-radius: 0; mask-image: linear-gradient(90deg,transparent,#000 25%); background: none; z-index: 1; }
+.hero .atelier-photo-layer { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 0; transform: none; }
+.hero .atelier-photo-layer > picture > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: right bottom; border-radius: 0; mask-image: none; animation: none; }
+.hero-halo { display: block; position: absolute; inset: 0; z-index: 2; background: linear-gradient(90deg,#f4e9ee 0%,#f4e9eef5 27%,#f4e9ee75 43%,transparent 62%); pointer-events: none; }
+.hero-bottom { display: none; }
+.marquee { padding-block: 18px; background: #eedbdc; color: #75435c; }
+.collection { padding-block: 80px; background: #f6edf1; }
+.collection .section-top { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid #dcbfce; align-items: center; }
+.collection .section-top h2 { margin-top: 12px; font-size: clamp(38px,4.4vw,64px); line-height: 1.08; }
+.collection .section-top h2 em { color: #945473; }
+.collection .section-top > p { font-size: 15px; max-width: 280px; }
+.catalogue-tools { border-radius: 10px; padding: 9px; border: 1px solid #e4cad7; box-shadow: 0 6px 20px #6a354d06; background: #fffcf8; }
+.filters { gap: 4px; }
+.filters button { border-radius: 7px; padding-inline: 15px; font-size: 13px; }
+.filters button.active { background: #76415d; border-color: #76415d; }
+.catalogue-status { font-size: 12px; letter-spacing: .03em; margin-bottom: 22px; }
+.products { gap: 28px 22px; }
+.product { padding: 8px; border: 1px solid #eddde5; border-radius: 14px; background: #fffcfa; box-shadow: 0 4px 15px #6a354d04; }
+.product:hover { border-color: #cfa4ba; box-shadow: 0 14px 32px #6a354d12; }
+.product-media { aspect-ratio: 1 / 1.12; border-radius: 9px; }
+.product-badge { border: 1px solid #fff7f0; background: #fffaf4ed; font-size: 8px; letter-spacing: .12em; border-radius: 5px; }
+.product-info { padding: 18px 10px 10px; }
+.product-category { font-size: 9px; color: #945474; letter-spacing: .16em; margin-bottom: 9px; }
+.product h3 { color: #533449; font-size: 25px; min-height: 62px; line-height: 1.18; margin-bottom: 12px; }
+.product-description { font-size: 13px; line-height: 1.65; min-height: 65px; margin-bottom: 18px; color: #77606e; }
+.product-bottom { padding-top: 15px; border-top: 1px solid #ead7e0; align-items: center; }
+.product-price { font-size: 17px; font-weight: 600; color: #68354f; }
+.product-bottom > button.btn { background: #f2e1e9; border: 1px solid #dfbdcd; border-radius: 8px; color: #763c59; font-size: 12px; min-height: 44px; padding: 10px 14px; }
+.product-bottom > button.btn:hover { background: #76415d; border-color: #76415d; color: #fffaf7; }
+.quick-view { border-radius: 50%; color: #7c3f5d; background: #fffaf7f5; width: 44px; height: 44px; }
+.pagination { gap: 8px; }
+.pagination button { border-radius: 8px; }
+.collection-foot { padding-top: 28px; margin-top: 38px; border-top: 1px solid #dcc3d0; }
+.atelier-offer { padding-block: 80px; background: #fffcf8; }
+.atelier-poster { border: 0; border-radius: 18px; box-shadow: none; grid-template-columns: 1fr 1.2fr; overflow: hidden; }
+.atelier-poster-copy { padding: 52px; background: #f1e1e7; }
+.atelier-poster h2 { font-size: clamp(40px,4vw,58px); line-height: 1.1; }
+.atelier-poster-promise { margin-top: 28px; font-size: 20px; }
+.atelier-poster-description { font-size: 15px; }
+.atelier-poster .atelier-poster-cta { background: #76415d; border-color: #76415d; border-radius: 8px; min-height: 50px; }
+.atelier-poster-scene { min-height: 540px; }
+.atelier-poster-seal { background: #fffaf3; color: #78445d; border-color: #e4c6d3; }
+.atelier-poster-caption { background: linear-gradient(transparent,#4f3042e8); }
+.atelier { background: #76415d; }
+.atelier .story { padding-block: 92px; background: transparent; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.atelier .story-visual { display: grid; grid-template-columns: 1fr .42fr; gap: 16px; align-items: end; }
+.atelier .story-photo { width: auto; height: auto; aspect-ratio: 3 / 4; border-radius: 120px 120px 10px 10px; overflow: hidden; }
+.atelier .story-photo > img { width: 100%; height: 100%; object-fit: cover; }
+.atelier .story-inset { position: static; width: 100%; height: auto; aspect-ratio: 3 / 4; margin-bottom: 35px; border: 0; border-radius: 60px 60px 8px 8px; overflow: hidden; }
+.atelier .story-inset img { width: 100%; height: 100%; object-fit: cover; }
+.atelier .photo-caption { grid-column: 1 / -1; color: #ead1dc; margin-top: 6px; }
+.atelier .story-copy .eyebrow { color: #edc9d9; }
+.atelier .story-copy h2 { color: #fff9f1; font-size: clamp(40px,4.2vw,60px); }
+.atelier .story-copy h2 em { color: #f0c2d4; }
+.atelier .story-copy > p { color: #f1e0e8; font-size: 16px; line-height: 1.8; }
+.atelier .signature { color: #fff7ed; }
+.atelier .signature small { color: #edc9d9; }
+.atelier .signature img { background: #fffaf5; border-radius: 50%; width: 64px; height: 64px; padding: 3px; }
+.atelier .text-link { color: #fff5ed; border-color: #c497ac; }
+.details { background: #f8edf1; padding-block: 64px; gap: 48px; }
+.details .detail { border: 0; }
+.details .detail h3 { font-size: 26px; color: #603a50; }
+.details .detail p { font-size: 15px; }
+.contact { margin: 28px var(--edge) 64px; padding: 72px 52px; border-radius: 18px; min-height: 540px; overflow: hidden; }
+.contact h2 { font-size: clamp(42px,4.6vw,64px); }
+.contact .button-light { border-radius: 8px; min-height: 52px; }
+footer { background: #4f2d40; padding-block: 64px 24px; color: #f7e6ee; }
+footer::before { opacity: .055; }
+footer .footer-top { grid-template-columns: 1.1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; }
+footer .brand { align-self: start; padding: 18px; background: #fffaf5; border-radius: 10px; width: fit-content; }
+footer .brand-name { font-size: 31px; }
+footer .brand-sub { color: #925c76; }
+footer .footer-top > span { color: #f1cedf; font-size: 24px; }
+footer .socials-label { color: #e7c4d5; }
+footer .academy-link { color: #fff8ef; }
+footer .social-icon { background: transparent; border-color: #a77891; color: #fff1f8; }
+footer .social-icon:hover { background: #76415d; border-color: #e4b7cd; }
+footer .footer-bottom { color: #e3c8d5; border-color: #885b72; }
+footer .dashboard-link { color: #b78ca2; }
+@media (max-width: 1023px) and (min-width: 640px) {
+  .hero { min-height: 650px; padding-block: 64px; }
+  .hero-copy { width: 49%; }
+  .hero-title-lead { font-size: 46px; }
+  .hero-title-tail { font-size: 36px; }
+  .hero-stage { width: 78%; }
+  .hero-copy > p, .hero-copy > p.live-description { font-size: 15px; }
+  .atelier-poster-copy { padding: 32px; }
+  .atelier-poster-scene { min-height: 500px; }
+  .atelier .story { gap: 36px; }
+  .atelier .story-visual { grid-template-columns: 1fr .42fr; gap: 12px; }
+  footer .footer-top { gap: 24px; }
+  footer .brand { padding: 12px; }
+  footer .brand-name { font-size: 25px; }
+}
+@media (max-width: 639px) {
+  .header { height: 78px; }
+  .header .brand-name { font-size: 27px; }
+  .hero { min-height: max(750px,calc(168vw + 120px)); padding: 32px var(--edge) 0; }
+  .hero-copy { width: 100%; max-width: none; }
+  .hero-edition { font-size: 8px; }
+  .hero h1 { margin-block: 20px; }
+  .hero-title-lead { font-size: clamp(37px,11vw,65px); }
+  .hero-title-tail { font-size: clamp(29px,8vw,46px); }
+  .hero-copy > p, .hero-copy > p.live-description { font-size: 15px; margin: 20px 0 24px; }
+  .hero-stage { inset: 0; width: 100%; height: 100%; mask-image: none; }
+  .hero .atelier-photo-layer > picture > img { inset: auto 0 0; height: auto; width: 100%; object-fit: contain; mask-image: linear-gradient(180deg,transparent,#000 22%); }
+  .hero-halo { background: linear-gradient(180deg,#f4e9ee 0%,#f4e9ee99 35%,transparent 61%); }
+  .hero-note { display: none; }
+  .hero-buttons > .magic-primary:only-child { width: 100%; }
+  .marquee { padding-block: 14px; }
+  .collection { padding-block: 48px; }
+  .collection .section-top { gap: 18px; padding-bottom: 24px; margin-bottom: 22px; }
+  .collection .section-top h2 { font-size: 38px; }
+  .catalogue-tools { padding: 7px; border-radius: 8px; }
+  .filters button { font-size: 12px; padding-inline: 13px; }
+  .products { gap: 18px 10px; }
+  .product { padding: 6px; border-radius: 10px; }
+  .product-media { aspect-ratio: 4 / 5; border-radius: 6px; }
+  .product-info { padding: 13px 4px 6px; }
+  .product h3 { font-size: 21px; min-height: 0; }
+  .product-description { font-size: 12px; min-height: 0; margin-bottom: 14px; }
+  .product-bottom { gap: 9px; padding-top: 13px; }
+  .product-bottom > button.btn { width: 100%; font-size: 12px; padding-inline: 10px; }
+  .product-price { font-size: 15px; }
+  .atelier-offer { padding-block: 42px; }
+  .atelier-poster { grid-template-columns: 1fr; border-radius: 12px; }
+  .atelier-poster-copy { padding: 32px 24px; }
+  .atelier-poster h2 { font-size: 40px; }
+  .atelier-poster-promise { font-size: 18px; margin-top: 24px; }
+  .atelier-poster-scene { min-height: 300px; }
+  .atelier .story { grid-template-columns: 1fr; padding-block: 52px; gap: 36px; }
+  .atelier .story-copy { order: -1; }
+  .atelier .story-copy h2 { font-size: 42px; }
+  .atelier .story-copy > p { font-size: 15px; }
+  .atelier .story-visual { grid-template-columns: 1fr .43fr; gap: 12px; }
+  .atelier .story-photo { border-radius: 90px 90px 8px 8px; }
+  .atelier .story-inset { margin-bottom: 24px; }
+  .details { padding-block: 48px; gap: 28px; }
+  .details .detail { padding-bottom: 24px; border-bottom: 1px solid #dfc7d3; }
+  .details .detail:last-child { border: 0; padding-bottom: 0; }
+  .contact { margin: 20px var(--edge) 40px; min-height: 690px; padding: 40px 20px 340px; border-radius: 12px; }
+  .contact h2 { font-size: 40px; }
+  .contact p { font-size: 15px; }
+  footer { padding-top: 44px; }
+  footer .footer-top { grid-template-columns: 1fr; gap: 32px; padding-bottom: 32px; }
+  footer .brand { padding: 16px; }
+  footer .brand-name { font-size: 28px; }
+  footer .footer-top > span { font-size: 23px; }
+}
+@media (max-width: 359px) {
+  .header .brand-name { font-size: 21px; }
+  .header .brand img { width: 42px; }
+  footer .brand-name { font-size: 24px; }
+}

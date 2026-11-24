@@ -23,6 +23,7 @@ for (const file of [
   "index.html",
   "style.css",
   "landing.css",
+  "storefront.css",
   "app.js",
   "store-client.js",
   "experience.js",

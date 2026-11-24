@@ -110,3 +110,15 @@ sont conservés au maximum 90 jours et limités aux 50 000 dernières actions ; 
 comptes détaillés peuvent donc différer des anciens totaux agrégés. Le suivi ne
 reconstitue pas l'historique antérieur. Les données détaillées exigent une session
 administrateur et ne sont jamais retournées par `/api/store`.
+
+### Frontend design skill
+
+The complete upstream `design-taste-frontend` skill is installed at
+`.agents/skills/design-taste-frontend/`. `AGENTS.md` instructs agents to use it for
+frontend work while preserving this production shop's content and functionality.
+The originally supplied template URL returned 404; the user selected
+`https://github.com/Leonxlnx/taste-skill` instead. That upstream has no project
+`AGENTS.md`, so the project instructions were added locally. The source commit,
+paths and per-file SHA-256 hashes are in `.agents/taste-source.json`.
+Run `node scripts/verify-skill.mjs` to verify discovery and every upstream file.
+The skill is a development tool and is not copied into the public website build.

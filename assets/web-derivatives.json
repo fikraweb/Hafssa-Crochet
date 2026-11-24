@@ -1,0 +1,145 @@
+[
+  {
+    "source": "hero-atelier-mauve.png",
+    "file": "hero-atelier-mauve.webp",
+    "sourceSha256": "cf3c52d5e6179524c84e4ad078d113e12a47af4564008658957156c7ddce9eef",
+    "sha256": "402f443138424c8b339f73a3817d41a98c31f6e057bd17d3f9cca3fcb0868f70",
+    "sourceBytes": 2546825,
+    "bytes": 387132,
+    "size": [
+      1536,
+      1024
+    ],
+    "encoding": "WebP quality 94, original dimensions"
+  },
+  {
+    "source": "hero-mobile-rose.png",
+    "file": "hero-mobile-rose.webp",
+    "sourceSha256": "3ac8d56b6bbd4dc43af5df1356f3c568df621c5c0076d40f0520a5f9693dff06",
+    "sha256": "6b51c0f34bd45c468d6344cf38e2949040b2e03242e8c35169e9fa9ee8b99e4a",
+    "sourceBytes": 2183077,
+    "bytes": 271894,
+    "size": [
+      1024,
+      1536
+    ],
+    "encoding": "WebP quality 94, original dimensions"
+  },
+  {
+    "source": "contact-atelier-rose.png",
+    "file": "contact-atelier-rose.webp",
+    "sourceSha256": "05f778cc790570f1a3ff6fee9fea166d4a92e233e0a9ba76c45af5e27b9fb143",
+    "sha256": "637dfdac36a1250b6d7423d406cc0d892abaf1ad5bc0a60edef3cc483d8833b5",
+    "sourceBytes": 2456027,
+    "bytes": 350270,
+    "size": [
+      1536,
+      1024
+    ],
+    "encoding": "WebP quality 94, original dimensions"
+  },
+  {
+    "source": "logo-transparent.png",
+    "file": "logo-transparent.webp",
+    "sourceSha256": "14a4fbeca8371763ff09940550e87c33adfa1ed270d6e0cf6de99d149d19d7c5",
+    "sha256": "9f211bbef911dc582d2eddafd20c7f564e8db157709b106264e352a941cf5016",
+    "sourceBytes": 1590361,
+    "bytes": 1021676,
+    "size": [
+      1536,
+      1024
+    ],
+    "encoding": "pixel-identical lossless"
+  },
+  {
+    "source": "logo-transparent.png",
+    "file": "logo-640.webp",
+    "sourceSha256": "14a4fbeca8371763ff09940550e87c33adfa1ed270d6e0cf6de99d149d19d7c5",
+    "sha256": "2b394fe01be147690939d81b3e32638e6e490055bd7fa8ace1f355559c7f321a",
+    "sourceBytes": 1590361,
+    "bytes": 115402,
+    "size": [
+      640,
+      427
+    ],
+    "encoding": "640px responsive derivative, Lanczos resampling, lossless WebP; original retained"
+  },
+  {
+    "source": "logo-transparent.png",
+    "file": "logo-transparent-96.webp",
+    "sourceSha256": "14a4fbeca8371763ff09940550e87c33adfa1ed270d6e0cf6de99d149d19d7c5",
+    "sha256": "bc3664b81a7411486d7def54b316840dfe9b9d18a734bea89a7f8ce3c86dc7d0",
+    "sourceBytes": 1590361,
+    "bytes": 6472,
+    "size": [
+      96,
+      64
+    ],
+    "encoding": "responsive derivative, original retained"
+  },
+  {
+    "source": "logo-transparent.png",
+    "file": "logo-transparent-192.webp",
+    "sourceSha256": "14a4fbeca8371763ff09940550e87c33adfa1ed270d6e0cf6de99d149d19d7c5",
+    "sha256": "449fc2511cd03195270282d007e345e6ababd766415ae78572e9b4f4e7d48c9f",
+    "sourceBytes": 1590361,
+    "bytes": 17332,
+    "size": [
+      192,
+      128
+    ],
+    "encoding": "responsive derivative, original retained"
+  },
+  {
+    "source": "logo-transparent.png",
+    "file": "logo-transparent-384.webp",
+    "sourceSha256": "14a4fbeca8371763ff09940550e87c33adfa1ed270d6e0cf6de99d149d19d7c5",
+    "sha256": "0af9224c2fd4611d16fe9e92394d1a14bcb9c2d1c22f345e79f2c64d30065315",
+    "sourceBytes": 1590361,
+    "bytes": 53184,
+    "size": [
+      384,
+      256
+    ],
+    "encoding": "responsive derivative, original retained"
+  },
+  {
+    "source": "hero-mobile-rose.png",
+    "file": "hero-mobile-rose-480.webp",
+    "sourceSha256": "3ac8d56b6bbd4dc43af5df1356f3c568df621c5c0076d40f0520a5f9693dff06",
+    "sha256": "a5672ed48a8cfc44bfc8e8ac042054458abfba291c3da8519a7589ee2992df75",
+    "sourceBytes": 2183077,
+    "bytes": 77104,
+    "size": [
+      480,
+      720
+    ],
+    "encoding": "responsive derivative, original retained"
+  },
+  {
+    "source": "hero-mobile-rose.png",
+    "file": "hero-mobile-rose-780.webp",
+    "sourceSha256": "3ac8d56b6bbd4dc43af5df1356f3c568df621c5c0076d40f0520a5f9693dff06",
+    "sha256": "c1cd98608a1c2f3c5d04e3437ce0aa73fd72492ee2ad875f8244be9e0138c7aa",
+    "sourceBytes": 2183077,
+    "bytes": 170680,
+    "size": [
+      780,
+      1170
+    ],
+    "encoding": "responsive derivative, original retained"
+  },
+  {
+    "source": "contact-atelier-rose.png",
+    "file": "contact-atelier-rose-720.webp",
+    "sourceSha256": "05f778cc790570f1a3ff6fee9fea166d4a92e233e0a9ba76c45af5e27b9fb143",
+    "sha256": "5d700b056b245197edd4711dfac3f01504e281f70c5f7d1414f1535cb3dea914",
+    "sourceBytes": 2456027,
+    "bytes": 87154,
+    "size": [
+      720,
+      480
+    ],
+    "encoding": "responsive derivative, original retained"
+  }
+]

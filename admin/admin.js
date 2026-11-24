@@ -1,3 +1,4 @@
+import { imageVariants, imageSources } from "/image-variants.js";
 const $ = (id) => document.getElementById(id);
 let state = null,
   productPage = 1,
@@ -14,7 +15,7 @@ const money = (n) =>
     style: "currency",
     currency: "MAD",
     maximumFractionDigits: 2,
-  }).format(n || 0);
+  }).format(n || 0).replace(/\u00a0/g, " ");
 const date = (value) =>
   new Intl.DateTimeFormat("fr-MA", {
     dateStyle: "medium",
@@ -60,7 +61,11 @@ function panel(name) {
   for (const n of document.querySelectorAll(".panel"))
     n.hidden = n.id !== `panel-${name}`;
   for (const b of document.querySelectorAll(".sidebar [data-panel]"))
-    b.classList.toggle("selected", b.dataset.panel === name);
+    {
+      b.classList.toggle("selected", b.dataset.panel === name);
+      if (b.dataset.panel === name) b.setAttribute("aria-current", "page");
+      else b.removeAttribute("aria-current");
+    }
   $("panel-title").textContent = {
     overview: "Vue d’ensemble",
     orders: "Demandes WhatsApp",
@@ -191,7 +196,8 @@ function renderOverview() {
     if (!p) continue;
     const row = el("div", null, "top-product"),
       img = el("img");
-    img.src = asset(p.image);
+    img.src = asset(imageVariants[p.image] || p.image);
+    if (imageSources[p.image]) { img.srcset = imageSources[p.image].replaceAll("./assets/", "/assets/"); img.sizes = "48px"; }
     img.alt = "";
     row.append(
       img,
@@ -339,7 +345,11 @@ function table(headers, rows) {
   const t = el("table"),
     head = el("thead"),
     tr = el("tr");
-  for (const h of headers) tr.append(el("th", h));
+  for (const h of headers) {
+    const cell = el("th", h || "Actions");
+    cell.scope = "col";
+    tr.append(cell);
+  }
   head.append(tr);
   t.append(head);
   const body = el("tbody");
@@ -363,6 +373,7 @@ function orderTable(orders) {
     ["Référence", "Date", "Montant", "Statut", ""],
     orders.map((order) => {
       const button = el("button", "Ouvrir", "text-button");
+      button.setAttribute("aria-label", `Ouvrir la demande ${order.reference}`);
       button.onclick = () => openOrder(order);
       return [
         order.reference,
@@ -501,12 +512,14 @@ function renderProducts() {
       const name = el("div", null, "table-name"),
         img = el("img"),
         label = el("span", p.name);
-      img.src = asset(p.image);
+      img.src = asset(imageVariants[p.image] || p.image);
+    if (imageSources[p.image]) { img.srcset = imageSources[p.image].replaceAll("./assets/", "/assets/"); img.sizes = "48px"; }
       img.alt = "";
       img.loading = "lazy";
       label.append(el("small", p.category));
       name.append(img, label);
       const edit = el("button", "Modifier", "text-button");
+      edit.setAttribute("aria-label", `Modifier ${p.name}`);
       edit.onclick = () => openProduct(p);
       return [
         name,
@@ -677,3 +690,5 @@ try {
   $("login-message").textContent =
     "Le service d’administration est indisponible. Réessayez après le déploiement.";
 }
+
+for (const selected of document.querySelectorAll(".sidebar nav button.selected")) selected.setAttribute("aria-current", "page");

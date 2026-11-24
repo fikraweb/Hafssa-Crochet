@@ -1,0 +1,915 @@
+[
+  {
+    "source": "assets/products/duo-poupees.jpeg",
+    "file": "assets/web-products/duo-poupees.webp",
+    "sourceSha256": "ded96daf3ca8fd4c01dc03e55752fa6ab87d7535c98e2b07c8820909315149dc",
+    "sourceBytes": 158915,
+    "bytes": 245396,
+    "dimensions": [
+      1080,
+      1327
+    ]
+  },
+  {
+    "source": "assets/products/doudou-jaune.jpeg",
+    "file": "assets/web-products/doudou-jaune.webp",
+    "sourceSha256": "a8ba6bff9527859baa55c6712df9443306bc094fba6ef31c1d6eb6b8f017f14f",
+    "sourceBytes": 192146,
+    "bytes": 310272,
+    "dimensions": [
+      1080,
+      1330
+    ]
+  },
+  {
+    "source": "assets/products/lapin-fushia.jpeg",
+    "file": "assets/web-products/lapin-fushia.webp",
+    "sourceSha256": "d312a16e8baff9c845d8aca0c8446e3a3e9357a3d370965ca0f609c126a6b318",
+    "sourceBytes": 94525,
+    "bytes": 131622,
+    "dimensions": [
+      1080,
+      1428
+    ]
+  },
+  {
+    "source": "assets/products/petit-ours.jpeg",
+    "file": "assets/web-products/petit-ours.webp",
+    "sourceSha256": "db09d7803b284927f6af059134faaabcbc4b87f4fabba4b420d8be33c8dc6d6c",
+    "sourceBytes": 100096,
+    "bytes": 131508,
+    "dimensions": [
+      1080,
+      1341
+    ]
+  },
+  {
+    "source": "assets/products/poupee-beret.jpeg",
+    "file": "assets/web-products/poupee-beret.webp",
+    "sourceSha256": "f925b06f5e26c9847792db33b47ed91b4655ef029c1e43e1c4cda8d499bbc026",
+    "sourceBytes": 95906,
+    "bytes": 122980,
+    "dimensions": [
+      1080,
+      1348
+    ]
+  },
+  {
+    "source": "assets/products/poupee-rousse.jpeg",
+    "file": "assets/web-products/poupee-rousse.webp",
+    "sourceSha256": "6a4395a7beb3234be69023a4883773466c46ec0bb8817f40ba20fc7ef0efde5f",
+    "sourceBytes": 135818,
+    "bytes": 208072,
+    "dimensions": [
+      1080,
+      1345
+    ]
+  },
+  {
+    "source": "assets/products/poupee-chapeau.jpeg",
+    "file": "assets/web-products/poupee-chapeau.webp",
+    "sourceSha256": "63331ba1a5920971316beae2a0b18dcea6b82b5fdf137e0123747f5fe028551e",
+    "sourceBytes": 116455,
+    "bytes": 159468,
+    "dimensions": [
+      1080,
+      1438
+    ]
+  },
+  {
+    "source": "assets/products/lulu-bunny.jpeg",
+    "file": "assets/web-products/lulu-bunny.webp",
+    "sourceSha256": "f8edac903eb648b51eb9f4ce725a8e0c144c0ed2f44869eab12525be31b7ec95",
+    "sourceBytes": 102932,
+    "bytes": 157570,
+    "dimensions": [
+      1080,
+      1320
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-001.png",
+    "file": "assets/web-products/duo-amour-royal.webp",
+    "sourceSha256": "42228f27bdedf3e5a1b7058a9193dbc22ed9f540f318200aebc5b61505464f56",
+    "sourceBytes": 195754,
+    "bytes": 28854,
+    "dimensions": [
+      291,
+      390
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-002.png",
+    "file": "assets/web-products/coffret-lapine-bonbon.webp",
+    "sourceSha256": "21c10bb6a45e2851549a0d5e5fd0d9ae3136c437c61bb3ea79861eba4904af7e",
+    "sourceBytes": 260060,
+    "bytes": 44450,
+    "dimensions": [
+      323,
+      444
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-003.png",
+    "file": "assets/web-products/coffret-lapin-azur.webp",
+    "sourceSha256": "54e21b726f2fe15db5eb222476233735a027f7804d8a3d9583938f7182783a4c",
+    "sourceBytes": 275154,
+    "bytes": 49396,
+    "dimensions": [
+      336,
+      444
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-004.png",
+    "file": "assets/web-products/coffret-leo-le-lion.webp",
+    "sourceSha256": "7ee4bf535ccc1e0d44321c65e36e143ef94e81156ab247d6fdcff81fe0673118",
+    "sourceBytes": 270913,
+    "bytes": 47828,
+    "dimensions": [
+      333,
+      438
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-005.png",
+    "file": "assets/web-products/coffret-lapine-petale.webp",
+    "sourceSha256": "80d10ca41230f09e958c17e407b6a3d7897a4218f7a93fd8b347e7695505867d",
+    "sourceBytes": 250030,
+    "bytes": 42912,
+    "dimensions": [
+      321,
+      433
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-007.png",
+    "file": "assets/web-products/abeille-miel.webp",
+    "sourceSha256": "3eb1375c45911b6bd8cbe2237887b8d2b82ff41ef702e255a44e053d11522497",
+    "sourceBytes": 348411,
+    "bytes": 75020,
+    "dimensions": [
+      330,
+      438
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-008.png",
+    "file": "assets/web-products/plaid-vagues-ocean.webp",
+    "sourceSha256": "62811479d76681b796d37786e512c8d1e51c160184005f5e0e3787b9bc3ec234",
+    "sourceBytes": 279470,
+    "bytes": 53170,
+    "dimensions": [
+      332,
+      439
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-009.png",
+    "file": "assets/web-products/plaid-arc-en-ciel.webp",
+    "sourceSha256": "282c14811573d3417e3aebc375d034ef860ee1f0a4d783e920891353e8037515",
+    "sourceBytes": 302672,
+    "bytes": 56782,
+    "dimensions": [
+      330,
+      445
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-010.png",
+    "file": "assets/web-products/plaid-nuage-ivoire.webp",
+    "sourceSha256": "3551909f51f67543873a3de1459a2700a41096428e4467a7be41273ea79e1db6",
+    "sourceBytes": 216039,
+    "bytes": 36582,
+    "dimensions": [
+      333,
+      444
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-011.png",
+    "file": "assets/web-products/chemin-de-table-boheme.webp",
+    "sourceSha256": "6c241a4972e2ccc1509209f33ffb80b0de6c87a838cec802e6041edda594aa1e",
+    "sourceBytes": 302560,
+    "bytes": 59250,
+    "dimensions": [
+      328,
+      441
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-012.png",
+    "file": "assets/web-products/ensemble-eveil-corail.webp",
+    "sourceSha256": "c2052781adcc3a5c2013d794c2279541d59571ed2efd6599d2eb1f6daa0af210",
+    "sourceBytes": 241431,
+    "bytes": 38510,
+    "dimensions": [
+      329,
+      442
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-013.png",
+    "file": "assets/web-products/coffret-lapin-terracotta.webp",
+    "sourceSha256": "7a82984769c7711d2210b1393a872c033d6407bbd44da02433dbf5cb29998734",
+    "sourceBytes": 172537,
+    "bytes": 23966,
+    "dimensions": [
+      331,
+      441
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-014.png",
+    "file": "assets/web-products/poupee-soline.webp",
+    "sourceSha256": "aae6d8de09e369370ea9f91c84810a990fb3f0d74d3414b65767f9b2ef578b04",
+    "sourceBytes": 259270,
+    "bytes": 40104,
+    "dimensions": [
+      331,
+      440
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-015.png",
+    "file": "assets/web-products/poupee-rose-tendresse.webp",
+    "sourceSha256": "2ecd5bf9ec9f1eb7c92f9dfafeca3823055875ffb2edcfed66a7d77c81cf8c5d",
+    "sourceBytes": 184090,
+    "bytes": 24144,
+    "dimensions": [
+      331,
+      440
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-016.png",
+    "file": "assets/web-products/ensemble-bebe-fleur-de-coton.webp",
+    "sourceSha256": "d1580779a288ab8c8348f89c382b6b624bbc5c0bef79c42004771aadbb8617a7",
+    "sourceBytes": 354148,
+    "bytes": 75372,
+    "dimensions": [
+      336,
+      438
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-017.png",
+    "file": "assets/web-products/poupee-perle-de-rosee.webp",
+    "sourceSha256": "51e6021da0b723611c094a975a339611ba8bb5e834a3bccd5775526b304cbd73",
+    "sourceBytes": 351028,
+    "bytes": 74162,
+    "dimensions": [
+      330,
+      436
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-018.png",
+    "file": "assets/web-products/poupee-zoe-aventuriere.webp",
+    "sourceSha256": "69923744e67c1f00e08e2d8661d1d6a2225ec7d8a3bff0c2c5183fdaef04bd0a",
+    "sourceBytes": 214902,
+    "bytes": 33438,
+    "dimensions": [
+      335,
+      434
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-019.png",
+    "file": "assets/web-products/coffret-lapin-myrtille.webp",
+    "sourceSha256": "b9db6dae9ffcb4f0d5ccd510cf1892e60137eda448e0d5b997e12a948a322153",
+    "sourceBytes": 349163,
+    "bytes": 71402,
+    "dimensions": [
+      331,
+      446
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-020.png",
+    "file": "assets/web-products/poupee-rubis.webp",
+    "sourceSha256": "109795a1d1e375b4bcbc536268d867e374725523208a228614e825a6538762ad",
+    "sourceBytes": 304837,
+    "bytes": 59092,
+    "dimensions": [
+      337,
+      443
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-021.png",
+    "file": "assets/web-products/poupee-ambre-voyageuse.webp",
+    "sourceSha256": "8a951865a109ba06dd3887174d170838f4d3b6a1a5b563ed88837d490dec5fbf",
+    "sourceBytes": 196064,
+    "bytes": 29448,
+    "dimensions": [
+      329,
+      443
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-023.png",
+    "file": "assets/web-products/poupee-marin-sacha.webp",
+    "sourceSha256": "3f5e44838c8f1bd0160af332a458364399f70e1b58d317800a44c5e7b8dec667",
+    "sourceBytes": 268091,
+    "bytes": 48056,
+    "dimensions": [
+      329,
+      440
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-024.png",
+    "file": "assets/web-products/poupee-nino-boucles.webp",
+    "sourceSha256": "b14b74c2caab1387025dd54e1b37a6813885b67a604a71400bb78a443350a2ca",
+    "sourceBytes": 240748,
+    "bytes": 41166,
+    "dimensions": [
+      332,
+      430
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-025.png",
+    "file": "assets/web-products/sac-petales-azur.webp",
+    "sourceSha256": "99e88f6a319ddc77098155a882454511a7dc8ef9311e3dd14ff990f5c743a01a",
+    "sourceBytes": 321654,
+    "bytes": 66810,
+    "dimensions": [
+      327,
+      426
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-026.png",
+    "file": "assets/web-products/duo-surs-cerise.webp",
+    "sourceSha256": "85f2d057a1c3115286dcfb7ef49ec9ced0f3bf0729012dd1d4b1f08950a33810",
+    "sourceBytes": 248760,
+    "bytes": 46994,
+    "dimensions": [
+      327,
+      447
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-027.png",
+    "file": "assets/web-products/cabas-jardin-fleuri.webp",
+    "sourceSha256": "2839a7cfffdc0cf264640096903041d9c36aa0783063bcf8730e8681aedb0a8d",
+    "sourceBytes": 355168,
+    "bytes": 76006,
+    "dimensions": [
+      333,
+      446
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-028.png",
+    "file": "assets/web-products/sac-marguerite-lilas.webp",
+    "sourceSha256": "fae5cc849494375e6655df8f71a3be64bc2a5d4f4cecdcab0dda247d78761509",
+    "sourceBytes": 357277,
+    "bytes": 77452,
+    "dimensions": [
+      331,
+      434
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-029.png",
+    "file": "assets/web-products/coffret-elephant-celestin.webp",
+    "sourceSha256": "2ddefd92796e0eed2e4b0248d31d64509cdaae98cb5e1924cec5472a98dd6c0c",
+    "sourceBytes": 337914,
+    "bytes": 67474,
+    "dimensions": [
+      335,
+      442
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-033.png",
+    "file": "assets/web-products/poupee-sieste-menthe.webp",
+    "sourceSha256": "e6d56e844dee9ad7400c21b52b6e4c97a35a9320a07937dae835372c63f8c7d7",
+    "sourceBytes": 260630,
+    "bytes": 44226,
+    "dimensions": [
+      323,
+      435
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-034.png",
+    "file": "assets/web-products/poupee-sieste-framboise.webp",
+    "sourceSha256": "1608a3b6aa7d5661821e33bacd5af219a742b4e0c07f3ba1ac5afff0c999d77a",
+    "sourceBytes": 276196,
+    "bytes": 47362,
+    "dimensions": [
+      332,
+      429
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-069.png",
+    "file": "assets/web-products/coffret-ourson-sauge.webp",
+    "sourceSha256": "27183a6e717e8ed28f55aa4fa3cac889f7cf2993897f47259f5c0b7d30aed6ef",
+    "sourceBytes": 327775,
+    "bytes": 67006,
+    "dimensions": [
+      334,
+      430
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-036.png",
+    "file": "assets/web-products/lapin-petit-noel.webp",
+    "sourceSha256": "f90a1e2a32a414526b79b6f2b8cecf6f19b6b195b2053e7486bcbc9a463929e4",
+    "sourceBytes": 240897,
+    "bytes": 35712,
+    "dimensions": [
+      331,
+      440
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-037.png",
+    "file": "assets/web-products/lapine-eglantine.webp",
+    "sourceSha256": "795113a58bb9c75a22008d6ada42208b64ed555a1b72b5138a657b1fa3ff0e9b",
+    "sourceBytes": 214387,
+    "bytes": 33904,
+    "dimensions": [
+      334,
+      439
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-038.png",
+    "file": "assets/web-products/coffret-poupee-ciel.webp",
+    "sourceSha256": "43cf02e3bff1518d5fff609dee34ab16b906482d84b31191784821cbba41e919",
+    "sourceBytes": 296574,
+    "bytes": 53542,
+    "dimensions": [
+      331,
+      436
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-039.png",
+    "file": "assets/web-products/coffret-singe-noisette.webp",
+    "sourceSha256": "94bdc56e204eb89e4da490ac26be0c9e319282e6e9a8fcf65b1b1852e0db43e0",
+    "sourceBytes": 305473,
+    "bytes": 61636,
+    "dimensions": [
+      314,
+      419
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-040.png",
+    "file": "assets/web-products/poupee-lutin-rosalie.webp",
+    "sourceSha256": "b0181f9eb29cca68e368229990f414fa7bf74bc324a85fd230718f093de5ff15",
+    "sourceBytes": 170709,
+    "bytes": 25872,
+    "dimensions": [
+      320,
+      417
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-041.png",
+    "file": "assets/web-products/poupee-lila-romance.webp",
+    "sourceSha256": "786531b47062fb8932d578157c0fadd060c6ae0041341526b378e07e9950306c",
+    "sourceBytes": 263004,
+    "bytes": 43352,
+    "dimensions": [
+      328,
+      439
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-042.png",
+    "file": "assets/web-products/coffret-ourson-bleuets.webp",
+    "sourceSha256": "268cbcd377bf4f866bfdcafb46d75f4df364778d45f83e1a7e586ea1cbc634c1",
+    "sourceBytes": 280138,
+    "bytes": 48126,
+    "dimensions": [
+      329,
+      438
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-043.png",
+    "file": "assets/web-products/ourson-oscar-azur.webp",
+    "sourceSha256": "d76a5e4cc943bc25eaeac08aa04dc409b24f5dfd73b3c2e7c4d2d65ad159706c",
+    "sourceBytes": 204171,
+    "bytes": 33402,
+    "dimensions": [
+      327,
+      360
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-044.png",
+    "file": "assets/web-products/coffret-poupee-douce-nuit.webp",
+    "sourceSha256": "0b57fe655b7005272e813311d0e8c8f3aec1d95739361f46e1538c96237a1b6b",
+    "sourceBytes": 281995,
+    "bytes": 51418,
+    "dimensions": [
+      324,
+      424
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-045.png",
+    "file": "assets/web-products/chiot-biscuit.webp",
+    "sourceSha256": "ea2bf3845f09bf3f61d542c4c31cd340415f7dfaae7ff8a31e8daaa95ef87e7f",
+    "sourceBytes": 258865,
+    "bytes": 43424,
+    "dimensions": [
+      333,
+      438
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-047.png",
+    "file": "assets/web-products/ourson-ebene.webp",
+    "sourceSha256": "dab7cbfd06dabd0744aec8a0afa4cfd9933cf20e69809ce354b702144a337ba8",
+    "sourceBytes": 264447,
+    "bytes": 42430,
+    "dimensions": [
+      332,
+      431
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-048.png",
+    "file": "assets/web-products/panda-bambou.webp",
+    "sourceSha256": "50c2c0e99586d2d14329ac7fef9416f130b0f9d75db439607c787ff9b547c5e7",
+    "sourceBytes": 229724,
+    "bytes": 35406,
+    "dimensions": [
+      331,
+      443
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-049.png",
+    "file": "assets/web-products/coffret-ourson-framboise.webp",
+    "sourceSha256": "1206d5ba961e895959b76f939ad625b7d3cd5e8936f33f8a2355260d0150b3ff",
+    "sourceBytes": 260174,
+    "bytes": 45782,
+    "dimensions": [
+      332,
+      438
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-051.png",
+    "file": "assets/web-products/ourson-milo-olive.webp",
+    "sourceSha256": "92bb451ed5de90b5d5bac4977d198d1128bb78aa8db67f2832162d697371013a",
+    "sourceBytes": 240576,
+    "bytes": 36668,
+    "dimensions": [
+      327,
+      438
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-055.png",
+    "file": "assets/web-products/suspensions-noel-enchante.webp",
+    "sourceSha256": "1b6f5977583b2efcfe4c329d7943f465394006d54903b8a7b4235f820d948da9",
+    "sourceBytes": 379748,
+    "bytes": 79210,
+    "dimensions": [
+      329,
+      437
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-054.png",
+    "file": "assets/web-products/petite-souris-violette.webp",
+    "sourceSha256": "d21390c11d78e9bb615aa6a12d9c7f17d01dea0306f3da246924da82f1151739",
+    "sourceBytes": 250516,
+    "bytes": 38752,
+    "dimensions": [
+      327,
+      442
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-056.png",
+    "file": "assets/web-products/ourson-denim.webp",
+    "sourceSha256": "4e613c34f3b160da5f7737fd3f5808a063c8a0334c0c02b56b447742d9ef4f2f",
+    "sourceBytes": 264100,
+    "bytes": 47874,
+    "dimensions": [
+      320,
+      420
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-057.png",
+    "file": "assets/web-products/poupee-sami-printemps.webp",
+    "sourceSha256": "48028b50c5a4e75c7c8fe8e72b0bf9fcd2fba45375bc04fdb1829bc74314be03",
+    "sourceBytes": 276989,
+    "bytes": 46116,
+    "dimensions": [
+      331,
+      438
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-058.png",
+    "file": "assets/web-products/poupee-capucine.webp",
+    "sourceSha256": "ea35a1497392fa1e3d6b3959b81d50dd79057887a121af60cc1f6afee2bb7a8b",
+    "sourceBytes": 292248,
+    "bytes": 51634,
+    "dimensions": [
+      326,
+      443
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-059.png",
+    "file": "assets/web-products/cochon-arc-en-ciel.webp",
+    "sourceSha256": "ce520f96d4999d9a24128e7e8129f66d83fc125caa529ae12459cdaad3b577f7",
+    "sourceBytes": 220374,
+    "bytes": 31266,
+    "dimensions": [
+      330,
+      435
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-060.png",
+    "file": "assets/web-products/poupee-cerise-a-pois.webp",
+    "sourceSha256": "a74a830395cbf055f1f1ab222d1f08df7591702756caa4097bf01b0478b8af4c",
+    "sourceBytes": 283821,
+    "bytes": 49386,
+    "dimensions": [
+      332,
+      438
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-061.png",
+    "file": "assets/web-products/poupee-corail-des-contes.webp",
+    "sourceSha256": "e7d90314d94be399fa328cc5b7a551f1cb2a37e424c1659154e1be68c6b1b0f4",
+    "sourceBytes": 261900,
+    "bytes": 38254,
+    "dimensions": [
+      337,
+      442
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-063.png",
+    "file": "assets/web-products/coffret-ourson-galet.webp",
+    "sourceSha256": "0314b10373fcf9faa1bac84be420606a824f9f8ef5d27814e3c12a89b4c2f018",
+    "sourceBytes": 277640,
+    "bytes": 46068,
+    "dimensions": [
+      327,
+      437
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-064.png",
+    "file": "assets/web-products/coffret-papillon-rose.webp",
+    "sourceSha256": "5c4d667606865122e0258c8cd260a67d7a37d07388e05a90cf071f4e7714ca21",
+    "sourceBytes": 357297,
+    "bytes": 76542,
+    "dimensions": [
+      332,
+      434
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-065.png",
+    "file": "assets/web-products/coffret-renne-vanille.webp",
+    "sourceSha256": "05de1529eb608ef90b84fd074af5e2da801d721c61ff869edb75914a068a2495",
+    "sourceBytes": 343140,
+    "bytes": 73252,
+    "dimensions": [
+      327,
+      436
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-066.png",
+    "file": "assets/web-products/coffret-biche-rosalie.webp",
+    "sourceSha256": "03c9ad517e4d78524400c52de779e0cc5439f61324f0118175d8ba170a65d11b",
+    "sourceBytes": 300289,
+    "bytes": 55632,
+    "dimensions": [
+      329,
+      441
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-067.png",
+    "file": "assets/web-products/coffret-nuage-aqua.webp",
+    "sourceSha256": "71318ff1e80819ee4f81451cd0bc5403d9f242b2890ac7157ec50ed859c45b5c",
+    "sourceBytes": 360536,
+    "bytes": 76668,
+    "dimensions": [
+      334,
+      434
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-068.png",
+    "file": "assets/web-products/duo-renne-chataigne.webp",
+    "sourceSha256": "c37836b64b21af03b8178600d612d091614fa9ea80a445637a1e5aa1e537e5f4",
+    "sourceBytes": 261165,
+    "bytes": 43854,
+    "dimensions": [
+      319,
+      430
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-070.png",
+    "file": "assets/web-products/poupee-prune-pistache.webp",
+    "sourceSha256": "db16a791fcd1866eaa0de6d392fe48a843c9b90e38824d096a6c9dd7d833b837",
+    "sourceBytes": 250303,
+    "bytes": 37244,
+    "dimensions": [
+      331,
+      436
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-071.png",
+    "file": "assets/web-products/poupee-ruban-soleil.webp",
+    "sourceSha256": "8433a79fa03b0b503be543c8454ab135a98055eebc251067245068c98fbf8e32",
+    "sourceBytes": 245657,
+    "bytes": 37140,
+    "dimensions": [
+      329,
+      439
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-072.png",
+    "file": "assets/web-products/poupee-elio-lunettes.webp",
+    "sourceSha256": "a15bda854f5b027f8a411730f2edfe6f1ce0e051f0624687d5e43fe5cc7b2ee5",
+    "sourceBytes": 242155,
+    "bytes": 36178,
+    "dimensions": [
+      332,
+      449
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-073.png",
+    "file": "assets/web-products/duo-calins-poudres.webp",
+    "sourceSha256": "4ea928c59bcb18972a3c37107f5f643c1032e8d737971798594594fb4df63890",
+    "sourceBytes": 322495,
+    "bytes": 58450,
+    "dimensions": [
+      331,
+      441
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-074.png",
+    "file": "assets/web-products/coffret-ourson-reglisse.webp",
+    "sourceSha256": "361f431a9c3cf96f0ff6f46a276922df63790093323cb18d584d115a51f52373",
+    "sourceBytes": 291401,
+    "bytes": 54770,
+    "dimensions": [
+      326,
+      432
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-075.png",
+    "file": "assets/web-products/poule-coquette.webp",
+    "sourceSha256": "fc58812c50e6d09fd37c027126241c0b907ac2d439436a80a86dc653a087f7f1",
+    "sourceBytes": 211189,
+    "bytes": 29110,
+    "dimensions": [
+      326,
+      443
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-076.png",
+    "file": "assets/web-products/poupee-etoile-de-lait.webp",
+    "sourceSha256": "77ec7025c5d112e6d7a104570e668edc58a478ecfa0e4b519e188dd85a49d932",
+    "sourceBytes": 252045,
+    "bytes": 40094,
+    "dimensions": [
+      328,
+      439
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-077.png",
+    "file": "assets/web-products/poupee-alba-cerise.webp",
+    "sourceSha256": "974110e3571e8f40a88c0a33103053b87d405d3a05728354e789834b94d71d5a",
+    "sourceBytes": 248622,
+    "bytes": 39298,
+    "dimensions": [
+      320,
+      436
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-078.png",
+    "file": "assets/web-products/poupee-coquelicot.webp",
+    "sourceSha256": "8852c37c12ec7cfda38ac1fdcef2614a4bd67934bb1ecb968ea19a01fc3c540a",
+    "sourceBytes": 254978,
+    "bytes": 38618,
+    "dimensions": [
+      327,
+      444
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-081.png",
+    "file": "assets/web-products/poupee-flora-fuchsia.webp",
+    "sourceSha256": "d548f80805252e171ca588d31ff7e40ca8006598d22133b91215ba0c64e7f275",
+    "sourceBytes": 263683,
+    "bytes": 43318,
+    "dimensions": [
+      328,
+      434
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-082.png",
+    "file": "assets/web-products/poupee-pivoine.webp",
+    "sourceSha256": "67b6a8d0a4d33d9d76552009e05f9d35176c68f2d7ecf2b08168469353ad4756",
+    "sourceBytes": 304211,
+    "bytes": 52468,
+    "dimensions": [
+      329,
+      447
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-083.png",
+    "file": "assets/web-products/ensemble-bebe-ruban-rose.webp",
+    "sourceSha256": "971cabaa47350b0fe967fc318a9d89576ec05925b899361369ace4079f6bc626",
+    "sourceBytes": 363440,
+    "bytes": 77294,
+    "dimensions": [
+      333,
+      441
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-084.png",
+    "file": "assets/web-products/poupee-ondine.webp",
+    "sourceSha256": "e0aeccd49994f47c3f6a0f928db453560f62aafa93f05803c22ad8ea4a0521eb",
+    "sourceBytes": 248912,
+    "bytes": 37072,
+    "dimensions": [
+      328,
+      442
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-085.png",
+    "file": "assets/web-products/poupee-gabin-ciel.webp",
+    "sourceSha256": "05a665a1791d302b17b910cbe1b2a957c44f62e5eabc0ae50f603d4c1fe0bf8b",
+    "sourceBytes": 236923,
+    "bytes": 34448,
+    "dimensions": [
+      329,
+      440
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-086.png",
+    "file": "assets/web-products/poupee-lavande.webp",
+    "sourceSha256": "84a2e133de4aa0e5135fb2eb1322faf7fd5569383b7533f25b55e2ea7fc5d802",
+    "sourceBytes": 254753,
+    "bytes": 44586,
+    "dimensions": [
+      338,
+      434
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-087.png",
+    "file": "assets/web-products/duo-freres-marins.webp",
+    "sourceSha256": "caec7f9b93aff22c72a4d3654f8f5986bde33184712de92a2b96197fcc2196b3",
+    "sourceBytes": 303396,
+    "bytes": 56106,
+    "dimensions": [
+      326,
+      434
+    ]
+  },
+  {
+    "source": "assets/products/collection/photo-088.png",
+    "file": "assets/web-products/poupee-soleil-pompons.webp",
+    "sourceSha256": "6788711e235da51b7efb7c004102f4be1cf200dfe80d021c36d20f1fca62eee5",
+    "sourceBytes": 272145,
+    "bytes": 45466,
+    "dimensions": [
+      327,
+      436
+    ]
+  }
+]

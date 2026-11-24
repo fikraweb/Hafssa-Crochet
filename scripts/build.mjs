@@ -1,5 +1,6 @@
 import { mkdir, copyFile, cp, rm, access } from "node:fs/promises";
 import { products, shop } from "../catalogue.js";
+import { imageVariants } from "../image-variants.js";
 const ids = new Set();
 for (const p of products) {
   if (
@@ -14,6 +15,7 @@ for (const p of products) {
     throw new Error("Produit invalide ou identifiant dupliqué");
   ids.add(p.id);
   for (const image of p.images || [p.image]) await access(image);
+  if (imageVariants[p.image]) await access(imageVariants[p.image]);
 }
 if (!/^\d{8,15}$/.test(shop.whatsapp))
   throw new Error("Numéro WhatsApp invalide");
@@ -24,7 +26,9 @@ for (const file of [
   "style.css",
   "landing.css",
   "storefront.css",
+  "atelier.css",
   "app.js",
+  "image-variants.js",
   "store-client.js",
   "experience.js",
   "catalogue.js",

@@ -63,7 +63,7 @@ Le catalogue initial comprend 83 produits distincts, après suppression des anno
 
 Les noms et prix des nouvelles fiches ont été proposés à la demande du propriétaire. `catalogue-prix.csv` est la liste initiale de référence ; les modifications faites ensuite dans l’administration se trouvent dans le stockage durable et ne réécrivent pas ce fichier Git.
 
-Les cadres présentent les images sans coupe (`object-fit: contain`). Les captures fournies sont souvent d’environ 330 × 440 pixels : la résolution d’origine est conservée, sans prétendre recréer des détails absents. Les images importées dans l’administration conservent également leurs octets d’origine.
+Les aperçus remplissent leur cadre avec les mêmes photographies. Les galeries conservent les originaux et leurs différentes vues. Les captures fournies sont souvent d’environ 330 × 440 pixels : la résolution d’origine est conservée, sans prétendre recréer des détails absents. Les images importées dans l’administration conservent également leurs octets d’origine.
 
 Les données de `catalogue.js` constituent le socle versionné. Le site Netlify d’origine n’est pas synchronisé automatiquement. Les anciens identifiants de produits regroupés sont migrés vers le produit conservé dans les paniers locaux.
 
@@ -73,7 +73,7 @@ Le logo Instagram d’origine (150 × 150 px) est conservé. `assets/logo-transp
 
 Les décors photoréalistes du hero, du contact et du pied de page sont des mises en scène générées à partir des photos du catalogue, pas des photographies documentaires de l’atelier. Leur provenance est décrite dans les fichiers source JSON correspondants.
 
-Les animations, reflets et déplacements magnétiques respectent le bouton de pause persistant et le réglage système de réduction des mouvements. La barre principale est fixe, et les filtres de catégorie suivent la collection sous cette barre, dans une palette rose et mauve.
+Le hero utilise l’entrée et les micro-interactions du Taste Skill, avec réduction des mouvements selon le réglage système. La barre principale défile avec la page. Les catégories sont présentées dans un rail sur ordinateur et une barre défilante sur téléphone, dans la palette rose et mauve.
 
 ### Photographies détourées
 
@@ -122,3 +122,12 @@ The originally supplied template URL returned 404; the user selected
 paths and per-file SHA-256 hashes are in `.agents/taste-source.json`.
 Run `node scripts/verify-skill.mjs` to verify discovery and every upstream file.
 The skill is a development tool and is not copied into the public website build.
+
+
+### Theme and web images
+
+The active storefront theme is `atelier.css`, loaded after the legacy structural stylesheet. Earlier `landing.css` and `storefront.css` are retained for history but are no longer loaded. The dashboard uses `admin/atelier-admin.css` alongside its structural CSS. All dashboard panels, authentication, API endpoints, original records and gallery assets remain.
+
+`image-variants.js` maps known original covers to high-quality WebP copies; new uploaded images fall back to their original path. Original catalogue/gallery files are never overwritten. Marketing-image derivatives and the responsive logo are recorded in `assets/web-derivatives.json`, cover sources in `assets/web-products/source.json`. Verify with `node scripts/verify-web-images.mjs`; the build also checks referenced web variants exist.
+
+Skills and instruction files actually found in this cloud session are documented in `docs/skills-session-verification.md`. The audit and design direction are in `docs/agency-redesign-audit.md`; completed checks and open findings are in `docs/agency-redesign-review.md`. Responsive cover source sets and marketing-image derivatives retain the originals and serve smaller files to smaller screens.

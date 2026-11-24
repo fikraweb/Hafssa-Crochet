@@ -27,7 +27,7 @@
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
-      content="https://hafssaacrochet.fikraweb00.workers.dev/assets/hero-atelier-mauve.png"
+      content="https://hafssaacrochet.fikraweb00.workers.dev/assets/hero-atelier-mauve.webp"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <link
@@ -35,13 +35,14 @@
       href="https://hafssaacrochet.fikraweb00.workers.dev/"
     />
     <title>Hafssa Crochet — Un petit monde fait main</title>
-    <link rel="icon" href="assets/logo-transparent.png" type="image/png" />
-    <link rel="preload" href="assets/hero-atelier-mauve.png" as="image" media="(min-width: 761px)" />
-    <link rel="preload" href="assets/hero-mobile-rose.png" as="image" media="(max-width: 760px)" />
+    <link rel="icon" href="assets/logo-transparent-96.webp" type="image/webp" />
+    <link rel="preload" href="assets/hero-atelier-mauve.webp" as="image" media="(min-width: 761px)" />
+    <link rel="preload" href="assets/hero-mobile-rose.webp" imagesrcset="assets/hero-mobile-rose-480.webp 480w, assets/hero-mobile-rose-780.webp 780w, assets/hero-mobile-rose.webp 1024w" imagesizes="100vw" as="image" media="(max-width: 760px)" />
 
+    <link rel="preload" href="assets/fonts/figtree-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="landing.css" />
-    <link rel="stylesheet" href="storefront.css" />
+    <link rel="stylesheet" href="atelier.css" />
     <link rel="stylesheet" href="assets/taste/motion/motion.css" />
     <script src="assets/taste/enter.js"></script>
     <script type="module" src="assets/taste/motion/motion.js"></script>
@@ -72,7 +73,7 @@
     <header class="header">
       <a class="brand" href="#top" aria-label="Hafssa Crochet, accueil"
         ><img
-          src="assets/logo-transparent.png"
+          src="assets/logo-640.webp" srcset="assets/logo-transparent-96.webp 96w, assets/logo-transparent-192.webp 192w, assets/logo-transparent-384.webp 384w, assets/logo-640.webp 640w" sizes="(max-width: 639px) 56px, 96px"
           alt="Logo original Hafssa Crochet"
           width="100"
           height="76"
@@ -174,7 +175,7 @@
               >
                 <path d="M20 3v34M3 20h34M8 8l24 24M8 32 32 8" /></svg
             ></span>
-            OBJETS DE TENDRESSE · FAIT MAIN AU MAROC
+            POUPÉES ET DOUDOUS · FAIT MAIN AU MAROC
           </div>
           <h1 id="hero-title" data-enter-whole>
             <span class="hero-title-lead">Un petit monde</span>
@@ -228,9 +229,9 @@
         <div class="hero-stage" id="hero-stage">
           <div class="atelier-photo-layer" id="hero-scene" data-enter-media>
             <picture>
-              <source media="(max-width: 760px)" srcset="assets/hero-mobile-rose.png" />
+              <source media="(max-width: 760px)" srcset="assets/hero-mobile-rose-480.webp 480w, assets/hero-mobile-rose-780.webp 780w, assets/hero-mobile-rose.webp 1024w" sizes="100vw" />
             <img
-              src="assets/hero-atelier-mauve.png"
+              src="assets/hero-atelier-mauve.webp"
               alt="Mise en scène inspirée des créations Hafssa Crochet : poupées, lapin et ours alignés sur un bureau, sous un cadre portant le logo."
               width="1536"
               height="1024"
@@ -665,14 +666,17 @@
             >
           </p>
         </div>
-        <div class="catalogue-tools">
+        <div class="catalogue-layout">
+        <aside class="catalogue-tools" aria-label="Choisir une catégorie">
+          <span class="catalogue-rail-title">Les créations</span>
           <div
             id="filters"
             class="filters"
             role="group"
             aria-label="Catégories"
           ></div>
-        </div>
+        </aside>
+        <div class="catalogue-results">
         <p id="catalogue-status" class="catalogue-status" role="status"></p>
         <div id="products" class="products"></div>
         <nav
@@ -697,6 +701,8 @@
             >
               <path d="M5 19 19 5M5 5h14v14" /></svg
           ></a>
+        </div>
+        </div>
         </div>
         <div class="collection-foot">
           <span>Chaque création est réalisée à la main.</span
@@ -753,7 +759,7 @@
           </div>
           <div class="atelier-poster-scene">
             <img
-              src="assets/contact-atelier-rose.png"
+              src="assets/contact-atelier-rose.webp" srcset="assets/contact-atelier-rose-720.webp 720w, assets/contact-atelier-rose.webp 1536w" sizes="(max-width: 639px) calc(100vw - 40px), 55vw"
               alt="Mise en scène des créations Hafssa Crochet sur une table d’atelier, avec poupées, lapin et ourson au crochet."
               width="1536"
               height="1024"
@@ -779,7 +785,7 @@
               data-moment-opts='{"look":"film"}'
             >
               <img
-                src="assets/products/poupee-beret.jpeg"
+                src="assets/products/poupee-beret.jpeg" srcset="./assets/web-products/poupee-beret-96.webp 96w, ./assets/web-products/poupee-beret-240.webp 240w, ./assets/web-products/poupee-beret-480.webp 480w, ./assets/web-products/poupee-beret-720.webp 720w, ./assets/web-products/poupee-beret.webp 1080w" sizes="(max-width: 639px) 65vw, 32vw"
                 alt="Détails de la Poupée Béret, crochetée à la main"
                 width="600"
                 height="750"
@@ -788,7 +794,7 @@
             </div>
             <div class="story-inset">
               <img
-                src="assets/products/petit-ours.jpeg"
+                src="assets/products/petit-ours.jpeg" srcset="./assets/web-products/petit-ours-96.webp 96w, ./assets/web-products/petit-ours-240.webp 240w, ./assets/web-products/petit-ours-480.webp 480w, ./assets/web-products/petit-ours-720.webp 720w, ./assets/web-products/petit-ours.webp 1080w" sizes="(max-width: 639px) 25vw, 14vw"
                 alt="Petit Ours au crochet avec son nœud vert"
                 width="260"
                 height="320"
@@ -811,7 +817,7 @@
             </p>
             <div class="signature">
               <img
-                src="assets/logo-transparent.png"
+                src="assets/logo-640.webp" srcset="assets/logo-transparent-96.webp 96w, assets/logo-transparent-192.webp 192w, assets/logo-transparent-384.webp 384w, assets/logo-640.webp 640w" sizes="(max-width: 639px) 56px, 96px"
                 width="58"
                 height="58"
                 loading="lazy"
@@ -877,10 +883,14 @@
           </p>
         </div>
       </section>
+      <section class="ordering-guide section" aria-labelledby="ordering-title">
+        <div class="ordering-intro"><span class="eyebrow">DE LA BOUTIQUE À WHATSAPP</span><h2 id="ordering-title">Votre coup de cœur,<br /><em>en trois petits pas.</em></h2><p>Aucun paiement n’est effectué sur ce site.</p></div>
+        <ol class="ordering-steps"><li><span aria-hidden="true">01</span><h3>Choisissez vos créations</h3><p>Découvrez les photos, choisissez la quantité et ajoutez vos pièces au panier.</p></li><li><span aria-hidden="true">02</span><h3>Indiquez vos coordonnées</h3><p>Renseignez votre nom, votre ville et votre téléphone pour préparer votre demande.</p></li><li><span aria-hidden="true">03</span><h3>Échangez avec Hafssa</h3><p>Confirmez la disponibilité et les frais de livraison directement sur WhatsApp.</p></li></ol>
+      </section>
       <section class="contact" id="contact">
         <img
           class="contact-backdrop"
-          src="assets/contact-atelier-rose.png"
+          src="assets/contact-atelier-rose.webp" srcset="assets/contact-atelier-rose-720.webp 720w, assets/contact-atelier-rose.webp 1536w" sizes="(max-width: 639px) calc(100vw - 40px), 55vw"
           width="1536"
           height="1024"
           loading="lazy"
@@ -922,7 +932,7 @@
       <div class="footer-top">
         <a class="brand" href="#top" aria-label="Hafssa Crochet, retour en haut"
           ><img
-            src="assets/logo-transparent.png"
+            src="assets/logo-640.webp" srcset="assets/logo-transparent-96.webp 96w, assets/logo-transparent-192.webp 192w, assets/logo-transparent-384.webp 384w, assets/logo-640.webp 640w" sizes="(max-width: 639px) 56px, 96px"
             alt=""
             width="48"
             height="48"

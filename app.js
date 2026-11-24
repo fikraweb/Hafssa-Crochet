@@ -4,6 +4,7 @@ import {
   productAliases,
 } from "./catalogue.js";
 import { loadStore, track, recordOrder } from "./store-client.js";
+import { imageVariants, imageSources } from "./image-variants.js";
 const live = await loadStore();
 const products = live?.products || seedProducts;
 const shop = { ...seedShop, ...live?.settings };
@@ -48,9 +49,9 @@ function el(tag, text, className) {
 }
 function scrollToProducts() {
   const grid = $("products");
-  const toolsHeight = document
-    .querySelector(".catalogue-tools")
-    .getBoundingClientRect().height;
+  const toolsHeight = window.matchMedia("(min-width: 1024px)").matches
+    ? 0
+    : document.querySelector(".catalogue-tools").getBoundingClientRect().height;
   window.scrollTo({
     top: grid.getBoundingClientRect().top + window.scrollY - toolsHeight - 24,
     behavior: "instant",
@@ -109,19 +110,27 @@ function renderProducts() {
     const card = el("article", "", "product card");
     const media = el("div", "", "product-media");
     const img = el("img");
-    img.src = p.image;
+    img.src = imageVariants[p.image] || p.image;
+    if (imageSources[p.image]) {
+      img.srcset = imageSources[p.image];
+      img.sizes = "(min-width: 1536px) 338px, (min-width: 1024px) calc((100vw - 11.1vw - 264px)/3), (min-width: 640px) calc((100vw - 11.1vw - 40px)/3), calc((100vw - 54px)/2)";
+    }
     img.alt = p.name;
     img.loading = "lazy";
     img.width = 500;
     img.height = 625;
     img.decoding = "async";
-    img.onclick = () => showProduct(p);
+    const preview = el("button", "", "product-preview");
+    preview.type = "button";
+    preview.setAttribute("aria-label", `Découvrir ${p.name}`);
+    preview.append(img);
+    preview.onclick = () => showProduct(p);
     const quick = el("button", "", "quick-view");
     quick.setAttribute("aria-label", `Voir les détails de ${p.name}`);
     quick.innerHTML =
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>';
     quick.onclick = () => showProduct(p);
-    media.append(img, el("span", "FAIT MAIN", "product-badge"), quick);
+    media.append(preview, el("span", "FAIT MAIN", "product-badge"), quick);
     const viewCount = p.images?.length || 1;
     if (viewCount > 1) {
       const count = el("button", `${viewCount} vues`, "photo-count");
@@ -139,12 +148,12 @@ function renderProducts() {
     button.setAttribute("aria-label", `Ajouter ${p.name} au panier`);
     button.onclick = () => addProduct(p);
     bottom.append(el("span", money(p.price), "product-price"), button);
-    info.append(
-      el("span", p.category, "product-category"),
-      el("h3", p.name),
-      el("p", p.description, "product-description"),
-      bottom,
-    );
+    const title = el("h3");
+    const titleButton = el("button", p.name, "product-title-button");
+    titleButton.type = "button";
+    titleButton.onclick = () => showProduct(p);
+    title.append(titleButton);
+    info.append(el("span", p.category, "product-category"), title, bottom);
     card.append(media, info);
     $("products").append(card);
   }
@@ -298,6 +307,11 @@ function renderCart() {
 }
 for (const name of ["Tout", ...new Set(products.map((p) => p.category))]) {
   const button = el("button", name, name === "Tout" ? "active" : "");
+  const count = products.filter(p => name === "Tout" || p.category === name).length;
+  const countLabel = el("span", String(count), "category-count");
+  countLabel.setAttribute("aria-hidden", "true");
+  button.setAttribute("aria-label", name);
+  button.append(countLabel);
   button.setAttribute("aria-pressed", String(name === "Tout"));
   button.onclick = () => {
     track("category", undefined, name);

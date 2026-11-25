@@ -1,3 +1,4 @@
+import { catalogueView } from "./catalogue-view.js";
 import {
   products as seedProducts,
   shop as seedShop,
@@ -26,6 +27,7 @@ try {
   }
 } catch {}
 let category = "Tout";
+let catalogueSort = "original";
 const pageSize = 12;
 let currentPage = 1;
 const toast = (message) => {
@@ -57,10 +59,14 @@ function scrollToProducts() {
     behavior: "instant",
   });
 }
+$("catalogue-sort").addEventListener("change", (event) => {
+  catalogueSort = event.target.value;
+  currentPage = 1;
+  renderProducts();
+  scrollToProducts();
+});
 function renderProducts() {
-  const filtered = products.filter(
-    (p) => category === "Tout" || p.category === category,
-  );
+  const filtered = catalogueView(products, category, catalogueSort);
   $("products").replaceChildren();
   $("empty").hidden = filtered.length > 0;
   const pageCount = Math.ceil(filtered.length / pageSize);

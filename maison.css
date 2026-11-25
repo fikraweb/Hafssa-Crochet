@@ -1,0 +1,209 @@
+/* Hafssa Crochet / Maison: pink dress, gold thread, ivory and cocoa from the original mark. */
+:root {
+  --p-bg: #fffaf3; --p-surface: #fce9e6; --p-ink: #442d27; --p-muted: #775b52;
+  --p-accent: #a43660; --p-action: #a43660; --p-accent-ink: #fffaf3; --p-action-ink: #fffaf3;
+  --cream: #fffaf3; --paper: #fce9e6; --ink: #442d27; --muted: #775b52;
+  --rose: #a43660; --forest: #a43660; --accent: #a43660; --action: #a43660;
+  --line: #e8cfc2; --surface: #fce9e6; --gold: #a77b34;
+}
+body { background: var(--cream); color: var(--ink); }
+::selection { background: #f3b7c5; color: #442d27; }
+.announcement { background: #442d27; color: #fffaf3; padding-block: 9px; letter-spacing: .08em; }
+.header { height: 112px; background: #fffaf3; border-color: #e8cfc2; padding-inline: var(--edge); }
+.header .brand-name { color: #a43660; font-size: 39px; }
+.brand-sub { color: #775b52; letter-spacing: .18em; }
+.header .brand img { width: 92px; height: 82px; object-fit: contain; }
+.header #main-nav .nav-magic { color: #593d33; font-weight: 500; }
+.header #main-nav .nav-magic:hover,.header #main-nav .nav-magic[aria-current="location"] { color: #a43660; }
+.header .nav-bag { background: #fce9e6; color: #713e45; border-color: #ddb9b6; }
+.header .nav-bag #cart-count { background: #fffaf3; color: #a43660; }
+.hero { display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: 36px; min-height: 700px; padding: 44px var(--edge) 58px; background: #fffaf3; overflow: hidden; }
+.hero-copy { width: 100%; max-width: 560px; }
+.hero-edition { color: #805c3d; font-size: 11px; letter-spacing: .1em; }
+.hero h1 { margin: 28px 0; }
+.hero-title-lead { color: #442d27; font-size: clamp(48px, 5.2vw, 76px); line-height: 1.06; letter-spacing: -.05em; }
+.hero-title-tail,.hero h1 .hero-title-tail em,.title-heart { color: #a43660; }
+.hero-title-tail { font-size: clamp(36px, 3.8vw, 56px); margin-top: 12px; }
+.hero-copy > p,.hero-copy > p.live-description { color: #684a40; font-size: 17px; line-height: 1.85; max-width: 400px; margin-block: 24px 32px; }
+.hero-stage { position: relative; inset: auto; width: 100%; height: 570px; min-width: 0; align-self: center; mask-image: none; -webkit-mask-image: none; border-radius: 180px 180px 12px 12px; overflow: hidden; border: 1px solid #e4c9b6; background: #f6ddd4; }
+.hero .atelier-photo-layer { position: absolute; inset: 0; width: 100%; height: 100%; transform: none; }
+.hero .atelier-photo-layer picture { display: block; width: 100%; height: 100%; }
+.hero .atelier-photo-layer > picture > img { width: 100%; height: 100%; object-fit: cover; object-position: 77% center; }
+.hero-halo,.hero-grain,.hero-bottom { display: none; }
+.hero-note { color: #805c3d; font-size: 14px; margin-top: 28px; }
+.note-line { background: #a77b34; }
+.hero .magic-primary,.button,.atelier-poster-cta { background: #a43660; color: #fffaf3; border-color: #a43660; box-shadow: none; }
+.hero .magic-primary:hover,.button:hover { background: #842447; border-color: #842447; }
+.marquee { background: #fce9e6; color: #834b49; border-block: 1px solid #ebc7c3; }
+.marquee-track { animation: none; }
+.marquee i { color: #a77b34; }
+.collection { background: #fffaf3; padding-block: 88px; }
+.collection .section-top { align-items: end; gap: 32px; margin-bottom: 36px; }
+.collection .section-top h2 { color: #442d27; font-size: clamp(40px, 4.6vw, 66px); line-height: 1.1; }
+.collection .section-top h2 em { color: #a43660; }
+.collection .section-top > p,.eyebrow { color: #775b52; }
+.section-number { color: #a77b34; }
+.catalogue-layout { display: block; }
+.catalogue-tools { position: sticky; top: 0; padding: 14px 0; border: 0; border-block: 1px solid #e8cfc2; background: #fffaf3; border-radius: 0; margin-bottom: 28px; }
+.catalogue-rail-title { display: none; }
+.filters { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+.filters button { width: auto; padding: 10px 16px; border-radius: 999px; color: #684a40; font-size: 14px; min-height: 44px; }
+.filters button.active { color: #fffaf3; background: #a43660; border-color: #a43660; }
+.filters button:hover:not(.active) { background: #fce9e6; }
+.category-count { margin-left: 10px; opacity: .85; }
+.catalogue-toolbar { border-color: #e8cfc2; }
+.catalogue-toolbar .catalogue-status { color: #775b52; }
+.catalogue-sort label { color: #775b52; }
+.catalogue-sort select { background: #fffaf3; color: #442d27; border-color: #d4b6a4; }
+.products { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 36px 22px; }
+.product { background: #fffaf3; border: 0; border-radius: 0; padding: 0; overflow: visible; }
+.product:hover { border: 0; box-shadow: none; }
+.product-media { border-radius: 90px 90px 8px 8px; aspect-ratio: 4 / 5; background: #fce9e6; }
+.product-info { padding: 18px 0 0; }
+.product-category { color: #8c583f; font-size: 10px; letter-spacing: .13em; }
+.product h3 { color: #442d27; font-size: clamp(22px, 1.9vw, 28px); line-height: 1.25; min-height: 72px; margin-bottom: 18px; }
+.product-title-button:hover { color: #a43660; }
+.product-bottom { border-color: #e8cfc2; padding-top: 14px; }
+.product-price { color: #442d27; }
+.product-bottom > button.btn { background: #fce9e6; border-color: #e5bcc0; color: #8a294c; font-size: 13px; padding-inline: 14px; }
+.product-bottom > button.btn:hover { background: #a43660; border-color: #a43660; color: #fffaf3; }
+.quick-view { color: #a43660; border-color: #e5bcc0; background: #fffaf3; }
+.product-badge { color: #644a34; background: #fffaf3; border: 1px solid #eadbc7; border-radius: 999px; }
+.photo-count { background: #fffaf3; color: #644a34; }
+.pagination button { color: #684a40; border-color: #d4b6a4; }
+.pagination button[aria-current="page"],.pagination button:hover:not(:disabled) { background: #a43660; color: #fffaf3; border-color: #a43660; }
+.collection-foot { border-color: #e8cfc2; color: #775b52; }
+.collection-foot a { color: #a43660; }
+.atelier-offer { background: #fce9e6; padding-block: 72px; }
+.atelier-poster { border-radius: 12px; border-color: #dfbcb0; box-shadow: none; }
+.atelier-poster-copy { background: #fffaf3; }
+.atelier-poster h2,.atelier-poster-promise { color: #442d27; }
+.atelier-poster h2 em,.atelier-poster-promise span { color: #a43660; }
+.atelier-poster-label,.atelier-poster-description { color: #775b52; }
+.atelier-poster-caption { background: #442d27; }
+.atelier { background-color: #442d27; }
+.atelier h2,.atelier h2 em,.atelier .eyebrow { color: #fffaf3; }
+.details { background: #fffaf3; border-color: #e8cfc2; }
+.detail { border-color: #e8cfc2; }
+.detail h3 { color: #442d27; }
+.detail p { color: #684a40; }
+.detail-icon { color: #a77b34; }
+.ordering-guide { background: #fce9e6; border: 0; padding-block: 80px; }
+.ordering-intro h2 { color: #442d27; }
+.ordering-intro h2 em { color: #a43660; }
+.ordering-intro > p,.ordering-steps p { color: #684a40; }
+.ordering-steps li { border-color: #d9afa5; }
+.ordering-steps li > span { color: #9a6c30; }
+.ordering-steps h3 { color: #442d27; }
+.boutique-questions { background: #fffaf3; }
+.questions-intro h2,.questions-list h3 { color: #442d27; }
+.questions-intro h2 em,.questions-intro .text-link { color: #a43660; }
+.questions-list article { border-color: #e8cfc2; }
+.questions-list p { color: #684a40; }
+.contact { background: #fce9e6; }
+.contact h2,.contact h2 em { color: #442d27; }
+.contact p,.contact-number { color: #684a40; }
+.contact .button { background: #a43660; color: #fffaf3; }
+footer { background: #fffaf3; border-color: #e8cfc2; }
+footer::before { opacity: .13; background: url('assets/contact-atelier-rose.webp') center / cover; }
+footer .brand-name { color: #a43660; }
+footer a,footer p,.footer-bottom { color: #684a40; }
+.footer-bottom { border-color: #d4b6a4; }
+#product-dialog,#cart-dialog { border-color: #ddbdad; background: #fffaf3; }
+.product-detail-copy,.cart-bottom { background: #fffaf3; }
+.product-detail-copy h2,.product-detail-price,.cart-total strong { color: #442d27; }
+.product-detail-copy > p,.product-house,.cart-total,.checkout-form label { color: #684a40; }
+.product-detail-visual,.cart-head { background: #fce9e6; }
+.cart-head,.cart-row,.cart-bottom,.checkout-form { border-color: #e8cfc2; }
+#product-detail-add,#checkout,.floating-cart { background: #a43660; color: #fffaf3; }
+.checkout-form input,.product-quantity-control { background: #fffdf9; border-color: #d4b6a4; color: #442d27; }
+.mobile-menu { background: #fffaf3; color: #442d27; border-color: #e8cfc2; }
+.mobile-menu a { color: #713e45; border-color: #e8cfc2; }
+button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible { outline-color: #a43660; }
+/* Finite entrance and interaction motion; no animation package, timer or scroll handler. */
+@media (prefers-reduced-motion: no-preference) {
+  dialog[open] { animation: maison-dialog .24s cubic-bezier(.2,.8,.2,1) both; }
+  dialog::backdrop { animation: maison-backdrop .2s ease both; }
+  .quick-view svg,.detail-icon,.social-icon svg,.gallery-controls button svg { transition: transform .22s cubic-bezier(.2,.8,.2,1); }
+  .quick-view:hover svg { transform: rotate(90deg); }
+  .detail:hover .detail-icon { transform: translateY(-4px); }
+  .social-icon:hover svg { transform: translateY(-3px); }
+  .product-preview img { transition: transform .65s cubic-bezier(.2,.8,.2,1); }
+  .product-preview:hover img { transform: scale(1.035); }
+  .filters button { transition: background-color .18s, color .18s, border-color .18s; }
+}
+@keyframes maison-dialog { from { opacity: 0; translate: 0 12px; } to { opacity: 1; translate: 0 0; } }
+@keyframes maison-backdrop { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 1199px) { .products { grid-template-columns: repeat(3,minmax(0,1fr)); } .hero { gap: 24px; } .hero-stage { height: 520px; } }
+@media (max-width: 1023px) {
+  .header { height: 92px; }
+  .header .brand-name { font-size: 32px; }
+  .header .brand img { width: 66px; height: 66px; }
+  .hero { min-height: 620px; padding-block: 36px 48px; grid-template-columns: 1fr 1fr; }
+  .hero-stage { height: 470px; border-radius: 120px 120px 8px 8px; }
+  .hero-title-lead { font-size: clamp(40px, 5.5vw, 56px); }
+  .hero-title-tail { font-size: clamp(30px, 4vw, 42px); }
+  .hero-copy > p,.hero-copy > p.live-description { font-size: 16px; }
+  .filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
+  .filters button { flex: none; }
+}
+@media (max-width: 639px) {
+  .header { height: 84px; }
+  .header .brand img { width: 48px; height: 58px; }
+  .header .brand-name { font-size: clamp(23px,6vw,30px); }
+  .header .brand-sub { font-size: 7px; }
+  .hero { display: flex; flex-direction: column; gap: 32px; min-height: 0; padding: 36px var(--edge) 40px; }
+  .hero-copy { width: 100%; max-width: none; }
+  .hero h1 { margin-block: 20px; }
+  .hero-title-lead { font-size: clamp(40px, 11vw, 66px); }
+  .hero-title-tail { font-size: clamp(32px, 8.5vw, 48px); }
+  .hero-copy > p,.hero-copy > p.live-description { font-size: 16px; margin-block: 22px 26px; }
+  .hero-edition { font-size: 9px; }
+  .hero-stage { width: 100%; height: auto; aspect-ratio: 2 / 3; border-radius: 120px 120px 8px 8px; }
+  .hero .atelier-photo-layer > picture > img { object-fit: cover; object-position: center; }
+  .hero-buttons,.hero-buttons > a { width: 100%; }
+  .hero-note { display: none; }
+  .collection { padding-block: 48px; }
+  .collection .section-top { gap: 18px; margin-bottom: 26px; }
+  .collection .section-top h2 { font-size: 39px; }
+  .catalogue-tools { margin-bottom: 22px; }
+  .products { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px 14px; }
+  .product-media { border-radius: 58px 58px 6px 6px; }
+  .product h3 { font-size: 22px; min-height: 78px; }
+  .product-info { padding: 14px 0 0; }
+  .product-bottom > button.btn { width: 100%; }
+  .atelier-offer,.ordering-guide { padding-block: 48px; }
+  .boutique-questions { padding-block: 48px; }
+}
+@media (max-width: 359px) { .header { gap: 8px; } .header .brand { gap: 4px; } .header .brand img { width: 34px; } .header .brand-name { font-size: 22px; } .hero-title-lead { font-size: 38px; } .product h3 { font-size: 20px; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero *,dialog[open],dialog::backdrop,.product-preview img,.quick-view svg,.detail-icon,.social-icon svg { animation: none !important; transition: none !important; }
+}
+/* The logo's gold thread and pink dress replace the former lavender stars. */
+.collection-stars > span { background: #d991aa; }
+.collection-stars > span:nth-child(3n) { background: #efd8aa; }
+.collection-stars > span:nth-child(4n) { background: #a77b34; }
+@media (prefers-reduced-motion: no-preference) {
+  #toast.visible { animation: maison-dialog .2s ease both; }
+  .checkout-form input { transition: border-color .18s, box-shadow .18s; }
+  .checkout-form input:focus { border-color: #a43660; box-shadow: 0 0 0 3px #f3b7c544; }
+}
+/* Keep higher-specificity legacy selectors on the new logo palette as well. */
+.atelier-poster .atelier-poster-cta { background: #a43660; border-color: #a43660; border-radius: 999px; }
+.atelier .story-copy h2 em { color: #f3b7c5; }
+.details .detail h3 { color: #442d27; }
+.motion-paused .collection-stars > span { animation: none; }
+.motion-paused dialog[open],.motion-paused dialog::backdrop { animation: none; }
+/* Tablet frame stays wide enough to retain the full group of dolls. */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hero-stage { height: auto; aspect-ratio: 1.15; border-radius: 96px 96px 8px 8px; }
+  .hero .atelier-photo-layer > picture > img { object-position: right center; }
+}
+/* A short response when a new category/page is rendered; never tied to scrolling. */
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.motion-paused) .product { animation: maison-product-in .28s ease-out both; }
+  html:not(.motion-paused) .product:nth-child(3n + 2) { animation-delay: .03s; }
+  html:not(.motion-paused) .product:nth-child(3n) { animation-delay: .06s; }
+  @keyframes maison-product-in { from { opacity: .5; translate: 0 6px; } to { opacity: 1; translate: 0 0; } }
+}

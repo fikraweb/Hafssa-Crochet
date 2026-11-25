@@ -27,6 +27,7 @@ for (const file of [
   "landing.css",
   "storefront.css",
   "atelier.css",
+  "maison.css",
   "app.js",
   "image-variants.js",
   "store-client.js",

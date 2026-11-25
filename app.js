@@ -119,7 +119,7 @@ function renderProducts() {
     img.src = imageVariants[p.image] || p.image;
     if (imageSources[p.image]) {
       img.srcset = imageSources[p.image];
-      img.sizes = "(min-width: 1536px) 338px, (min-width: 1024px) calc((100vw - 11.1vw - 264px)/3), (min-width: 640px) calc((100vw - 11.1vw - 40px)/3), calc((100vw - 54px)/2)";
+      img.sizes = "(min-width: 1536px) 304px, (min-width: 1200px) calc((100vw - 11.1vw - 66px)/4), (min-width: 640px) calc((100vw - 11.1vw - 44px)/3), calc((100vw - 54px)/2)";
     }
     img.alt = p.name;
     img.loading = "lazy";

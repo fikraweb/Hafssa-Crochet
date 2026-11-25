@@ -27,42 +27,7 @@ function resetTilt() {
   scene.style.setProperty("--camera-x", "0px");
   scene.style.setProperty("--camera-y", "0px");
 }
-stage.addEventListener("pointermove", (event) => {
-  if (!finePointer.matches || root.classList.contains("motion-paused")) return;
-  const rect = stage.getBoundingClientRect();
-  const x = Math.max(
-    -1,
-    Math.min(1, ((event.clientX - rect.left) / rect.width) * 2 - 1),
-  );
-  const y = Math.max(
-    -1,
-    Math.min(1, ((event.clientY - rect.top) / rect.height) * 2 - 1),
-  );
-  cancelAnimationFrame(frame);
-  frame = requestAnimationFrame(() => {
-    scene.style.setProperty("--tilt-x", `${-y * 1.8}deg`);
-    scene.style.setProperty("--tilt-y", `${x * 2.4}deg`);
-    scene.style.setProperty("--camera-x", `${x * 5}px`);
-    scene.style.setProperty("--camera-y", `${y * 3}px`);
-  });
-});
-stage.addEventListener("pointerleave", resetTilt);
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries)
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-    },
-    { threshold: 0.08 },
-  );
-  root.classList.add("motion-ready");
-  document
-    .querySelectorAll(".reveal")
-    .forEach((node) => observer.observe(node));
-}
+// The new photo composition stays still after its entrance. No pointer or scroll loop.
 const menu = document.getElementById("main-nav");
 const menuButton = document.getElementById("menu-toggle");
 const menuDialog = document.getElementById("mobile-menu");

@@ -433,6 +433,34 @@ for (const id of ["contact-whatsapp", "collection-contact"])
   $(id).addEventListener("click", () => track("contact"));
 track("pageview");
 $("year").textContent = new Date().getFullYear();
+// Featured figures use the same live products/prices as the catalogue and dialog.
+const heroFigures = [...document.querySelectorAll("[data-hero-product]")];
+for (const figure of heroFigures) {
+  const product = products.find(p => p.id === figure.dataset.heroProduct);
+  if (!product) { figure.remove(); continue; }
+  const original = seedProducts.find(p => p.id === product.id);
+  const image = figure.querySelector("img");
+  image.src = product.image === original?.image
+    ? `assets/hero-products/${product.id}.webp`
+    : (imageVariants[product.image] || product.image);
+  image.alt = product.name;
+  figure.setAttribute("aria-label", `${product.name}, ${money(product.price)}. Voir les détails`);
+  const priceCard = figure.querySelector(".hero-price-card");
+  priceCard.querySelector("strong").textContent = product.name;
+  priceCard.querySelector("span").textContent = money(product.price);
+  priceCard.hidden = false;
+  figure.addEventListener("click", event => {
+    if (event.detail > 0 && matchMedia("(hover: none)").matches && !figure.classList.contains("is-featured")) {
+      heroFigures.forEach(other => other.classList.toggle("is-featured", other === figure));
+      return;
+    }
+    showProduct(product);
+  });
+}
+document.addEventListener("pointerdown", event => {
+  if (!event.target.closest("[data-hero-product]")) heroFigures.forEach(figure => figure.classList.remove("is-featured"));
+});
+
 renderProducts();
 renderCart();
 

@@ -15,7 +15,7 @@
 .fil-thread { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 .fil-thread path { stroke: #b88145; stroke-width: 1.7; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: calc(.8 - var(--scene-progress,.5)); opacity: .7; }
 .fil-character { position: relative; height: 95%; aspect-ratio: 1 / 2; flex: 0 1 auto; transform-origin: 50% 90%; z-index: 1; }
-.fil-character > span { display: block; width: 100%; height: 100%; background-image: url('assets/hero-dolls-1200.webp'); background-repeat: no-repeat; background-size: 400% 100%; }
+.fil-character > .hero-character-image { display: block; width: 100%; height: 100%; background-image: url('assets/hero-dolls-1200.webp'); background-repeat: no-repeat; background-size: 400% 100%; }
 .fil-character-one > span { background-position: 0 0; }
 .fil-character-two > span { background-position: 33.333% 0; }
 .fil-character-three > span { background-position: 66.667% 0; }
@@ -40,8 +40,8 @@
   html:not(.motion-paused) .fil-character-two { transform: translateY(calc(var(--scene-shift,0px) * .5)) rotate(var(--scene-turn,0deg)); }
   html:not(.motion-paused) .fil-character-three { transform: translateY(calc(var(--scene-shift,0px) * -.3)) rotate(calc(var(--scene-turn,0deg) * -.7)); }
   html:not(.motion-paused) .fil-character-four { transform: translateY(calc(var(--scene-shift,0px) * .7)) rotate(calc(var(--scene-turn,0deg) * .8)); }
-  .fil-character > span { transition: transform .35s cubic-bezier(.2,.8,.2,1); }
-  .fil-character:hover > span { transform: translateY(-12px) rotate(4deg); }
+  .fil-character > .hero-character-image { transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+  .fil-character:hover > .hero-character-image { transform: translateY(-12px) rotate(4deg); }
   html:not(.motion-paused) [data-scroll-scene] .atelier-poster-scene > img { transform: translateY(var(--scene-shift,0px)) scale(1.08); }
   html:not(.motion-paused) [data-scroll-scene] .ordering-steps li > span { transform: rotate(var(--scene-turn,0deg)); }
   html:not(.motion-paused) [data-scroll-scene] .questions-intro h2 em { text-decoration: underline; text-decoration-color: #d6ab70; text-underline-offset: 8px; text-decoration-thickness: 1px; }
@@ -73,7 +73,7 @@
   .ordering-steps li { padding-left: 16px; }
   .ordering-steps li > span { width: 36px; height: 36px; font-size: 20px; }
 }
-@media (prefers-reduced-motion: reduce) { .fil-thread path { stroke-dashoffset: 0; } .fil-character,.fil-character > span { transform: none !important; transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { .fil-thread path { stroke-dashoffset: 0; } .fil-character,.fil-character > .hero-character-image { transform: none !important; transition: none !important; } }
 
 .fil-reading-thread { position: fixed; inset: 0 0 auto; height: 3px; background: #a43660; transform: scaleX(var(--reading-progress,0)); transform-origin: left; z-index: 100; pointer-events: none; }
 @media (prefers-reduced-motion: no-preference) {
@@ -82,7 +82,7 @@
 .fil-theatre .hero-copy { display: block; }
 .fil-theatre .hero-copy h1 { width: 100%; max-width: none; text-align: center; margin-inline: auto; }
 .fil-theatre .hero-stage { height: clamp(250px,22vw,310px); }
-.fil-theatre .fil-character > span { clip-path: inset(0 3%); }
+.fil-theatre .fil-character > .hero-character-image { clip-path: inset(0 3%); }
 @media (min-width: 1024px) { .fil-theatre .hero-title-lead { font-size: clamp(58px,6.2vw,90px); } .fil-theatre .hero-title-tail { font-size: clamp(52px,5.8vw,84px); } }
 @media (max-width: 639px) { .fil-theatre .hero-stage { height: 225px; } }
 @media (prefers-reduced-motion: no-preference) {
@@ -94,7 +94,7 @@
   .fil-character { width: 25%; height: auto; max-width: none; flex: 0 0 25%; aspect-ratio: 1 / 2; }
 }
 
-@media (max-width: 639px) { .fil-character > span { background-image: url('assets/hero-dolls-720.webp'); } }
+@media (max-width: 639px) { .fil-character > .hero-character-image { background-image: url('assets/hero-dolls-720.webp'); } }
 @media (min-width: 640px) and (max-width: 1023px) {
   .fil-theatre .hero-title-lead,.fil-theatre .hero-title-tail { display: block; }
 }
@@ -108,9 +108,78 @@
 .fil-theatre .hero-title-lead { font-size: clamp(48px,5.4vw,78px); }
 .fil-theatre .hero-title-tail { font-size: clamp(44px,5vw,72px); }
 @media (max-width: 639px) {
-  .fil-room { background-image: url('assets/hero-room-photo-mobile.webp'); }
+  .fil-room { background-image: url('assets/hero-crochet-lifestyle-mobile.webp'); }
   .fil-theatre .hero-title-lead { font-size: clamp(43px,11vw,68px); }
   .fil-theatre .hero-title-tail { font-size: clamp(38px,10vw,60px); }
 }
 .fil-theatre .hero-title-lead,.fil-theatre .hero-title-tail { margin-inline: auto; }
 @media (max-width: 639px) { .fil-room { background-size: 100% 100%; } }
+
+/* Lifestyle composition: live product figures over the worktable, craft scene at right. */
+.fil-theatre.hero { align-items: flex-start; padding: 44px var(--edge) 24px max(var(--edge),12vw); }
+.fil-room { background-image: url('assets/hero-crochet-lifestyle.webp'); background-position: center bottom; }
+.fil-theatre .hero-copy { width: min(590px,52vw); max-width: none; text-align: left; }
+.fil-theatre .hero-copy h1 { text-align: left; margin: 20px 0; }
+.fil-theatre .hero-edition { justify-content: flex-start; }
+.fil-theatre .hero-title-lead,.fil-theatre .hero-title-tail { margin-inline: 0; font-size: clamp(42px,4.8vw,68px); }
+.fil-theatre .hero-title-tail { font-size: clamp(38px,4.4vw,62px); }
+.fil-theatre .hero-copy > p,.fil-theatre .hero-copy > p.live-description { margin: 20px 0 26px; max-width: 500px; }
+.fil-theatre .hero-copy > p br { display: initial; }
+.fil-theatre .hero-buttons { justify-content: flex-start; }
+.fil-theatre .hero-stage { align-self: flex-start; width: min(650px,56vw); height: 220px; margin: 24px 0 0; }
+.fil-theatre .fil-cast { justify-content: flex-start; gap: 22px; }
+.fil-character { border: 0; border-radius: 0; padding: 0; background: none; cursor: pointer; color: #442d27; touch-action: manipulation; }
+.fil-theatre .fil-character > .hero-character-image { background: none; clip-path: none; width: 100%; height: 100%; transform-origin: 50% 100%; }
+.hero-character-image img { display: block; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 5px #442d2726); }
+.hero-price-card { position: absolute; bottom: calc(100% + 12px); left: 0; z-index: 5; width: max-content; max-width: 180px; padding: 12px 16px; background: #fffaf3; border: 1px solid #d7b3a2; border-radius: 14px; box-shadow: 0 10px 24px #442d271c; text-align: left; pointer-events: none; opacity: 0; visibility: hidden; transform: translateY(9px); transition: opacity .2s,transform .25s cubic-bezier(.2,.8,.2,1),visibility .2s; }
+.hero-price-card strong,.hero-price-card > span,.hero-price-card small { display: block; }
+.hero-price-card strong { font: 500 14px/1.4 var(--sans); margin-bottom: 4px; }
+.hero-price-card > span { font: 600 20px/1.4 var(--sans); color: #a43660; }
+.hero-price-card small { margin-top: 5px; font: 400 11px/1.4 var(--sans); color: #775b52; }
+.fil-character:last-child .hero-price-card { left: auto; right: 0; }
+.fil-character:focus-visible { outline: 2px solid #a43660; outline-offset: 7px; border-radius: 12px; }
+.fil-character:focus-visible,.fil-character.is-featured { z-index: 5; }
+.fil-character:focus-visible .hero-price-card,.fil-character.is-featured .hero-price-card { visibility: visible; opacity: 1; transform: translateY(0); }
+.fil-character:focus-visible > .hero-character-image,.fil-character.is-featured > .hero-character-image { transform: translateY(-6px) scale(1.2); }
+.hero-touch-hint { display: none; }
+.fil-theatre .fil-stage-note { text-align: left; letter-spacing: .03em; }
+@media (hover: hover) {
+  .fil-character:hover { z-index: 5; }
+  .fil-character:hover > .hero-character-image { transform: translateY(-6px) scale(1.2); }
+  .fil-character:hover .hero-price-card { visibility: visible; opacity: 1; transform: translateY(0); }
+  .fil-cast:has(.fil-character:hover) .fil-character:not(:hover) > .hero-character-image { transform: scale(.9); }
+}
+@media (max-width: 1023px) and (min-width: 640px) {
+  .fil-theatre.hero { padding-left: var(--edge); padding-top: 62px; }
+  .fil-theatre .hero-copy { width: 58vw; }
+  .fil-theatre .hero-title-lead { font-size: 46px; }
+  .fil-theatre .hero-title-tail { font-size: 42px; }
+  .fil-theatre .hero-stage { width: 58vw; height: 200px; }
+  .fil-theatre .fil-cast { gap: 12px; }
+}
+@media (max-width: 639px) {
+  .fil-theatre.hero { padding: 72px 20px 24px; }
+  .fil-room { background-image: url('assets/hero-crochet-lifestyle-mobile.webp'); background-size: 100% 100%; }
+  .fil-theatre .hero-copy { width: 100%; }
+  .fil-theatre .hero-title-lead { font-size: clamp(39px,10.5vw,58px); }
+  .fil-theatre .hero-title-tail { font-size: clamp(36px,10vw,54px); }
+  .fil-theatre .hero-copy > p br { display: none; }
+  .fil-theatre .hero-stage { width: 100%; height: 220px; margin-top: 30px; }
+  .fil-theatre .fil-cast { gap: 0; justify-content: space-between; }
+  .hero-price-card { max-width: 156px; padding: 10px 12px; }
+  .hero-price-card strong { font-size: 12px; }
+  .hero-price-card > span { font-size: 18px; }
+  .fil-theatre .fil-stage-note { text-align: center; }
+}
+@media (hover: none) { .hero-hover-hint { display: none; } .hero-touch-hint { display: inline; } }
+@media (prefers-reduced-motion: reduce) { .hero-price-card,.fil-character > .hero-character-image { transition: none !important; } }
+.motion-paused .hero-price-card,.motion-paused .fil-character > .hero-character-image { transition: none; }
+
+.fil-theatre .hero-copy { align-self: flex-start; margin: 0; }
+.hero-character-image img { object-position: center bottom; }
+/* Keep prices beside the selected toy rather than over the collection action. */
+.hero-price-card { bottom: calc(100% - 95px); left: 85%; }
+.fil-character:last-child .hero-price-card { left: auto; right: 85%; }
+.hero-character-image { position: relative; }
+.hero-character-image img { position: absolute; left: 50%; height: 100%; width: auto; max-width: 160%; transform: translateX(-50%); }
+@media (max-width: 639px) { .fil-character-three .hero-price-card { left: auto; right: 85%; } }

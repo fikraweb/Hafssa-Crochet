@@ -1,0 +1,60 @@
+{
+  "lifestyle": "AI-generated marketing interior with anonymous crochet hands, not a photo of business premises or Hafssa",
+  "products": "Resized copies of existing alpha-only product cutouts; source photographs and catalogue remain unchanged",
+  "assets": [
+    {
+      "file": "hero-crochet-lifestyle.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 182790,
+      "sha256": "60a504c7ce61b46150222926b01790d2fc78171dceb4855d6813fb37cf3010e9"
+    },
+    {
+      "file": "hero-crochet-lifestyle-mobile.webp",
+      "dimensions": [
+        780,
+        1170
+      ],
+      "bytes": 87810,
+      "sha256": "59765159586d9b393d49f19e7b29b83bfde4c457f1aa9923add5b384c5905e45"
+    },
+    {
+      "file": "hero-products/poupee-beret.webp",
+      "dimensions": [
+        274,
+        520
+      ],
+      "bytes": 35692,
+      "sha256": "e0dc69e8573d3ada0958c69b856c47496c10d15411acd36837baa649154cff1f"
+    },
+    {
+      "file": "hero-products/poupee-cerise-a-pois.webp",
+      "dimensions": [
+        294,
+        520
+      ],
+      "bytes": 40990,
+      "sha256": "9bf45ee35ab61af03b59f9cbebdc8dce10a219d9a4f0773c1baecc1806043de1"
+    },
+    {
+      "file": "hero-products/lulu-bunny.webp",
+      "dimensions": [
+        442,
+        520
+      ],
+      "bytes": 35476,
+      "sha256": "5181c70be956b717773c3c9b5b418cca99dbf94c9be3a4d40a67528cd8032458"
+    },
+    {
+      "file": "hero-products/petit-ours.webp",
+      "dimensions": [
+        306,
+        520
+      ],
+      "bytes": 42314,
+      "sha256": "dd2677d7e48e9a382d9b7e5d4d4c18fed789411413478fe88c9cba93f79a1800"
+    }
+  ]
+}

@@ -1631,7 +1631,7 @@ footer:before {
 .product-bottom > button.btn:hover { background: #76415d; border-color: #76415d; color: #fffaf7; }
 .quick-view { border-radius: 50%; color: #7c3f5d; background: #fffaf7f5; width: 44px; height: 44px; }
 .pagination { gap: 8px; }
-.pagination button { border-radius: 8px; }
+.pagination button { border-radius: 999px; min-width: 44px; min-height: 44px; }
 .collection-foot { padding-top: 28px; margin-top: 38px; border-top: 1px solid #dcc3d0; }
 .atelier-offer { padding-block: 80px; background: #fffcf8; }
 .atelier-poster { border: 0; border-radius: 18px; box-shadow: none; grid-template-columns: 1fr 1.2fr; overflow: hidden; }
@@ -1761,10 +1761,10 @@ footer .dashboard-link { color: #b78ca2; }
 .hero-title-lead { font-size: clamp(52px,5.35vw,80px); }
 .hero-title-tail { font-size: clamp(38px,3.9vw,56px); }
 .header #main-nav .nav-magic { font-size: 14px; }
-.collection { background: #faf5f5; }
+.collection { background: #f8f0f2; padding-block: clamp(56px, 7vw, 104px); }
 .collection .section-top { border-bottom: 0; margin-bottom: 42px; padding-bottom: 0; }
 .collection .section-top h2 { font-size: clamp(40px,4.5vw,64px); }
-.catalogue-layout { display: grid; grid-template-columns: 182px minmax(0,1fr); gap: 42px; align-items: start; }
+.catalogue-layout { display: grid; grid-template-columns: 164px minmax(0,1fr); gap: 36px; align-items: start; }
 .catalogue-tools { position: sticky; top: 24px; margin: 0; padding: 0 22px 0 0; border: 0; border-right: 1px solid #e1cdd7; border-radius: 0; box-shadow: none; background: transparent; z-index: 5; backdrop-filter: none; }
 .catalogue-rail-title { display: block; font-size: 13px; font-weight: 600; margin-bottom: 16px; color: #5c3c4e; }
 .filters { display: flex; flex-direction: column; gap: 4px; flex-wrap: nowrap; overflow: visible; }
@@ -1774,23 +1774,23 @@ footer .dashboard-link { color: #b78ca2; }
 .category-count { font-size: 12px; font-variant-numeric: tabular-nums; opacity: .7; margin-left: 14px; }
 .catalogue-results { min-width: 0; }
 .catalogue-status { font-size: 13px; margin-bottom: 20px; }
-.products { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 30px 20px; }
-.product { border: 0; padding: 0; border-radius: 0; background: transparent; box-shadow: none; overflow: visible; }
-.product:hover { box-shadow: none; }
-.product-media { aspect-ratio: 1 / 1.12; border-radius: 12px; overflow: hidden; background: #efe5e8; }
+.products { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px 20px; align-items: stretch; }
+.product { display: flex; flex-direction: column; border: 1px solid #ead7df; padding: 10px; border-radius: 16px; background: #fffaf8; box-shadow: none; overflow: hidden; }
+.product:hover { border-color: #bf8ca5; box-shadow: 0 8px 24px #5334480d; }
+.product-media { aspect-ratio: 4 / 5; border-radius: 9px; overflow: hidden; background: #efe5e8; flex: none; }
 .product-preview { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; cursor: pointer; }
 .product-preview img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
 .product-preview:hover img { transform: scale(1.025); }
 .product-preview:focus-visible { outline: 3px solid #854464; outline-offset: -5px; }
-.product-info { padding: 16px 0 0; }
+.product-info { display: flex; flex-direction: column; flex: 1; padding: 20px 10px 10px; }
 .product-category { color: #7f526b; font-size: 11px; letter-spacing: .08em; margin-bottom: 8px; }
-.product h3 { font-size: 25px; line-height: 1.2; min-height: 60px; margin: 0 0 14px; }
+.product h3 { font-size: clamp(22px, 1.9vw, 29px); line-height: 1.2; min-height: 70px; margin: 0 0 20px; letter-spacing: -.025em; overflow-wrap: anywhere; }
 .product-title-button { background: none; border: 0; padding: 0; color: inherit; text-align: left; font: inherit; cursor: pointer; }
 .product-title-button:hover { color: #9c5577; }
 .product-title-button:focus-visible { outline: 2px solid #854464; outline-offset: 4px; }
-.product-bottom { border-top: 1px solid #e6d5dd; margin-top: auto; padding-top: 12px; }
-.product-price { font-size: 17px; font-weight: 600; }
-.product-bottom > button.btn { border: 1px solid #d7b5c7; background: transparent; min-height: 44px; border-radius: 6px; color: #713c56; }
+.product-bottom { border-top: 1px solid #eadbe2; margin-top: auto; padding-top: 16px; gap: 8px; }
+.product-price { font-size: 17px; font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.product-bottom > button.btn { border: 1px solid #dfc2d0; background: #f5e7ed; min-height: 44px; border-radius: 999px; color: #713c56; padding-inline: 16px; }
 .product-bottom > button.btn:hover { background: #854464; color: #fffaf7; border-color: #854464; }
 .product-badge { border: 0; font-size: 9px; padding: 5px 8px; }
 .photo-count { min-height: 36px; }
@@ -1833,7 +1833,7 @@ footer .dashboard-link { color: #b78ca2; }
 .floating-cart { width: 56px; height: 56px; box-shadow: 0 6px 24px #63334f24; }
 @media (max-width: 1023px) {
   .catalogue-layout { display: block; }
-  .catalogue-tools { top: 0; padding: 8px; border: 1px solid #e3cbd7; border-radius: 8px; background: #fffcf8fa; margin-bottom: 22px; }
+  .catalogue-tools { top: 0; padding: 8px; border: 1px solid #e3cbd7; border-radius: 12px; background: #fffcf8; margin-bottom: 26px; }
   .catalogue-rail-title { display: none; }
   .filters { flex-direction: row; overflow-x: auto; flex-wrap: nowrap; gap: 6px; scrollbar-width: thin; }
   .filters button { width: auto; flex: none; min-height: 44px; font-size: 13px; padding: 10px 14px; }
@@ -1848,13 +1848,14 @@ footer .dashboard-link { color: #b78ca2; }
   .hero-title-tail { font-size: clamp(29px,8vw,46px); }
   .collection .section-top { margin-bottom: 28px; }
   .products { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 26px 14px; }
-  .product-media { aspect-ratio: 4 / 5; border-radius: 8px; }
+  .product { padding: 7px; border-radius: 12px; }
+  .product-media { aspect-ratio: 4 / 5; border-radius: 7px; }
   .product-category { font-size: 10px; }
-  .product h3 { font-size: 22px; min-height: 53px; margin-bottom: 12px; }
+  .product h3 { font-size: 21px; min-height: 76px; margin-bottom: 12px; }
   .product-price { font-size: 15px; }
   .product-bottom { flex-wrap: wrap; gap: 10px; }
   .product-bottom > button.btn { width: 100%; }
-  .product-info { padding-top: 12px; }
+  .product-info { padding: 14px 4px 5px; }
   .product-detail-copy { padding: 28px 22px; }
   .product-detail-copy h2 { font-size: 35px; }
   .ordering-guide { padding-block: 48px; gap: 28px; }
@@ -1885,3 +1886,24 @@ footer::before { background: linear-gradient(90deg,#fff5fbf5,#fff5fbd9),url('ass
 .atelier-poster-caption span,.atelier-poster-caption strong { color: #fffaf7; opacity: 1; }
 /* Let Taste own purposeful motion; legacy section reveals stay readable at rest. */
 .motion-ready .reveal { opacity: 1; transform: none; transition: none; }
+
+/* Boutique refinements: shared edges, legible touch targets, editorial hierarchy. */
+.collection .section-top > p { font-size: 16px; line-height: 1.75; }
+.catalogue-status { color: #6c4d5e; padding-bottom: 16px; border-bottom: 1px solid #e2cbd6; }
+.catalogue-rail-title { font-size: 16px; padding-bottom: 16px; border-bottom: 1px solid #e2cbd6; }
+.header #main-nav .nav-magic:hover,
+.header #main-nav .nav-magic[aria-current="location"] { background: transparent; border-radius: 0; text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 1px; }
+.ordering-guide { border-bottom: 1px solid #eadce1; }
+.ordering-steps li { border-top: 1px solid #d9b7c9; padding-top: 24px; }
+.ordering-steps li > span { font-style: italic; color: #8d486a; }
+.product-title-button { width: 100%; }
+.pagination button[aria-current="page"] { background: #854464; color: #fffaf7; border-color: #854464; }
+@media (min-width: 1024px) { .catalogue-tools { padding-right: 16px; } }
+@media (max-width: 639px) {
+  .collection .section-top h2 { font-size: clamp(34px, 9.5vw, 44px); }
+  .collection .section-top > p { font-size: 15px; }
+  .product-bottom { padding-top: 12px; }
+  .product-bottom > button.btn { padding-inline: 10px; }
+  .ordering-steps li { padding-top: 20px; }
+  .filters button { border-radius: 999px; }
+}

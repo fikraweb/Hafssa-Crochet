@@ -1,0 +1,27 @@
+{
+  "type": "AI-generated photorealistic marketing backdrop; not a photograph of the actual business premises",
+  "references": [
+    "hero-atelier-empty.webp",
+    "logo-transparent.png"
+  ],
+  "assets": [
+    {
+      "file": "hero-room-photo.webp",
+      "bytes": 138224,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "9834ec21830b5fc181f4213cef25eb01396bd67ac5da0ace456917140e4bab26"
+    },
+    {
+      "file": "hero-room-photo-mobile.webp",
+      "bytes": 52538,
+      "dimensions": [
+        780,
+        1170
+      ],
+      "sha256": "3a7a7d67a8222bb56a77de8c2ec9ebb760f61c484a6d1b7509cac1caa52779a0"
+    }
+  ]
+}

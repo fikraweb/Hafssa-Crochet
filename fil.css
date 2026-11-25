@@ -99,22 +99,18 @@
   .fil-theatre .hero-title-lead,.fil-theatre .hero-title-tail { display: block; }
 }
 
-/* A sunlit atelier wall behind the existing interactive character layers. */
+/* One photographic-style backdrop: window and artwork belong to the room itself. */
 .fil-theatre.hero { isolation: isolate; }
-.fil-room { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: linear-gradient(180deg,#fce9e6 0%,#fce9e6f5 37%,#fce9e6b3 65%,#fce9e638 100%),url('assets/hero-atelier-empty.webp') center bottom / cover no-repeat; }
-.fil-room-window { position: absolute; left: 4%; bottom: 36%; width: clamp(110px,12vw,180px); height: clamp(150px,17vw,245px); border: 9px solid #fff7eb; border-radius: 80px 80px 0 0; background: linear-gradient(165deg,#d8e6ea,#fdf1d6 78%); box-shadow: 2px 7px 0 #bb8e7540,0 0 0 1px #cba894,inset 0 0 16px #d4c5ad; overflow: hidden; }
-.fil-room-window::before,.fil-room-window::after { content: ''; position: absolute; z-index: 1; background: #fff7eb; box-shadow: 1px 0 1px #a1886b33; }
-.fil-room-window::before { width: 7px; inset: 0 auto 0 48%; }
-.fil-room-window::after { height: 7px; inset: 49% 0 auto; }
-.fil-room-window span { position: absolute; inset: 12% 10% 0; background: linear-gradient(105deg,transparent 30%,#ffffff70 31%,#ffffff70 37%,transparent 38%); }
-.fil-room-frame { position: absolute; right: 4%; bottom: 42%; width: clamp(130px,15vw,210px); padding: 10px; background: #fffaf3; border: 7px solid #bc945b; box-shadow: inset 0 0 0 2px #e1c68e,3px 6px 14px #714a3533; transform: rotate(2deg); }
-.fil-room-frame img { display: block; width: 100%; height: auto; aspect-ratio: 1.5; object-fit: contain; }
+.fil-room { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: url('assets/hero-room-photo.webp') center bottom / cover no-repeat; }
+.fil-theatre .hero-copy { max-width: 900px; }
 .fil-theatre .hero-copy,.fil-theatre .hero-stage { z-index: 1; }
-@media (max-width: 1023px) { .fil-room-window { left: 3%; bottom: 32%; width: 110px; height: 155px; } .fil-room-frame { right: 3%; bottom: 37%; width: 135px; } }
+.fil-theatre .hero-title-lead,.fil-theatre .hero-title-tail { display: block; }
+.fil-theatre .hero-title-lead { font-size: clamp(48px,5.4vw,78px); }
+.fil-theatre .hero-title-tail { font-size: clamp(44px,5vw,72px); }
 @media (max-width: 639px) {
-  .fil-room { background: linear-gradient(180deg,#fce9e6 0%,#fce9e6f5 52%,#fce9e6b3 78%,#fce9e638 100%),url('assets/hero-atelier-empty.webp') center bottom / auto 64% no-repeat; }
-  .fil-room-window { left: 16px; bottom: 27%; width: 68px; height: 98px; border-width: 5px; border-radius: 35px 35px 0 0; }
-  .fil-room-window::before { width: 4px; }
-  .fil-room-window::after { height: 4px; }
-  .fil-room-frame { right: 16px; bottom: 30%; width: 90px; padding: 5px; border-width: 4px; }
+  .fil-room { background-image: url('assets/hero-room-photo-mobile.webp'); }
+  .fil-theatre .hero-title-lead { font-size: clamp(43px,11vw,68px); }
+  .fil-theatre .hero-title-tail { font-size: clamp(38px,10vw,60px); }
 }
+.fil-theatre .hero-title-lead,.fil-theatre .hero-title-tail { margin-inline: auto; }
+@media (max-width: 639px) { .fil-room { background-size: 100% 100%; } }

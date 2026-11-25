@@ -36,22 +36,25 @@
     />
     <title>Hafssa Crochet — Un petit monde fait main</title>
     <link rel="icon" href="assets/logo-transparent-96.webp" type="image/webp" />
-    <link rel="preload" href="assets/hero-atelier-mauve.webp" as="image" media="(min-width: 761px)" />
-    <link rel="preload" href="assets/hero-mobile-rose.webp" imagesrcset="assets/hero-mobile-rose-480.webp 480w, assets/hero-mobile-rose-780.webp 780w, assets/hero-mobile-rose.webp 1024w" imagesizes="100vw" as="image" media="(max-width: 760px)" />
+    <link rel="preload" href="assets/hero-dolls-1200.webp" as="image" media="(min-width: 640px)" />
+    <link rel="preload" href="assets/hero-dolls-720.webp" as="image" media="(max-width: 639px)" />
 
     <link rel="preload" href="assets/fonts/figtree-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="atelier.css" />
     <link rel="stylesheet" href="maison.css" />
+    <link rel="stylesheet" href="fil.css" />
     <link rel="stylesheet" href="assets/taste/motion/motion.css" />
     <script src="assets/taste/enter.js"></script>
     <script type="module" src="assets/taste/motion/motion.js"></script>
     <script type="module" src="assets/taste/moments/moments.js"></script>
     <script type="module" src="app.js"></script>
     <script type="module" src="experience.js"></script>
+    <script type="module" src="fil.js"></script>
   </head>
   <body id="top">
+    <div class="fil-reading-thread" aria-hidden="true"></div>
     <a href="#collection" class="skip-link">Aller à la collection</a>
     <div class="announcement">
       <span>CRÉÉ À LA MAIN. GARDÉ PRÈS DU CŒUR.</span
@@ -159,7 +162,7 @@
       <p>Un petit univers, beaucoup de douceur.</p>
     </dialog>
     <main>
-      <section class="hero" data-enter aria-labelledby="hero-title">
+      <section class="hero fil-theatre" data-scroll-scene data-enter aria-labelledby="hero-title">
         <div class="hero-halo" aria-hidden="true"></div>
         <div class="hero-grain" aria-hidden="true"></div>
         <div class="hero-copy">
@@ -197,7 +200,7 @@
           </h1>
           <p>
             Des poupées qui ont une âme.<br />
-            Des compagnons à aimer longtemps.<br />Et dans chaque maille, un peu
+            Des compagnons à aimer longtemps.<br /> Et dans chaque maille, un peu
             de Hafssa.
           </p>
           <div class="hero-buttons">
@@ -228,20 +231,16 @@
           </div>
         </div>
         <div class="hero-stage" id="hero-stage">
-          <div class="atelier-photo-layer" id="hero-scene" data-enter-media>
-            <picture>
-              <source media="(max-width: 760px)" srcset="assets/hero-mobile-rose-480.webp 480w, assets/hero-mobile-rose-780.webp 780w, assets/hero-mobile-rose.webp 1024w" sizes="100vw" />
-            <img
-              src="assets/hero-atelier-mauve.webp"
-              alt="Mise en scène inspirée des créations Hafssa Crochet : poupées, lapin et ours alignés sur un bureau, sous un cadre portant le logo."
-              width="1536"
-              height="1024"
-              fetchpriority="high"
-              decoding="async"
-            />
-            </picture>
+          <div class="atelier-photo-layer fil-cast" id="hero-scene" data-enter-media>
+            <svg class="fil-thread" viewBox="0 0 1200 340" fill="none" aria-hidden="true"><path d="M-20 260C160 50 260 360 440 230S640 40 760 160S1030 350 1220 110" pathLength="1" /></svg>
+            <div class="fil-character fil-character-one" aria-hidden="true"><span></span></div>
+            <div class="fil-character fil-character-two" aria-hidden="true"><span></span></div>
+            <div class="fil-character fil-character-three" aria-hidden="true"><span></span></div>
+            <div class="fil-character fil-character-four" aria-hidden="true"><span></span></div>
           </div>
+          <span class="fil-stage-note">Petites mailles. Grandes histoires.</span>
         </div>
+        <button id="hero-motion-toggle" class="fil-motion-toggle" type="button" aria-pressed="false" aria-label="Réduire les animations"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m12 2 2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5L12 2Z"/></svg><span>Animations</span></button>
         <div class="hero-bottom">
           <a href="#collection" class="scroll-cue"
             ><span>↓</span> UN UNIVERS À DÉCOUVRIR</a
@@ -734,7 +733,7 @@
         </div>
       </section>
       <section
-        class="atelier-offer section reveal"
+        class="atelier-offer section reveal" data-scroll-scene
         aria-labelledby="atelier-offer-title"
       >
         <div class="atelier-poster">
@@ -856,7 +855,7 @@
           </div>
         </div>
       </section>
-      <section class="details section">
+      <section class="details section" data-scroll-scene>
         <div class="detail reveal">
           <span class="detail-icon"
             ><svg
@@ -895,11 +894,11 @@
           </p>
         </div>
       </section>
-      <section class="ordering-guide section" aria-labelledby="ordering-title">
+      <section class="ordering-guide section" data-scroll-scene aria-labelledby="ordering-title">
         <div class="ordering-intro"><span class="eyebrow">DE LA BOUTIQUE À WHATSAPP</span><h2 id="ordering-title">Votre coup de cœur,<br /><em>en trois petits pas.</em></h2><p>Aucun paiement n’est effectué sur ce site.</p></div>
         <ol class="ordering-steps"><li><span aria-hidden="true">01</span><h3>Choisissez vos créations</h3><p>Découvrez les photos, choisissez la quantité et ajoutez vos pièces au panier.</p></li><li><span aria-hidden="true">02</span><h3>Indiquez vos coordonnées</h3><p>Renseignez votre nom, votre ville et votre téléphone pour préparer votre demande.</p></li><li><span aria-hidden="true">03</span><h3>Échangez avec Hafssa</h3><p>Confirmez la disponibilité et les frais de livraison directement sur WhatsApp.</p></li></ol>
       </section>
-      <section class="boutique-questions section" aria-labelledby="questions-title">
+      <section class="boutique-questions section" data-scroll-scene aria-labelledby="questions-title">
         <div class="questions-intro">
           <span class="eyebrow">AVANT DE COMMANDER</span>
           <h2 id="questions-title">Les petits détails<br /><em>qui comptent.</em></h2>
@@ -911,7 +910,7 @@
           <article><h3>Une envie de création sur mesure ?</h3><p>Parlez de votre idée à Hafssa sur WhatsApp pour échanger sur votre projet et ses possibilités.</p></article>
         </div>
       </section>
-      <section class="contact" id="contact">
+      <section class="contact" id="contact" data-scroll-scene>
         <img
           class="contact-backdrop"
           src="assets/contact-atelier-rose.webp" srcset="assets/contact-atelier-rose-720.webp 720w, assets/contact-atelier-rose.webp 1536w" sizes="(max-width: 639px) calc(100vw - 40px), 55vw"

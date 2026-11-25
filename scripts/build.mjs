@@ -28,6 +28,8 @@ for (const file of [
   "storefront.css",
   "atelier.css",
   "maison.css",
+  "fil.css",
+  "fil.js",
   "app.js",
   "image-variants.js",
   "store-client.js",

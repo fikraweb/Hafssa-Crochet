@@ -1,0 +1,100 @@
+/* Le théâtre du fil: a scroll-responsive illustrated stage, not a second image split. */
+.fil-theatre.hero { display: flex; flex-direction: column; gap: 0; position: relative; min-height: calc(100svh - 148px); padding: 38px var(--edge) 24px; background: #fce9e6; }
+.fil-theatre .hero-copy { width: 100%; max-width: 1120px; text-align: center; }
+.fil-theatre .hero-edition { justify-content: center; }
+.fil-theatre h1 { margin: 18px 0; line-height: .99; }
+.fil-theatre .hero-title-lead { display: inline; font-size: clamp(58px,6.8vw,98px); letter-spacing: -.055em; }
+.fil-theatre .hero-title-tail { display: inline; font-size: clamp(52px,6.4vw,92px); line-height: 1.05; margin: 0; letter-spacing: -.05em; }
+.fil-theatre .title-heart { display: none; }
+.fil-theatre .hero-copy > p,.fil-theatre .hero-copy > p.live-description { max-width: 670px; margin: 18px auto 22px; font-size: 16px; line-height: 1.65; }
+.fil-theatre .hero-copy > p br { display: none; }
+.fil-theatre .hero-buttons { justify-content: center; }
+.fil-theatre .hero-note { display: none; }
+.fil-theatre .hero-stage { width: 100%; max-width: 1050px; height: clamp(270px,25vw,350px); margin: 14px auto 0; border: 0; border-radius: 0; background: none; overflow: visible; aspect-ratio: auto; }
+.fil-theatre .fil-cast { position: absolute; inset: 0 0 20px; display: flex; justify-content: center; align-items: end; gap: clamp(20px,5vw,80px); width: 100%; height: auto; transform: none; }
+.fil-thread { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.fil-thread path { stroke: #b88145; stroke-width: 1.7; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: calc(.8 - var(--scene-progress,.5)); opacity: .7; }
+.fil-character { position: relative; height: 95%; aspect-ratio: 1 / 2; flex: 0 1 auto; transform-origin: 50% 90%; z-index: 1; }
+.fil-character > span { display: block; width: 100%; height: 100%; background-image: url('assets/hero-dolls-1200.webp'); background-repeat: no-repeat; background-size: 400% 100%; }
+.fil-character-one > span { background-position: 0 0; }
+.fil-character-two > span { background-position: 33.333% 0; }
+.fil-character-three > span { background-position: 66.667% 0; }
+.fil-character-four > span { background-position: 100% 0; }
+.fil-stage-note { position: absolute; bottom: 0; width: 100%; text-align: center; color: #805c3d; font-size: 11px; letter-spacing: .13em; }
+.fil-motion-toggle { position: absolute; top: 20px; right: var(--edge); display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; color: #713e45; border: 1px solid #d9b1b5; border-radius: 999px; background: #fffaf3; font: 500 12px var(--sans); cursor: pointer; z-index: 4; }
+.fil-motion-toggle[aria-pressed="true"] { background: #442d27; color: #fffaf3; border-color: #442d27; }
+.fil-motion-toggle:disabled { opacity: .65; cursor: default; }
+/* The catalogue has a stitched margin; the merchandise remains still and readable. */
+.collection .section-top { padding-left: 26px; border-left: 2px dashed #bf8a69; }
+.collection .section-top h2 { max-width: 760px; font-size: clamp(42px,5.2vw,74px); }
+.collection .section-top > p { max-width: 240px; }
+.product-media { border-radius: 8px; }
+.products .product:nth-child(4n + 1) .product-media { border-top-left-radius: 90px; }
+.products .product:nth-child(4n) .product-media { border-bottom-right-radius: 90px; }
+.ordering-guide { position: relative; }
+.ordering-steps { counter-reset: fil-step; }
+.ordering-steps li { border-top: 0; border-left: 1px dashed #b58156; padding-left: 24px; }
+.ordering-steps li > span { width: 52px; height: 52px; border: 1px solid #c99364; border-radius: 50%; display: grid; place-items: center; background: #fffaf3; font-size: 24px; }
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.motion-paused) .fil-character-one { transform: translateY(calc(var(--scene-shift,0px) * -.45)) rotate(calc(var(--scene-turn,0deg) * -1)); }
+  html:not(.motion-paused) .fil-character-two { transform: translateY(calc(var(--scene-shift,0px) * .5)) rotate(var(--scene-turn,0deg)); }
+  html:not(.motion-paused) .fil-character-three { transform: translateY(calc(var(--scene-shift,0px) * -.3)) rotate(calc(var(--scene-turn,0deg) * -.7)); }
+  html:not(.motion-paused) .fil-character-four { transform: translateY(calc(var(--scene-shift,0px) * .7)) rotate(calc(var(--scene-turn,0deg) * .8)); }
+  .fil-character > span { transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+  .fil-character:hover > span { transform: translateY(-12px) rotate(4deg); }
+  html:not(.motion-paused) [data-scroll-scene] .atelier-poster-scene > img { transform: translateY(var(--scene-shift,0px)) scale(1.08); }
+  html:not(.motion-paused) [data-scroll-scene] .ordering-steps li > span { transform: rotate(var(--scene-turn,0deg)); }
+  html:not(.motion-paused) [data-scroll-scene] .questions-intro h2 em { text-decoration: underline; text-decoration-color: #d6ab70; text-underline-offset: 8px; text-decoration-thickness: 1px; }
+  .header .nav-arrow svg,.magic-arrow svg,.social-icon svg { transition: transform .25s ease; }
+  .header a:hover .nav-arrow svg,.hero-buttons a:hover .magic-arrow svg { transform: translate(3px,-3px) rotate(8deg); }
+  .social-icon:hover svg { transform: translateY(-4px) rotate(-8deg); }
+}
+@media (max-width: 1023px) {
+  .fil-theatre.hero { min-height: 0; padding-top: 68px; }
+  .fil-theatre .hero-title-lead { font-size: clamp(54px,8vw,78px); }
+  .fil-theatre .hero-title-tail { font-size: clamp(48px,7.5vw,72px); }
+  .fil-theatre .hero-stage { height: 290px; }
+}
+@media (max-width: 639px) {
+  .fil-theatre.hero { padding: 72px 20px 24px; }
+  .fil-motion-toggle { top: 12px; right: 20px; }
+  .fil-theatre .hero-edition { font-size: 8px; letter-spacing: .06em; }
+  .fil-theatre h1 { margin-block: 20px; }
+  .fil-theatre .hero-title-lead { display: block; font-size: clamp(43px,11vw,68px); }
+  .fil-theatre .hero-title-tail { display: block; font-size: clamp(38px,10vw,60px); }
+  .fil-theatre .hero-copy > p,.fil-theatre .hero-copy > p.live-description { font-size: 15px; line-height: 1.75; margin-block: 20px; }
+  .fil-theatre .hero-stage { height: 225px; margin-top: 24px; }
+  .fil-theatre .fil-cast { gap: 0; justify-content: space-between; }
+  .fil-character { height: 83%; max-width: 25%; }
+  .fil-stage-note { font-size: 9px; letter-spacing: .07em; }
+  .fil-thread { top: 15px; }
+  .collection .section-top { padding-left: 16px; }
+  .collection .section-top h2 { font-size: 38px; }
+  .ordering-steps li { padding-left: 16px; }
+  .ordering-steps li > span { width: 36px; height: 36px; font-size: 20px; }
+}
+@media (prefers-reduced-motion: reduce) { .fil-thread path { stroke-dashoffset: 0; } .fil-character,.fil-character > span { transform: none !important; transition: none !important; } }
+
+.fil-reading-thread { position: fixed; inset: 0 0 auto; height: 3px; background: #a43660; transform: scaleX(var(--reading-progress,0)); transform-origin: left; z-index: 100; pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.motion-paused) [data-scroll-scene] .detail-icon { transform: rotate(calc(var(--scene-turn,0deg) * 5)) translateY(var(--scene-shift,0px)); }
+}
+.fil-theatre .hero-copy { display: block; }
+.fil-theatre .hero-copy h1 { width: 100%; max-width: none; text-align: center; margin-inline: auto; }
+.fil-theatre .hero-stage { height: clamp(250px,22vw,310px); }
+.fil-theatre .fil-character > span { clip-path: inset(0 3%); }
+@media (min-width: 1024px) { .fil-theatre .hero-title-lead { font-size: clamp(58px,6.2vw,90px); } .fil-theatre .hero-title-tail { font-size: clamp(52px,5.8vw,84px); } }
+@media (max-width: 639px) { .fil-theatre .hero-stage { height: 225px; } }
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.motion-paused) .fil-theatre .little-star svg { transform: rotate(var(--reading-turn,0deg)); }
+  html:not(.motion-paused) [data-scroll-scene] .contact-flower { transform: rotate(calc(var(--scene-turn,0deg) * 7)); }
+}
+.fil-theatre .hero-edition { display: flex; width: 100%; justify-content: center; }
+@media (max-width: 639px) {
+  .fil-character { width: 25%; height: auto; max-width: none; flex: 0 0 25%; aspect-ratio: 1 / 2; }
+}
+
+@media (max-width: 639px) { .fil-character > span { background-image: url('assets/hero-dolls-720.webp'); } }
+@media (min-width: 640px) and (max-width: 1023px) {
+  .fil-theatre .hero-title-lead,.fil-theatre .hero-title-tail { display: block; }
+}

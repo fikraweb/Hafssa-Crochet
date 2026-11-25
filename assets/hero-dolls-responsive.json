@@ -1,0 +1,36 @@
+{
+  "source": "hero-dolls-sprite.webp",
+  "operation": "resize only, WebP quality 92; original unchanged",
+  "assets": [
+    {
+      "file": "hero-dolls-sprite.webp",
+      "sha256": "5a16b8c04f6292e00ad4d7ba7bf8960ad0c0c3feccab6b624c5da88122c019b5",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "bytes": 603854,
+      "alpha": true
+    },
+    {
+      "file": "hero-dolls-1200.webp",
+      "sha256": "412f26871402abac80c613e932bcb73a37474933ee17887d5bd3e263138e9649",
+      "dimensions": [
+        1200,
+        600
+      ],
+      "bytes": 258358,
+      "alpha": true
+    },
+    {
+      "file": "hero-dolls-720.webp",
+      "sha256": "8ae662f1e1719359a0476497c18f19019560d605763e5774f1eb50d612512b8d",
+      "dimensions": [
+        720,
+        360
+      ],
+      "bytes": 105794,
+      "alpha": true
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import { mkdir, copyFile, cp, rm, access } from "node:fs/promises";
 import { products, shop } from "../catalogue.js";
 import { imageVariants } from "../image-variants.js";
+import { cardImages } from "../card-images.js";
 const ids = new Set();
 for (const p of products) {
   if (
@@ -16,6 +17,7 @@ for (const p of products) {
   ids.add(p.id);
   for (const image of p.images || [p.image]) await access(image);
   if (imageVariants[p.image]) await access(imageVariants[p.image]);
+  if (cardImages[p.image]) await access(cardImages[p.image]);
 }
 if (!/^\d{8,15}$/.test(shop.whatsapp))
   throw new Error("Numéro WhatsApp invalide");
@@ -29,9 +31,11 @@ for (const file of [
   "atelier.css",
   "maison.css",
   "fil.css",
+  "boutique-cards.css",
   "fil.js",
   "app.js",
   "image-variants.js",
+  "card-images.js",
   "store-client.js",
   "experience.js",
   "catalogue.js",

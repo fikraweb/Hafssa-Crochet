@@ -1,3 +1,4 @@
+import { cardImages } from "./card-images.js";
 import { catalogueView } from "./catalogue-view.js";
 import {
   products as seedProducts,
@@ -116,8 +117,9 @@ function renderProducts() {
     const card = el("article", "", "product card");
     const media = el("div", "", "product-media");
     const img = el("img");
-    img.src = imageVariants[p.image] || p.image;
-    if (imageSources[p.image]) {
+    img.src = cardImages[p.image] || imageVariants[p.image] || p.image;
+    if (cardImages[p.image]) media.classList.add("has-cutout");
+    if (!cardImages[p.image] && imageSources[p.image]) {
       img.srcset = imageSources[p.image];
       img.sizes = "(min-width: 1536px) 304px, (min-width: 1200px) calc((100vw - 11.1vw - 66px)/4), (min-width: 640px) calc((100vw - 11.1vw - 44px)/3), calc((100vw - 54px)/2)";
     }
@@ -136,7 +138,7 @@ function renderProducts() {
     quick.innerHTML =
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>';
     quick.onclick = () => showProduct(p);
-    media.append(preview, el("span", "FAIT MAIN", "product-badge"), quick);
+    media.append(preview, el("span", p.category, "product-badge"), quick);
     const viewCount = p.images?.length || 1;
     if (viewCount > 1) {
       const count = el("button", `${viewCount} vues`, "photo-count");
@@ -150,6 +152,7 @@ function renderProducts() {
     const info = el("div", "", "product-info");
     const bottom = el("div", "", "product-bottom");
     const button = el("button", "Ajouter", "btn btn--secondary");
+    button.insertAdjacentHTML("afterbegin", '<svg class="card-bag-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>');
     button.append(el("span", "+"));
     button.setAttribute("aria-label", `Ajouter ${p.name} au panier`);
     button.onclick = () => addProduct(p);
@@ -159,7 +162,7 @@ function renderProducts() {
     titleButton.type = "button";
     titleButton.onclick = () => showProduct(p);
     title.append(titleButton);
-    info.append(el("span", p.category, "product-category"), title, bottom);
+    info.append(title, el("p", "Création faite main", "product-craft-note"), bottom);
     card.append(media, info);
     $("products").append(card);
   }

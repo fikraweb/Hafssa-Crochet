@@ -151,11 +151,24 @@ function renderProducts() {
     }
     const info = el("div", "", "product-info");
     const bottom = el("div", "", "product-bottom");
-    const button = el("button", "Ajouter", "btn btn--secondary");
+    const button = el("button", "", "btn btn--secondary");
+    const addLabel = el("span", "Ajouter", "product-add-label");
     button.insertAdjacentHTML("afterbegin", '<svg class="card-bag-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>');
-    button.append(el("span", "+"));
+    button.append(addLabel, el("span", "+", "product-add-symbol"));
     button.setAttribute("aria-label", `Ajouter ${p.name} au panier`);
-    button.onclick = () => addProduct(p);
+    let feedbackTimer;
+    button.onclick = () => {
+      const before = cart[p.id] || 0;
+      addProduct(p);
+      if ((cart[p.id] || 0) <= before) return;
+      clearTimeout(feedbackTimer);
+      addLabel.textContent = "Ajouté";
+      button.classList.add("is-added");
+      feedbackTimer = setTimeout(() => {
+        addLabel.textContent = "Ajouter";
+        button.classList.remove("is-added");
+      }, 1100);
+    };
     bottom.append(el("span", money(p.price), "product-price"), button);
     const title = el("h3");
     const titleButton = el("button", p.name, "product-title-button");
@@ -315,7 +328,23 @@ function renderCart() {
   $("checkout").disabled = count === 0;
 }
 for (const name of ["Tout", ...new Set(products.map((p) => p.category))]) {
-  const button = el("button", name, name === "Tout" ? "active" : "");
+  const button = el("button", "", name === "Tout" ? "active" : "");
+  const sample = products.find(p => name === "Tout" || p.category === name);
+  const photo = el("img", "", "category-photo");
+  photo.alt = "";
+  photo.width = 40;
+  photo.height = 40;
+  photo.loading = "lazy";
+  photo.decoding = "async";
+  if (name === "Tout") photo.src = "assets/logo-transparent-96.webp";
+  else {
+    photo.src = imageVariants[sample.image] || sample.image;
+    if (imageSources[sample.image]) {
+      photo.srcset = imageSources[sample.image];
+      photo.sizes = "40px";
+    }
+  }
+  button.append(photo, el("span", name, "category-label"));
   const count = products.filter(p => name === "Tout" || p.category === name).length;
   const countLabel = el("span", String(count), "category-count");
   countLabel.setAttribute("aria-hidden", "true");
